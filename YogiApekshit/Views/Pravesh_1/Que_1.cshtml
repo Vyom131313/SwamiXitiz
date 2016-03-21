@@ -6,6 +6,27 @@
 @{var gridId = "CityGrid";}
 
 <style type="text/css">
+    .examColumn {
+        font-size: 18px;
+    }
+
+    .whoColumn {
+        white-space: nowrap;
+    }
+
+    .whomColumn {
+        white-space: nowrap;
+    }
+
+    .whenColumn {
+        font-style:italic;
+        font-size:20px;
+    }
+
+    .doublearrow-white {
+        background-image: url('../../Images/double-arrow-white.png');
+    }
+
     font-face {
         font-family: "AgencyFBRegular";
         src: url("../Content/fonts/JJECBH_Krishna.ttf");
@@ -33,21 +54,75 @@
 
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { GridId = gridId, Title = "City", SubTitle = "Table" })
-    </section>
+        <div style="font-family: 'JJECBH+Krishna'; font-size:22px;">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>±‰÷ﬂHÎ</th>
+                        <th>¿˘HÎ ¿Ëı »</th>
+                        <th>
+                            <img src="/Images/double-arrow-white.png" width="16px" />
+                        </th>
+                        <th>¿˘ﬁı ¿Ëı »</th>
+                        <th>’ﬂÌZÎÎ</th>
+                    </tr>
+                </thead>
+                <tbody class='personal-detais'></tbody>
+            </table>
+        </div>
 
-    <div id="result" style="font-family: 'JJECBH+Krishna'; font-size:25px;">
-    </div>
-    <div class='personal-detais'>
-    </div>
+        <script type='text/x-jquery-tmpl' id='person-template'>
+            <tr class='person'>
+                <td>${autoIncrement()}.</td>
+                <td>
+                    ${ QUE } <br />
+                    <i class="doublearrow-white"></i>
+                    <img src="/Images/double-arrow-white.png" width="16px" />
+                    <span class="whenColumn">${WHEN}</span>
+                    @*<strong>Skills: </strong><br />
+                        {{tmpl(Skills) '#skills-template'}}*@
+                </td>
+                <td class="whoColumn">${WHO}</td>
+                <td><img src="/Images/double-arrow-white.png" width="16px" /></td>
+                <td class="whomColumn">${WHOM}</td>
+
+                <td class="examColumn">${EXAM}</td>
+            </tr>
+        </script>
+
+        <script type='text/x-jquery-tmpl' id='skills-template'>
+            ${Skill}
+            <br />
+        </script>
+
+        @*<script type='text/x-jquery-tmpl' id='person-template'>
+                        <div class='person' style="font-family: 'JJECBH+Krishna'; font-size:22px;">
+                            <strong>±‰÷ﬂHÎ:</strong> ${ QUE } <br />
+                            ${WHO} --- ${WHOM}
+                            ${WHen}
+                            @*<strong>Skills: </strong><br />
+                                {{tmpl(Skills) '#skills-template'}}
+            </div>
+                    </script>
+
+            <script type='text/x-jquery-tmpl' id='skills-template'>
+                ${Skill}
+                <br />
+            </script>*@
+    </section>
 </div>
 
 @section scripts{
-    <script src='http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js'></script>
+
     <script type="text/javascript">
-        // var data = [ { 'a': 'client', 'b': 'jquery' }, { 'a': 'server', 'b': 'node.js' } ];
+        var i = -1;
+        function autoIncrement() {
+            return ++i;
+        }
 
         var data = [
-            { "QUE": "Ë‹HÎÎ_ ÷˘ ±ı¿·Î … Ï‰«ﬂHÎ ¿ﬂ‰Îﬁ˘ ‹Îﬂ˘ Ï‰«Îﬂ »ı ‹ÎÀı Ë<_ ›Îÿ ¿v_ I›Îﬂı ±Î‰…˘ı.", "WHO": "ﬁÌ·¿oÃ ‰HÎa ", "WHOM": "Ëﬁ<‹Îﬁ∞ﬁı ", "WHEN": "‰ﬁÏ‰«ﬂHÎ ¿ﬂ‰Î ﬁÌ¿‚ı·Î ‰HÎaﬁÎ ÿÂ˝ﬁı ±Î‰ı·Î Ëﬁ‹Îﬁ∞ ÷ı‹ﬁÌ Áı‰Î‹Î_ ﬂËı‰Îﬁ_<_ ¿Ëı »ı I›Îﬂı.", "CHAPTER": "(1/2)", "EXAM": "7/4/2015" },
+            { "SEQ": autoIncrement(), "QUE": "Ë‹HÎÎ_ ÷˘ ±ı¿·Î … Ï‰«ﬂHÎ ¿ﬂ‰Îﬁ˘ ‹Îﬂ˘ Ï‰«Îﬂ »ı ‹ÎÀı Ë<_ ›Îÿ ¿v_ I›Îﬂı ±Î‰…˘ı.", "WHO": "ﬁÌ·¿oÃ ‰HÎa ", "WHOM": "Ëﬁ<‹Îﬁ∞ﬁı ", "WHEN": "‰ﬁÏ‰«ﬂHÎ ¿ﬂ‰Î ﬁÌ¿‚ı·Î ‰HÎaﬁÎ ÿÂ˝ﬁı ±Î‰ı·Î Ëﬁ‹Îﬁ∞ ÷ı‹ﬁÌ Áı‰Î‹Î_ ﬂËı‰Îﬁ_<_ ¿Ëı »ı I›Îﬂı.", "CHAPTER": "(1/2)", "EXAM": "7/4/2015" },
             { "QUE": "±‹Îﬂı ±ıÀ·_< … ‹Î√‰<_ »ı.", "WHO": "ﬁÌ·¿oÃ ‰HÎa ", "WHOM": "ﬂÎ…Î ﬂHÎ⁄ËÎÿﬂ ÁËÎﬁ", "WHEN": "ﬂ˘√Ìq ﬂÎ…Îﬁ˘ ﬂ˘√ ‰HÎa±ı ‹ÀÎÕ÷Î_ ÷ı‹ﬁı ¿o¥¿ ‹Î√‰Îﬁ_<_ ﬂÎ…Î±ı ¿èÎ<__ I›Îﬂı ‰HÎa ⁄_ÿÌ¬Îﬁı ’Òﬂı·Î ÁÎ‘±˘ﬁı ‹< ¿ﬂ‰Îﬁ<__ ¿Ëı »ı I›Îﬂı.", "CHAPTER": "(18/32-33)", "EXAM": "7/4/2015" },
             { "QUE": "‹Îﬂ˘ ÿÌ¿ﬂ˘ ‰Ìﬂ˘, ÁÎÃ ¤ıÓÂ ±ﬁı ‰ÎÕÌ ±‹ﬂ ﬂËı ±ı‰Î ±ÎÂÌ‰Î˝ÿ ±Î’˘. ", "WHO": "·¬<⁄Î¥", "WHOM": "ﬁÌ·¿oÃ ‰HÎaﬁı", "WHEN": "·¬<⁄Î¥ﬁÌ Áı‰Î◊Ì ﬂÎ∞ ◊›ı·Î ﬁÌ·¿oÃ ‰HÎa±ı ÷ıﬁı ‰ﬂÿÎﬁ ‹Î√‰Îﬁ<__ ¿èÎ_<_ I›Îﬂı.", "CHAPTER": "(41/81)", "EXAM": "7/4/2015" },
             { "QUE": "÷‹ÎﬂÎ ÁIÁ_√Ì Ë˘› ÷ıﬁı ±ı¿ ‰Ÿ»Ìﬁ_<_ ÿ<—¬ ◊‰Îﬁ<_ Ë˘› ÷˘ ÷ı ‹ﬁı ±ı¿ ±ı¿ v_‰ÎÕı ¿˘ÏÀ ¿˘ÏÀ ‰Ÿ»Ìﬁ<_ ÿ<—¬ ◊Î±˘.", "WHO": "ÁË…Îﬁ_ÿ V‰Î‹Ì", "WHOM": "ﬂÎ‹Îﬁ_ÿ V‰Î‹Ìﬁı", "WHEN": "ﬂÎ‹Îﬁ_ÿ V‰Î‹Ì±ı ÁË…Îﬁ_ÿ V‰Î‹Ìﬁı ‘‹˝‘ÒﬂÎ Á˘Ó’Ì I›Îﬂı ÷ı‹HÎı ÁË…Îﬁ_ÿ V‰Î‹Ìﬁı ‰ﬂÿÎﬁ ‹Î√‰Îﬁ< ¿èÎ<_ I›Îﬂı.", "CHAPTER": "55/111", "EXAM": "3/4/2015" },
@@ -70,18 +145,3 @@
     </script>
 }
 
-<script type='text/x-jquery-tmpl' id='person-template'>
-    <div class='person' style="font-family: 'JJECBH+Krishna'; font-size:25px;">
-        <strong>±‰÷ﬂHÎ:</strong> ${ QUE } <br />
-        ${WHO} --- ${WHOM}
-        ${WHen}
-        @*<strong>Skills: </strong><br />
-            {{tmpl(Skills) '#skills-template'}}*@
-    </div>
-</script>
-
-<script type='text/x-jquery-tmpl' id='skills-template'>
-
-    ${Skill}
-    <br />
-</script>
