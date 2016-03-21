@@ -3,7 +3,7 @@
 <div class="tile-header dvd dvd-btm">
     <h1 class="custom-font"><strong>@Model.Title </strong>@Model.SubTitle</h1>
     <ul class="controls">
-    @if(Model.ShowSearch)
+    @*@if(Model.ShowSearch)
     {
         <li class="dropdown" style="padding: 9px; border-left: 0px">@(Html.ICon().TextBox("txtSearch").Placeholder("Search").CssClass("searchtxt"))
         </li>
@@ -21,7 +21,7 @@
                 <li>
                     @Html.Raw(item)
                 </li>
-        }
+        }*@
 
     @if(Model.ShowFullScreen)
     {     

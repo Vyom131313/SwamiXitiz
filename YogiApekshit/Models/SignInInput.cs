@@ -199,9 +199,13 @@ namespace YogiApekshit.Models
 		        new MenuItem { Name = "Pravesh-1", IConClass = "fa fa-pencil",
                     MenuItems = new List<MenuItem>
                     {
-                        new MenuItem { Name = "Country", ControllerName="Country", ActionName="Index" },
-                        new MenuItem { Name = "State", AreaName="Location", ControllerName="State", ActionName="Index" },
-                        new MenuItem { Name = "City", AreaName="Location", ControllerName="City", ActionName="Index" }
+                        new MenuItem { Name = "Que-1", ControllerName="Pravesh_1", ActionName="Que_1" },
+                        new MenuItem { Name = "Que-2", ControllerName="Faq", ActionName="Index" },
+                        new MenuItem { Name = "Que-4", ControllerName="Faq", ActionName="Index" },
+                        new MenuItem { Name = "Que-7", ControllerName="Faq", ActionName="Index" },
+                        new MenuItem { Name = "Que-8", ControllerName="Faq", ActionName="Index" },
+                        new MenuItem { Name = "Que-9", ControllerName="Faq", ActionName="Index" },
+                        new MenuItem { Name = "Que-12", ControllerName="Faq", ActionName="Index" }
                     }
                 }, 
 	            #endregion              
