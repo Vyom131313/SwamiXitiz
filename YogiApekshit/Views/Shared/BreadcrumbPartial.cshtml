@@ -1,0 +1,38 @@
+﻿@using System.Collections.Generic
+@using YogiApekshit.Models
+@model BreadcrumbAndTitleModel
+
+<div class="pageheader">
+    <h2>@Model.PageTitle</h2>
+@{
+    var areaName = Convert.ToString(this.ViewContext.RouteData.DataTokens["area"]);
+    string controllerName = Convert.ToString(this.ViewContext.RouteData.Values["controller"].ToString());
+    string actionName = Convert.ToString(this.ViewContext.RouteData.Values["action"].ToString());
+
+    areaName = areaName == null ? string.Empty : areaName;
+    var breadCrumbs = MenuBuilder.BuildBreadCrumb(controllerName, actionName, areaName);
+}
+
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="~/Home/Index"><i class="fa fa-home"></i>&nbsp;Home</a>
+            </li>
+            @if (breadCrumbs.Count>1)
+            {
+                for(var index=1;index<breadCrumbs.Count; index++)
+                {
+                    var bc = breadCrumbs[index];
+                    var href ="#";
+                    if(!string.IsNullOrEmpty(bc.ControllerName) && !string.IsNullOrEmpty(bc.ActionName))
+                    {
+                        href = Url.Action(bc.ActionName, bc.ControllerName, new {Area = bc.AreaName});
+                    }
+
+                    var cls =index<(breadCrumbs.Count-1)? "divider" : "active";
+                    <li><a href="@href">@bc.Title</a></li>
+                }
+            }
+        </ul>
+    </div>
+</div>

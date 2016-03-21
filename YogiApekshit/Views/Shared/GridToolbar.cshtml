@@ -1,0 +1,45 @@
+﻿@using YogiApekshit.Models
+@model GridToolbarModel
+<div class="tile-header dvd dvd-btm">
+    <h1 class="custom-font"><strong>@Model.Title </strong>@Model.SubTitle</h1>
+    <ul class="controls">
+    @if(Model.ShowSearch)
+    {
+        <li class="dropdown" style="padding: 9px; border-left: 0px">@(Html.ICon().TextBox("txtSearch").Placeholder("Search").CssClass("searchtxt"))
+        </li>
+    }
+    
+    @if(Model.ShowCreate)
+        {   
+        <li>
+            <a role="button" onclick='awe.open("@string.Concat("create", Model.GridId)")' class="awe-btn"><i class='fa fa-plus man'>&nbsp;</i></a>
+        </li>
+        }
+
+        @foreach(var item in Model.CustomOptions)
+        {
+                <li>
+                    @Html.Raw(item)
+                </li>
+        }
+
+    @if(Model.ShowFullScreen)
+    {     
+       <li>
+           <a role="button" tabindex="0" class="tile-fullscreen">
+               <i class="fa fa-expand"></i>
+           </a>
+       </li>
+    }
+
+    @if(Model.ShowCollapse)
+    {    
+        <li>
+            <a role="button" tabindex="0" class="tile-toggle">
+                <span class="minimize"><i class="fa fa-angle-down"></i></span>
+                <span class="expand"><i class="fa fa-angle-up"></i></span>
+            </a>
+        </li>
+     }
+    </ul>
+</div>

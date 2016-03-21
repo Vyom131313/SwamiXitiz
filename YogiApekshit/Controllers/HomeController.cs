@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using YogiApekshit.Models;
 
 namespace YogiApekshit.Controllers
 {
@@ -11,6 +12,8 @@ namespace YogiApekshit.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+
+            Session["Menus"] = MenuBuilder.BuildMenu();
 
             return View();
         }

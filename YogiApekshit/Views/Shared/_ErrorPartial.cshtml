@@ -1,0 +1,40 @@
+﻿<section class="tile tile-simple bg-lightred" style="min-height: 190px; overflow: hidden;">
+    <!-- tile header -->
+    <div class="tile-header">
+        <h1 class="custom-font">Error</h1>
+    </div>
+    <!-- /tile header -->
+
+    <!-- tile body -->
+    <div class="tile-body">
+        <div class="list-sfs-holder">
+            <div class="alert alert-error">
+                An unexpected error has occurred. Please contact the system administrator.
+            </div>
+            @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
+            {
+                    <div class="alert alert-error">
+                        <table>
+                            <tr>
+                                <td style="padding-right:10px;font-weight: bold;white-space:nowrap;vertical-align:top">Exception :</td>
+                                <td>@Model.Exception.Message</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right:10px;font-weight: bold;white-space:nowrap;vertical-align:top">Controller :</td>
+                                <td>@Model.ControllerName</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right:10px;font-weight: bold;white-space:nowrap;vertical-align:top">Action :</td>
+                                <td>@Model.ActionName</td>
+                            </tr>
+                        </table>
+                    </div>
+
+            <div>
+                <pre>@Model.Exception.StackTrace</pre>
+            </div>
+            }
+        </div>
+    </div>
+    <!-- /tile body -->
+</section>
