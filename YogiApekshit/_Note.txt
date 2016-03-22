@@ -1,5 +1,5 @@
-﻿- Prepare Pravesh-1 all exam Q/A
-- Keep Q/A Bank in C# in object collection and retrieve using Ajax/JSON
+﻿- Keep Q/A Bank in C# in object collection and retrieve using Ajax/JSON
 - Keep Q/A in tabular format
+- Prepare Pravesh-1 all exam Q/A
 - Finalize menus
 - Yogi-Apekshit Dashboard/Images/Banner 

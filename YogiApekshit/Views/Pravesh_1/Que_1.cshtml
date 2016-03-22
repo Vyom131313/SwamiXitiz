@@ -19,8 +19,8 @@
     }
 
     .whenColumn {
-        font-style:italic;
-        font-size:20px;
+        font-style: italic;
+        font-size: 20px;
     }
 
     .doublearrow-white {
@@ -68,11 +68,11 @@
                         <th>’ﬂÌZÎÎ</th>
                     </tr>
                 </thead>
-                <tbody class='personal-detais'></tbody>
+                <tbody class='WhoIsSpeaking-result'></tbody>
             </table>
         </div>
 
-        <script type='text/x-jquery-tmpl' id='person-template'>
+        <script type='text/x-jquery-tmpl' id='WhoIsSpeaking-template'>
             <tr class='person'>
                 <td>${autoIncrement()}.</td>
                 <td>
@@ -114,6 +114,7 @@
 </div>
 
 @section scripts{
+    <script src="~/Scripts/QuestionBank/Pravesh_1/Pravesh_1_WhoIsSpeaking.js"></script>
 
     <script type="text/javascript">
         var i = -1;
@@ -121,26 +122,9 @@
             return ++i;
         }
 
-        var data = [
-            { "SEQ": autoIncrement(), "QUE": "Ë‹HÎÎ_ ÷˘ ±ı¿·Î … Ï‰«ﬂHÎ ¿ﬂ‰Îﬁ˘ ‹Îﬂ˘ Ï‰«Îﬂ »ı ‹ÎÀı Ë<_ ›Îÿ ¿v_ I›Îﬂı ±Î‰…˘ı.", "WHO": "ﬁÌ·¿oÃ ‰HÎa ", "WHOM": "Ëﬁ<‹Îﬁ∞ﬁı ", "WHEN": "‰ﬁÏ‰«ﬂHÎ ¿ﬂ‰Î ﬁÌ¿‚ı·Î ‰HÎaﬁÎ ÿÂ˝ﬁı ±Î‰ı·Î Ëﬁ‹Îﬁ∞ ÷ı‹ﬁÌ Áı‰Î‹Î_ ﬂËı‰Îﬁ_<_ ¿Ëı »ı I›Îﬂı.", "CHAPTER": "(1/2)", "EXAM": "7/4/2015" },
-            { "QUE": "±‹Îﬂı ±ıÀ·_< … ‹Î√‰<_ »ı.", "WHO": "ﬁÌ·¿oÃ ‰HÎa ", "WHOM": "ﬂÎ…Î ﬂHÎ⁄ËÎÿﬂ ÁËÎﬁ", "WHEN": "ﬂ˘√Ìq ﬂÎ…Îﬁ˘ ﬂ˘√ ‰HÎa±ı ‹ÀÎÕ÷Î_ ÷ı‹ﬁı ¿o¥¿ ‹Î√‰Îﬁ_<_ ﬂÎ…Î±ı ¿èÎ<__ I›Îﬂı ‰HÎa ⁄_ÿÌ¬Îﬁı ’Òﬂı·Î ÁÎ‘±˘ﬁı ‹< ¿ﬂ‰Îﬁ<__ ¿Ëı »ı I›Îﬂı.", "CHAPTER": "(18/32-33)", "EXAM": "7/4/2015" },
-            { "QUE": "‹Îﬂ˘ ÿÌ¿ﬂ˘ ‰Ìﬂ˘, ÁÎÃ ¤ıÓÂ ±ﬁı ‰ÎÕÌ ±‹ﬂ ﬂËı ±ı‰Î ±ÎÂÌ‰Î˝ÿ ±Î’˘. ", "WHO": "·¬<⁄Î¥", "WHOM": "ﬁÌ·¿oÃ ‰HÎaﬁı", "WHEN": "·¬<⁄Î¥ﬁÌ Áı‰Î◊Ì ﬂÎ∞ ◊›ı·Î ﬁÌ·¿oÃ ‰HÎa±ı ÷ıﬁı ‰ﬂÿÎﬁ ‹Î√‰Îﬁ<__ ¿èÎ_<_ I›Îﬂı.", "CHAPTER": "(41/81)", "EXAM": "7/4/2015" },
-            { "QUE": "÷‹ÎﬂÎ ÁIÁ_√Ì Ë˘› ÷ıﬁı ±ı¿ ‰Ÿ»Ìﬁ_<_ ÿ<—¬ ◊‰Îﬁ<_ Ë˘› ÷˘ ÷ı ‹ﬁı ±ı¿ ±ı¿ v_‰ÎÕı ¿˘ÏÀ ¿˘ÏÀ ‰Ÿ»Ìﬁ<_ ÿ<—¬ ◊Î±˘.", "WHO": "ÁË…Îﬁ_ÿ V‰Î‹Ì", "WHOM": "ﬂÎ‹Îﬁ_ÿ V‰Î‹Ìﬁı", "WHEN": "ﬂÎ‹Îﬁ_ÿ V‰Î‹Ì±ı ÁË…Îﬁ_ÿ V‰Î‹Ìﬁı ‘‹˝‘ÒﬂÎ Á˘Ó’Ì I›Îﬂı ÷ı‹HÎı ÁË…Îﬁ_ÿ V‰Î‹Ìﬁı ‰ﬂÿÎﬁ ‹Î√‰Îﬁ< ¿èÎ<_ I›Îﬂı.", "CHAPTER": "55/111", "EXAM": "3/4/2015" },
-            { "QUE": "±Î’ ﬁÏË ’‘Îﬂ˘ ÷˘ ±‹ÎﬂÎ √<v ‹<Îﬁ_ÿ ±Î’ﬁı ÷ıÕ‰Î ±ËŸ ±Î‰Âı.", "WHO": "Á<¬Îﬁ_ÿ V‰Î‹Ì", "WHOM": "ﬁÌ·¿oÃ‰Hîa", "WHEN": "·˘…ﬁÌ ‰Î‰ ઉ’ﬂ ⁄ıÃı·Î ﬁÌ·¿oÃ‰HÎaﬁı Á<¬Îﬁ_ÿ V‰Î‹Ì ±Îl‹‹Î_ ±Î‰‰Îﬁ< ±Î‹_hÎHÎ ±Î’ı »ı. I›Îﬂı ﬁÎ ’ÎÕ÷Î_ ﬁÌ·¿oÃ‰HÎa±ı ¿èÎ<_ — “ÁÎ‘<ﬂÎ‹, ±‹ı ‰ÁÏ÷‹Î_ ¿ÿÌ …÷Î ﬁ◊Ì.” I›Îﬂ.ı", "CHAPTER": "", "EXAM": "3/4/2015" },
-            { "QUE": "‹_ı ‹›ÎﬂÎ‹ ÁÎ◊ı Á˙ﬁı ¿Ëı‰ﬂÎT›<_ Ë÷<_ ¿ı ·˘…‹Î_ ‰HÎaﬁÎ_ ÿÂ˝ﬁı ……˘ı, ÷˘ ÷‹ı ·˘… ¿ı‹ ﬁÎ √›Î ?", "WHO": "ﬂÎ‹Îﬁ_ÿ V‰Î‹Ì", "WHOM": "·Î·∞ Á<◊Îﬂﬁı", "WHEN": "‹›ÎﬂÎ‹ ¤ટ્ટ Âı¬’ÎÀ‹Î_ ·Î·∞ Á<◊Îﬂﬁı ﬁÌ·¿oÃ ‰HÎaﬁ˘ ﬂÎ‹Îﬁ_ÿ V‰Î‹Ì ¿ﬂ÷Î_ ’HÎ ±Ï‘¿ ‹ÏË‹Î ¿èÎ˘. ÷ı◊Ì ÷ı‹ﬁı ·ÎB›<_ ¿ı ±Î ‰Î÷ V‰Î‹Ìﬁı ¿ﬂ‰Ì …˘ı¥±ı. ÷ı◊Ì ÷ı±˘ ¿E»‹Î_ V‰Î‹ÌﬁÌ ’ÎÁı √›Î. I›Îﬂı V‰Î‹Ì ÷ı‹ﬁı ¿Ëı »ı.", "CHAPTER": "(51/102)", "EXAM": "3/4/2015" }
-        ];
-
-        var transforms = { 'tag': 'li', 'html': '${QUE} - ${WHO}- ${WHOM} - ${WHEN}' }
-
-        //$('#result').json2html(data, transforms);
-
-        var div = $('#result');
-
-        var steve = [{ 'Name': 'Steve', 'Skills': [{ 'Skill': 'Rails' }, { 'Skill': 'HTML' }, { 'Skill': 'JQuery' }] },
-        { 'Name': 'Steve', 'Skills': [{ 'Skill': 'Rails' }, { 'Skill': 'HTML' }, { 'Skill': 'JQuery' }] }];
-
         $(document).ready(function () {
-            $('#person-template').tmpl(data).appendTo('.personal-detais');
+            var x = new Pravesh_1_WhoIsSpeaking();
+            $('#WhoIsSpeaking-template').tmpl(x.Questions).appendTo('.WhoIsSpeaking-result');
         });
     </script>
 }
