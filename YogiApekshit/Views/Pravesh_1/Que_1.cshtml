@@ -6,6 +6,16 @@
 @{var gridId = "CityGrid";}
 
 <style type="text/css">
+    .custom-font {
+        font-family: 'JJECBH+Krishna';
+        font-size: 24px;
+    }
+
+    .guj-font {
+        font-family: 'JJECBH+Krishna';
+        font-size: 20px;
+    }
+
     .examColumn {
         font-size: 18px;
     }
@@ -53,8 +63,9 @@
     @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("City"))
 
     <section class="tile bg-greensea">
-        @Html.Partial("GridToolbar", new GridToolbarModel { GridId = gridId, Title = "City", SubTitle = "Table" })
-        <div style="font-family: 'JJECBH+Krishna'; font-size:22px;">
+
+        @Html.Partial("GridToolbar", new GridToolbarModel { GridId = gridId, Title = "ﬁÌ«ı ±Î’ı·Î ±‰÷ﬂHÎ˘ ¿˘HÎ, ¿˘ﬁı ±ﬁı ¿uÎﬂı ¿Ëı »ı ÷ı ·¬˘. ", SubTitle = "(¿<· √HÎ — 9)" })
+        <div class="guj-font">
             <table class="table table-condensed">
                 <thead>
                     <tr>
@@ -86,7 +97,6 @@
                 <td class="whoColumn">${WHO}</td>
                 <td><img src="/Images/double-arrow-white.png" width="16px" /></td>
                 <td class="whomColumn">${WHOM}</td>
-
                 <td class="examColumn">${EXAM}</td>
             </tr>
         </script>
