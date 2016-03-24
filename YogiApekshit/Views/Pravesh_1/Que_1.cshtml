@@ -85,7 +85,7 @@
 
         <script type='text/x-jquery-tmpl' id='WhoIsSpeaking-template'>
             <tr class='person'>
-                <td>${autoIncrement()}.</td>
+                <td>${autoInc()}.</td>
                 <td>
                     ${ QUE } <br />
                     <i class="doublearrow-white"></i>
@@ -127,9 +127,9 @@
     <script src="~/Scripts/QuestionBank/Pravesh_1/Pravesh_1_WhoIsSpeaking.js"></script>
 
     <script type="text/javascript">
-        var i = -1;
-        function autoIncrement() {
-            return ++i;
+        var seq = 0;
+        function autoInc() {
+            return ++seq;
         }
 
         $(document).ready(function () {

@@ -504,6 +504,7 @@
     <Content Include="Images\double-arrow-white.png" />
     <Content Include="Scripts\QuestionBank\Pravesh_1\Pravesh_1_WhoIsSpeaking.js" />
     <Content Include="_Note.txt" />
+    <Content Include="App_Data\Pravesh-1 FAQ.xlsx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\IConweyMvc.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -575,9 +576,7 @@
     <Content Include="Views\Shared\_ErrorPartial.cshtml" />
     <Content Include="Views\Pravesh_1\Que_1.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
