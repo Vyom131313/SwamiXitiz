@@ -1,0 +1,59 @@
+﻿@using YogiApekshit.Models
+@{
+    ViewBag.Title = "Faq";
+}
+
+@{var gridId = "CityGrid";}
+
+<div class="page page-dashboard">
+    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("City"))
+
+    <section class="tile bg-greensea">
+
+        @Html.Partial("GridToolbar", new GridToolbarModel { GridId = gridId, Title = "ﬁÌ«ı ±Î’ı·Î ‰Î@›˘ﬁÎ ¿ÎﬂHÎ˘ …HÎÎ‰˘. (⁄ı ◊Ì hÎHÎ ·ÌÀÌ‹Î …) ", SubTitle = "(¿<· √HÎ — 6)" })
+        <div class="guj-font">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>≠ëﬁ</th>
+                        <th>¿ÎﬂHÎ</th>
+                        <th>’ﬂÌZÎÎ</th>
+                    </tr>
+                </thead>
+                <tbody class='WhoIsSpeaking-result'></tbody>
+            </table>
+        </div>
+
+        <script type='text/x-jquery-tmpl' id='WhoIsSpeaking-template'>
+            <tr class='person'>
+                <td>${autoInc()}.</td>
+                <td>${ QUE } </td>
+                <td >${ANS}</td>
+                <td class="examColumn">${EXAM}</td>
+            </tr>
+        </script>
+
+        <script type='text/x-jquery-tmpl' id='skills-template'>
+            ${Skill}
+            <br />
+        </script>
+    </section>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/QuestionBank/Pravesh_1/Pravesh_1_Q2_Reason.js"></script>
+
+    <script type="text/javascript">
+        var seq = 0;
+        function autoInc() {
+            return ++seq;
+        }
+
+        $(document).ready(function () {
+            var x = new Pravesh_1_Q2_Reason();
+            $('#WhoIsSpeaking-template').tmpl(x.Questions).appendTo('.WhoIsSpeaking-result');
+        });
+    </script>
+}
+

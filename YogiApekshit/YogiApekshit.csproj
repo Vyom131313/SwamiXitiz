@@ -502,7 +502,8 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\FontAwesome.otf" />
     <Content Include="Images\double-arrow-white.png" />
-    <Content Include="Scripts\QuestionBank\Pravesh_1\Pravesh_1_WhoIsSpeaking.js" />
+    <Content Include="Scripts\QuestionBank\Pravesh_1\Pravesh_1_Q2_Reason.js" />
+    <Content Include="Scripts\QuestionBank\Pravesh_1\Pravesh_1_Q1_WhoIsSpeaking.js" />
     <Content Include="_Note.txt" />
     <Content Include="App_Data\Pravesh-1 FAQ.xlsx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
@@ -575,6 +576,7 @@
     <Content Include="Views\Shared\TopMenuPartial.cshtml" />
     <Content Include="Views\Shared\_ErrorPartial.cshtml" />
     <Content Include="Views\Pravesh_1\Que_1.cshtml" />
+    <Content Include="Views\Pravesh_1\Que_2.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
