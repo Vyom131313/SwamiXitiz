@@ -17,7 +17,7 @@
                     <tr>
                         <th>#</th>
                         <th>≠ëﬁ</th>
-                        <th>¿ÎﬂHÎ</th>
+                        @*<th>¿ÎﬂHÎ</th>*@
                         <th>’ﬂÌZÎÎ</th>
                     </tr>
                 </thead>
@@ -28,9 +28,10 @@
         <script type='text/x-jquery-tmpl' id='WhoIsSpeaking-template'>
             <tr class='person'>
                 <td>${autoInc()}.</td>
-                <td>${ QUE } </td>
-                <td >${ANS}</td>
+                <td>${ QUE } <br />
+                    ${ ANS }</td>
                 <td class="examColumn">${EXAM}</td>
+                <td></td>
             </tr>
         </script>
 
