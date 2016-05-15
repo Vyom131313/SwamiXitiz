@@ -23,5 +23,26 @@ namespace YogiApekshit.Controllers
         {
             return View();
         }
+
+        public ActionResult Que_7()
+        {
+            return View();
+        }
+
+        public ActionResult Que_8()
+        {
+            return View();
+        }
+
+        public ActionResult Que_9()
+        {
+            return View();
+        }
+
+        public ActionResult Que_12()
+        {
+            return View();
+        }
+
     }
 }
