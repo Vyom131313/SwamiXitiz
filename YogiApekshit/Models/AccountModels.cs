@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mvc.Core.Dto;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -93,5 +94,10 @@ namespace YogiApekshit.Models
         public string Provider { get; set; }
         public string ProviderDisplayName { get; set; }
         public string ProviderUserId { get; set; }
+    }
+
+    public partial class BookInput : Input
+    {
+
     }
 }

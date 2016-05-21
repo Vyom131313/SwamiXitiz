@@ -6,5 +6,8 @@ using System.Linq;
 
 namespace SwamiXitiz.Data.Models
 {
- 
+ public partial class Book : EntityBase
+ {
+
+ }
 }

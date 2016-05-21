@@ -6,16 +6,30 @@ using Data.Core.Security;
 using Data.Core.IRepository;
 using System.Linq;
 using Repository.Core;
+using Mvc.Core.Controllers;
+using YogiApekshit.Models;
+using Mvc.Core.Mappers;
 
 namespace YogiApekshit.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : BaseController // CruderController<Book, BookInput>
     {
-        public ActionResult Index(IRepository<Book> bookRepo)
+        IRepository<Book> bookRepo;
+        public HomeController(IRepository<Book> bookRepo)
+        {
+            this.bookRepo = bookRepo;
+        }
+        //public HomeController(ICrudService<Book> service, IMapper<Book, BookInput> v, IRepository<Book> bookRepo)
+        //    : base(service, v)
+        //{
+        //    this.bookRepo = bookRepo;
+        //}
+
+        public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
-            //var x = bookRepo.GetAll().ToList();
+            var x = bookRepo.Get(1);
 
             return View();
         }
