@@ -63,6 +63,13 @@
     <Reference Include="Mvc.Core">
       <HintPath>..\libs\Mvc.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Omu.Encrypto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Omu.Encrypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Omu.ValueInjecter">
+      <HintPath>..\libs\Omu.ValueInjecter.dll</HintPath>
+    </Reference>
     <Reference Include="Repository.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\libs\Repository.Core.dll</HintPath>
@@ -213,6 +220,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PrarambhController.cs" />
     <Compile Include="Controllers\Pravesh_1Controller.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -610,6 +618,7 @@
     <Content Include="Views\Pravesh_1\Que_2.cshtml" />
     <Content Include="Views\Pravesh_1\Que_4.cshtml" />
     <Content Include="Views\Pravesh_1\Que_7.cshtml" />
+    <Content Include="Views\Prarambh\Que_2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

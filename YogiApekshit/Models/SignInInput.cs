@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web.Mvc;
-using System.Web.Routing;
 
 namespace YogiApekshit.Models
 {
@@ -195,7 +193,14 @@ namespace YogiApekshit.Models
             {
                 new MenuItem { Name = "Dashboard", ControllerName="Home", ActionName="Index", IConClass = "fa fa-dashboard" },
                 
-		        new MenuItem { Name = "Pravesh-1", IConClass = "fa fa-pencil",
+                new MenuItem { Name = "Prarambh", IConClass = "fa fa-pencil",
+                    MenuItems = new List<MenuItem>
+                    {
+                        new MenuItem { Name = "Que-2", ControllerName="Prarambh", ActionName="Que_2" },
+                    }
+                },
+
+                new MenuItem { Name = "Pravesh-1", IConClass = "fa fa-pencil",
                     MenuItems = new List<MenuItem>
                     {
                         new MenuItem { Name = "Que-1", ControllerName="Pravesh_1", ActionName="Que_1" },
