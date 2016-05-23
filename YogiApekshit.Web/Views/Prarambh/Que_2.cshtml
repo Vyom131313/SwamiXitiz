@@ -1,0 +1,23 @@
+﻿@using Mvc.Core.ThirdParty
+@using YogiApekshit.Web.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Prarambh Que_2";    
+}
+
+@{var gridId = "grid";}
+
+<div class="page page-dashboard">
+    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Que2"))
+
+    <section class="tile bg-greensea">
+       @Html.Partial("GridToolbar", new GridToolbarModel
+       {
+           GridId = gridId,
+           Title = @"Answer ALL of the following, using one sentence (not just one word) for each answer.",
+           SubTitle = "(Total Marks: 4)"
+       })
+
+        
+    </section>
+</div>

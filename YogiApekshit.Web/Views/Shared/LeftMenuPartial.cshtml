@@ -1,0 +1,45 @@
+﻿@using YogiApekshit.Web.Models
+<aside id="sidebar">
+    <div id="sidebar-wrap">
+        <div class="panel-group slim-scroll" role="tablist">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#sidebarNav">Navigation <i class="fa fa-angle-up"></i>
+                        </a>
+                    </h4>
+                </div>
+
+                <div id="sidebarNav" class="panel-collapse collapse in" role="tabpanel">
+                    <div class="panel-body">
+                        <ul id="navigation">
+                            @{
+                                var menus = Session["Menus"] as MenuItem;
+                                if (menus != null)
+                                {
+                                    foreach(var menu in menus.MenuItems)
+                                    {
+                                        var cls = menu.IsActive ? "active" : string.Empty;
+                                        <li class="@cls">
+                                            <a role="button" href="@Url.Action(menu.ActionName, menu.ControllerName, new { Area = menu.AreaName})"><i class="@menu.IConClass"></i><span>@menu.Name</span></a>
+                                            @if(menu.MenuItems.Count > 0)
+                                            {
+                                                <ul>
+                                                    @foreach(var childMenu in menu.MenuItems)
+                                                    {
+                                                        <li><a href="@Url.Action(childMenu.ActionName, childMenu.ControllerName, new { Area = childMenu.AreaName})"><i class="@childMenu.IConClass"></i><span>@childMenu.Name</span></a></li>
+                                                    }
+                                                </ul>
+                                            }
+                                        </li>
+                                    }
+                                }
+                            }
+                        </ul>
+                        <!--/ NAVIGATION Content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>

@@ -1,8 +1,8 @@
 ﻿-> Angular Sample
-- Apply theme
-- DI
- 
-
+-> Apply theme
+-> DI
+- Display Data for Que2
+- Display Data for Que1
 
  ================== Guj =================
 -> Convert all pdf to txt
