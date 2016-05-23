@@ -255,6 +255,7 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="_Note.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
