@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{046EF484-2278-4760-B7DD-FADF08ACE1F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogiApekshit.Web", "YogiApekshit.Web\YogiApekshit.Web.csproj", "{A3BFC3B1-1A78-403A-9081-46EF1BC1ED59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{046EF484-2278-4760-B7DD-FADF08ACE1F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{046EF484-2278-4760-B7DD-FADF08ACE1F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{046EF484-2278-4760-B7DD-FADF08ACE1F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3BFC3B1-1A78-403A-9081-46EF1BC1ED59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3BFC3B1-1A78-403A-9081-46EF1BC1ED59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3BFC3B1-1A78-403A-9081-46EF1BC1ED59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3BFC3B1-1A78-403A-9081-46EF1BC1ED59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
