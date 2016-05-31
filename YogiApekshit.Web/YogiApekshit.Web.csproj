@@ -235,13 +235,10 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PrarambhController.cs" />
-    <Compile Include="Controllers\RoutesDemoController.cs" />
-    <Compile Include="Filters\ValidateHttpAntiForgeryTokenAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

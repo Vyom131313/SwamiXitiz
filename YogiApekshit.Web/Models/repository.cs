@@ -6,6 +6,14 @@ using System.Web;
 
 namespace CRUD_Angular.Models
 {
+        public class Employee
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string designation { get; set; }
+        public Int64 mobile { get; set; }
+    }
+
     public class repository
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\PARESH\Downloads\CRUD_Angular\CRUD_Angular\CRUD_Angular\App_Data\CRUD.mdf;Integrated Security=True");
