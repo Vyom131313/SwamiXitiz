@@ -297,6 +297,7 @@
     <Content Include="Content\assets\js\vendor\animsition\js\jquery.animsition.min.js" />
     <Content Include="Content\assets\js\vendor\bootstrap\bootstrap.min.js" />
     <Content Include="Content\assets\js\vendor\jRespond\jRespond.min.js" />
+    <Content Include="Content\assets\js\vendor\screenfull\screenfull.min.js" />
     <Content Include="Content\assets\js\vendor\slimscroll\jquery.slimscroll.min.js" />
     <Content Include="Content\assets\js\vendor\sparkline\jquery.sparkline.min.js" />
     <Content Include="Content\Common.css" />
@@ -418,6 +419,7 @@
     <Content Include="Scripts\app\loginCtrl.js" />
     <Content Include="Scripts\app\logout.js" />
     <Content Include="Scripts\app\routeConfig.js" />
+    <Content Include="Scripts\PrarambhController.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
