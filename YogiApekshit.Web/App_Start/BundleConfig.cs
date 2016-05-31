@@ -7,13 +7,14 @@ namespace YogiApekshit.Web
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/AwesomeAngularMVCApp")
-                .IncludeDirectory("~/Scripts/Controllers", "*.js")
-                .IncludeDirectory("~/Scripts/Factories", "*.js")
-                .Include("~/Scripts/AwesomeAngularMVCApp.js"));
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include("~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/site.css"));
+            bundles.Add(new Bundle("~/bundles/Scripts")
+                        .Include("~/Scripts/jquery-{version}.js")
+                        .Include("~/Scripts/angular.js")
+                        .Include("~/Scripts/angular-route.js"));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
             BundleTable.EnableOptimizations = false;
         }
