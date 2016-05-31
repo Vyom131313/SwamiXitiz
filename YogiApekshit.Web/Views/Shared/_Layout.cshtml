@@ -31,7 +31,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.min.js"></script>
-    
+
     <!-- vendor css files -->
     <link rel="stylesheet" href='@Url.Content("~/Content/assets/css/vendor/bootstrap.min.css")'>
     <link rel="stylesheet" href='@Url.Content("~/Content/assets/css/vendor/animate.css")'>
@@ -39,18 +39,17 @@
     <link rel="stylesheet" href='@Url.Content("~/Content/assets/css/vendor/simple-line-icons.css")'>
 
     @*<link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/animsition/css/animsition.min.css")'>
-    <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/daterangepicker/daterangepicker-bs3.css")'>
-    <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/rickshaw/rickshaw.min.css")'>
-    <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/datetimepicker/css/bootstrap-datetimepicker.min.css")'>
-    <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/datatables/css/jquery.dataTables.min.css")'>
-    <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/datatables/datatables.bootstrap.min.css")'>
-    <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/chosen/chosen.css")'>
-    <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/summernote/summernote.css")'>*@
+        <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/daterangepicker/daterangepicker-bs3.css")'>
+        <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/rickshaw/rickshaw.min.css")'>
+        <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/datetimepicker/css/bootstrap-datetimepicker.min.css")'>
+        <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/datatables/css/jquery.dataTables.min.css")'>
+        <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/datatables/datatables.bootstrap.min.css")'>
+        <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/chosen/chosen.css")'>
+        <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/summernote/summernote.css")'>*@
 
     <!-- project main css files -->
     <link rel="stylesheet" href='@Url.Content("~/Content/assets/css/main.css")'>
     <!--/ stylesheets -->
-
     <!-- modernizr -->
     @*<script src='@Url.Content("~/Content/assets/js/vendor/modernizr/modernizr-2.8.3-respond-1.4.2.min.js")'></script>*@
     <!--/ modernizr -->
@@ -125,7 +124,7 @@
             @Html.Partial("RightbarPartial")
         </div>
 
-        <section id="content">
+        <section id="content" ng-view>
             @RenderBody()
         </section>
     </div>
@@ -194,6 +193,9 @@
             $('select.awe-display').addClass('form-control');
         }
     </script>
+
+    <script type="text/javascript" src="~/Scripts/app/routeConfig.js"></script>
+    <script type="text/javascript" src="~/Scripts/app/loginCtrl.js"></script>
 
     @RenderSection("scripts", required: false)
 </body>
