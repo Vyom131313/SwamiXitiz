@@ -418,8 +418,9 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Scripts\app\loginCtrl.js" />
     <Content Include="Scripts\app\logout.js" />
+    <Content Include="Scripts\app\MyApp.js" />
     <Content Include="Scripts\app\routeConfig.js" />
-    <Content Include="Scripts\PrarambhController.js" />
+    <Content Include="Scripts\Controllers\PrarambhController.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -3,6 +3,10 @@
     ViewBag.Title = "Index";
 }
 
-@section scripts{
-    <script type="text/javascript" src="~/Scripts/app/loginCtrl.js"></script>
-}
+<h2>Index</h2>
+<div ng-controller="HomeController">
+    {{Message}}
+    <div>
+        @ViewBag.DemoID
+    </div>
+</div>

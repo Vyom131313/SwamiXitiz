@@ -5,48 +5,53 @@
     ViewBag.Title = "Prarambh Que_2";
 }
 
-@{var gridId = "grid";}
-<div class="page page-dashboard">
+<div class="page page-dashboard" ng-controller="HomeController">
     @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Que2"))
-
     <section class="tile bg-greensea">
 
-        @Html.Partial("GridToolbar", new GridToolbarModel { GridId = gridId, Title = "Que2", SubTitle = "xxx" })
-        <div >
-            <table class="table table-condensed">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Que</th>
-                        <th>Ans</th>
-                    </tr>
-                </thead>
-                <tbody class='WhoIsSpeaking-result'>
-                    <tr class='person' data-ng-repeat="item in QueAnsList">
-                        <td>.</td>
-                        <td>
-                            ${{item.QUE }} <br />
-                            ${{item.ANS }}
-                        </td>
-                        <td class="examColumn">${{item.EXAM}}</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div>
         </div>
-
-
     </section>
 </div>
 
 @section scripts{
-    <script type="text/javascript">
-        var seq = 0;
-        function autoInc() {
-            return ++seq;
-        }
+<script>
+    alert('aa')
     </script>
-
-<script type="text/javascript" src="~/Scripts/PrarambhController.js"></script>
 }
+
+
+@*
+    <div class="page page-dashboard">
+        @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Que2"))
+
+        <section class="tile bg-greensea">
+
+            @Html.Partial("GridToolbar", new GridToolbarModel { GridId = gridId, Title = "Que2", SubTitle = "xxx" })
+            <div >
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Que</th>
+                            <th>Ans</th>
+                        </tr>
+                    </thead>
+                    <tbody class='WhoIsSpeaking-result'>
+                        <tr class='person' data-ng-repeat="item in QueAnsList">
+                            <td>.</td>
+                            <td>
+                                ${{item.QUE }} <br />
+                                ${{item.ANS }}
+                            </td>
+                            <td class="examColumn">${{item.EXAM}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </section>
+    </div>*@
 

@@ -17,7 +17,7 @@ namespace YogiApekshit.Web.Controllers
 
         public ActionResult Que_2()
         {
-            return PartialView();
+            return View();
         }
 
         public ActionResult GridGetItems(GridParams g, string parent, bool? restore)
