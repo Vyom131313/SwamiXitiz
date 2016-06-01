@@ -22,7 +22,15 @@ namespace YogiApekshit.Web.Controllers
 
         public JsonResult GridGetItems()
         {
-            var data = repo.GetAll();
+            var data = repo.GetAll().ToList().Select(c => new 
+            {
+                Id = c.Id,
+                Que_Eng = c.Que_Eng,
+                Que_Guj = c.Que_Guj,
+                Ans_Eng = c.Ans_Eng,
+                Exams = c.Exams,
+                Chapter = c.ChapterNumber
+            });
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
