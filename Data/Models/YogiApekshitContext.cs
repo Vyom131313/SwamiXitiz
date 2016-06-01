@@ -19,6 +19,7 @@ namespace SwamiXitiz.Data.Models
         public DbSet<Book> Books { get; set; }
         public DbSet<BookChapter> BookChapters { get; set; }
         public DbSet<ExamLevel> ExamLevels { get; set; }
+        public DbSet<QueCorrectSentence> QueCorrectSentences { get; set; }
         public DbSet<QueOneSentence> QueOneSentences { get; set; }
         public DbSet<QuestionCategory> QuestionCategories { get; set; }
         public DbSet<QueWhoWhomWhen> QueWhoWhomWhens { get; set; }
@@ -28,6 +29,7 @@ namespace SwamiXitiz.Data.Models
             modelBuilder.Configurations.Add(new BookMap());
             modelBuilder.Configurations.Add(new BookChapterMap());
             modelBuilder.Configurations.Add(new ExamLevelMap());
+            modelBuilder.Configurations.Add(new QueCorrectSentenceMap());
             modelBuilder.Configurations.Add(new QueOneSentenceMap());
             modelBuilder.Configurations.Add(new QuestionCategoryMap());
             modelBuilder.Configurations.Add(new QueWhoWhomWhenMap());

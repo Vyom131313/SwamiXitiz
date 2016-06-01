@@ -20,29 +20,11 @@ namespace YogiApekshit.Controllers
             return View();
         }
 
-        public ActionResult GridGetItems(GridParams g, string parent, bool? restore)
+        public JsonResult GridGetItems()
         {
             var data = repo.GetAll();
-            var model = new GridModelBuilder<QueOneSentence>(data.AsQueryable(), g)
-            {
-                Key = "Id",
-                Map = MapEntityToGridModel,
-                GetItem = () => repo.Get(Convert.ToInt32(g.Key))
-            }.Build();
-
-            return Json(model);
-        }
-
-        protected object MapEntityToGridModel(QueOneSentence o)
-        {
-            return new
-            {
-                o.Id,
-                o.Que_Eng,
-                o.Ans_Eng,
-                ChapterNumber = o.BookChapter.ChapterNumber,
-                o.Exams
-            };
-        }
+           
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }        
     }
 }

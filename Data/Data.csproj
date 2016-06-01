@@ -67,9 +67,11 @@
     <Compile Include="Models\Mapping\BookChapterMap.cs" />
     <Compile Include="Models\Mapping\BookMap.cs" />
     <Compile Include="Models\Mapping\ExamLevelMap.cs" />
+    <Compile Include="Models\Mapping\QueCorrectSentenceMap.cs" />
     <Compile Include="Models\Mapping\QueOneSentenceMap.cs" />
     <Compile Include="Models\Mapping\QuestionCategoryMap.cs" />
     <Compile Include="Models\Mapping\QueWhoWhomWhenMap.cs" />
+    <Compile Include="Models\QueCorrectSentence.cs" />
     <Compile Include="Models\QueOneSentence.cs" />
     <Compile Include="Models\QuestionCategory.cs" />
     <Compile Include="Models\QueWhoWhomWhen.cs" />

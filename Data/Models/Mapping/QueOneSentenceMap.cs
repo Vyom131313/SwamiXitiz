@@ -11,13 +11,11 @@ namespace SwamiXitiz.Data.Models.Mapping
             this.HasKey(t => t.Id);
 
             // Properties
-            this.Property(t => t.Id)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-
             // Table & Column Mappings
             this.ToTable("QueOneSentence");
             this.Property(t => t.Id).HasColumnName("Id");
-            this.Property(t => t.ChapterId).HasColumnName("ChapterId");
+            this.Property(t => t.BookId).HasColumnName("BookId");
+            this.Property(t => t.ChapterNumber).HasColumnName("ChapterNumber");
             this.Property(t => t.Que_Eng).HasColumnName("Que_Eng");
             this.Property(t => t.Ans_Eng).HasColumnName("Ans_Eng");
             this.Property(t => t.Que_Guj).HasColumnName("Que_Guj");
@@ -25,9 +23,9 @@ namespace SwamiXitiz.Data.Models.Mapping
             this.Property(t => t.Exams).HasColumnName("Exams");
 
             // Relationships
-            this.HasOptional(t => t.BookChapter)
+            this.HasRequired(t => t.Book)
                 .WithMany(t => t.QueOneSentences)
-                .HasForeignKey(d => d.ChapterId);
+                .HasForeignKey(d => d.BookId);
 
         }
     }

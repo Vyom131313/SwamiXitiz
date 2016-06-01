@@ -20,13 +20,20 @@ namespace SwamiXitiz.Data.Models.Mapping
             // Table & Column Mappings
             this.ToTable("QueWhoWhomWhen");
             this.Property(t => t.Id).HasColumnName("Id");
-            this.Property(t => t.ChapterId).HasColumnName("ChapterId");
+            this.Property(t => t.BookId).HasColumnName("BookId");
+            this.Property(t => t.ChapterNumber).HasColumnName("ChapterNumber");
             this.Property(t => t.Que_Eng).HasColumnName("Que_Eng");
-            this.Property(t => t.Que_Guj).HasColumnName("Que_Guj");
             this.Property(t => t.Who).HasColumnName("Who");
             this.Property(t => t.Whom).HasColumnName("Whom");
             this.Property(t => t.WhenSpeaking).HasColumnName("WhenSpeaking");
             this.Property(t => t.Exams).HasColumnName("Exams");
+            this.Property(t => t.Que_Guj).HasColumnName("Que_Guj");
+
+            // Relationships
+            this.HasRequired(t => t.Book)
+                .WithMany(t => t.QueWhoWhomWhens)
+                .HasForeignKey(d => d.BookId);
+
         }
     }
 }

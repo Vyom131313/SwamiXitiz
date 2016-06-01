@@ -5,19 +5,20 @@
     ViewBag.Title = "Prarambh Que_2";
 }
 
-<div class="page page-dashboard" ng-controller="HomeController">
+<div class="page page-dashboard" >
     @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Que2"))
     <section class="tile bg-greensea">
-
-        <div>
+        <div ng-controller="PrarambhController">
+            {{Message}}
+            <div>
+                @ViewBag.DemoID
+            </div>
         </div>
+
     </section>
 </div>
 
 @section scripts{
-<script>
-    alert('aa')
-    </script>
 }
 
 
