@@ -10,7 +10,8 @@ namespace YogiApekshit.Web.Controllers
 
         public BaseController()
         {
-            System.Web.HttpContext.Current.Session["Menus"] = MenuBuilder.BuildMenu();
+            if (System.Web.HttpContext.Current.Session["Menus"] == null)
+                System.Web.HttpContext.Current.Session["Menus"] = MenuBuilder.BuildMenu();
         }
     }
 }

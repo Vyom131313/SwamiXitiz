@@ -18,7 +18,7 @@ namespace YogiApekshit.Web.Controllers
         {
             this.repoQueWhoWhomWhen = repoQueWhoWhomWhen;
             this.repoQueOneSentence = repoQueOneSentence;
-        } 
+        }
         #endregion
 
         public ActionResult Que_1()
@@ -34,22 +34,6 @@ namespace YogiApekshit.Web.Controllers
         public JsonResult Que_1_List()
         {
             var seq = 1;
-            var data = repoQueOneSentence.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
-                .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
-                {
-                    Sr = seq++,
-                    Que = c.Que_Eng,
-                    Ans = c.Ans_Eng,
-                    Chapter = c.ChapterNumber,
-                    Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult Que_2_List()
-        {
-            var seq = 1;
             var data = repoQueWhoWhomWhen.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new
@@ -59,6 +43,22 @@ namespace YogiApekshit.Web.Controllers
                     Who = c.Who_Eng,
                     Whom = c.Whom_Eng,
                     When = c.WhenSpeaking_Eng,
+                    Chapter = c.ChapterNumber,
+                    Exams = c.Exams,
+                });
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Que_2_List()
+        {
+            var seq = 1;
+            var data = repoQueOneSentence.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
+                .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
+                .Select(c => new
+                {
+                    Sr = seq++,
+                    Que = c.Que_Eng,
+                    Ans = c.Ans_Eng,
                     Chapter = c.ChapterNumber,
                     Exams = c.Exams,
                 });
