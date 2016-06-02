@@ -1,8 +1,40 @@
-﻿-> Angular Sample
--> Apply theme
--> DI
-- Display Data for Que2
-- Display Data for Que1
+﻿ ================== Templates =================
+ -> QueOneSentence
+ -> QueWhoWhomWhen
+ - QueReason
+ - QueShortNote
+ - QueCorrectSentence
+ - QueCorrectOption
+ - QueCorrectStorySequence
+ - QueFillInBlank
+ - QueKirtan
+ - QueShlok
+ - QueSwaminiVato
+
+ ================== Prarambh: Collect Questions frol all past papers =================
+ - Que-1
+ - Que-2
+ - Que-3
+ - Que-4
+ - Que-5
+ - Que-6
+ - Que-7
+ - Que-8
+ - Que-9
+ - Que-10
+ - Que-11
+ - Que-12
+ - Que-13
+ - Que-14
+ - Que-15
+ - Que-16
+ - Que-17
+ 
+ ================== Production Release =================
+ - Buy domain
+ - Deploy
+ - Test
+ - Performance
 
  ================== Guj =================
 -> Convert all pdf to txt
