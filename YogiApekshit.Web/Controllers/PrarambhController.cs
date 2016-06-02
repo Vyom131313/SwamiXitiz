@@ -1,9 +1,9 @@
 ﻿using Data.Core.IRepository;
-using Mvc.Core.ThirdParty;
 using SwamiXitiz.Data.Models;
-using System;
+using SwamiXitiz.Data.ModelsPartial;
 using System.Linq;
 using System.Web.Mvc;
+using YogiApekshit.Web.Models;
 
 namespace YogiApekshit.Web.Controllers
 {
@@ -20,18 +20,20 @@ namespace YogiApekshit.Web.Controllers
             return View();
         }
 
-        public JsonResult GridGetItems()
+        public JsonResult Que_2_List()
         {
-            var data = repo.GetAll().ToList().Select(c => new 
-            {
-                Sr = c.Id,
-                Que = c.Que_Eng,
-                Ans = c.Ans_Eng,
-                Chapter = c.ChapterNumber,
-                Exams = c.Exams,
-            });
+            var seq = 1;
+            var data = repo.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
+                .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
+                .Select(c => new
+                {
+                    Sr = seq++,
+                    Que = c.Que_Eng,
+                    Ans = c.Ans_Eng,
+                    Chapter = c.ChapterNumber,
+                    Exams = c.Exams,
+                });
             return Json(data, JsonRequestBehavior.AllowGet);
         }
-
     }
 }

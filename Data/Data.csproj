@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelsPartial\Constants.cs" />
     <Compile Include="ModelsPartial\ModelsPartial.cs" />
     <Compile Include="Exceptions.cs">
       <SubType>Code</SubType>

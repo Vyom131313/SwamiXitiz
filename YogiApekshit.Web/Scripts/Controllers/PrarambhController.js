@@ -5,23 +5,23 @@
 
             $scope.Message = "Yahoooo!.";
 
-            $scope.QueAnsList = [];
+            $scope.Que_2_List = [];
 
-            $scope.Que2List = function () {
+            $scope.Que_2_List_Load = function () {
 
                 $.ajax({
                     type: 'GET',
                     contentType: 'application/json; charset=utf-8',
-                    url: '/Prarambh/GridGetItems',
+                    url: '/Prarambh/Que_2_List',
                     success: function (data) {
-                        $scope.QueAnsList = data
+                        $scope.Que_2_List = data
 
                         //alert(JSON.stringify($scope.QueAnsList))
                         $scope.$apply();
                     }
                 });
             }
-            $scope.Que2List();
+            $scope.Que_2_List_Load();
         }
         ]);
 })();
