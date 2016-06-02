@@ -12,12 +12,15 @@ namespace YogiApekshit.Web.Controllers
         #region Constructors
         private readonly IRepository<QueWhoWhomWhen> repoQueWhoWhomWhen;
         private readonly IRepository<QueOneSentence> repoQueOneSentence;
+        private readonly IRepository<QueCorrectSentence> repoQueCorrectSentence;
 
         public PrarambhController(IRepository<QueWhoWhomWhen> repoQueWhoWhomWhen,
-            IRepository<QueOneSentence> repoQueOneSentence)
+            IRepository<QueOneSentence> repoQueOneSentence,
+            IRepository<QueCorrectSentence> repoQueCorrectSentence)
         {
             this.repoQueWhoWhomWhen = repoQueWhoWhomWhen;
             this.repoQueOneSentence = repoQueOneSentence;
+            this.repoQueCorrectSentence = repoQueCorrectSentence;
         }
         #endregion
 
@@ -27,6 +30,11 @@ namespace YogiApekshit.Web.Controllers
         }
 
         public ActionResult Que_2()
+        {
+            return View();
+        }
+
+        public ActionResult Que_3()
         {
             return View();
         }
@@ -59,6 +67,22 @@ namespace YogiApekshit.Web.Controllers
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
+                    Chapter = c.ChapterNumber,
+                    Exams = c.Exams,
+                });
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Que_3_List()
+        {
+            var seq = 1;
+            var data = repoQueCorrectSentence.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
+                .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
+                .Select(c => new
+                {
+                    Sr = seq++,
+                    Title = c.Title_Eng,
+                    Correct = c.Correct_Eng,
                     Chapter = c.ChapterNumber,
                     Exams = c.Exams,
                 });

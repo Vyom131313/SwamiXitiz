@@ -2,30 +2,30 @@
 @using YogiApekshit.Web.Models
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Prarambh Que_2";
+    ViewBag.Title = "Prarambh Que_3";
 }
 
 <div class="page page-dashboard">
-    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Que2"))
+    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Que3"))
     <section class="tile bg-greensea">
-        @Html.Partial("GridToolbar", new GridToolbarModel { GridId = "Prarambh_Que2_Grid", Title = "Answer using one sentence", SubTitle = "(Total Marks: 4)" })
+        @Html.Partial("GridToolbar", new GridToolbarModel { GridId = "Prarambh_Que3_Grid", Title = "Rewrite the incorrect sentences.", SubTitle = "(Total Marks: 4)" })
         <div ng-controller="PrarambhController">
             <table class="table table-condensed queAnsTable">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Queuestion and Answer</th>
+                        <th>Title and Correct sentence</th>
                         <th>Chapter</th>
                         <th>Exams</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-ng-repeat="item in Que_2_List">
+                    <tr data-ng-repeat="item in Que_3_List">
                         <td class="sequenceColumn">{{item.Sr}}.</td>
                         <td class="queAndansColumn">
                             <p style="line-height:1.7">
-                                <b>{{item.Que}}</b> <br />
-                                <b>Ans:</b> {{item.Ans}}
+                                <b>{{item.Title}}</b> <br />
+                                <b style="text-decoration:underline">Correct:</b> {{item.Correct}}
                             </p>
                         </td>
                         <td class="chapterColumn">{{item.Chapter}}</td>
@@ -34,6 +34,7 @@
                     </tr>
                 </tbody>
             </table>
+
         </div>
     </section>
 </div>

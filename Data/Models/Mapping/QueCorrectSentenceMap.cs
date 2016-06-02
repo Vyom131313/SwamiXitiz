@@ -17,9 +17,9 @@ namespace SwamiXitiz.Data.Models.Mapping
             this.Property(t => t.BookId).HasColumnName("BookId");
             this.Property(t => t.ChapterNumber).HasColumnName("ChapterNumber");
             this.Property(t => t.Title_Eng).HasColumnName("Title_Eng");
-            this.Property(t => t.Ans_Eng).HasColumnName("Ans_Eng");
+            this.Property(t => t.Correct_Eng).HasColumnName("Correct_Eng");
             this.Property(t => t.Title_Guj).HasColumnName("Title_Guj");
-            this.Property(t => t.Ans_Guj).HasColumnName("Ans_Guj");
+            this.Property(t => t.Correct_Guj).HasColumnName("Correct_Guj");
             this.Property(t => t.Exams).HasColumnName("Exams");
 
             // Relationships

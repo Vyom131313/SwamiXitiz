@@ -34,6 +34,21 @@
                 });
             }
             $scope.Que_2_List_Load();
+
+            /************** Que_3 *****************/
+            $scope.Que_3_List = [];
+            $scope.Que_3_List_Load = function () {
+                $.ajax({
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    url: '/Prarambh/Que_3_List',
+                    success: function (data) {
+                        $scope.Que_3_List = data
+                        $scope.$apply();
+                    }
+                });
+            }
+            $scope.Que_3_List_Load();
         }
         ]);
 })();
