@@ -10,7 +10,6 @@ namespace SwamiXitiz.Data.Models
     {
 
     }
-
     
     public partial class BookChapter : EntityBase
     {
@@ -23,6 +22,36 @@ namespace SwamiXitiz.Data.Models
     }
 
     public partial class QueCorrectSentence : EntityBase
+    {
+
+    }
+
+    public partial class QueCorrectOption : EntityBase
+    {
+
+    }
+
+    public partial class QueFillInBlank : EntityBase
+    {
+
+    }
+
+    public partial class QueKirtan : EntityBase
+    {
+
+    }
+
+    public partial class QueShlok : EntityBase
+    {
+
+    }
+
+    public partial class QueReason : EntityBase
+    {
+
+    }
+
+    public partial class QueSwaminiVat : EntityBase
     {
 
     }
