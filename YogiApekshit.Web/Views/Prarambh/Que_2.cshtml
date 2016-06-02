@@ -10,23 +10,25 @@
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { GridId = "Prarambh_Que2_Grid", Title = "Answer using one sentence", SubTitle = "(Total Marks: 4)" })
         <div ng-controller="PrarambhController">
-            <table class="table table-condensed">
+            <table class="table table-condensed queAnsTable">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Que/Ans</th>
+                        <th>Queuestion and Answer</th>
                         <th>Chapter</th>
                         <th>Exams</th>
                     </tr>
                 </thead>
-                <tbody >
-                    <tr  data-ng-repeat="item in QueAnsList">
-                        <td>{{item.Sr}}.</td>
-                        <td>
-                            <b>{{item.Que}}</b> <br />
-                            <b>Ans:</b>x {{item.Ans}}
+                <tbody>
+                    <tr data-ng-repeat="item in QueAnsList">
+                        <td class="sequenceColumn">{{item.Sr}}.</td>
+                        <td class="queAndansColumn">
+                            <p style="line-height:1.5">
+                                <b>{{item.Que}}</b> <br />
+                                <b>Ans:</b> {{item.Ans}}
+                            </p>
                         </td>
-                        <td>{{item.Chapter}}</td>
+                        <td class="chapterColumn">{{item.Chapter}}</td>
                         <td class="examColumn">{{item.Exams}}</td>
                         <td></td>
                     </tr>
