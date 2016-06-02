@@ -41,4 +41,9 @@ namespace SwamiXitiz.Data.Models
     {
 
     }
+
+    public partial class QueShortNote : EntityBase
+    {
+
+    }
 }

@@ -448,7 +448,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="_Note.txt" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -578,6 +577,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Prarambh\Que_3.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Prarambh\Que_4.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -70,10 +70,14 @@
     <Compile Include="Models\Mapping\ExamLevelMap.cs" />
     <Compile Include="Models\Mapping\QueCorrectSentenceMap.cs" />
     <Compile Include="Models\Mapping\QueOneSentenceMap.cs" />
+    <Compile Include="Models\Mapping\QueReasonMap.cs" />
+    <Compile Include="Models\Mapping\QueShortNoteMap.cs" />
     <Compile Include="Models\Mapping\QuestionCategoryMap.cs" />
     <Compile Include="Models\Mapping\QueWhoWhomWhenMap.cs" />
     <Compile Include="Models\QueCorrectSentence.cs" />
     <Compile Include="Models\QueOneSentence.cs" />
+    <Compile Include="Models\QueReason.cs" />
+    <Compile Include="Models\QueShortNote.cs" />
     <Compile Include="Models\QuestionCategory.cs" />
     <Compile Include="Models\QueWhoWhomWhen.cs" />
     <Compile Include="Models\YogiApekshitContext.cs" />

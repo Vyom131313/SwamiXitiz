@@ -21,6 +21,8 @@ namespace SwamiXitiz.Data.Models
         public DbSet<ExamLevel> ExamLevels { get; set; }
         public DbSet<QueCorrectSentence> QueCorrectSentences { get; set; }
         public DbSet<QueOneSentence> QueOneSentences { get; set; }
+        public DbSet<QueReason> QueReasons { get; set; }
+        public DbSet<QueShortNote> QueShortNotes { get; set; }
         public DbSet<QuestionCategory> QuestionCategories { get; set; }
         public DbSet<QueWhoWhomWhen> QueWhoWhomWhens { get; set; }
 
@@ -31,6 +33,8 @@ namespace SwamiXitiz.Data.Models
             modelBuilder.Configurations.Add(new ExamLevelMap());
             modelBuilder.Configurations.Add(new QueCorrectSentenceMap());
             modelBuilder.Configurations.Add(new QueOneSentenceMap());
+            modelBuilder.Configurations.Add(new QueReasonMap());
+            modelBuilder.Configurations.Add(new QueShortNoteMap());
             modelBuilder.Configurations.Add(new QuestionCategoryMap());
             modelBuilder.Configurations.Add(new QueWhoWhomWhenMap());
         }

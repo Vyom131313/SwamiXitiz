@@ -1,6 +1,11 @@
 ﻿(function () {
 
     angular.module('MyApp')
+        .filter("sanitize", ['$sce', function($sce) {
+            return function(htmlCode){
+                return $sce.trustAsHtml(htmlCode);
+            }
+        }])
         .controller('PrarambhController', ['$scope', function ($scope) {
 
             $scope.Message = "Yahoooo!.";
@@ -49,6 +54,21 @@
                 });
             }
             $scope.Que_3_List_Load();
+
+            /************** Que_3 *****************/
+            $scope.Que_4_List = [];
+            $scope.Que_4_List_Load = function () {
+                $.ajax({
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    url: '/Prarambh/Que_4_List',
+                    success: function (data) {
+                        $scope.Que_4_List = data
+                        $scope.$apply();
+                    }
+                });
+            }
+            $scope.Que_4_List_Load();
         }
         ]);
 })();

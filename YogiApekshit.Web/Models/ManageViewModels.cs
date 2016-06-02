@@ -231,6 +231,13 @@ namespace YogiApekshit.Web.Models
                         new MenuItem { Name = "Que-2", ControllerName="Prarambh", ActionName="Que_2" },
                         new MenuItem { Name = "Que-3", ControllerName="Prarambh", ActionName="Que_3" },
                         new MenuItem { Name = "Que-4", ControllerName="Prarambh", ActionName="Que_4" },
+                        new MenuItem { Name = "Que-5", ControllerName="Prarambh", ActionName="Que_5" },
+                        new MenuItem { Name = "Que-6", ControllerName="Prarambh", ActionName="Que_6" },
+                        new MenuItem { Name = "Que-7", ControllerName="Prarambh", ActionName="Que_7" },
+                        new MenuItem { Name = "Que-8", ControllerName="Prarambh", ActionName="Que_8" },
+                        new MenuItem { Name = "Que-9", ControllerName="Prarambh", ActionName="Que_9" },
+                        new MenuItem { Name = "Que-10", ControllerName="Prarambh", ActionName="Que_10" },
+                        new MenuItem { Name = "Que-11", ControllerName="Prarambh", ActionName="Que_11" },
                     }
                 },
 
