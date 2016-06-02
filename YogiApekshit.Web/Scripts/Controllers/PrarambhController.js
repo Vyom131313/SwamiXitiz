@@ -6,8 +6,8 @@
             $scope.Message = "Yahoooo!.";
 
             $scope.QueAnsList = [];
-            $scope.Init;
-            $scope.Init = function () {
+
+            $scope.Que2List = function () {
 
                 $.ajax({
                     type: 'GET',
@@ -16,12 +16,12 @@
                     success: function (data) {
                         $scope.QueAnsList = data
 
-                        //alert(JSON.stringify(data))
+                        //alert(JSON.stringify($scope.QueAnsList))
                         $scope.$apply();
                     }
                 });
             }
-            $scope.Init();
+            $scope.Que2List();
         }
         ]);
 })();
