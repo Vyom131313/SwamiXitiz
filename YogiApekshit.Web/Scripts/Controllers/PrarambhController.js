@@ -5,13 +5,12 @@
 
             $scope.Message = "Yahoooo!.";
 
-            /************** Que_1 *****************/
-            $scope.QA_List = [];
+            /************** QA_List_Load *****************/
+            //$scope.QA_List = [];
             $scope.QA_List_Load = function (category) {
                 $.ajax({
                     type: 'GET',
                     contentType: 'application/json; charset=utf-8',
-                    //data: { category: "WhoWhomWhen" },
                     data: { category: category },
                     url: '/Prarambh/QA_List',
                     success: function (data) {

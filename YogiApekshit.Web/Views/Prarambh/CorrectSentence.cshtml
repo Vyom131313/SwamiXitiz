@@ -2,13 +2,12 @@
 @using YogiApekshit.Web.Models
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Prarambh Que_3";
 }
 
 <div class="page page-dashboard">
     @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Incorrect Sentences"))
     <section class="tile bg-greensea">
-        @Html.Partial("GridToolbar", new GridToolbarModel { GridId = "Prarambh_Incorrect_Sentences_Grid", Title = "Rewrite the incorrect sentences.", SubTitle = "(Total Marks: 4)" })
+        @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Rewrite the incorrect sentences.", SubTitle = "(Total Marks: 4)" })
         <div ng-controller="PrarambhController">
             <span>{{QA_List_Load('CorrectSentence')}}</span>
             <table class="table table-condensed queAnsTable">

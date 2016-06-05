@@ -4,19 +4,17 @@
  -> QueReason
  -> QueShortNote
  - QueCorrectOption
- 
- - init 1 controller at a time
- - Group By Chapter, Category
- 
  - QueCorrectSentence
  - QueCorrectStorySequence
  - QueFillInBlank
  - QueKirtan
  - QueShlok
  - QueSwaminiVato
+ 
+ - Copy all question papers
+ - Group By Chapter, Category
+ 
  ================== AngularJs =================
- - Load function which is required for current page
-
  ================== Prarambh: Collect Questions frol all past papers =================
  - Que-1
  - Que-2
@@ -35,7 +33,6 @@
  - Que-15
  - Que-16
  - Que-17
- 
  ================== Production Release =================
  - Buy domain
  - Deploy
