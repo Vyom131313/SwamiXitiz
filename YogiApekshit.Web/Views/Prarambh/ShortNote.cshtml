@@ -1,5 +1,6 @@
 ﻿@using Mvc.Core.ThirdParty
 @using YogiApekshit.Web.Models
+@using SwamiXitiz.Data.ModelsPartial
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,7 +10,7 @@
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Write short note", SubTitle = "(Total Marks: 4)" })
         <div ng-controller="PrarambhController">
-            <span>{{QA_List_Load('ShortNote')}}</span>
+            <span>{{QA_List_Load('@Constants.Que_Categories.ShortNote')}}</span>
             <table class="table table-condensed queAnsTable">
                 <thead>
                     <tr>

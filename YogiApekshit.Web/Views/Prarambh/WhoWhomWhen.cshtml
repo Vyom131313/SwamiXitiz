@@ -1,5 +1,6 @@
 ﻿@using Mvc.Core.ThirdParty
 @using YogiApekshit.Web.Models
+@using SwamiXitiz.Data.ModelsPartial
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,7 +10,7 @@
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "State who is speaking to whom and when.", SubTitle = "(Total Marks: 9)" })
         <div ng-controller="PrarambhController">
-            <span>{{QA_List_Load('WhoWhomWhen')}}</span>
+            <span>{{QA_List_Load(@Constants.Que_Categories.WhoWhomWhen)}}</span>
 
             <table class="table table-condensed queAnsTable">
                 <thead>

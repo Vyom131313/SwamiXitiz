@@ -1,4 +1,6 @@
-﻿@using Mvc.Core.ThirdParty
+﻿@using YogiApekshit.Web.Models
+@using SwamiXitiz.Data.ModelsPartial
+@using Mvc.Core.ThirdParty
 @using YogiApekshit.Web.Models
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,7 +11,7 @@
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Rewrite the incorrect sentences.", SubTitle = "(Total Marks: 4)" })
         <div ng-controller="PrarambhController">
-            <span>{{QA_List_Load('CorrectSentence')}}</span>
+            <span>{{QA_List_Load('@Constants.Que_Categories.CorrectSentence')}}</span>
             <table class="table table-condensed queAnsTable">
                 <thead>
                     <tr>

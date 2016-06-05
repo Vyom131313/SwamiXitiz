@@ -1,11 +1,12 @@
 ﻿  ================== Templates =================
  -> QueOneSentence
  -> QueWhoWhomWhen
- -> QueReason
  -> QueShortNote
+ -> QueCorrectSentence
+ -> QueCorrectStorySequence
+ 
+ - QueReason
  - QueCorrectOption
- - QueCorrectSentence
- - QueCorrectStorySequence
  - QueFillInBlank
  - QueKirtan
  - QueShlok
