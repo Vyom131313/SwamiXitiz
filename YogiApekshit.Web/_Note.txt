@@ -5,7 +5,7 @@
  -> QueShortNote
  - QueCorrectOption
  
- - Return QA based on question category
+ - init 1 controller at a time
  - Group By Chapter, Category
  
  - QueCorrectSentence

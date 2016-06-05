@@ -418,6 +418,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Images\double-arrow-white.png" />
+    <Content Include="Scripts\app\Filters.js" />
     <Content Include="Scripts\app\loginCtrl.js" />
     <Content Include="Scripts\app\logout.js" />
     <Content Include="Scripts\app\MyApp.js" />
