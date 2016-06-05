@@ -1,0 +1,43 @@
+﻿@using Mvc.Core.ThirdParty
+@using YogiApekshit.Web.Models
+@using SwamiXitiz.Data.ModelsPartial
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page page-dashboard">
+    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Give Reasons"))
+    <section class="tile bg-greensea">
+        @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Give reasons for the following.", SubTitle = "(Total Marks: 8)" })
+        <div ng-controller="PrarambhController">
+            <span>{{QA_List_Load('@Constants.Que_Categories.Reason')}}</span>
+            <table class="table table-condensed queAnsTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Topic and Correct Options</th>
+                        <th>Chapter</th>
+                        <th>Exams</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="item in QA_List">
+                        <td class="sequenceColumn">{{item.Sr}}.</td>
+                        <td class="queAndansColumn">
+                            <p style="line-height:1.7">
+                                <b>{{item.Que}}</b> <br />
+                                <div ng-bind-html="item.Ans | sanitize"></div>
+                            </p>
+                        </td>
+                        <td class="chapterColumn">{{item.Chapter}}</td>
+                        <td class="examColumn">{{item.Exams}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+@section scripts{
+}
