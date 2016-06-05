@@ -16,7 +16,8 @@
                 $.ajax({
                     type: 'GET',
                     contentType: 'application/json; charset=utf-8',
-                    url: '/Prarambh/Que_1_List',
+                    data: { category: "WhoWhomWhen" },
+                    url: '/Prarambh/QA_List',
                     success: function (data) {
                         $scope.Que_1_List = data
                         $scope.$apply();
@@ -31,7 +32,8 @@
                 $.ajax({
                     type: 'GET',
                     contentType: 'application/json; charset=utf-8',
-                    url: '/Prarambh/Que_2_List',
+                    data: { category: "OneSentence" },
+                    url: '/Prarambh/QA_List',
                     success: function (data) {
                         $scope.Que_2_List = data
                         $scope.$apply();
@@ -46,7 +48,8 @@
                 $.ajax({
                     type: 'GET',
                     contentType: 'application/json; charset=utf-8',
-                    url: '/Prarambh/Que_3_List',
+                    data: { category: "CorrectSentence" },
+                    url: '/Prarambh/QA_List',
                     success: function (data) {
                         $scope.Que_3_List = data
                         $scope.$apply();
@@ -61,7 +64,8 @@
                 $.ajax({
                     type: 'GET',
                     contentType: 'application/json; charset=utf-8',
-                    url: '/Prarambh/Que_4_List',
+                    data: { category: "ShortNote" },
+                    url: '/Prarambh/QA_List',
                     success: function (data) {
                         $scope.Que_4_List = data
                         $scope.$apply();

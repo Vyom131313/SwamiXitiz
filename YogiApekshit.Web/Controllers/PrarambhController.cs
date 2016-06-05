@@ -23,7 +23,7 @@ namespace YogiApekshit.Web.Controllers
             this.repoQueWhoWhomWhen = repoQueWhoWhomWhen;
             this.repoQueOneSentence = repoQueOneSentence;
             this.repoQueCorrectSentence = repoQueCorrectSentence;
-            this.repoQueShortNote = repoQueShortNote; 
+            this.repoQueShortNote = repoQueShortNote;
         }
         #endregion
 
@@ -32,12 +32,24 @@ namespace YogiApekshit.Web.Controllers
             return View(category);
         }
 
-        public JsonResult QueAns_List()
+        public JsonResult QA_List(string category)
         {
-            return Que_1_List();
+            switch (category)
+            {
+                case "WhoWhomWhen":
+                    return QA_WhoWhomWhen_List();
+                case "OneSentence":
+                    return QA_OneSentence_List();
+                case "CorrectSentence":
+                    return QA_CorrectSentence_List();
+                case "ShortNote":
+                    return QA_ShortNote_List();
+                default:
+                    return null;
+            }
         }
 
-        public JsonResult Que_1_List()
+        public JsonResult QA_WhoWhomWhen_List()
         {
             var seq = 1;
             var data = repoQueWhoWhomWhen.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
@@ -55,7 +67,7 @@ namespace YogiApekshit.Web.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult Que_2_List()
+        public JsonResult QA_OneSentence_List()
         {
             var seq = 1;
             var data = repoQueOneSentence.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
@@ -71,7 +83,7 @@ namespace YogiApekshit.Web.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult Que_3_List()
+        public JsonResult QA_CorrectSentence_List()
         {
             var seq = 1;
             var data = repoQueCorrectSentence.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
@@ -87,7 +99,7 @@ namespace YogiApekshit.Web.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult Que_4_List()
+        public JsonResult QA_ShortNote_List()
         {
             var seq = 1;
             var data = repoQueShortNote.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
@@ -97,118 +109,6 @@ namespace YogiApekshit.Web.Controllers
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
-                    Chapter = c.ChapterNumber,
-                    Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult Que_5_List()
-        {
-            var seq = 1;
-            var data = repoQueCorrectSentence.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
-                .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
-                {
-                    Sr = seq++,
-                    Title = c.Title_Eng,
-                    Correct = c.Correct_Eng,
-                    Chapter = c.ChapterNumber,
-                    Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult Que_6_List()
-        {
-            var seq = 1;
-            var data = repoQueCorrectSentence.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
-                .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
-                {
-                    Sr = seq++,
-                    Title = c.Title_Eng,
-                    Correct = c.Correct_Eng,
-                    Chapter = c.ChapterNumber,
-                    Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult Que_7_List()
-        {
-            var seq = 1;
-            var data = repoQueCorrectSentence.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
-                .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
-                {
-                    Sr = seq++,
-                    Title = c.Title_Eng,
-                    Correct = c.Correct_Eng,
-                    Chapter = c.ChapterNumber,
-                    Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult Que_8_List()
-        {
-            var seq = 1;
-            var data = repoQueCorrectSentence.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
-                .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
-                {
-                    Sr = seq++,
-                    Title = c.Title_Eng,
-                    Correct = c.Correct_Eng,
-                    Chapter = c.ChapterNumber,
-                    Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult Que_9_List()
-        {
-            var seq = 1;
-            var data = repoQueCorrectSentence.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
-                .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
-                {
-                    Sr = seq++,
-                    Title = c.Title_Eng,
-                    Correct = c.Correct_Eng,
-                    Chapter = c.ChapterNumber,
-                    Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult Que_10_List()
-        {
-            var seq = 1;
-            var data = repoQueCorrectSentence.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
-                .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
-                {
-                    Sr = seq++,
-                    Title = c.Title_Eng,
-                    Correct = c.Correct_Eng,
-                    Chapter = c.ChapterNumber,
-                    Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult Que_11_List()
-        {
-            var seq = 1;
-            var data = repoQueCorrectSentence.GetAll().Where(obj => obj.BookId == Constants.Books.Ghanshaym_Charitra)
-                .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
-                {
-                    Sr = seq++,
-                    Title = c.Title_Eng,
-                    Correct = c.Correct_Eng,
                     Chapter = c.ChapterNumber,
                     Exams = c.Exams,
                 });
