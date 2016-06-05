@@ -6,16 +6,16 @@
 }
 
 <div class="page page-dashboard">
-    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("One sentence answer"))
+    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Correct Options"))
     <section class="tile bg-greensea">
-        @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Answer ALL of the following, using one sentence (not just one word) for each answer.", SubTitle = "(Total Marks: 4)" })
+        @Html.Partial("GridToolbar", new GridToolbarModel { Title = "From the given options, place a tick (✔) in the box next to the correct ones.", SubTitle = "(Total Marks: 8)" })
         <div ng-controller="PrarambhController">
-            <span>{{QA_List_Load('@Constants.Que_Categories.OneSentence')}}</span>
+            <span>{{QA_List_Load('@Constants.Que_Categories.CorrectOption')}}</span>
             <table class="table table-condensed queAnsTable">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Queuestion and Answer</th>
+                        <th>Topic and Correct Options</th>
                         <th>Chapter</th>
                         <th>Exams</th>
                     </tr>
@@ -25,8 +25,8 @@
                         <td class="sequenceColumn">{{item.Sr}}.</td>
                         <td class="queAndansColumn">
                             <p style="line-height:1.7">
-                                <b>{{item.Que}}</b> <br />
-                                <b>Ans:</b> {{item.Ans}}
+                                <b>{{item.Title}}</b> <br />
+                                <div ng-bind-html="item.Correct | sanitize"></div>
                             </p>
                         </td>
                         <td class="chapterColumn">{{item.Chapter}}</td>

@@ -1,10 +1,4 @@
 ﻿  ================== Templates =================
- -> QueOneSentence
- -> QueWhoWhomWhen
- -> QueShortNote
- -> QueCorrectSentence
- -> QueCorrectStorySequence
- 
  - QueReason
  - QueCorrectOption
  - QueFillInBlank
@@ -12,6 +6,7 @@
  - QueShlok
  - QueSwaminiVato
  
+ - Breadcrumb issue
  - Copy all question papers
  - Group By Chapter, Category
  
