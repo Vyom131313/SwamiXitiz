@@ -26,6 +26,9 @@ namespace SwamiXitiz.Data.Models
 
     }
 
+    public partial class QueCorrectSequence:EntityBase
+    { }
+
     public partial class QueCorrectOption : EntityBase
     {
 
