@@ -6,10 +6,11 @@
 }
 
 <div class="page page-dashboard">
-    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Que3"))
+    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Incorrect Sentences"))
     <section class="tile bg-greensea">
-        @Html.Partial("GridToolbar", new GridToolbarModel { GridId = "Prarambh_Que3_Grid", Title = "Rewrite the incorrect sentences.", SubTitle = "(Total Marks: 4)" })
+        @Html.Partial("GridToolbar", new GridToolbarModel { GridId = "Prarambh_Incorrect_Sentences_Grid", Title = "Rewrite the incorrect sentences.", SubTitle = "(Total Marks: 4)" })
         <div ng-controller="PrarambhController">
+            <span>{{QA_List_Load('CorrectSentence')}}</span>
             <table class="table table-condensed queAnsTable">
                 <thead>
                     <tr>
@@ -20,7 +21,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-ng-repeat="item in Que_3_List">
+                    <tr data-ng-repeat="item in QA_List">
                         <td class="sequenceColumn">{{item.Sr}}.</td>
                         <td class="queAndansColumn">
                             <p style="line-height:1.7">
@@ -34,7 +35,6 @@
                     </tr>
                 </tbody>
             </table>
-
         </div>
     </section>
 </div>

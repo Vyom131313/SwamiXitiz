@@ -10,6 +10,8 @@
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { GridId = "Prarambh_Que1_Grid", Title = "State who is speaking to whom and when.", SubTitle = "(Total Marks: 9)" })
         <div ng-controller="PrarambhController">
+            <span>{{QA_List_Load('WhoWhomWhen')}}</span>
+
             <table class="table table-condensed queAnsTable">
                 <thead>
                     <tr>
@@ -25,7 +27,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-ng-repeat="item in Que_1_List">
+                    <tr data-ng-repeat="item in QA_List">
                         <td class="sequenceColumn">{{item.Sr}}.</td>
                         <td class="queAndansColumn">
                             <p style="line-height:1.7">
