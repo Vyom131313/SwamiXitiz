@@ -143,7 +143,7 @@ namespace YogiApekshit.Web.Models
             }
         }
 
-        public List<BreadCrumb> GetByControllerAndAction(string controller, string action, string area = "")
+        public List<BreadCrumb> GetBreadCrumbByControllerAndAction(string controller, string action, string area = "")
         {
             var breadCrumbs = new List<BreadCrumb>();
             if (this.ControllerName.Equals(controller) && this.ActionName.Equals(action) && this.AreaName.Equals(area))
@@ -160,7 +160,7 @@ namespace YogiApekshit.Web.Models
             {
                 foreach (var child in this.MenuItems)
                 {
-                    breadCrumbs = child.GetByControllerAndAction(controller, action, area);
+                    breadCrumbs = child.GetBreadCrumbByControllerAndAction(controller, action, area);
                     if (breadCrumbs.Count > 0)
                     {
                         breadCrumbs.Insert(0, this.BreadCrumb);
@@ -217,11 +217,16 @@ namespace YogiApekshit.Web.Models
         public static List<BreadCrumb> BuildBreadCrumb(string controller, string action, string area = "")
         {
             var menus = BuildMenu();
-            return menus.GetByControllerAndAction(controller, action, area);
+            return menus.GetBreadCrumbByControllerAndAction(controller, action, area);
         }
 
         public static MenuItem BuildMenu()
         {
+            if (System.Web.HttpContext.Current.Session["Menus"] != null)
+            {
+                return System.Web.HttpContext.Current.Session["Menus"] as MenuItem;
+            }
+
             var root = new MenuItem { Name = "Home", ControllerName = "Home", ActionName = "Index" };
             root.MenuItems = new List<MenuItem> 
             {
@@ -257,8 +262,9 @@ namespace YogiApekshit.Web.Models
                     }
                 }, 
             };
-            return root;
+
+            System.Web.HttpContext.Current.Session["Menus"] = root;
+            return System.Web.HttpContext.Current.Session["Menus"] as MenuItem;
         }
     }
-
 }

@@ -1,34 +1,8 @@
 ﻿  ================== Templates =================
- - QueReason
- - QueCorrectOption
- - QueFillInBlank
- - QueKirtan
- - QueShlok
- - QueSwaminiVato
- 
- - Breadcrumb issue
- - Copy all question papers
+  - Copy all question papers
  - Group By Chapter, Category
  
- ================== AngularJs =================
- ================== Prarambh: Collect Questions frol all past papers =================
- - Que-1
- - Que-2
- - Que-3
- - Que-4
- - Que-5
- - Que-6
- - Que-7
- - Que-8
- - Que-9
- - Que-10
- - Que-11
- - Que-12
- - Que-13
- - Que-14
- - Que-15
- - Que-16
- - Que-17
+ ================== AngularJs ==========================
  ================== Production Release =================
  - Buy domain
  - Deploy
