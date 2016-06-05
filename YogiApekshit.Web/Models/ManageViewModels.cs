@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SwamiXitiz.Data.ModelsPartial;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
@@ -112,6 +113,8 @@ namespace YogiApekshit.Web.Models
         public string ControllerName { get; set; }
         public string ActionName { get; set; }
         public string IConClass { get; set; }
+        public object RouteValues { get; set; }
+
         public bool IsActive { get; set; }
         public List<MenuItem> MenuItems = new List<MenuItem>();
         public List<NonMenuItem> NonMenuItems = new List<NonMenuItem>();
@@ -227,17 +230,17 @@ namespace YogiApekshit.Web.Models
                 new MenuItem { Name = "Prarambh", IConClass = "fa fa-pencil",
                     MenuItems = new List<MenuItem>
                     {
-                        new MenuItem { Name = "Que-1", ControllerName="Prarambh", ActionName="Que_1" },
-                        new MenuItem { Name = "Que-2", ControllerName="Prarambh", ActionName="Que_2" },
-                        new MenuItem { Name = "Que-3", ControllerName="Prarambh", ActionName="Que_3" },
-                        new MenuItem { Name = "Que-4", ControllerName="Prarambh", ActionName="Que_4" },
-                        new MenuItem { Name = "Que-5", ControllerName="Prarambh", ActionName="Que_5" },
-                        new MenuItem { Name = "Que-6", ControllerName="Prarambh", ActionName="Que_6" },
-                        new MenuItem { Name = "Que-7", ControllerName="Prarambh", ActionName="Que_7" },
-                        new MenuItem { Name = "Que-8", ControllerName="Prarambh", ActionName="Que_8" },
-                        new MenuItem { Name = "Que-9", ControllerName="Prarambh", ActionName="Que_9" },
-                        new MenuItem { Name = "Que-10", ControllerName="Prarambh", ActionName="Que_10" },
-                        new MenuItem { Name = "Que-11", ControllerName="Prarambh", ActionName="Que_11" },
+                        new MenuItem { Name = "Que-1", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.WhoWhomWhen } },
+                        new MenuItem { Name = "Que-2", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.OneSentence }  },
+                        new MenuItem { Name = "Que-3", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.CorrectSentence }  },
+                        new MenuItem { Name = "Que-4", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.ShortNote}  },
+                        new MenuItem { Name = "Que-5", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.CorrectSequence }  },
+                        new MenuItem { Name = "Que-6", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.FillInBlank }  },
+                        new MenuItem { Name = "Que-7", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.CorrectOption }  },
+                        new MenuItem { Name = "Que-8", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Reason }  },
+                        new MenuItem { Name = "Que-9", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Shlok }  },
+                        new MenuItem { Name = "Que-10", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Kirtan }  },
+                        new MenuItem { Name = "Que-11", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.SwaminiVat }  },
                     }
                 },
 

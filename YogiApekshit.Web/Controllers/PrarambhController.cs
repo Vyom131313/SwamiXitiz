@@ -27,49 +27,14 @@ namespace YogiApekshit.Web.Controllers
         }
         #endregion
 
-        public ActionResult Que_1()
+        public ActionResult QuestionCategory(string category)
         {
-            return View();
+            return View(category);
         }
-        public ActionResult Que_2()
+
+        public JsonResult QueAns_List()
         {
-            return View();
-        }
-        public ActionResult Que_3()
-        {
-            return View();
-        }
-        public ActionResult Que_4()
-        {
-            return View();
-        }
-        public ActionResult Que_5()
-        {
-            return View();
-        }
-        public ActionResult Que_6()
-        {
-            return View();
-        }
-        public ActionResult Que_7()
-        {
-            return View();
-        }
-        public ActionResult Que_8()
-        {
-            return View();
-        }
-        public ActionResult Que_9()
-        {
-            return View();
-        }
-        public ActionResult Que_10()
-        {
-            return View();
-        }
-        public ActionResult Que_11()
-        {
-            return View();
+            return Que_1_List();
         }
 
         public JsonResult Que_1_List()

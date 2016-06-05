@@ -21,13 +21,13 @@
                                     {
                                         var cls = menu.IsActive ? "active" : string.Empty;
                                         <li class="@cls">
-                                            <a role="button" href="@Url.Action(menu.ActionName, menu.ControllerName, new { Area = menu.AreaName})"><i class="@menu.IConClass"></i><span>@menu.Name</span></a>
+                                            <a role="button" href="@Url.Action(menu.ActionName, menu.ControllerName, menu.RouteValues)"><i class="@menu.IConClass"></i><span>@menu.Name</span></a>
                                             @if(menu.MenuItems.Count > 0)
                                             {
                                                 <ul>
                                                     @foreach(var childMenu in menu.MenuItems)
                                                     {
-                                                        <li><a href="@Url.Action(childMenu.ActionName, childMenu.ControllerName, new { Area = childMenu.AreaName})"><i class="@childMenu.IConClass"></i><span>@childMenu.Name</span></a></li>
+                                                        <li><a href="@Url.Action(childMenu.ActionName, childMenu.ControllerName, childMenu.RouteValues)"><i class="@childMenu.IConClass"></i><span>@childMenu.Name</span></a></li>
                                                     }
                                                 </ul>
                                             }

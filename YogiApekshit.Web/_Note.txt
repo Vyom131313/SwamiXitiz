@@ -1,16 +1,23 @@
-﻿ - DB Design
- ================== Templates =================
+﻿  ================== Templates =================
  -> QueOneSentence
  -> QueWhoWhomWhen
- - QueReason
- - QueShortNote
- - QueCorrectSentence
+ -> QueReason
+ -> QueShortNote
  - QueCorrectOption
+ 
+ - Return menu with category
+ - Return View based on question category
+ - Return QA based on question category
+ - 
+ 
+ - QueCorrectSentence
  - QueCorrectStorySequence
  - QueFillInBlank
  - QueKirtan
  - QueShlok
  - QueSwaminiVato
+ ================== AngularJs =================
+ - Load function which is required for current page
 
  ================== Prarambh: Collect Questions frol all past papers =================
  - Que-1

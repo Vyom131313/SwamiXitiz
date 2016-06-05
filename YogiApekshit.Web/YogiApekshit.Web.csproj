@@ -564,7 +564,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Prarambh\Que_2.cshtml" />
+    <Content Include="Views\Prarambh\OneSentence.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\CRUD.cshtml" />
@@ -573,13 +573,13 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Prarambh\Que_1.cshtml" />
+    <Content Include="Views\Prarambh\WhoWhomWhen.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Prarambh\Que_3.cshtml" />
+    <Content Include="Views\Prarambh\CorrectSentence.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Prarambh\Que_4.cshtml" />
+    <Content Include="Views\Prarambh\ShortNote.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

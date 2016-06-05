@@ -12,5 +12,20 @@ namespace SwamiXitiz.Data.ModelsPartial
         {
             public static int Ghanshaym_Charitra = 1;
         }
+
+        public enum Que_Categories
+        {
+            CorrectOption,
+            CorrectSentence,
+            CorrectSequence,
+            FillInBlank,
+            Kirtan,
+            OneSentence,
+            Reason,
+            Shlok,
+            ShortNote,
+            SwaminiVat,
+            WhoWhomWhen
+        }
     }
 }
