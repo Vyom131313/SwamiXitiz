@@ -3,7 +3,10 @@
  - Hide/Show All Answer
  - Hide/Show individual Answer
  - Print
- - Fullscreen 
+ - Fullscreen
+ - Book cover page
+ - Birthdates table
+ - Dashboard
  ================== Copy all question papers ===========
  - 2013
  - 2012
@@ -17,6 +20,7 @@
  - Deploy
  - Test
  - Performance
+ - Caching
  ================== Guj =================
 -> Convert all pdf to txt
 - Replace special characters
