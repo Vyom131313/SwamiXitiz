@@ -13,5 +13,6 @@ namespace SwamiXitiz.Data.Models
         public string Title_Guj { get; set; }
         public string Correct_Guj { get; set; }
         public string Exams { get; set; }
+        public virtual Book Book { get; set; }
     }
 }

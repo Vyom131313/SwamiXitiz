@@ -21,6 +21,12 @@ namespace SwamiXitiz.Data.Models.Mapping
             this.Property(t => t.Que_Guj).HasColumnName("Que_Guj");
             this.Property(t => t.Ans_Guj).HasColumnName("Ans_Guj");
             this.Property(t => t.Exams).HasColumnName("Exams");
+
+            // Relationships
+            this.HasRequired(t => t.Book)
+                .WithMany(t => t.QueShortNotes)
+                .HasForeignKey(d => d.BookId);
+
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿ ================== Templates =================
  - Group By Chapter, Category
- 
+ - Hide/Show All Answer
+ - Hide/Show individual Answer
+  
  ================== Copy all question papers ===========
  - 2015
  - 2014

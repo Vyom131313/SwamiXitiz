@@ -98,7 +98,7 @@ namespace YogiApekshit.Web.Controllers
                     Sr = seq++,
                     Title = c.Title_Eng,
                     Correct = c.Correct_Eng,
-                    Chapter = c.ChapterNumber,
+                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 });
             return Json(data, JsonRequestBehavior.AllowGet);
@@ -114,7 +114,7 @@ namespace YogiApekshit.Web.Controllers
                     Sr = seq++,
                     Title = c.Title_Eng,
                     Correct = c.Correct_Eng,
-                    Chapter = c.ChapterNumber,
+                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 });
             return Json(data, JsonRequestBehavior.AllowGet);
@@ -130,7 +130,7 @@ namespace YogiApekshit.Web.Controllers
                     Sr = seq++,
                     Title = c.Title_Eng,
                     Correct = c.Correct_Eng,
-                    Chapter = c.ChapterNumber,
+                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 });
             return Json(data, JsonRequestBehavior.AllowGet);
@@ -146,7 +146,7 @@ namespace YogiApekshit.Web.Controllers
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
-                    Chapter = c.ChapterNumber,
+                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 });
             return Json(data, JsonRequestBehavior.AllowGet);
@@ -162,7 +162,7 @@ namespace YogiApekshit.Web.Controllers
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
-                    Chapter = c.ChapterNumber,
+                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 });
             return Json(data, JsonRequestBehavior.AllowGet);
@@ -178,7 +178,7 @@ namespace YogiApekshit.Web.Controllers
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
-                    Chapter = c.ChapterNumber,
+                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 });
             return Json(data, JsonRequestBehavior.AllowGet);
@@ -194,7 +194,7 @@ namespace YogiApekshit.Web.Controllers
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
-                    Chapter = c.ChapterNumber,
+                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 });
             return Json(data, JsonRequestBehavior.AllowGet);
@@ -210,7 +210,7 @@ namespace YogiApekshit.Web.Controllers
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
-                    Chapter = c.ChapterNumber,
+                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 });
             return Json(data, JsonRequestBehavior.AllowGet);
@@ -226,7 +226,7 @@ namespace YogiApekshit.Web.Controllers
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
-                    Chapter = c.ChapterNumber,
+                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 });
             return Json(data, JsonRequestBehavior.AllowGet);
@@ -242,7 +242,7 @@ namespace YogiApekshit.Web.Controllers
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
-                    Chapter = c.ChapterNumber,
+                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 });
             return Json(data, JsonRequestBehavior.AllowGet);
@@ -260,7 +260,7 @@ namespace YogiApekshit.Web.Controllers
                     Who = c.Who_Eng,
                     Whom = c.Whom_Eng,
                     When = c.WhenSpeaking_Eng,
-                    Chapter = c.ChapterNumber,
+                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 });
             return Json(data, JsonRequestBehavior.AllowGet);

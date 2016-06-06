@@ -12,16 +12,28 @@ namespace SwamiXitiz.Data.Models.Mapping
 
             // Properties
             this.Property(t => t.Name_Eng)
+                .IsRequired()
                 .HasMaxLength(500);
 
             this.Property(t => t.Name_Guj)
+                .IsRequired()
                 .HasMaxLength(500);
+
+            this.Property(t => t.Code_Eng)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            this.Property(t => t.Code_Guj)
+                .IsRequired()
+                .HasMaxLength(50);
 
             // Table & Column Mappings
             this.ToTable("Book");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.Name_Eng).HasColumnName("Name_Eng");
             this.Property(t => t.Name_Guj).HasColumnName("Name_Guj");
+            this.Property(t => t.Code_Eng).HasColumnName("Code_Eng");
+            this.Property(t => t.Code_Guj).HasColumnName("Code_Guj");
         }
     }
 }
