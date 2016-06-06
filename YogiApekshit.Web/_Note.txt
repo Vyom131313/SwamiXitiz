@@ -2,9 +2,9 @@
  - Group By Chapter, Category
  - Hide/Show All Answer
  - Hide/Show individual Answer
-  
+ - Print
+ - Fullscreen 
  ================== Copy all question papers ===========
- - 2015
  - 2014
  - 2013
  - 2012
@@ -18,7 +18,6 @@
  - Deploy
  - Test
  - Performance
-
  ================== Guj =================
 -> Convert all pdf to txt
 - Replace special characters
