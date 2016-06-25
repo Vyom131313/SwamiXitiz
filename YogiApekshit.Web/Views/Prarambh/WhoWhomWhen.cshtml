@@ -17,11 +17,11 @@
                     <tr>
                         <th>#</th>
                         <th>Statement</th>
-                        <th>Who</th>
-                        <th>
-                            <img src="/Images/double-arrow-white.png" width="16px" />
-                        </th>
-                        <th>Whom</th>
+                        @*<th>Who</th>
+                            <th>
+                                <img src="/Images/double-arrow-white.png" width="16px" />
+                            </th>
+                            <th>Whom</th>*@
                         <th>Chapter</th>
                         <th>Exams</th>
                     </tr>
@@ -31,15 +31,23 @@
                         <td class="sequenceColumn">{{item.Sr}}.</td>
                         <td class="queAndansColumn">
                             <p style="line-height:1.7">
-                                <b>{{item.Que}}</b> <br />
+                                <b>{{item.Que}}</b>
+                            </p>
+                            <p style="line-height:1.7">
+                                <span style="font-style:italic; color:black">{{item.Who}}</span>
+                                <img src="/Images/double-arrow-white.png" width="16px" />
+                                <span style="font-style:italic; color:black">
+                                    {{item.Whom}}
+                                </span>
+                                <br />
                                 <i class="doublearrow-white"></i>
                                 <img src="/Images/double-arrow-white.png" width="16px" />
                                 <span class="whenColumn">{{item.When}}</span>
                             </p>
                         </td>
-                        <td class="whoColumn">{{item.Who}}</td>
-                        <td><img src="/Images/double-arrow-white.png" width="16px" /></td>
-                        <td class="whomColumn">{{item.Whom}}</td>
+                        @*<td class="whoColumn">{{item.Who}}</td>
+                            <td><img src="/Images/double-arrow-white.png" width="16px" /></td>
+                            <td class="whomColumn">{{item.Whom}}</td>*@
                         <td class="chapterColumn">{{item.Chapter}}</td>
                         <td class="examColumn">{{item.Exams}}</td>
                     </tr>
