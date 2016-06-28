@@ -3,6 +3,7 @@ using SwamiXitiz.Data.Models;
 using SwamiXitiz.Data.ModelsPartial;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using System.Linq;
 using YogiApekshit.Web.Models;
 
 namespace YogiApekshit.Web.Controllers
@@ -31,7 +32,7 @@ namespace YogiApekshit.Web.Controllers
             var mnuPrarambh = new MenuItem { Name = "Prarambh", IConClass = "fa fa-pencil" };
             mnuPrarambh.MenuItems = new List<MenuItem>();
 
-            foreach (var book in bookRepo.GetAll())
+            foreach (var book in bookRepo.GetAll().Where(c => c.ExamLevelId == Constants.ExamLevels.Prarambh))
             {
                 var mnuBook = new MenuItem { Name = book.Name_Eng, IConClass = "fa fa-pencil" };
                 mnuBook.MenuItems = new List<MenuItem>();
@@ -65,25 +66,24 @@ namespace YogiApekshit.Web.Controllers
                     new MenuItem { Name = "Kirtan", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Kirtan }  },
                     new MenuItem { Name = "Swamini Vato", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.SwaminiVat }  },
                 }
+            });
             #endregion
 
-                //new MenuItem { Name = "Pravesh-1", IConClass = "fa fa-pencil",
-                //    MenuItems = new List<MenuItem>
-                //    {
-                //        new MenuItem { Name = "Que-1", ControllerName="Pravesh_1", ActionName="Que_1" },
-                //        new MenuItem { Name = "Que-2", ControllerName="Pravesh_1", ActionName="Que_2" },
-                //        new MenuItem { Name = "Que-4", ControllerName="Pravesh_1", ActionName="Que_4" },
-                //        new MenuItem { Name = "Que-7", ControllerName="Pravesh_1", ActionName="Que_7" },
-                //        new MenuItem { Name = "Que-8", ControllerName="Pravesh_1", ActionName="Que_8" },
-                //        new MenuItem { Name = "Que-9", ControllerName="Pravesh_1", ActionName="Que_9" },
-                //        new MenuItem { Name = "Que-12", ControllerName="Pravesh_1", ActionName="Que_12" }
-                //    }
-                //}, 
-            });
+            //new MenuItem { Name = "Pravesh-1", IConClass = "fa fa-pencil",
+            //    MenuItems = new List<MenuItem>
+            //    {
+            //        new MenuItem { Name = "Que-1", ControllerName="Pravesh_1", ActionName="Que_1" },
+            //        new MenuItem { Name = "Que-2", ControllerName="Pravesh_1", ActionName="Que_2" },
+            //        new MenuItem { Name = "Que-4", ControllerName="Pravesh_1", ActionName="Que_4" },
+            //        new MenuItem { Name = "Que-7", ControllerName="Pravesh_1", ActionName="Que_7" },
+            //        new MenuItem { Name = "Que-8", ControllerName="Pravesh_1", ActionName="Que_8" },
+            //        new MenuItem { Name = "Que-9", ControllerName="Pravesh_1", ActionName="Que_9" },
+            //        new MenuItem { Name = "Que-12", ControllerName="Pravesh_1", ActionName="Que_12" }
+            //    }
+            //}, 
 
             System.Web.HttpContext.Current.Session["Menus"] = root;
             return System.Web.HttpContext.Current.Session["Menus"] as MenuItem;
         }
-
     }
 }

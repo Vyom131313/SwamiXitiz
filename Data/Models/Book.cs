@@ -26,6 +26,8 @@ namespace SwamiXitiz.Data.Models
         public string Name_Guj { get; set; }
         public string Code_Eng { get; set; }
         public string Code_Guj { get; set; }
+        public int ExamLevelId { get; set; }
+        public virtual ExamLevel ExamLevel { get; set; }
         public virtual ICollection<BookChapter> BookChapters { get; set; }
         public virtual ICollection<QueCorrectOption> QueCorrectOptions { get; set; }
         public virtual ICollection<QueCorrectSentence> QueCorrectSentences { get; set; }

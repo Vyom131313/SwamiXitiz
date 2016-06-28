@@ -34,6 +34,13 @@ namespace SwamiXitiz.Data.Models.Mapping
             this.Property(t => t.Name_Guj).HasColumnName("Name_Guj");
             this.Property(t => t.Code_Eng).HasColumnName("Code_Eng");
             this.Property(t => t.Code_Guj).HasColumnName("Code_Guj");
+            this.Property(t => t.ExamLevelId).HasColumnName("ExamLevelId");
+
+            // Relationships
+            this.HasRequired(t => t.ExamLevel)
+                .WithMany(t => t.Books)
+                .HasForeignKey(d => d.ExamLevelId);
+
         }
     }
 }

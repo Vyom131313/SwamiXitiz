@@ -8,6 +8,14 @@ namespace SwamiXitiz.Data.ModelsPartial
 {
     public static class Constants
     {
+        public static class ExamLevels
+        {
+            public static int Prarambh = 1;
+            public static int Pravesh = 2;
+            public static int Parichay = 3;
+            public static int Pravin = 4;
+        }
+
         public static class Books
         {
             public static int Ghanshaym_Charitra = 1;
