@@ -24,21 +24,21 @@ namespace YogiApekshit.Web.Controllers
         private MenuItem BuildMenu()
         {
             var root = new MenuItem { Name = "Home", ControllerName = "Home", ActionName = "Index" };
-            root.MenuItems = new List<MenuItem> ();
+            root.MenuItems = new List<MenuItem>();
 
-            root.MenuItems.Add(new MenuItem { Name = "Dashboard", ControllerName="Home", ActionName="Index", IConClass = "fa fa-dashboard" });
+            root.MenuItems.Add(new MenuItem { Name = "Dashboard", ControllerName = "Home", ActionName = "Index", IConClass = "fa fa-dashboard" });
 
-            var mnuPrarambh = new MenuItem { Name = "Prarambh", IConClass = "fa fa-pencil"};
+            var mnuPrarambh = new MenuItem { Name = "Prarambh", IConClass = "fa fa-pencil" };
             mnuPrarambh.MenuItems = new List<MenuItem>();
 
-            foreach(var book in bookRepo.GetAll())
-            {                
+            foreach (var book in bookRepo.GetAll())
+            {
                 var mnuBook = new MenuItem { Name = book.Name_Eng, IConClass = "fa fa-pencil" };
                 mnuBook.MenuItems = new List<MenuItem>();
 
-                foreach(var chapter in book.BookChapters)
+                foreach (var chapter in book.BookChapters)
                 {
-                    mnuBook.MenuItems.Add(new MenuItem { Name = chapter.Name_Eng, IConClass = "fa fa-pencil" });
+                    mnuBook.MenuItems.Add(new MenuItem { Name = string.Format("{0}. {1}", chapter.ChapterNumber, chapter.Name_Eng), IConClass = "fa fa-pencil" });
                 }
 
                 mnuPrarambh.MenuItems.Add(mnuBook);
@@ -46,7 +46,11 @@ namespace YogiApekshit.Web.Controllers
 
             root.MenuItems.Add(mnuPrarambh);
 
-            root.MenuItems.Add(new MenuItem { Name = "Q/A by Categories", IConClass = "fa fa-pencil",
+            #region Q/A by Categories
+            root.MenuItems.Add(new MenuItem
+            {
+                Name = "Q/A by Categories",
+                IConClass = "fa fa-pencil",
                 MenuItems = new List<MenuItem> 
                 {
                     new MenuItem { Name = "Who Whom When", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.WhoWhomWhen } },
@@ -61,7 +65,8 @@ namespace YogiApekshit.Web.Controllers
                     new MenuItem { Name = "Kirtan", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Kirtan }  },
                     new MenuItem { Name = "Swamini Vato", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.SwaminiVat }  },
                 }
-    
+            #endregion
+
                 //new MenuItem { Name = "Pravesh-1", IConClass = "fa fa-pencil",
                 //    MenuItems = new List<MenuItem>
                 //    {
