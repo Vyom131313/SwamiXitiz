@@ -19,15 +19,26 @@
                                 {
                                     foreach(var menu in menus.MenuItems)
                                     {
-                                        var cls = menu.IsActive ? "active" : string.Empty;
-                                        <li class="@cls">
+                                        var cls1 = menu.IsActive ? "active" : string.Empty;
+                                        <li class="@cls1">
                                             <a role="button" href="@Url.Action(menu.ActionName, menu.ControllerName, menu.RouteValues)"><i class="@menu.IConClass"></i><span>@menu.Name</span></a>
                                             @if(menu.MenuItems.Count > 0)
                                             {
                                                 <ul>
                                                     @foreach(var childMenu in menu.MenuItems)
                                                     {
-                                                        <li><a href="@Url.Action(childMenu.ActionName, childMenu.ControllerName, childMenu.RouteValues)"><i class="@childMenu.IConClass"></i><span>@childMenu.Name</span></a></li>
+                                                        <li><a href="@Url.Action(childMenu.ActionName, childMenu.ControllerName, childMenu.RouteValues)"><i class="@childMenu.IConClass"></i><span>@childMenu.Name</span></a>
+                                                    
+                                                            @if (childMenu.MenuItems.Count > 0)
+                                                            {
+                                                                <ul>
+                                                                    @foreach (var childMenu2 in childMenu.MenuItems)
+                                                                    {
+                                                                        <li><a href="@Url.Action(childMenu2.ActionName, childMenu2.ControllerName, childMenu2.RouteValues)"><i class="@childMenu2.IConClass"></i><span>@childMenu2.Name</span></a></li>
+                                                                    }
+                                                                </ul>
+                                                            }
+                                                    </li>
                                                     }
                                                 </ul>
                                             }

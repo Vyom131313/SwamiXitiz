@@ -231,24 +231,36 @@ namespace YogiApekshit.Web.Models
             root.MenuItems = new List<MenuItem> 
             {
                 new MenuItem { Name = "Dashboard", ControllerName="Home", ActionName="Index", IConClass = "fa fa-dashboard" },
-                
-                new MenuItem { Name = "Prarambh", IConClass = "fa fa-pencil",
-                    MenuItems = new List<MenuItem>
+                new MenuItem { Name = "Prarambh1", IConClass = "fa fa-pencil",
+                 MenuItems = new List<MenuItem>
                     {
-                        new MenuItem { Name = "Who Whom When", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.WhoWhomWhen } },
-                        new MenuItem { Name = "Ans in One Sentence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.OneSentence }  },
-                        new MenuItem { Name = "Incorrect Sentence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.CorrectSentence }  },
-                        new MenuItem { Name = "Short Notes", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.ShortNote}  },
-                        new MenuItem { Name = "Correct Sequence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.CorrectSequence }  },
-                        new MenuItem { Name = "Fill In Blanks", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.FillInBlank }  },
-                        new MenuItem { Name = "Select Correct Options", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.CorrectOption }  },
-                        new MenuItem { Name = "Give Reasons", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Reason }  },
-                        new MenuItem { Name = "Shloks", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Shlok }  },
-                        new MenuItem { Name = "Kirtan", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Kirtan }  },
-                        new MenuItem { Name = "Swamini Vato", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.SwaminiVat }  },
+                        new MenuItem { Name = "Q/A by Books", IConClass = "fa fa-pencil",
+                            MenuItems = new List<MenuItem> 
+                            { 
+                                new MenuItem { Name = "Ghanshaym Charitra", IConClass = "fa fa-pencil",} ,
+                                new MenuItem { Name = "Yogiji Maharaj", IConClass = "fa fa-pencil",} ,
+                                new MenuItem { Name = "Kishor Satsang Pariksha", IConClass = "fa fa-pencil",} 
+                            }
+                        },
+                        new MenuItem { Name = "Q/A by Categories", IConClass = "fa fa-pencil",
+                            MenuItems = new List<MenuItem> 
+                            {
+                                new MenuItem { Name = "Who Whom When", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.WhoWhomWhen } },
+                                new MenuItem { Name = "Ans in One Sentence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.OneSentence }  },
+                                new MenuItem { Name = "Incorrect Sentence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.CorrectSentence }  },
+                                new MenuItem { Name = "Short Notes", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.ShortNote}  },
+                                new MenuItem { Name = "Correct Sequence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.CorrectSequence }  },
+                                new MenuItem { Name = "Fill In Blanks", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.FillInBlank }  },
+                                new MenuItem { Name = "Select Correct Options", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.CorrectOption }  },
+                                new MenuItem { Name = "Give Reasons", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Reason }  },
+                                new MenuItem { Name = "Shloks", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Shlok }  },
+                                new MenuItem { Name = "Kirtan", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Kirtan }  },
+                                new MenuItem { Name = "Swamini Vato", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.SwaminiVat }  },
+                            }
+                        },
                     }
                 },
-
+                
                 new MenuItem { Name = "Pravesh-1", IConClass = "fa fa-pencil",
                     MenuItems = new List<MenuItem>
                     {

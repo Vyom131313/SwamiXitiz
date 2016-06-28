@@ -1,19 +1,33 @@
 ﻿ ================== Templates =================
- - Group By Chapter, Category
+ 
+ - Display chapter names into menu
+ - Menu icons
+ - All Chapters: display entire Book's  Q/As into separate grids based on categories
+ - Chapter-1: display entire Chapter's  Q/As into separate grids based on categories
+ - Category-1:display cat-1's all Books Q/As into single grid for current category
+
+ - Book cover page
+ - Dashboard
+	- Prarambh
+		- Ghc
+		- YoM
+		- KsP
+	- Pravesh
+		- Book1
+		- Book2
+		- Book3
  - Hide/Show All Answer
  - Hide/Show individual Answer
- - Print
+ - Print 
+ - PDF
  - Fullscreen
- - Book cover page
  - Birthdates table
- - Dashboard
  - Single Page Application
+ - Performance
+ - Animation
  ================== Copy all question papers ===========
- - 2009
- - 2008  
  ================== AngularJs ==========================
  ================== Production Release =================
- - Buy domain
  - Deploy
  - Test
  - Performance

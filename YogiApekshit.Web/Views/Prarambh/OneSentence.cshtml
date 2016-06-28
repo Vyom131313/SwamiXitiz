@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <div class="page page-dashboard">
     @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("One sentence answer"))
     <section class="tile bg-greensea">
@@ -36,6 +37,90 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="awe-content" style="overflow-y: scroll; height: 295px;">
+            <div class="awe-tablw" style="min-width: 912px;">
+                <table class="awe-table">
+                    <colgroup>
+                        <col class="awe-idn">
+                        <col class="awe-idn">
+                        <col style="width:40px" data-i="1">
+                        <col data-i="4">
+                        <col data-i="5">
+                        <col data-i="6">
+                        <col data-i="7">
+                        <col data-i="8">
+                        <col data-i="9">
+                    </colgroup>
+                    <tbody class="awe-tbody">
+                        <tr data-lvl="1" class="awe-ghead  awe-ceb">
+                            <td colspan="9">
+                                <i class="awe-ce-ico"></i> Building : 7724 ( Total Units: 1, Vacant Units: 0 )
+                            </td>
+                        </tr>
+                        <tr style="" data-lvl="2" class="awe-ghead  awe-ceb">
+                            <td class="awe-idn"></td>
+                            <td colspan="8"><i class="awe-ce-ico"></i> Floor : 1 ( Total Units: 1, Vacant Units: 0 )</td>
+                        </tr>
+                        <tr style="" data-lvl="3" data-k="17" class="awe-row">
+                            <td class="awe-idn"></td>
+                            <td class="awe-idn"></td>
+                            <td colspan="-2">
+                                <button type="button" class="btn btn-rounded-20 btn-default btn-sm mr-5" style="width: 30px;" onclick="awe.open('editUnitGrid', { params:{ id: 17 } })">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                            </td>
+                            <td>101</td>
+                            <td>3 BHK</td>
+                            <td>888</td>
+                            <td>&nbsp;</td>
+                            <td>Tenant</td>
+                            <td><button type="button" class="awe-btn" onclick="awe.open('UnitVehicles', { params:{ id: 17 } })"><span class="ico-edit"></span></button></td>
+                        </tr>
+                        <tr data-lvl="1" class="awe-ghead  awe-ceb">
+                            <td colspan="9"><i class="awe-ce-ico"></i> Building : A ( Total Units: 8, Vacant Units: 6 )</td>
+                        </tr>
+                        <tr style="" data-lvl="2" class="awe-ghead  awe-ceb">
+                            <td class="awe-idn"></td>
+                            <td colspan="8"><i class="awe-ce-ico"></i> Floor : 1 ( Total Units: 4, Vacant Units: 3 )</td>
+                        </tr>
+                        <tr style="" data-lvl="3" data-k="1" class="awe-row">
+                            <td class="awe-idn"></td>
+                            <td class="awe-idn"></td>
+                            <td colspan="-2">
+                                <button type="button" class="btn btn-rounded-20 btn-default btn-sm mr-5" style="width: 30px;" onclick="awe.open('editUnitGrid', { params:{ id: 1 } })">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                            </td>
+                            <td>101</td>
+                            <td>1 HK</td>
+                            <td>800</td>
+                            <td>&nbsp;</td>
+                            <td>Vacant</td>
+                            <td><button type="button" class="awe-btn" onclick="awe.open('UnitVehicles', { params:{ id: 1 } })"><span class="ico-edit"></span></button></td>
+                        </tr>
+
+                        <tr style="" data-lvl="3" data-k="2" class="awe-row awe-alt">
+                            <td class="awe-idn"></td>
+                            <td class="awe-idn"></td>
+                            <td colspan="-2">
+                                <button type="button" class="btn btn-rounded-20 btn-default btn-sm mr-5" style="width: 30px;" onclick="awe.open('editUnitGrid', { params:{ id: 2 } })"><i class="fa fa-pencil"></i></button>
+                            </td>
+                            <td>102</td>
+                            <td>1 HK</td>
+                            <td>800</td>
+                            <td>&nbsp;</td>
+                            <td>Owner</td>
+                            <td>
+                                <button type="button" class="awe-btn" onclick="awe.open('UnitVehicles', { params:{ id: 2 } })"><span class="ico-edit"></span></button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </section>
 </div>
 
