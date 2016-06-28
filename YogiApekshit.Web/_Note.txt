@@ -1,6 +1,5 @@
 ﻿ ================== Templates =================
  
- - Display chapter names into menu
  - Menu icons
  - All Chapters: display entire Book's  Q/As into separate grids based on categories
  - Chapter-1: display entire Chapter's  Q/As into separate grids based on categories
