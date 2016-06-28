@@ -33,7 +33,9 @@ namespace YogiApekshit.Web.Controllers
             IRepository<QueKirtan> repoQueKirtan,
             IRepository<QueShlok> repoQueShlok,
             IRepository<QueFillInBlank> repoQueFillInBlank,
-            IRepository<QueCorrectSentence> repoQueCorrectSentence)
+            IRepository<QueCorrectSentence> repoQueCorrectSentence, 
+            IRepository<BookChapter> bookChapterRepo, 
+            IRepository<Book> bookRepo) : base(bookChapterRepo, bookRepo)
         {
             this.repoQueCorrectOption = repoQueCorrectOption;
             this.repoQueCorrectSentence = repoQueCorrectSentence;
@@ -84,7 +86,7 @@ namespace YogiApekshit.Web.Controllers
                 default:
                     return null;
             }
-        } 
+        }
         #endregion
 
         #region Private Methods
@@ -264,7 +266,7 @@ namespace YogiApekshit.Web.Controllers
                     Exams = c.Exams,
                 });
             return Json(data, JsonRequestBehavior.AllowGet);
-        } 
+        }
         #endregion
     }
 }
