@@ -22,7 +22,7 @@ namespace YogiApekshit.Web.Controllers
                 System.Web.HttpContext.Current.Session["Menus"] = BuildMenu();
         }
 
-        private MenuItem BuildMenu()
+        public MenuItem BuildMenu()
         {
             var root = new MenuItem { Name = "Home", ControllerName = "Home", ActionName = "Index" };
             root.MenuItems = new List<MenuItem>();

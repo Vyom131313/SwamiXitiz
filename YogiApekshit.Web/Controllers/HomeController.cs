@@ -1,11 +1,19 @@
 ﻿using CRUD_Angular.Models;
+using Data.Core.IRepository;
+using SwamiXitiz.Data.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace YogiApekshit.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
+        public HomeController(IRepository<BookChapter> bookChapterRepo, IRepository<Book> bookRepo)
+            : base(bookChapterRepo, bookRepo)
+        {
+
+        }
+
         public ActionResult Index()
         {
             return View();
