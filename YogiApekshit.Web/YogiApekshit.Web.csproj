@@ -418,6 +418,9 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Images\double-arrow-white.png" />
+    <Content Include="Images\GhC\GhC-guj.jpg" />
+    <Content Include="Images\KsP\KsP-eng.jpg" />
+    <Content Include="Images\YoM\YoM-eng.jpg" />
     <Content Include="Scripts\app\Filters.js" />
     <Content Include="Scripts\app\loginCtrl.js" />
     <Content Include="Scripts\app\logout.js" />
