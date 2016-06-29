@@ -34,12 +34,12 @@ namespace YogiApekshit.Web.Controllers
 
             foreach (var book in bookRepo.GetAll().Where(c => c.ExamLevelId == Constants.ExamLevels.Prarambh))
             {
-                var mnuBook = new MenuItem { Name = book.Name_Eng, IConClass = "fa fa-pencil" };
+                var mnuBook = new MenuItem { Name = book.Name_Eng, IConClass = "fa fa-pencil", IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng) };
                 mnuBook.MenuItems = new List<MenuItem>();
 
                 foreach (var chapter in book.BookChapters)
                 {
-                    mnuBook.MenuItems.Add(new MenuItem { Name = string.Format("{0}. {1}", chapter.ChapterNumber, chapter.Name_Eng), IConClass = "fa fa-pencil" });
+                    mnuBook.MenuItems.Add(new MenuItem { Name = string.Format("{0}. {1}", chapter.ChapterNumber, chapter.Name_Eng) });
                 }
 
                 mnuPrarambh.MenuItems.Add(mnuBook);

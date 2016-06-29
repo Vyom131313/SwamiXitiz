@@ -113,6 +113,7 @@ namespace YogiApekshit.Web.Models
         public string ControllerName { get; set; }
         public string ActionName { get; set; }
         public string IConClass { get; set; }
+        public string IConUrl { get; set; }
         public object RouteValues { get; set; }
 
         public bool IsActive { get; set; }
