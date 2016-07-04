@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="page page-dashboard">
+<div class="page page-dashboard" ng-controller="PrarambhController">
     @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Who is speaking to whom and when"))
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "State who is speaking to whom and when.", SubTitle = "(Total Marks: 9)" })
-        <div ng-controller="PrarambhController">
+        <div>
             <span>{{QA_List_Load('@Constants.Que_Categories.WhoWhomWhen')}}</span>
 
             <table class="table table-condensed queAnsTable">
@@ -56,39 +56,3 @@
         </div>
     </section>
 </div>
-
-@section scripts{
-}
-
-
-@*
-    <div class="page page-dashboard">
-        @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Que1"))
-
-        <section class="tile bg-greensea">
-
-            @Html.Partial("GridToolbar", new GridToolbarModel { GridId = gridId, Title = "Que1", SubTitle = "xxx" })
-            <div >
-                <table class="table table-condensed">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Que</th>
-                            <th>Ans</th>
-                        </tr>
-                    </thead>
-                    <tbody class='WhoIsSpeaking-result'>
-                        <tr class='person' data-ng-repeat="item in QueAnsList">
-                            <td>.</td>
-                            <td>
-                                ${{item.QUE }} <br />
-                                ${{item.ANS }}
-                            </td>
-                            <td class="examColumn">${{item.EXAM}}</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </div>*@

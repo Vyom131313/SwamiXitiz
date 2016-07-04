@@ -1,0 +1,16 @@
+﻿@using Mvc.Core.ThirdParty
+@using YogiApekshit.Web.Models
+@using SwamiXitiz.Data.ModelsPartial
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model QA_Filter_Parameters
+
+<div class="page page-dashboard">
+    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Who is speaking to whom and when"))
+
+    <div ng-controller="PrarambhController">
+        @{Html.RenderPartial("WhoWhomWhen_Partial", Model);}
+        @{Html.RenderPartial("FillInBlank_Partial", Model);}
+    </div>
+</div>

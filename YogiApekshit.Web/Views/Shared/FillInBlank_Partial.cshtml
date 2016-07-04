@@ -1,0 +1,36 @@
+﻿@using Mvc.Core.ThirdParty
+@using YogiApekshit.Web.Models
+@using SwamiXitiz.Data.ModelsPartial
+
+<section class="tile bg-greensea">
+    @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Fill in the blanks.", SubTitle = "(Total Marks: 4)" })
+    <div ng-controller="PrarambhController">
+        <span>{{QA_List_Load('@Constants.Que_Categories.FillInBlank')}}</span>
+        <table class="table table-condensed queAnsTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Que</th>
+                    <th>Ans</th>
+                    <th>Chapter</th>
+                    <th>Exams</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="item in QA_List">
+                    <td class="sequenceColumn">{{item.Sr}}.</td>
+                    <td class="queAndansColumn">
+                        <b>{{item.Que}}</b>
+                    </td>
+                    <td class="queAndansColumn">
+                        <b>{{item.Ans}}</b>
+                    </td>
+
+                    <td class="chapterColumn">{{item.Chapter}}</td>
+                    <td class="examColumn">{{item.Exams}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -109,4 +109,10 @@ namespace YogiApekshit.Web.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+    public class QA_Filter_Parameters
+    {
+        public int BookId { get; set; }
+        public int ChapterNumber { get; set; }
+    }
 }

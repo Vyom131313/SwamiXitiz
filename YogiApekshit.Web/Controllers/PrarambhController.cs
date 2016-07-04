@@ -33,9 +33,10 @@ namespace YogiApekshit.Web.Controllers
             IRepository<QueKirtan> repoQueKirtan,
             IRepository<QueShlok> repoQueShlok,
             IRepository<QueFillInBlank> repoQueFillInBlank,
-            IRepository<QueCorrectSentence> repoQueCorrectSentence, 
-            IRepository<BookChapter> bookChapterRepo, 
-            IRepository<Book> bookRepo) : base(bookChapterRepo, bookRepo)
+            IRepository<QueCorrectSentence> repoQueCorrectSentence,
+            IRepository<BookChapter> bookChapterRepo,
+            IRepository<Book> bookRepo)
+            : base(bookChapterRepo, bookRepo)
         {
             this.repoQueCorrectOption = repoQueCorrectOption;
             this.repoQueCorrectSentence = repoQueCorrectSentence;
@@ -55,6 +56,11 @@ namespace YogiApekshit.Web.Controllers
         public ActionResult QuestionCategory(string category)
         {
             return View(category);
+        }
+
+        public ActionResult QA_By_Book_Chapter(int bookId, int chapterNumber = 0)
+        {
+            return View(new QA_Filter_Parameters { BookId = bookId, ChapterNumber = chapterNumber });
         }
 
         public JsonResult QA_List(string category)

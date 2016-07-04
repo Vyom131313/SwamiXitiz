@@ -606,6 +606,15 @@
   <ItemGroup>
     <Content Include="Views\Prarambh\SwaminiVat.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Prarambh\QA_By_Book_Chapter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\WhoWhomWhen_Partial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\FillInBlank_Partial.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
