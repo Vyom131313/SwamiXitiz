@@ -234,6 +234,7 @@
     <Compile Include="Bootstrapper\Worker.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QAController.cs" />
     <Compile Include="Controllers\PrarambhController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -427,6 +428,8 @@
     <Content Include="Scripts\app\MyApp.js" />
     <Content Include="Scripts\app\routeConfig.js" />
     <Content Include="Scripts\Controllers\PrarambhController.js" />
+    <Content Include="Scripts\IConweyMvc.js" />
+    <Content Include="Scripts\Site.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -614,6 +617,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\FillInBlank_Partial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\QA\QA_By_Book_Chapter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\OneSentence_Partial.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

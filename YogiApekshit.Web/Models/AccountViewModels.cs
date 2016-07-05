@@ -114,5 +114,6 @@ namespace YogiApekshit.Web.Models
     {
         public int BookId { get; set; }
         public int ChapterNumber { get; set; }
+        public string Category { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using YogiApekshit.Web.Models;
 
 namespace YogiApekshit.Web.Controllers
 {
-    public class PrarambhController : BaseController
+    public class QAController : BaseController
     {
         #region Constructors
         private readonly IRepository<QueWhoWhomWhen> repoQueWhoWhomWhen;
@@ -23,7 +23,7 @@ namespace YogiApekshit.Web.Controllers
         private readonly IRepository<QueKirtan> repoQueKirtan;
         private readonly IRepository<QueShlok> repoQueShlok;
 
-        public PrarambhController(IRepository<QueWhoWhomWhen> repoQueWhoWhomWhen,
+        public QAController(IRepository<QueWhoWhomWhen> repoQueWhoWhomWhen,
             IRepository<QueShortNote> repoQueShortNote,
             IRepository<QueCorrectSequence> repoQueCorrectSequence,
             IRepository<QueCorrectOption> repoQueCorrectOption,
@@ -54,42 +54,47 @@ namespace YogiApekshit.Web.Controllers
         #endregion
 
         #region Public
-        public ActionResult QuestionCategory(string category)
-        {
-            return View(category);
-        }
-
         public ActionResult QA_By_Book_Chapter(int bookId, int chapterNumber = 0)
         {
             return View(new QA_Filter_Parameters { BookId = bookId, ChapterNumber = chapterNumber });
         }
 
-        public JsonResult QA_List(string category)
+        public JsonResult GridRecords(int bookId, string category, int chapterNumber = 0)
         {
-            switch (category)
+            return QA_List(new QA_Filter_Parameters { BookId = bookId, Category = category, ChapterNumber = chapterNumber });
+        }
+
+        public ActionResult QuestionCategory(string category)
+        {
+            return View(category);
+        }
+
+        public JsonResult QA_List(QA_Filter_Parameters filter)
+        {
+            switch (filter.Category)
             {
                 case "OneSentence":
-                    return QA_OneSentence_List();
+                    return QA_OneSentence_List(filter);
                 case "CorrectOption":
-                    return QA_CorrectOption_List();
+                    return QA_CorrectOption_List(filter);
                 case "CorrectSentence":
-                    return QA_CorrectSentence_List();
+                    return QA_CorrectSentence_List(filter);
                 case "CorrectSequence":
-                    return QA_CorrectSequence_List();
+                    return QA_CorrectSequence_List(filter);
                 case "FillInBlank":
-                    return QA_FillInBlank_List();
+                    return QA_FillInBlank_List(filter);
                 case "Kirtan":
-                    return QA_Kirtan_List();
+                    return QA_Kirtan_List(filter);
                 case "Reason":
-                    return QA_Reason_List();
+                    return QA_Reason_List(filter);
                 case "Shlok":
-                    return QA_Shlok_List();
+                    return QA_Shlok_List(filter);
                 case "ShortNote":
-                    return QA_ShortNote_List();
+                    return QA_ShortNote_List(filter);
                 case "SwaminiVat":
-                    return QA_SwaminiVat_List();
+                    return QA_SwaminiVat_List(filter);
                 case "WhoWhomWhen":
-                    return QA_WhoWhomWhen_List();
+                    return QA_WhoWhomWhen_List(filter);
                 default:
                     return null;
             }
@@ -97,7 +102,7 @@ namespace YogiApekshit.Web.Controllers
         #endregion
 
         #region Private Methods
-        private JsonResult QA_CorrectSentence_List()
+        private JsonResult QA_CorrectSentence_List(QA_Filter_Parameters filter)
         {
             var seq = 1;
             var data = repoQueCorrectSentence.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
@@ -113,7 +118,7 @@ namespace YogiApekshit.Web.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
-        private JsonResult QA_CorrectSequence_List()
+        private JsonResult QA_CorrectSequence_List(QA_Filter_Parameters filter)
         {
             var seq = 1;
             var data = repoQueCorrectSequence.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
@@ -129,7 +134,7 @@ namespace YogiApekshit.Web.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
-        private JsonResult QA_CorrectOption_List()
+        private JsonResult QA_CorrectOption_List(QA_Filter_Parameters filter)
         {
             var seq = 1;
             var data = repoQueCorrectOption.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
@@ -145,7 +150,7 @@ namespace YogiApekshit.Web.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
-        private JsonResult QA_FillInBlank_List()
+        private JsonResult QA_FillInBlank_List(QA_Filter_Parameters filter)
         {
             var seq = 1;
             var data = repoQueFillInBlank.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
@@ -161,7 +166,7 @@ namespace YogiApekshit.Web.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
-        private JsonResult QA_Kirtan_List()
+        private JsonResult QA_Kirtan_List(QA_Filter_Parameters filter)
         {
             var seq = 1;
             var data = repoQueKirtan.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
@@ -177,10 +182,11 @@ namespace YogiApekshit.Web.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
-        private JsonResult QA_OneSentence_List()
+        private JsonResult QA_OneSentence_List(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            var data = repoQueOneSentence.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            var data = repoQueOneSentence.GetAll().Where(obj => obj.BookId == filter.BookId &&
+               (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new
                 {
@@ -190,10 +196,10 @@ namespace YogiApekshit.Web.Controllers
                     Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 });
-            return Json(data, JsonRequestBehavior.AllowGet);
+            return Json(data.ToList(), JsonRequestBehavior.AllowGet);
         }
 
-        private JsonResult QA_Reason_List()
+        private JsonResult QA_Reason_List(QA_Filter_Parameters filter)
         {
             var seq = 1;
             var data = repoQueReason.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
@@ -209,7 +215,7 @@ namespace YogiApekshit.Web.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
-        private JsonResult QA_Shlok_List()
+        private JsonResult QA_Shlok_List(QA_Filter_Parameters filter)
         {
             var seq = 1;
             var data = repoQueShlok.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
@@ -225,7 +231,7 @@ namespace YogiApekshit.Web.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
-        private JsonResult QA_ShortNote_List()
+        private JsonResult QA_ShortNote_List(QA_Filter_Parameters filter)
         {
             var seq = 1;
             var data = repoQueShortNote.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
@@ -241,7 +247,7 @@ namespace YogiApekshit.Web.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
-        private JsonResult QA_SwaminiVat_List()
+        private JsonResult QA_SwaminiVat_List(QA_Filter_Parameters filter)
         {
             var seq = 1;
             var data = repoQueSwaminiVat.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
@@ -257,7 +263,7 @@ namespace YogiApekshit.Web.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
-        private JsonResult QA_WhoWhomWhen_List()
+        private JsonResult QA_WhoWhomWhen_List(QA_Filter_Parameters filter)
         {
             var seq = 1;
             var data = repoQueWhoWhomWhen.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))

@@ -1,0 +1,36 @@
+﻿@using Mvc.Core.ThirdParty
+@using YogiApekshit.Web.Models
+@using SwamiXitiz.Data.ModelsPartial
+@using Mvc.Core.ThirdParty
+
+@model QA_Filter_Parameters
+
+@{var gridId = "gridOnceSentence";}
+<div class="page page-dashboard">
+    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("One sentence answer"))
+
+    <section class="tile bg-greensea">
+        @Html.Partial("GridToolbar", new GridToolbarModel
+       {
+           GridId = gridId,
+           Title = @"Answer ALL of the following, using one sentence (not just one word) for each answer.",
+           SubTitle = "(Total Marks: 4)"
+       })
+
+        @(Html.ICon().Grid(gridId)
+             .Url(Url.Action("GridRecords", "QA"))
+            .Parameter("bookId", Model.BookId.ToString())
+            .Parameter("category", Constants.Que_Categories.OneSentence.ToString())
+            .Parameter("chapterNumber", Model.ChapterNumber.ToString())
+            .Persistence(Persistence.Session)
+            .Groupable(false)
+            .Sortable(false)
+            .Columns(
+                new Column { Name = "Sr", Width = 70, Hidden = true },
+                new Column { Name = "Que", Header = "Queuestion" },
+                new Column { Name = "Ans", Header = "Answer" },
+                new Column { Name = "Chapter", Header = "Chapter" },
+                new Column { Name = "Exams", Header = "Exams" }
+                ))
+    </section>
+</div>
