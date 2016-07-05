@@ -7,7 +7,7 @@ namespace SwamiXitiz.Data.Models
     {
         public int Id { get; set; }
         public int BookId { get; set; }
-        public Nullable<int> ChapterNumber { get; set; }
+        public int ChapterNumber { get; set; }
         public string Title_Eng { get; set; }
         public string Correct_Eng { get; set; }
         public string Title_Guj { get; set; }

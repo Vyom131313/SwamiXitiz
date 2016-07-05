@@ -6,11 +6,18 @@ using System.Linq;
 
 namespace SwamiXitiz.Data.Models
 {
+    public interface IQuestion
+    {
+        int BookId { get; set; }
+        int ChapterNumber { get; set; }
+        string Exams { get; set; }
+    }
+
     public partial class Book : EntityBase
     {
 
     }
-    
+
     public partial class BookChapter : EntityBase
     {
 
@@ -21,40 +28,40 @@ namespace SwamiXitiz.Data.Models
 
     }
 
-    public partial class QueCorrectSentence : EntityBase
+    public partial class QueCorrectSentence : EntityBase, IQuestion
     {
 
     }
 
-    public partial class QueCorrectSequence:EntityBase
+    public partial class QueCorrectSequence : EntityBase, IQuestion
     { }
 
-    public partial class QueCorrectOption : EntityBase
+    public partial class QueCorrectOption : EntityBase, IQuestion
     {
 
     }
 
-    public partial class QueFillInBlank : EntityBase
+    public partial class QueFillInBlank : EntityBase, IQuestion
     {
 
     }
 
-    public partial class QueKirtan : EntityBase
+    public partial class QueKirtan : EntityBase, IQuestion
     {
 
     }
 
-    public partial class QueShlok : EntityBase
+    public partial class QueShlok : EntityBase, IQuestion
     {
 
     }
 
-    public partial class QueReason : EntityBase
+    public partial class QueReason : EntityBase, IQuestion
     {
 
     }
 
-    public partial class QueSwaminiVat : EntityBase
+    public partial class QueSwaminiVat : EntityBase, IQuestion
     {
 
     }
@@ -64,17 +71,17 @@ namespace SwamiXitiz.Data.Models
 
     }
 
-    public partial class QueOneSentence : EntityBase
+    public partial class QueOneSentence : EntityBase, IQuestion
     {
 
     }
 
-    public partial class QueWhoWhomWhen : EntityBase
+    public partial class QueWhoWhomWhen : EntityBase, IQuestion
     {
 
     }
 
-    public partial class QueShortNote : EntityBase
+    public partial class QueShortNote : EntityBase, IQuestion
     {
 
     }
