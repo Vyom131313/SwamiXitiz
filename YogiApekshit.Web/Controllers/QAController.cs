@@ -1,7 +1,9 @@
 ﻿using Data.Core.IRepository;
+using Mvc.Core.ThirdParty;
 using SwamiXitiz.Data.Models;
 using SwamiXitiz.Data.ModelsPartial;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using YogiApekshit.Web.Models;
@@ -59,9 +61,32 @@ namespace YogiApekshit.Web.Controllers
             return View(new QA_Filter_Parameters { BookId = bookId, ChapterNumber = chapterNumber });
         }
 
-        public JsonResult GridRecords(int bookId, string category, int chapterNumber = 0)
+        //public JsonResult GridRecords()
+        public JsonResult GridRecords(GridParams g, int bookId, string category, int chapterNumber = 0)
         {
-            return QA_List(new QA_Filter_Parameters { BookId = bookId, Category = category, ChapterNumber = chapterNumber });
+            // return QA_List(new QA_Filter_Parameters { BookId = bookId, Category = category, ChapterNumber = chapterNumber });
+
+            var data = new List<QA_VM> { new QA_VM { Sr = 1, Que = "Que-1", Ans = "Ans-1", Exams = "Exams-1", Chapter = 0 } };
+
+            var model = new GridModelBuilder<QA_VM>(data.AsQueryable(), g)
+            {
+                Key = "Id",
+                Map = MapEntityToGridModel,
+            }.Build();
+
+            return Json(model);
+        }
+
+        protected object MapEntityToGridModel(QA_VM o)
+        {
+            return new
+            {
+                o.Sr,
+                o.Que,
+                o.Ans,
+                o.Chapter,
+                o.Exams
+            };
         }
 
         public ActionResult QuestionCategory(string category)

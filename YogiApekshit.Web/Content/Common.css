@@ -806,7 +806,7 @@ ul.awe-ajaxlist {
 /*404 page*/
 
 .error-404 {
-     background: url("/Content/images/404bg.jpg")no-repeat center center fixed  #393939; 
+    background: url("/Content/images/404bg.jpg")no-repeat center center fixed #393939;
     -moz-background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
@@ -853,9 +853,9 @@ ul.awe-ajaxlist {
     float: left;
 }
 
-.error-wrap.error-wrap-404 .metro.big span {
-    padding-top: 125px;
-}
+    .error-wrap.error-wrap-404 .metro.big span {
+        padding-top: 125px;
+    }
 
 .error-wrap.error-wrap-404 .terques {
     background: rgba(75,183,192,0.8);
@@ -929,3 +929,11 @@ ul.awe-ajaxlist {
     .error-wrap .purple {
         background: rgba(175,94,197,0.8);
     }
+
+.page {
+    padding: 10px;
+}
+
+.pageheader {
+    margin-bottom: 10px;
+}

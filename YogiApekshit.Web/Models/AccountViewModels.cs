@@ -116,4 +116,14 @@ namespace YogiApekshit.Web.Models
         public int ChapterNumber { get; set; }
         public string Category { get; set; }
     }
+
+    public class QA_VM
+    {
+        public int Id { get; set; }
+        public int Sr { get; set; }
+        public string Que { get; set; }
+        public string Ans { get; set; }
+        public int Chapter { get; set; }
+        public string Exams { get; set; }
+    }
 }
