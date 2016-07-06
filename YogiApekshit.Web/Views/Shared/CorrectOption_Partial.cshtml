@@ -1,35 +1,32 @@
 ﻿@using Mvc.Core.ThirdParty
 @using YogiApekshit.Web.Models
 @using SwamiXitiz.Data.ModelsPartial
-
 @model QA_Filter_Parameters
 
-@{var gridId = "gridOneSentence";}
+@{var gridId = "gridCorrectOptions";}
 <div class="page page-dashboard">
-    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("One sentence answer"))
-
+    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Correct Options"))
     <section class="tile bg-greensea">
-        @Html.Partial("GridToolbar", new GridToolbarModel
-       {
-           GridId = gridId,
-           Title = @"Answer ALL of the following, using one sentence (not just one word) for each answer.",
-           SubTitle = "(Total Marks: 4)"
-       })
-
-        @(Html.ICon().Grid(gridId)
+        @Html.Partial("GridToolbar", new GridToolbarModel { Title = "From the given options, place a tick (✔) in the box next to the correct ones.", SubTitle = "(Total Marks: 8)" })
+        <div>
+            @(Html.ICon().Grid(gridId)
              .Url(Url.Action("GridRecords", "QA"))
             .Parameter("bookId", Model.BookId.ToString())
-            .Parameter("category", Constants.Que_Categories.OneSentence.ToString())
+            .Parameter("category", Constants.Que_Categories.CorrectOption.ToString())
             .Parameter("chapterNumber", Model.ChapterNumber.ToString())
             .Persistence(Persistence.Session)
             .Groupable(false)
             .Sortable(false)
             .Columns(
                 new Column { Name = "Sr", Width = 70, Hidden = true },
-                new Column { Name = "Que", Header = "Question" },
-                new Column { Name = "Ans", Header = "Answer" },
+                new Column { Name = "Que", Header = "Topic" },
+                new Column { Name = "Ans", Header = "Correct Options" },
                 new Column { Name = "Chapter", Header = "Chapter" },
                 new Column { Name = "Exams", Header = "Exams" }
                 ))
+        </div>
     </section>
 </div>
+
+@section scripts{
+}

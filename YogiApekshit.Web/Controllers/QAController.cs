@@ -56,7 +56,7 @@ namespace YogiApekshit.Web.Controllers
         #endregion
 
         #region Public
-        public ActionResult QA_By_Book_Chapter(int bookId, int chapterNumber = 0)
+        public ActionResult QA_By_Book_Category_Chapter(int bookId, int chapterNumber = 0)
         {
             return View(new QA_Filter_Parameters { BookId = bookId, ChapterNumber = chapterNumber });
         }
@@ -121,6 +121,7 @@ namespace YogiApekshit.Web.Controllers
                     return null;
             }
         }
+
         public JsonResult QA_List_Json(QA_Filter_Parameters filter)
         {
             switch (filter.Category)

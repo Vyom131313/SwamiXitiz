@@ -2,35 +2,26 @@
 @using YogiApekshit.Web.Models
 @using SwamiXitiz.Data.ModelsPartial
 
+@model QA_Filter_Parameters
+
+@{var gridId = "gridFillInBlanks";}
+
 <section class="tile bg-greensea">
     @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Fill in the blanks.", SubTitle = "(Total Marks: 4)" })
-    <div ng-controller="PrarambhController">
-        <span>{{QA_List_Load('@Constants.Que_Categories.FillInBlank')}}</span>
-        <table class="table table-condensed queAnsTable">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Que</th>
-                    <th>Ans</th>
-                    <th>Chapter</th>
-                    <th>Exams</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr data-ng-repeat="item in QA_List">
-                    <td class="sequenceColumn">{{item.Sr}}.</td>
-                    <td class="queAndansColumn">
-                        <b>{{item.Que}}</b>
-                    </td>
-                    <td class="queAndansColumn">
-                        <b>{{item.Ans}}</b>
-                    </td>
 
-                    <td class="chapterColumn">{{item.Chapter}}</td>
-                    <td class="examColumn">{{item.Exams}}</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    @(Html.ICon().Grid(gridId)
+             .Url(Url.Action("GridRecords", "QA"))
+            .Parameter("bookId", Model.BookId.ToString())
+                    .Parameter("category", Constants.Que_Categories.FillInBlank.ToString())
+            .Parameter("chapterNumber", Model.ChapterNumber.ToString())
+            .Persistence(Persistence.Session)
+            .Groupable(false)
+            .Sortable(false)
+            .Columns(
+                new Column { Name = "Sr", Width = 70, Hidden = true },
+                new Column { Name = "Que", Header = "Question" },
+                new Column { Name = "Ans", Header = "Answer" },
+                new Column { Name = "Chapter", Header = "Chapter" },
+                new Column { Name = "Exams", Header = "Exams" }
+                ))
 </section>

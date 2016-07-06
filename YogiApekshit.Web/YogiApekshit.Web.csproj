@@ -619,13 +619,37 @@
     <Content Include="Views\Shared\FillInBlank_Partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\QA\QA_By_Book_Chapter.cshtml" />
+    <Content Include="Views\QA\QA_By_Book_Category_Chapter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\OneSentence_Partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Layout_noAngular.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\CorrectOption_Partial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\CorrectSentence_Partial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\CorrectSequence_Partial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Kirtan_Partial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Reason_Partial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Shlok_Partial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ShortNote_Partial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SwaminiVat_Partial.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
