@@ -1,9 +1,8 @@
 ﻿ ================== Templates =================
  
- - Convert to MVC rather than Angular
  - Format QA
- - Create generic control for each que category that can be used 
- 
+ - Separate color each category
+
  - All Chapters: display entire Book's  Q/As into separate grids based on categories
  - Chapter-1: display entire Chapter's  Q/As into separate grids based on categories
  - Category-1:display cat-1's all Books Q/As into single grid for current category
