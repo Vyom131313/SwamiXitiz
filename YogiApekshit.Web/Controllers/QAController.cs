@@ -61,12 +61,9 @@ namespace YogiApekshit.Web.Controllers
             return View(new QA_Filter_Parameters { BookId = bookId, ChapterNumber = chapterNumber });
         }
 
-        //public JsonResult GridRecords()
         public JsonResult GridRecords(GridParams g, int bookId, string category, int chapterNumber = 0)
         {
-            // return QA_List(new QA_Filter_Parameters { BookId = bookId, Category = category, ChapterNumber = chapterNumber });
-
-            var data = new List<QA_VM> { new QA_VM { Sr = 1, Que = "Que-1", Ans = "Ans-1", Exams = "Exams-1", Chapter = 0 } };
+            var data = QA_List(new QA_Filter_Parameters { BookId = bookId, Category = category, ChapterNumber = chapterNumber });
 
             var model = new GridModelBuilder<QA_VM>(data.AsQueryable(), g)
             {
@@ -94,32 +91,62 @@ namespace YogiApekshit.Web.Controllers
             return View(category);
         }
 
-        public JsonResult QA_List(QA_Filter_Parameters filter)
+        public List<QA_VM> QA_List(QA_Filter_Parameters filter)
         {
             switch (filter.Category)
             {
                 case "OneSentence":
-                    return QA_OneSentence_List(filter);
+                    return QA_OneSentence(filter);
                 case "CorrectOption":
-                    return QA_CorrectOption_List(filter);
+                    return QA_CorrectOption(filter);
                 case "CorrectSentence":
-                    return QA_CorrectSentence_List(filter);
+                    return QA_CorrectSentence(filter);
                 case "CorrectSequence":
-                    return QA_CorrectSequence_List(filter);
+                    return QA_CorrectSequence(filter);
                 case "FillInBlank":
-                    return QA_FillInBlank_List(filter);
+                    return QA_FillInBlank(filter);
                 case "Kirtan":
-                    return QA_Kirtan_List(filter);
+                    return QA_Kirtan(filter);
                 case "Reason":
-                    return QA_Reason_List(filter);
+                    return QA_Reason(filter);
                 case "Shlok":
-                    return QA_Shlok_List(filter);
+                    return QA_Shlok(filter);
                 case "ShortNote":
-                    return QA_ShortNote_List(filter);
+                    return QA_ShortNote(filter);
                 case "SwaminiVat":
-                    return QA_SwaminiVat_List(filter);
+                    return QA_SwaminiVat(filter);
                 case "WhoWhomWhen":
-                    return QA_WhoWhomWhen_List(filter);
+                //return QA_WhoWhomWhen(filter);
+                default:
+                    return null;
+            }
+        }
+        public JsonResult QA_List_Json(QA_Filter_Parameters filter)
+        {
+            switch (filter.Category)
+            {
+                case "OneSentence":
+                    return Json(QA_OneSentence(filter), JsonRequestBehavior.AllowGet);
+                case "CorrectOption":
+                    return Json(QA_CorrectOption(filter), JsonRequestBehavior.AllowGet);
+                case "CorrectSentence":
+                    return Json(QA_CorrectSentence(filter), JsonRequestBehavior.AllowGet);
+                case "CorrectSequence":
+                    return Json(QA_CorrectSequence(filter), JsonRequestBehavior.AllowGet);
+                case "FillInBlank":
+                    return Json(QA_FillInBlank(filter), JsonRequestBehavior.AllowGet);
+                case "Kirtan":
+                    return Json(QA_Kirtan(filter), JsonRequestBehavior.AllowGet);
+                case "Reason":
+                    return Json(QA_Reason(filter), JsonRequestBehavior.AllowGet);
+                case "Shlok":
+                    return Json(QA_Shlok(filter), JsonRequestBehavior.AllowGet);
+                case "ShortNote":
+                    return Json(QA_ShortNote(filter), JsonRequestBehavior.AllowGet);
+                case "SwaminiVat":
+                    return Json(QA_SwaminiVat(filter), JsonRequestBehavior.AllowGet);
+                case "WhoWhomWhen":
+                    return Json(QA_WhoWhomWhen(filter), JsonRequestBehavior.AllowGet);
                 default:
                     return null;
             }
@@ -127,173 +154,163 @@ namespace YogiApekshit.Web.Controllers
         #endregion
 
         #region Private Methods
-        private JsonResult QA_CorrectSentence_List(QA_Filter_Parameters filter)
+        private List<QA_VM> QA_CorrectSentence(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            var data = repoQueCorrectSentence.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueCorrectSentence.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
+                .Select(c => new QA_VM
                 {
                     Sr = seq++,
-                    Title = c.Title_Eng,
-                    Correct = c.Correct_Eng,
+                    Que = c.Title_Eng,
+                    Ans = c.Correct_Eng,
                     Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
+                }).ToList();
         }
 
-        private JsonResult QA_CorrectSequence_List(QA_Filter_Parameters filter)
+        private List<QA_VM> QA_CorrectSequence(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            var data = repoQueCorrectSequence.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueCorrectSequence.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
+                .Select(c => new QA_VM
                 {
                     Sr = seq++,
-                    Title = c.Title_Eng,
-                    Correct = c.Correct_Eng,
+                    Que = c.Title_Eng,
+                    Ans = c.Correct_Eng,
                     Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
+                }).ToList();
         }
 
-        private JsonResult QA_CorrectOption_List(QA_Filter_Parameters filter)
+        private List<QA_VM> QA_CorrectOption(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            var data = repoQueCorrectOption.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueCorrectOption.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
+                .Select(c => new QA_VM
                 {
                     Sr = seq++,
-                    Title = c.Title_Eng,
-                    Correct = c.Correct_Eng,
+                    Que = c.Title_Eng,
+                    Ans = c.Correct_Eng,
                     Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
+                }).ToList();
         }
 
-        private JsonResult QA_FillInBlank_List(QA_Filter_Parameters filter)
+        private List<QA_VM> QA_FillInBlank(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            var data = repoQueFillInBlank.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueFillInBlank.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
+                .Select(c => new QA_VM
                 {
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
                     Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
+                }).ToList();
         }
 
-        private JsonResult QA_Kirtan_List(QA_Filter_Parameters filter)
+        private List<QA_VM> QA_Kirtan(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            var data = repoQueKirtan.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueKirtan.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
+                .Select(c => new QA_VM
                 {
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
                     Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
+                }).ToList();
         }
 
-        private JsonResult QA_OneSentence_List(QA_Filter_Parameters filter)
+        private List<QA_VM> QA_OneSentence(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            var data = repoQueOneSentence.GetAll().Where(obj => obj.BookId == filter.BookId &&
+            return repoQueOneSentence.GetAll().Where(obj => obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
+                .Select(c => new QA_VM
                 {
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
                     Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
-                });
-            return Json(data.ToList(), JsonRequestBehavior.AllowGet);
+                }).ToList();
         }
 
-        private JsonResult QA_Reason_List(QA_Filter_Parameters filter)
+        private List<QA_VM> QA_Reason(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            var data = repoQueReason.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueReason.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
+                .Select(c => new QA_VM
                 {
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
                     Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
+                }).ToList();
         }
 
-        private JsonResult QA_Shlok_List(QA_Filter_Parameters filter)
+        private List<QA_VM> QA_Shlok(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            var data = repoQueShlok.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueShlok.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
+                .Select(c => new QA_VM
                 {
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
                     Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
+                }).ToList();
         }
 
-        private JsonResult QA_ShortNote_List(QA_Filter_Parameters filter)
+        private List<QA_VM> QA_ShortNote(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            var data = repoQueShortNote.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueShortNote.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
+                .Select(c => new QA_VM
                 {
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
                     Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
+                }).ToList();
         }
 
-        private JsonResult QA_SwaminiVat_List(QA_Filter_Parameters filter)
+        private List<QA_VM> QA_SwaminiVat(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            var data = repoQueSwaminiVat.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueSwaminiVat.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
+                .Select(c => new QA_VM
                 {
                     Sr = seq++,
                     Que = c.Que_Eng,
                     Ans = c.Ans_Eng,
                     Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
+                }).ToList();
         }
 
-        private JsonResult QA_WhoWhomWhen_List(QA_Filter_Parameters filter)
+        private List<QA_WWW_VM> QA_WhoWhomWhen(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            var data = repoQueWhoWhomWhen.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueWhoWhomWhen.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new
+                .Select(c => new QA_WWW_VM
                 {
                     Sr = seq++,
                     Que = c.Que_Eng,
@@ -302,10 +319,8 @@ namespace YogiApekshit.Web.Controllers
                     When = c.WhenSpeaking_Eng,
                     Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
-                });
-            return Json(data, JsonRequestBehavior.AllowGet);
+                }).ToList();
         }
-
         #endregion
     }
 }

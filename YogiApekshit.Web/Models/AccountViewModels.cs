@@ -123,7 +123,20 @@ namespace YogiApekshit.Web.Models
         public int Sr { get; set; }
         public string Que { get; set; }
         public string Ans { get; set; }
-        public int Chapter { get; set; }
+        public string Chapter { get; set; }
         public string Exams { get; set; }
     }
+
+    public class QA_WWW_VM
+    {
+        public int Id { get; set; }
+        public int Sr { get; set; }
+        public string Que { get; set; }
+        public string Who { get; set; }
+        public string Whom { get; set; }
+        public string When { get; set; }
+        public string Chapter { get; set; }
+        public string Exams { get; set; }
+    }
+
 }
