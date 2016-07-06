@@ -5,7 +5,6 @@
 
 @{var gridId = "gridCorrectOptions";}
 <div class="page page-dashboard">
-    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Correct Options"))
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "From the given options, place a tick (✔) in the box next to the correct ones.", SubTitle = "(Total Marks: 8)" })
         <div>
@@ -18,11 +17,11 @@
             .Groupable(false)
             .Sortable(false)
             .Columns(
-                new Column { Name = "Sr", Width = 70, Hidden = true },
+                new Column { Name = "Sr", Header = "Sr.", Width = 40 },
                 new Column { Name = "Que", Header = "Topic" },
                 new Column { Name = "Ans", Header = "Correct Options" },
-                new Column { Name = "Chapter", Header = "Chapter" },
-                new Column { Name = "Exams", Header = "Exams" }
+                new Column { Name = "Chapter", Header = "Chapter", Width = 70 },
+                new Column { Name = "Exams", Header = "Exams", Width = 120 }
                 ))
         </div>
     </section>

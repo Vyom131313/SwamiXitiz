@@ -5,7 +5,6 @@
 
 @{var gridId = "gridSwaminiVato";}
 <div class="page page-dashboard">
-    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Swamini Vato"))
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Complete the Swamini Vato and write an explanatory note on it (in 15 lines)", SubTitle = "(Total Marks: 5)" })
         @(Html.ICon().Grid(gridId)
@@ -17,11 +16,11 @@
             .Groupable(false)
             .Sortable(false)
             .Columns(
-                new Column { Name = "Sr", Width = 70, Hidden = true },
+                new Column { Name = "Sr", Header = "Sr.", Width = 40 },
                 new Column { Name = "Que", Header = "Question" },
                 new Column { Name = "Ans", Header = "Answer" },
-                new Column { Name = "Chapter", Header = "Chapter" },
-                new Column { Name = "Exams", Header = "Exams" }
+                new Column { Name = "Chapter", Header = "Chapter", Width = 70 },
+                new Column { Name = "Exams", Header = "Exams", Width = 120 }
                 ))
     </section>
 </div>

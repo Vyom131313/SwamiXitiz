@@ -6,10 +6,11 @@
 
 @{var gridId = "gridFillInBlanks";}
 
-<section class="tile bg-greensea">
-    @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Fill in the blanks.", SubTitle = "(Total Marks: 4)" })
+<div class="page page-dashboard">
+    <section class="tile bg-greensea">
+        @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Fill in the blanks.", SubTitle = "(Total Marks: 4)" })
 
-    @(Html.ICon().Grid(gridId)
+        @(Html.ICon().Grid(gridId)
              .Url(Url.Action("GridRecords", "QA"))
             .Parameter("bookId", Model.BookId.ToString())
                     .Parameter("category", Constants.Que_Categories.FillInBlank.ToString())
@@ -18,10 +19,11 @@
             .Groupable(false)
             .Sortable(false)
             .Columns(
-                new Column { Name = "Sr", Width = 70, Hidden = true },
+                new Column { Name = "Sr", Header = "Sr.", Width = 40 },
                 new Column { Name = "Que", Header = "Question" },
                 new Column { Name = "Ans", Header = "Answer" },
-                new Column { Name = "Chapter", Header = "Chapter" },
-                new Column { Name = "Exams", Header = "Exams" }
+                new Column { Name = "Chapter", Header = "Chapter", Width = 70 },
+                new Column { Name = "Exams", Header = "Exams", Width = 120 }
                 ))
-</section>
+    </section>
+</div>
