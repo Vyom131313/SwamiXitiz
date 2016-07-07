@@ -26,9 +26,39 @@ namespace YogiApekshit.Web.Models
             return b.IsMatch(u) || v.IsMatch(u.Substring(0, 4));
         }
 
-        public static string EditFormat()
+        public static string QuestionAndAnsFormat()
         {
             return "<div style='padding-bottom:10px;'><b>.Que</b><br/><b>Ans:</b> .Ans</div>"; 
+        }
+
+        public static string ReasonFormat()
+        {
+            return "<div style='padding-bottom:10px;'><b>.Que</b><br/><b>Reason:</b> .Ans</div>";
+        }
+
+        public static string ShortNoteFormat()
+        {
+            return "<div style='padding-bottom:10px;'><b>.Que</b><br/>.Ans</div>";
+        }
+
+        public static string SwaminiVaatFormat()
+        {
+            return "<div style='padding-bottom:10px;'><b>.Que</b><br/><b>Description:</b> .Ans</div>";
+        }
+
+        public static string CorrectSentenceFormat()
+        {
+            return "<div style='padding-bottom:10px;'><b>.Que</b><br/><b>Correct:</b> .Ans</div>";
+        }
+
+        public static string CorrectSequenceFormat()
+        {
+            return "<div style='padding-bottom:10px;'><b>.Que</b><br/>.Ans</div>";
+        }
+
+        public static string KirtanFormat()
+        {
+            return "<div style='padding-bottom:10px;'><b>.Que</b><br/>.Ans</div>";
         }
     }
 }

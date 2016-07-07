@@ -20,29 +20,40 @@
 
     <!-- Awe Required -->
     <link href='@Url.Content("~/Content/themes/" + theme + "/Site.css?v=83")' rel="stylesheet" type="text/css" id="demoStyle" />
-    <link href='//code.jquery.com/ui/1.11.1/themes/@(jqtheme)/jquery-ui.min.css' rel="stylesheet" id="jqStyle" />
+    @*<link href='//code.jquery.com/ui/1.11.1/themes/@(jqtheme)/jquery-ui.min.css' rel="stylesheet" id="jqStyle" />*@
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
     <link href='@Url.Content("~/Content/themes/" + theme + "/IConweyMvc.css?v=83")' rel="stylesheet" type="text/css" id="aweStyle" />
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js" type="text/javascript"></script>
-    <script src="//code.jquery.com/jquery-latest.js" type="text/javascript"></script>
-    @*   
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    @*<script src="//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js" type="text/javascript"></script>
+        <script src="//code.jquery.com/jquery-latest.js" type="text/javascript"></script>*@
+
+    <script src="~/Scripts/json2.min.js"></script>
+    <script src="~/Scripts/jquery-latest.js"></script>
+
+    @*
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     *@
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js" type="text/javascript"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/mvc/5.1/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
-    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
+
+    @*
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/mvc/5.1/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+        <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
+    *@
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
 
     <script src='@Url.Content("~/Scripts/IConweyMvc.js")?v=83' type="text/javascript"></script>
     <script src='@Url.Content("~/Scripts/Site.js")?v=83' type="text/javascript"></script>
     <!-- / Awe Required -->
-
     <!-- Stylesheets -->
     <!-- vendor css files -->
     <link rel="stylesheet" href='@Url.Content("~/Content/assets/css/vendor/bootstrap.min.css")'>
     <link rel="stylesheet" href='@Url.Content("~/Content/assets/css/vendor/animate.css")'>
     <link rel="stylesheet" href='@Url.Content("~/Content/assets/css/vendor/font-awesome.min.css")'>
     <link rel="stylesheet" href='@Url.Content("~/Content/assets/css/vendor/simple-line-icons.css")'>
-    
+
     <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/animsition/css/animsition.min.css")'>
     <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/daterangepicker/daterangepicker-bs3.css")'>
     <link rel="stylesheet" href='@Url.Content("~/Content/assets/js/vendor/morris/morris.css")'>
@@ -71,12 +82,12 @@
     <![endif]-->
 
     <div id="wrap" class="animsition">
-        @Html.Partial("TopMenuPartial")      
+        @Html.Partial("TopMenuPartial")
 
         <div id="controls">
-            @Html.Partial("LeftMenuPartial")      
+            @Html.Partial("LeftMenuPartial")
 
-            @Html.Partial("RightbarPartial")     
+            @Html.Partial("RightbarPartial")
         </div>
 
         <section id="content">
@@ -84,11 +95,12 @@
         </section>
     </div>
     <!--/ Application Content -->
-
     <!-- Vendor JavaScripts -->
     @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>*@
     <script>window.jQuery || document.write('<script src="@Url.Content("~/Content/assets/js/vendor/jquery/jquery-1.11.2.min.js")"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" type="text/javascript"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" type="text/javascript"></script>*@
+    <script src="~/Scripts/jquery.cookie.min.js"></script>
+
 
     <script src='@Url.Content("~/Content/assets/js/vendor/bootstrap/bootstrap.min.js")'></script>
     <script src='@Url.Content("~/Content/assets/js/vendor/jRespond/jRespond.min.js")'></script>
@@ -116,11 +128,9 @@
     <script src='@Url.Content("~/Content/assets/js/vendor/coolclock/coolclock.js")'></script>
     <script src='@Url.Content("~/Content/assets/js/vendor/coolclock/excanvas.js")'></script>
     <!--/ vendor javascripts -->
-
     <!-- Custom JavaScripts -->
     <script src='@Url.Content("~/Content/assets/js/main.js")'></script>
     <!--/ custom javascripts -->
-
     <!-- Page Specific Scripts -->
     <script>
         $(window).load(function () {
@@ -334,9 +344,8 @@
             });
             //*load wysiwyg editor
         });
-        </script>
+    </script>
     <!--/ Page Specific Scripts -->
-
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
         (function (b, o, i, l, e, r) {
