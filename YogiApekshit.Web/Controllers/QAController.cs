@@ -56,9 +56,9 @@ namespace YogiApekshit.Web.Controllers
         #endregion
 
         #region Public
-        public ActionResult QA_By_Book_Category_Chapter(int bookId, int chapterNumber = 0)
+        public ActionResult QA_By_Book_Category_Chapter(int bookId, string category = "", int chapterNumber = 0)
         {
-            return View(new QA_Filter_Parameters { BookId = bookId, ChapterNumber = chapterNumber });
+            return View(new QA_Filter_Parameters { BookId = bookId, ChapterNumber = chapterNumber, Category = category });
         }
 
         public JsonResult GridRecords(GridParams g, int bookId, string category, int chapterNumber = 0)

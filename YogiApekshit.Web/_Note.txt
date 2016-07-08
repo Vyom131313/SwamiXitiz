@@ -1,20 +1,17 @@
 ﻿ ================== Templates ================= 
- - Filter by category
-
  - Separate color each category
- - Category-1:display cat-1's all Books Q/As into single grid for current category
-
  - Hide grid if no any que found
  - Hide/Show All Answer
  - Hide/Show individual Answer
 
  - Menu icons
+ - Single Page Application
+ - Performance
+ 
  - Print 
  - PDF
  - Fullscreen
  - Birthdates table
- - Single Page Application
- - Performance
  - Animation
  ================== Copy all question papers ===========
  ================== AngularJs ==========================

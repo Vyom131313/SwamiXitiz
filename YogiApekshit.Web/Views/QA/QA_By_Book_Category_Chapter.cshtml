@@ -5,14 +5,22 @@
 @model QA_Filter_Parameters
 
 <div class="page page-dashboard">
-    @{Html.RenderPartial("OneSentence_Partial", Model);}
-    @{Html.RenderPartial("CorrectOption_Partial", Model);}
-    @{Html.RenderPartial("CorrectSentence_Partial", Model);}
-    @{Html.RenderPartial("CorrectSequence_Partial", Model);}
-    @{Html.RenderPartial("FillInBlank_Partial", Model);}
-    @{Html.RenderPartial("Kirtan_Partial", Model);}
-    @{Html.RenderPartial("Reason_Partial", Model);}
-    @{Html.RenderPartial("Shlok_Partial", Model);}
-    @{Html.RenderPartial("ShortNote_Partial", Model);}
-    @{Html.RenderPartial("WhoWhomWhen_Partial", Model);}
+    @if (!string.IsNullOrEmpty(Model.Category))
+    {
+        Html.RenderPartial(Model.Category.Replace("_", "") + "_Partial", Model);
+    }
+    else
+    {
+        Html.RenderPartial("OneSentence_Partial", Model);
+        Html.RenderPartial("CorrectOption_Partial", Model);
+        Html.RenderPartial("CorrectSentence_Partial", Model);
+        Html.RenderPartial("CorrectSequence_Partial", Model);
+        Html.RenderPartial("FillInBlank_Partial", Model);
+        Html.RenderPartial("Kirtan_Partial", Model);
+        Html.RenderPartial("Reason_Partial", Model);
+        Html.RenderPartial("Shlok_Partial", Model);
+        Html.RenderPartial("ShortNote_Partial", Model);
+        Html.RenderPartial("WhoWhomWhen_Partial", Model);
+        Html.RenderPartial("SwaminiVaato_Partial", Model);
+    }
 </div>

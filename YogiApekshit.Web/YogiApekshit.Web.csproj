@@ -657,7 +657,7 @@
     <Content Include="Views\Shared\ShortNote_Partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\SwaminiVat_Partial.cshtml" />
+    <Content Include="Views\Shared\SwaminiVaato_Partial.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
