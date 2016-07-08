@@ -556,9 +556,10 @@ ul.awe-ajaxlist {
 .awe-grid {
     /*font-family: "Lato", "Arial", sans-serif;*/
     font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    font-weight:400;
     color: #FFFFFF;
     border-top: 0px #ddd solid;
-    font-size: 15px;
 }
 
 .awe-hrow th, .awe-row td, .awe-gfoot td {
@@ -677,6 +678,96 @@ ul.awe-ajaxlist {
     color: #418bca;
     padding-left: 5px;
 }
+
+/*Awesome bg-slategray*/
+.bg-slategray .awe-header, .bg-slategray .awe-col, .bg-slategray .awe-ajaxlist thead, .bg-slategray .awe-list thead, .bg-slategray .awe-drag {
+    color: white;
+    background-color: #3f4e62 !important;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.bg-slategray .awe-row, .bg-slategray .awe-ghead, .bg-slategray .awe-gfoot {
+    background: #3f4e62 !important;
+}
+
+.bg-slategray .awe-btn {
+    background-color: #3f4e62 !important;
+    border: 0px;
+}
+
+.bg-slategray .searchtxt {
+    color: #3f4e62;
+    padding-left: 5px;
+}
+
+
+/*Awesome bg-darkgray*/
+.bg-darkgray .awe-header, .bg-darkgray .awe-col, .bg-darkgray .awe-ajaxlist thead, .bg-darkgray .awe-list thead, .bg-darkgray .awe-drag {
+    color: white;
+    background-color: #333 !important;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.bg-darkgray .awe-row, .bg-darkgray .awe-ghead, .bg-darkgray .awe-gfoot {
+    background: #333 !important;
+}
+
+.bg-darkgray .awe-btn {
+    background-color: #333 !important;
+    border: 0px;
+}
+
+.bg-darkgray .searchtxt {
+    color: #333;
+    padding-left: 5px;
+}
+
+/*Awesome bg-warning*/
+.bg-warning .awe-header, .bg-warning .awe-col, .bg-warning .awe-ajaxlist thead, .bg-warning .awe-list thead, .bg-warning .awe-drag {
+    color: white;
+    background-color: #f0ad4e !important;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.bg-warning .awe-row, .bg-warning .awe-ghead, .bg-warning .awe-gfoot {
+    background: #f0ad4e !important;
+}
+
+.bg-warning .awe-btn {
+    background-color: #f0ad4e !important;
+    border: 0px;
+}
+
+.bg-warning .searchtxt {
+    color: #f0ad4e;
+    padding-left: 5px;
+}
+
+/*Awesome bg-red*/
+.bg-red .awe-header, .bg-red .awe-col, .bg-red .awe-ajaxlist thead, .bg-red .awe-list thead, .bg-red .awe-drag {
+    color: white;
+    background-color: #ff4a43 !important;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.bg-red .awe-row, .bg-red .awe-ghead, .bg-red .awe-gfoot {
+    background: #ff4a43 !important;
+}
+
+.bg-red .awe-btn {
+    background-color: #ff4a43 !important;
+    border: 0px;
+}
+
+.bg-red .searchtxt {
+    color: #ff4a43;
+    padding-left: 5px;
+}
+
 
 @-ms-viewport {
     width: auto !important;

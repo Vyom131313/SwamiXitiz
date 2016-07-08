@@ -5,10 +5,9 @@
 
 @{var gridId = "gridCorrectOptions";}
 <div class="page page-dashboard">
-    <section class="tile bg-greensea">
+    <section class="tile bg-blue">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "From the given options, place a tick (✔) in the box next to the correct ones.", SubTitle = "(Total Marks: 8)" })
-        <div>
-            @(Html.ICon().Grid(gridId)
+        @(Html.ICon().Grid(gridId)
              .Url(Url.Action("GridRecords", "QA"))
             .Parameter("bookId", Model.BookId.ToString())
             .Parameter("category", Constants.Que_Categories.Correct_Option.ToString())
@@ -23,7 +22,6 @@
                 new Column { Name = "Chapter", Header = "Chapter", Width = 90 },
                 new Column { Name = "Exams", Header = "Exams", Width = 130 }
                 ))
-        </div>
     </section>
 </div>
 

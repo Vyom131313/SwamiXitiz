@@ -5,7 +5,7 @@
 
 @{var gridId = "gridCorrectSequence";}
 <div class="page page-dashboard">
-    <section class="tile bg-greensea">
+    <section class="tile bg-slategray">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Select the correct sentences and write them in the correct story sequence.", SubTitle = "(Total Marks: 6)" })
         @(Html.ICon().Grid(gridId)
             .Url(Url.Action("GridRecords", "QA"))
