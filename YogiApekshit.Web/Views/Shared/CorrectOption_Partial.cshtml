@@ -3,13 +3,14 @@
 @using SwamiXitiz.Data.ModelsPartial
 @model QA_Filter_Parameters
 
-@{var gridId = "gridCorrectOptions";}
+@{var gridId = string.Format("grid{0}", Constants.Que_Categories.Correct_Option.ToString());}
+
 <div class="page page-dashboard">
-    <section class="tile bg-blue">
+    <section class="tile bg-blue" id="@string.Format("div{0}", gridId)">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "From the given options, place a tick (✔) in the box next to the correct ones.", SubTitle = "(Total Marks: 8)" })
         @(Html.ICon().Grid(gridId).ClientKey(gridId)
             .Url(Url.Action("GridRecords", "QA"))
-             
+
             .Parameter("bookId", Model.BookId.ToString())
             .Parameter("category", Constants.Que_Categories.Correct_Option.ToString())
             .Parameter("chapterNumber", Model.ChapterNumber.ToString())
@@ -24,5 +25,6 @@
                 new Column { Name = "Exams", Header = "Exams", Width = 130 }
                 ))
     </section>
+
 </div>
 

@@ -3,11 +3,11 @@
 @using SwamiXitiz.Data.ModelsPartial
 @model QA_Filter_Parameters
 
-@{var gridId = "gridShortNotes";}
-<div class="page page-dashboard">
+@{var gridId = string.Format("grid{0}", Constants.Que_Categories.Short_Note.ToString());}
+<div class="page page-dashboard" id="@string.Format("div{0}", gridId)">
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Write briefly five main points (in sentences).", SubTitle = "(Total Marks: 5)" })
-        @(Html.ICon().Grid(gridId)
+        @(Html.ICon().Grid(gridId).ClientKey(gridId)
             .Url(Url.Action("GridRecords", "QA"))
             .Parameter("bookId", Model.BookId.ToString())
             .Parameter("category", Constants.Que_Categories.Short_Note.ToString())

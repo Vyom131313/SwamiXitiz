@@ -4,13 +4,12 @@
 
 @model QA_Filter_Parameters
 
-@{var gridId = "gridFillInBlanks";}
-
-<div class="page page-dashboard">
+@{var gridId = string.Format("grid{0}", Constants.Que_Categories.Fill_In_Blank.ToString());}
+<div class="page page-dashboard" id="@string.Format("div{0}", gridId)">
     <section class="tile bg-darkgray">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Fill in the blanks.", SubTitle = "(Total Marks: 4)" })
 
-        @(Html.ICon().Grid(gridId)
+        @(Html.ICon().Grid(gridId).ClientKey(gridId)
             .Url(Url.Action("GridRecords", "QA"))
             .Parameter("bookId", Model.BookId.ToString())
             .Parameter("category", Constants.Que_Categories.Fill_In_Blank.ToString())

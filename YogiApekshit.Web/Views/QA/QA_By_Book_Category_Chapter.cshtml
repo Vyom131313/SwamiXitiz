@@ -28,13 +28,12 @@
 </div>
 @section scripts{
     <script language="JavaScript">
-        //alert('');
 
         var keys = '@string.Join(",", Enum.GetNames(typeof(Constants.Que_Categories)))'.split(',');
         $.each(keys, function (index, value) {
             //alert(index + ": " + value);
             var gridId = '#grid' + value;
-            var gridParentId = '#div' + value;
+            var gridParentId = '#div' + 'grid' + value;
 
             $(gridId).on('aweload', function (event, data, requestData) {
                 if (data.PageCount == 0) {
@@ -43,7 +42,5 @@
                 //console.log('aweload handled', data, requestData);
             });
         });
-
-
     </script>
 }

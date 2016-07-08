@@ -1,5 +1,5 @@
 ﻿ ================== Templates ================= 
- - Hide grid if no any que found
+ - Collapse
  - Hide/Show All Answer
  - Hide/Show individual Answer
 

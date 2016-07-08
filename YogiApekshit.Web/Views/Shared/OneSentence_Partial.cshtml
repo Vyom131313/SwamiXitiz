@@ -4,9 +4,8 @@
 
 @model QA_Filter_Parameters
 
-@{var gridId = "gridOneSentence";}
-<div class="page page-dashboard">
-
+@{var gridId = string.Format("grid{0}", Constants.Que_Categories.One_Sentence.ToString());}
+<div class="page page-dashboard" id="@string.Format("div{0}", gridId)">
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel
        {
@@ -15,7 +14,7 @@
            SubTitle = "(Total Marks: 4)"
        })
 
-        @(Html.ICon().Grid(gridId)
+        @(Html.ICon().Grid(gridId).ClientKey(gridId)
             .Url(Url.Action("GridRecords", "QA"))
             .Parameter("bookId", Model.BookId.ToString())
             .Parameter("category", Constants.Que_Categories.One_Sentence.ToString())
@@ -23,7 +22,7 @@
             .Persistence(Persistence.Session)
             .Groupable(false)
             .Sortable(false)
-            
+
             .Columns(
                 new Column { Name = "Sr", Header = "#", Width = 40, },
                 new Column { ClientFormat = Utils.QuestionAndAnsFormat(), Header = "Question and Answer" },
