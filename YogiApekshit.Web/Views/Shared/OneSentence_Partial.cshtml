@@ -16,14 +16,14 @@
        })
 
         @(Html.ICon().Grid(gridId)
-             .Url(Url.Action("GridRecords", "QA"))
+            .Url(Url.Action("GridRecords", "QA"))
             .Parameter("bookId", Model.BookId.ToString())
             .Parameter("category", Constants.Que_Categories.OneSentence.ToString())
             .Parameter("chapterNumber", Model.ChapterNumber.ToString())
             .Persistence(Persistence.Session)
             .Groupable(false)
             .Sortable(false)
-
+            
             .Columns(
                 new Column { Name = "Sr", Header = "#", Width = 40, },
                 new Column { ClientFormat = Utils.QuestionAndAnsFormat(), Header = "Question and Answer" },

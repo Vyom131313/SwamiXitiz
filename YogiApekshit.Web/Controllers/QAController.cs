@@ -63,15 +63,30 @@ namespace YogiApekshit.Web.Controllers
 
         public JsonResult GridRecords(GridParams g, int bookId, string category, int chapterNumber = 0)
         {
-            var data = QA_List(new QA_Filter_Parameters { BookId = bookId, Category = category, ChapterNumber = chapterNumber });
-
-            var model = new GridModelBuilder<QA_VM>(data.AsQueryable(), g)
+            if (category.Equals("WhoWhomWhen", StringComparison.InvariantCultureIgnoreCase))
             {
-                Key = "Id",
-                Map = MapEntityToGridModel,
-            }.Build();
+                var data = QA_WhoWhomWhen(new QA_Filter_Parameters { BookId = bookId, Category = category, ChapterNumber = chapterNumber });
 
-            return Json(model);
+                var model = new GridModelBuilder<QA_WWW_VM>(data.AsQueryable(), g)
+                {
+                    Key = "Id",
+                    Map = MapEntityToGridModel,
+                }.Build();
+
+                return Json(model);
+            }
+            else
+            {
+                var data = QA_List(new QA_Filter_Parameters { BookId = bookId, Category = category, ChapterNumber = chapterNumber });
+
+                var model = new GridModelBuilder<QA_VM>(data.AsQueryable(), g)
+                {
+                    Key = "Id",
+                    Map = MapEntityToGridModel,
+                }.Build();
+
+                return Json(model);
+            }
         }
 
         protected object MapEntityToGridModel(QA_VM o)
@@ -81,6 +96,20 @@ namespace YogiApekshit.Web.Controllers
                 o.Sr,
                 o.Que,
                 o.Ans,
+                o.Chapter,
+                o.Exams
+            };
+        }
+
+        protected object MapEntityToGridModel(QA_WWW_VM o)
+        {
+            return new
+            {
+                o.Sr,
+                o.Que,
+                o.Who,
+                o.Whom,
+                o.When,
                 o.Chapter,
                 o.Exams
             };
@@ -115,8 +144,6 @@ namespace YogiApekshit.Web.Controllers
                     return QA_ShortNote(filter);
                 case "SwaminiVat":
                     return QA_SwaminiVat(filter);
-                case "WhoWhomWhen":
-                //return QA_WhoWhomWhen(filter);
                 default:
                     return null;
             }
@@ -158,7 +185,8 @@ namespace YogiApekshit.Web.Controllers
         private List<QA_VM> QA_CorrectSentence(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            return repoQueCorrectSentence.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueCorrectSentence.GetAll().Where(obj => obj.BookId == filter.BookId &&
+               (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QA_VM
                 {
@@ -173,7 +201,8 @@ namespace YogiApekshit.Web.Controllers
         private List<QA_VM> QA_CorrectSequence(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            return repoQueCorrectSequence.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueCorrectSequence.GetAll().Where(obj => obj.BookId == filter.BookId &&
+               (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QA_VM
                 {
@@ -188,7 +217,8 @@ namespace YogiApekshit.Web.Controllers
         private List<QA_VM> QA_CorrectOption(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            return repoQueCorrectOption.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueCorrectOption.GetAll().Where(obj => obj.BookId == filter.BookId &&
+               (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QA_VM
                 {
@@ -203,7 +233,8 @@ namespace YogiApekshit.Web.Controllers
         private List<QA_VM> QA_FillInBlank(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            return repoQueFillInBlank.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueFillInBlank.GetAll().Where(obj => obj.BookId == filter.BookId &&
+               (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QA_VM
                 {
@@ -218,7 +249,8 @@ namespace YogiApekshit.Web.Controllers
         private List<QA_VM> QA_Kirtan(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            return repoQueKirtan.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueKirtan.GetAll().Where(obj => obj.BookId == filter.BookId &&
+               (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QA_VM
                 {
@@ -249,7 +281,8 @@ namespace YogiApekshit.Web.Controllers
         private List<QA_VM> QA_Reason(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            return repoQueReason.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueReason.GetAll().Where(obj => obj.BookId == filter.BookId &&
+               (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QA_VM
                 {
@@ -264,7 +297,8 @@ namespace YogiApekshit.Web.Controllers
         private List<QA_VM> QA_Shlok(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            return repoQueShlok.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueShlok.GetAll().Where(obj => obj.BookId == filter.BookId &&
+               (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QA_VM
                 {
@@ -279,7 +313,8 @@ namespace YogiApekshit.Web.Controllers
         private List<QA_VM> QA_ShortNote(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            return repoQueShortNote.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueShortNote.GetAll().Where(obj => obj.BookId == filter.BookId &&
+               (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QA_VM
                 {
@@ -294,7 +329,8 @@ namespace YogiApekshit.Web.Controllers
         private List<QA_VM> QA_SwaminiVat(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            return repoQueSwaminiVat.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueSwaminiVat.GetAll().Where(obj => obj.BookId == filter.BookId &&
+               (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QA_VM
                 {
@@ -309,7 +345,8 @@ namespace YogiApekshit.Web.Controllers
         private List<QA_WWW_VM> QA_WhoWhomWhen(QA_Filter_Parameters filter)
         {
             var seq = 1;
-            return repoQueWhoWhomWhen.GetAll().Where(obj => Constants.Books.Prarambha_AllBooks.Contains(obj.BookId))
+            return repoQueWhoWhomWhen.GetAll().Where(obj => obj.BookId == filter.BookId &&
+               (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QA_WWW_VM
                 {

@@ -3,46 +3,21 @@
 @using SwamiXitiz.Data.ModelsPartial
 @model QA_Filter_Parameters
 
+@{var gridId = "gridWWW";}
 <section class="tile bg-greensea">
     @Html.Partial("GridToolbar", new GridToolbarModel { Title = "State who is speaking to whom and when.", SubTitle = "(Total Marks: 9)" })
-    <div>
-        <span>{{QA_List_Load('@Constants.Que_Categories.WhoWhomWhen')}}</span>
-
-        <table class="table table-condensed queAnsTable">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Statement</th>
-                    <th>Chapter</th>
-                    <th>Exams</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr data-ng-repeat="item in QA_List">
-                    <td class="sequenceColumn">{{item.Sr}}.</td>
-                    <td class="queAndansColumn">
-                        <p style="line-height:1.7">
-                            <b>{{item.Que}}</b>
-                        </p>
-                        <p style="line-height:1.7">
-                            <span style="font-style:italic; color:black">{{item.Who}}</span>
-                            <img src="/Images/double-arrow-white.png" width="16px" />
-                            <span style="font-style:italic; color:black">
-                                {{item.Whom}}
-                            </span>
-                            <br />
-                            <i class="doublearrow-white"></i>
-                            <img src="/Images/double-arrow-white.png" width="16px" />
-                            <span class="whenColumn">{{item.When}}</span>
-                        </p>
-                    </td>
-                    @*<td class="whoColumn">{{item.Who}}</td>
-                        <td><img src="/Images/double-arrow-white.png" width="16px" /></td>
-                        <td class="whomColumn">{{item.Whom}}</td>*@
-                    <td class="chapterColumn">{{item.Chapter}}</td>
-                    <td class="examColumn">{{item.Exams}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    @(Html.ICon().Grid(gridId)
+             .Url(Url.Action("GridRecords", "QA"))
+            .Parameter("bookId", Model.BookId.ToString())
+            .Parameter("category", Constants.Que_Categories.SwaminiVat.ToString())
+            .Parameter("chapterNumber", Model.ChapterNumber.ToString())
+            .Persistence(Persistence.Session)
+            .Groupable(false)
+            .Sortable(false)
+            .Columns(
+                    new Column { Name = "Sr", Header = "Sr.", Width = 40 },
+                            new Column { ClientFormat = Utils.WWWFormat(), Header = "Statement" },
+                    new Column { Name = "Chapter", Header = "Chapter", Width = 90 },
+                    new Column { Name = "Exams", Header = "Exams", Width = 130 }
+                ))
 </section>

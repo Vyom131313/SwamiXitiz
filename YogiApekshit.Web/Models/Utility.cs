@@ -28,7 +28,7 @@ namespace YogiApekshit.Web.Models
 
         public static string QuestionAndAnsFormat()
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><br/><b>Ans:</b> .Ans</div>"; 
+            return "<div style='padding-bottom:10px;'><b>.Que</b><br/><b>Ans:</b> .Ans</div>";
         }
 
         public static string ReasonFormat()
@@ -39,6 +39,22 @@ namespace YogiApekshit.Web.Models
         public static string ShortNoteFormat()
         {
             return "<div style='padding-bottom:10px;'><b>.Que</b><br/>.Ans</div>";
+        }
+
+        public static string WWWFormat()
+        {
+            return @"<div style='padding-bottom:10px;'><p style='line-height:1.7'>
+                            <b>.Que</b>
+                        </p>
+                        <p style='line-height:1.7'>
+                            <span style='font-style:italic; color:black'>.Who</span>
+                            <img src='/Images/double-arrow-white.png' width='16px' />
+                            <span style='font-style:italic; color:black'>.Whom</span>
+                            <br />
+                            <i class='doublearrow-white'></i>
+                            <img src='/Images/double-arrow-white.png' width='16px' />
+                            <span class='whenColumn'>.When</span>
+                        </p></div>";
         }
 
         public static string SwaminiVaatFormat()
