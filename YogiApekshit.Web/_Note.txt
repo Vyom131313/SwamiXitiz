@@ -1,5 +1,4 @@
 ﻿ ================== Templates ================= 
- - Separate color each category
  - Hide grid if no any que found
  - Hide/Show All Answer
  - Hide/Show individual Answer

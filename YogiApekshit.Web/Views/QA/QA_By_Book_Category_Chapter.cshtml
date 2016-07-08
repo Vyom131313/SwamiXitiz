@@ -1,4 +1,6 @@
 ﻿@using YogiApekshit.Web.Models
+@using SwamiXitiz.Data.ModelsPartial
+
 @{
     Layout = "~/Views/Shared/_Layout_noAngular.cshtml";
 }
@@ -24,3 +26,24 @@
         Html.RenderPartial("SwaminiVaato_Partial", Model);
     }
 </div>
+@section scripts{
+    <script language="JavaScript">
+        //alert('');
+
+        var keys = '@string.Join(",", Enum.GetNames(typeof(Constants.Que_Categories)))'.split(',');
+        $.each(keys, function (index, value) {
+            //alert(index + ": " + value);
+            var gridId = '#grid' + value;
+            var gridParentId = '#div' + value;
+
+            $(gridId).on('aweload', function (event, data, requestData) {
+                if (data.PageCount == 0) {
+                    $(gridParentId).remove();
+                }
+                //console.log('aweload handled', data, requestData);
+            });
+        });
+
+
+    </script>
+}

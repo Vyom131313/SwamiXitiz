@@ -7,8 +7,9 @@
 <div class="page page-dashboard">
     <section class="tile bg-blue">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "From the given options, place a tick (✔) in the box next to the correct ones.", SubTitle = "(Total Marks: 8)" })
-        @(Html.ICon().Grid(gridId)
-             .Url(Url.Action("GridRecords", "QA"))
+        @(Html.ICon().Grid(gridId).ClientKey(gridId)
+            .Url(Url.Action("GridRecords", "QA"))
+             
             .Parameter("bookId", Model.BookId.ToString())
             .Parameter("category", Constants.Que_Categories.Correct_Option.ToString())
             .Parameter("chapterNumber", Model.ChapterNumber.ToString())
@@ -25,5 +26,3 @@
     </section>
 </div>
 
-@section scripts{
-}
