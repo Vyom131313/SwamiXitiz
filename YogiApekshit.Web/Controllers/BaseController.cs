@@ -1,9 +1,10 @@
 ﻿using Data.Core.IRepository;
 using SwamiXitiz.Data.Models;
 using SwamiXitiz.Data.ModelsPartial;
+using System;
 using System.Collections.Generic;
-using System.Web.Mvc;
 using System.Linq;
+using System.Web.Mvc;
 using YogiApekshit.Web.Models;
 
 namespace YogiApekshit.Web.Controllers
@@ -32,7 +33,9 @@ namespace YogiApekshit.Web.Controllers
             var mnuPrarambh = new MenuItem { Name = "Prarambh", IConClass = "fa fa-pencil" };
             mnuPrarambh.MenuItems = new List<MenuItem>();
 
-            foreach (var book in bookRepo.GetAll().Where(c => c.ExamLevelId == Constants.ExamLevels.Prarambh))
+            var prarambhBooks = bookRepo.GetAll().Where(c => c.ExamLevelId == Constants.ExamLevels.Prarambh);
+
+            foreach (var book in prarambhBooks)
             {
                 var mnuBook = new MenuItem { Name = book.Name_Eng, IConClass = "fa fa-pencil", IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng) };
                 mnuBook.MenuItems = new List<MenuItem>();
@@ -49,6 +52,35 @@ namespace YogiApekshit.Web.Controllers
             root.MenuItems.Add(mnuPrarambh);
 
             #region Q/A by Categories
+
+            var mnuCategories = new MenuItem { Name = "Q/A by Categories", IConClass = "fa fa-pencil", MenuItems = new List<MenuItem>() };
+
+            var categories = Enum.GetNames(typeof(Constants.Que_Categories));
+            foreach (var category in categories)
+            {
+                var categoryMenu = new MenuItem { Name = category.Replace("_", " "), MenuItems = new List<MenuItem>() };
+
+                foreach (var book in prarambhBooks)
+                {
+                    var mnuBook = new MenuItem
+                    {
+                        Name = book.Name_Eng,
+                        IConClass = "fa fa-pencil",
+                        IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng),
+                        ControllerName = "QA",
+                        ActionName = "QA_By_Book_Category_Chapter",
+                        RouteValues = new { bookId = book.Id, category = category }
+                    };
+
+                    categoryMenu.MenuItems.Add(mnuBook);
+                }
+
+                mnuCategories.MenuItems.Add(categoryMenu);
+            }
+
+            root.MenuItems.Add(mnuCategories);
+
+            /*
             root.MenuItems.Add(new MenuItem
             {
                 Name = "Q/A by Categories",
@@ -67,7 +99,7 @@ namespace YogiApekshit.Web.Controllers
                     new MenuItem { Name = "Kirtan", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Kirtan }  },
                     new MenuItem { Name = "Swamini Vato", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Swamini_Vaato }  },
                 }
-            });
+            });*/
             #endregion
 
             System.Web.HttpContext.Current.Session["Menus"] = root;
