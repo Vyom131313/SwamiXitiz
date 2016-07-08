@@ -4,9 +4,10 @@
 @model QA_Filter_Parameters
 
 @{var gridId = "gridWWW";}
-<section class="tile bg-darkgray">
-    @Html.Partial("GridToolbar", new GridToolbarModel { Title = "State who is speaking to whom and when.", SubTitle = "(Total Marks: 9)" })
-    @(Html.ICon().Grid(gridId)
+<div class="page page-dashboard">
+    <section class="tile bg-darkgray">
+        @Html.Partial("GridToolbar", new GridToolbarModel { Title = "State who is speaking to whom and when.", SubTitle = "(Total Marks: 9)" })
+        @(Html.ICon().Grid(gridId)
             .Url(Url.Action("GridRecords", "QA"))
             .Parameter("bookId", Model.BookId.ToString())
             .Parameter("category", Constants.Que_Categories.Who_Whom_When.ToString())
@@ -20,4 +21,5 @@
                     new Column { Name = "Chapter", Header = "Chapter", Width = 90 },
                     new Column { Name = "Exams", Header = "Exams", Width = 130 }
                 ))
-</section>
+    </section>
+</div>

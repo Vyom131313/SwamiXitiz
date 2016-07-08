@@ -47,9 +47,9 @@ namespace YogiApekshit.Web.Models
                             <b>.Que</b>
                         </p>
                         <p style='line-height:1.7'>
-                            <span style='font-style:italic; color:black'>.Who</span>
+                            <span style='font-style:italic; font-weight:900;text-decoration:underline '>.Who</span>
                             <img src='/Images/double-arrow-white.png' width='16px' />
-                            <span style='font-style:italic; color:black'>.Whom</span>
+                            <span style='font-style:italic; font-weight:900;text-decoration:underline'>.Whom</span>
                             <br />
                             <i class='doublearrow-white'></i>
                             <img src='/Images/double-arrow-white.png' width='16px' />
