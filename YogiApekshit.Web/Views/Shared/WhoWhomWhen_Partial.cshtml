@@ -7,9 +7,9 @@
 <section class="tile bg-greensea">
     @Html.Partial("GridToolbar", new GridToolbarModel { Title = "State who is speaking to whom and when.", SubTitle = "(Total Marks: 9)" })
     @(Html.ICon().Grid(gridId)
-             .Url(Url.Action("GridRecords", "QA"))
+            .Url(Url.Action("GridRecords", "QA"))
             .Parameter("bookId", Model.BookId.ToString())
-            .Parameter("category", Constants.Que_Categories.WhoWhomWhen.ToString())
+            .Parameter("category", Constants.Que_Categories.Who_Whom_When.ToString())
             .Parameter("chapterNumber", Model.ChapterNumber.ToString())
             .Persistence(Persistence.Session)
             .Groupable(false)

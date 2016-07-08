@@ -18,7 +18,7 @@
         @(Html.ICon().Grid(gridId)
             .Url(Url.Action("GridRecords", "QA"))
             .Parameter("bookId", Model.BookId.ToString())
-            .Parameter("category", Constants.Que_Categories.OneSentence.ToString())
+            .Parameter("category", Constants.Que_Categories.One_Sentence.ToString())
             .Parameter("chapterNumber", Model.ChapterNumber.ToString())
             .Persistence(Persistence.Session)
             .Groupable(false)

@@ -1,5 +1,4 @@
 ﻿ ================== Templates ================= 
- - www
  - Filter by category
 
  - Separate color each category

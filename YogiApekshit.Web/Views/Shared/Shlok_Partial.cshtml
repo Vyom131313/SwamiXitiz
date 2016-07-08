@@ -8,7 +8,7 @@
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Complete the Shloks below.", SubTitle = "(Total Marks: 8)" })
         @(Html.ICon().Grid(gridId)
-             .Url(Url.Action("GridRecords", "QA"))
+            .Url(Url.Action("GridRecords", "QA"))
             .Parameter("bookId", Model.BookId.ToString())
             .Parameter("category", Constants.Que_Categories.Shlok.ToString())
             .Parameter("chapterNumber", Model.ChapterNumber.ToString())

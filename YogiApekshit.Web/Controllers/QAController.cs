@@ -63,7 +63,7 @@ namespace YogiApekshit.Web.Controllers
 
         public JsonResult GridRecords(GridParams g, int bookId, string category, int chapterNumber = 0)
         {
-            if (category.Equals("WhoWhomWhen", StringComparison.InvariantCultureIgnoreCase))
+            if (category.Equals("Who_Whom_When", StringComparison.InvariantCultureIgnoreCase))
             {
                 var data = QA_WhoWhomWhen(new QA_Filter_Parameters { BookId = bookId, Category = category, ChapterNumber = chapterNumber });
 
@@ -122,27 +122,29 @@ namespace YogiApekshit.Web.Controllers
 
         public List<QA_VM> QA_List(QA_Filter_Parameters filter)
         {
-            switch (filter.Category)
+            Constants.Que_Categories category = (Constants.Que_Categories)Enum.Parse(typeof(Constants.Que_Categories), filter.Category);
+
+            switch (category)
             {
-                case "OneSentence":
+                case Constants.Que_Categories.One_Sentence:
                     return QA_OneSentence(filter);
-                case "CorrectOption":
+                case Constants.Que_Categories.Correct_Option:
                     return QA_CorrectOption(filter);
-                case "CorrectSentence":
+                case Constants.Que_Categories.Correct_Sentence:
                     return QA_CorrectSentence(filter);
-                case "CorrectSequence":
+                case Constants.Que_Categories.Correct_Sequence:
                     return QA_CorrectSequence(filter);
-                case "FillInBlank":
+                case Constants.Que_Categories.Fill_In_Blank:
                     return QA_FillInBlank(filter);
-                case "Kirtan":
+                case Constants.Que_Categories.Kirtan:
                     return QA_Kirtan(filter);
-                case "Reason":
+                case Constants.Que_Categories.Reason:
                     return QA_Reason(filter);
-                case "Shlok":
+                case Constants.Que_Categories.Shlok:
                     return QA_Shlok(filter);
-                case "ShortNote":
+                case Constants.Que_Categories.Short_Note:
                     return QA_ShortNote(filter);
-                case "SwaminiVat":
+                case Constants.Que_Categories.Swamini_Vaato:
                     return QA_SwaminiVat(filter);
                 default:
                     return null;

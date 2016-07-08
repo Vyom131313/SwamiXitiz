@@ -55,33 +55,20 @@ namespace YogiApekshit.Web.Controllers
                 IConClass = "fa fa-pencil",
                 MenuItems = new List<MenuItem> 
                 {
-                    new MenuItem { Name = "Who Whom When", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.WhoWhomWhen } },
-                    new MenuItem { Name = "Ans in One Sentence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.OneSentence }  },
-                    new MenuItem { Name = "Incorrect Sentence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.CorrectSentence }  },
-                    new MenuItem { Name = "Short Notes", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.ShortNote}  },
-                    new MenuItem { Name = "Correct Sequence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.CorrectSequence }  },
-                    new MenuItem { Name = "Fill In Blanks", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.FillInBlank }  },
-                    new MenuItem { Name = "Select Correct Options", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.CorrectOption }  },
+                    new MenuItem { Name = "Who Whom When", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Who_Whom_When } },
+                    new MenuItem { Name = "Ans in One Sentence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.One_Sentence }  },
+                    new MenuItem { Name = "Incorrect Sentence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Correct_Sentence }  },
+                    new MenuItem { Name = "Short Notes", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Short_Note}  },
+                    new MenuItem { Name = "Correct Sequence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Correct_Sequence }  },
+                    new MenuItem { Name = "Fill In Blanks", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Fill_In_Blank }  },
+                    new MenuItem { Name = "Select Correct Options", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Correct_Option }  },
                     new MenuItem { Name = "Give Reasons", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Reason }  },
                     new MenuItem { Name = "Shloks", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Shlok }  },
                     new MenuItem { Name = "Kirtan", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Kirtan }  },
-                    new MenuItem { Name = "Swamini Vato", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.SwaminiVat }  },
+                    new MenuItem { Name = "Swamini Vato", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Swamini_Vaato }  },
                 }
             });
             #endregion
-
-            //new MenuItem { Name = "Pravesh-1", IConClass = "fa fa-pencil",
-            //    MenuItems = new List<MenuItem>
-            //    {
-            //        new MenuItem { Name = "Que-1", ControllerName="Pravesh_1", ActionName="Que_1" },
-            //        new MenuItem { Name = "Que-2", ControllerName="Pravesh_1", ActionName="Que_2" },
-            //        new MenuItem { Name = "Que-4", ControllerName="Pravesh_1", ActionName="Que_4" },
-            //        new MenuItem { Name = "Que-7", ControllerName="Pravesh_1", ActionName="Que_7" },
-            //        new MenuItem { Name = "Que-8", ControllerName="Pravesh_1", ActionName="Que_8" },
-            //        new MenuItem { Name = "Que-9", ControllerName="Pravesh_1", ActionName="Que_9" },
-            //        new MenuItem { Name = "Que-12", ControllerName="Pravesh_1", ActionName="Que_12" }
-            //    }
-            //}, 
 
             System.Web.HttpContext.Current.Session["Menus"] = root;
             return System.Web.HttpContext.Current.Session["Menus"] as MenuItem;

@@ -11,9 +11,9 @@
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Fill in the blanks.", SubTitle = "(Total Marks: 4)" })
 
         @(Html.ICon().Grid(gridId)
-             .Url(Url.Action("GridRecords", "QA"))
+            .Url(Url.Action("GridRecords", "QA"))
             .Parameter("bookId", Model.BookId.ToString())
-                    .Parameter("category", Constants.Que_Categories.FillInBlank.ToString())
+            .Parameter("category", Constants.Que_Categories.Fill_In_Blank.ToString())
             .Parameter("chapterNumber", Model.ChapterNumber.ToString())
             .Persistence(Persistence.Session)
             .Groupable(false)

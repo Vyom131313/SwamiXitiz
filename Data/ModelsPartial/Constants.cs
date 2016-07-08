@@ -29,22 +29,21 @@ namespace SwamiXitiz.Data.ModelsPartial
                     return new List<int> { Ghanshaym_Charitra, Yogiji_Maharaj, Kishore_Satsang_Prarambha };
                 }
             }
-
         }
 
         public enum Que_Categories
         {
-            CorrectOption,
-            CorrectSentence,
-            CorrectSequence,
-            FillInBlank,
+            Correct_Option,
+            Correct_Sentence,
+            Correct_Sequence,
+            Fill_In_Blank,
             Kirtan,
-            OneSentence,
+            One_Sentence,
             Reason,
             Shlok,
-            ShortNote,
-            SwaminiVat,
-            WhoWhomWhen
+            Short_Note,
+            Swamini_Vaato,
+            Who_Whom_When
         }
     }
 }

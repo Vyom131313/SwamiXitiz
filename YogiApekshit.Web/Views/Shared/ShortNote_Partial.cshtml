@@ -8,9 +8,9 @@
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Write briefly five main points (in sentences).", SubTitle = "(Total Marks: 5)" })
         @(Html.ICon().Grid(gridId)
-             .Url(Url.Action("GridRecords", "QA"))
+            .Url(Url.Action("GridRecords", "QA"))
             .Parameter("bookId", Model.BookId.ToString())
-            .Parameter("category", Constants.Que_Categories.ShortNote.ToString())
+            .Parameter("category", Constants.Que_Categories.Short_Note.ToString())
             .Parameter("chapterNumber", Model.ChapterNumber.ToString())
             .Persistence(Persistence.Session)
             .Groupable(false)
