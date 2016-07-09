@@ -1,24 +1,22 @@
 ﻿ ================== Templates ================= 
- - Collapse
+ - Collapse grid by default
  - Hide/Show All Answer
  - Hide/Show individual Answer
-
+ 
  - Menu icons
  - Single Page Application
- - Performance
+ - Animation
+ - Performance & Caching
+ - Deployo
+ - Test
  
  - Print 
  - PDF
  - Fullscreen
  - Birthdates table
- - Animation
  ================== Copy all question papers ===========
  ================== AngularJs ==========================
  ================== Production Release =================
- - Deploy
- - Test
- - Performance
- - Caching
  ================== Guj =================
 -> Convert all pdf to txt
 - Replace special characters

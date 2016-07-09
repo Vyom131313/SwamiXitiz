@@ -29,17 +29,34 @@
 @section scripts{
     <script language="JavaScript">
 
-        var keys = '@string.Join(",", Enum.GetNames(typeof(Constants.Que_Categories)))'.split(',');
-        $.each(keys, function (index, value) {
-            //alert(index + ": " + value);
-            var gridId = '#grid' + value;
-            var gridParentId = '#div' + 'grid' + value;
+        $(document).ready(function () {
+            console.log("ready!");
+            var collapsed = false;
 
-            $(gridId).on('aweload', function (event, data, requestData) {
-                if (data.PageCount == 0) {
-                    $(gridParentId).remove();
-                }
-                //console.log('aweload handled', data, requestData);
+            var keys = '@string.Join(",", Enum.GetNames(typeof(Constants.Que_Categories)))'.split(',');
+            $.each(keys, function (index, value) {
+                //alert(index + ": " + value);
+                var gridId = '#grid' + value;
+                var gridParentId = '#div' + 'grid' + value;
+
+                $(gridId).on('aweload', function (event, data, requestData) {
+
+                    /* ================= Remove grid if no any record =================== */
+                    if (data.PageCount == 0) {
+                        $(gridParentId).remove();
+                    }
+
+                    /* ================= Collapse grid =================== */
+                    if (collapsed == false) {
+                        collapsed = true;
+                        var tileToggleEls = $('.tile .tile-toggle');
+                        $.each(tileToggleEls, function (i, element) {
+                            var tile = $(element).parents('.tile');
+                            tile.toggleClass('collapsed');
+                            tile.children().not('.tile-header').slideToggle(150);
+                        });
+                    }
+                });
             });
         });
     </script>

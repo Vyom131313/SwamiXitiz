@@ -438,6 +438,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\json2.min.js" />
     <Content Include="Scripts\Site.js" />
+    <Content Include="Views\Shared\CorrectSentence_Partial.cshtml" />
+    <Content Include="Views\Shared\Kirtan_Partial.cshtml" />
+    <Content Include="Views\Shared\Reason_Partial.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -639,16 +642,7 @@
     <Content Include="Views\Shared\CorrectOption_Partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\CorrectSentence_Partial.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\CorrectSequence_Partial.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\Kirtan_Partial.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\Reason_Partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Shlok_Partial.cshtml" />
