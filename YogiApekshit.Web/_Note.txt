@@ -1,5 +1,4 @@
 ﻿ ================== Templates ================= 
- - Logo
  - Menu icons
  
  - Single Page Application

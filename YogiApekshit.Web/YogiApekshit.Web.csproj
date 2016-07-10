@@ -282,6 +282,7 @@
     <Content Include="Content\assets\images\favicon.ico" />
     <Content Include="Content\assets\images\george-avatar.jpg" />
     <Content Include="Content\assets\images\ici-avatar.jpg" />
+    <Content Include="Content\images\minovate-logo.png" />
     <Content Include="Content\assets\images\logo-placeholder.jpg" />
     <Content Include="Content\assets\images\minovate-logo-color.png" />
     <Content Include="Content\assets\images\minovate-logo.png" />
