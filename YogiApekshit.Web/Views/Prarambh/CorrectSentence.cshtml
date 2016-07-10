@@ -7,7 +7,7 @@
 }
 
 <div class="page page-dashboard">
-    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Incorrect Sentences"))
+    @Html.Partial("_BreadcrumbPartial", new BreadcrumbAndTitleModel("Incorrect Sentences"))
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "Rewrite the incorrect sentences below in relation to the sentence heading.", SubTitle = "(Total Marks: 4)" })
         <div ng-controller="PrarambhController">

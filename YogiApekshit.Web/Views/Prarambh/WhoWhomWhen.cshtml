@@ -6,7 +6,7 @@
 }
 
 <div class="page page-dashboard" ng-controller="PrarambhController">
-    @Html.Partial("BreadcrumbPartial", new BreadcrumbAndTitleModel("Who is speaking to whom and when"))
+    @Html.Partial("_BreadcrumbPartial", new BreadcrumbAndTitleModel("Who is speaking to whom and when"))
     <section class="tile bg-greensea">
         @Html.Partial("GridToolbar", new GridToolbarModel { Title = "State who is speaking to whom and when.", SubTitle = "(Total Marks: 9)" })
         <div>

@@ -73,7 +73,6 @@
     <script src='@Url.Content("~/Content/assets/js/vendor/modernizr/modernizr-2.8.3-respond-1.4.2.min.js")'></script>
     <!--/ modernizr -->
     <link href='@Url.Content("~/Content/Common.css")?v=83' rel="stylesheet" type="text/css" />
-
 </head>
 
 <body id="minovate" class="appWrapper">
@@ -82,12 +81,12 @@
     <![endif]-->
 
     <div id="wrap" class="animsition">
-        @Html.Partial("TopMenuPartial")
+        @Html.Partial("_TopMenuPartial")
 
         <div id="controls">
-            @Html.Partial("LeftMenuPartial")
+            @Html.Partial("_LeftMenuPartial")
 
-            @Html.Partial("RightbarPartial")
+            @Html.Partial("_RightbarPartial")
         </div>
 
         <section id="content">

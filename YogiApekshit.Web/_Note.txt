@@ -1,12 +1,11 @@
 ﻿ ================== Templates ================= 
- - Remove top header
- - Underscore to partial controls
-
+ - Logo
  - Menu icons
+ 
  - Single Page Application
  - Animation
  - Performance & Caching
- - Deployo
+ - Deploy
  - Test
  
  - Print 

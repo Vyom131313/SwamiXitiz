@@ -473,19 +473,19 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\BreadcrumbPartial.cshtml" />
+    <Content Include="Views\Shared\_BreadcrumbPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\GridToolbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\LeftMenuPartial.cshtml" />
+    <Content Include="Views\Shared\_LeftMenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\RightbarPartial.cshtml" />
+    <Content Include="Views\Shared\_RightbarPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\TopMenuPartial.cshtml" />
+    <Content Include="Views\Shared\_TopMenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\css\fonts\glyphicons-halflings-regular.eot" />
