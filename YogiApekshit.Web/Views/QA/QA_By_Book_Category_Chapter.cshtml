@@ -8,10 +8,10 @@
 
 <div class="page page-dashboard">
     <div class="form-group" style="float:right;margin-right:10px;">
-        <label id="lblShowHideAnswers" class="col-sm-2 control-label" style="margin-right:10px;margin-top:2px;">Hide Answer</label>
+        <label id="lblReadingOrTestMode" class="col-sm-2 control-label" style="margin-right:10px;margin-top:2px;">Test Mode</label>
         <div class="onoffswitch greensea inline-block" style="float:right;">
-            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="chkShowHideAnswers" checked="">
-            <label class="onoffswitch-label" for="chkShowHideAnswers">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="chkReadingOrTestMode" checked="">
+            <label class="onoffswitch-label" for="chkReadingOrTestMode">
                 <span class="onoffswitch-inner"></span>
                 <span class="onoffswitch-switch"></span>
             </label>
@@ -41,17 +41,28 @@
 @section scripts{
     <script language="JavaScript">
 
+        function CheckAnswer(btn) {
+            var ansId = btn.id.replace('btnCheck', '');
+            $(btn).hide();
+            $("#" + ansId).show();
+        }
+
         $(document).ready(function () {
 
-            var chkShowHideAnswers = $('#chkShowHideAnswers');
-            chkShowHideAnswers.click(function () {
-                var checked = chkShowHideAnswers.prop('checked');
-                if (checked == true)
+            /* ================= Show/Hide All Answers ================== */
+            var chkReadingOrTestMode = $('#chkReadingOrTestMode');
+            chkReadingOrTestMode.click(function () {
+                var checked = chkReadingOrTestMode.prop('checked');
+                if (checked == true) {
                     $('.answer').show();
-                else
+                    $('.btnCheckAnswer').hide();
+                }
+                else {
                     $('.answer').hide();
+                    $('.btnCheckAnswer').show();
+                }
 
-                $('#lblShowHideAnswers').text(checked == true ? "Hide Answers" : "Show Answers");
+                $('#lblReadingOrTestMode').text(checked == true ? "Test Mode" : "Reading Mode");
             });
 
             var gridsCollapsed = false;

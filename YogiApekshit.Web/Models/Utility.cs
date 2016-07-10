@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using System.Web;
 
 namespace YogiApekshit.Web.Models
@@ -26,27 +23,27 @@ namespace YogiApekshit.Web.Models
             return b.IsMatch(u) || v.IsMatch(u.Substring(0, 4));
         }
 
-        public static string QuestionAndAnsFormat()
+        public static string QuestionAndAnsFormat(string gridId)
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'><b >Ans:</b> .Ans</div></div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer' id='" + gridId + "_Answer_.Sr'><b >Ans:</b> .Ans</div></div>";
         }
 
-        public static string ReasonFormat()
+        public static string ReasonFormat(string gridId)
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'><b>Reason:</b> .Ans</div></div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer' id='" + gridId + "_Answer_.Sr'><b>Reason:</b> .Ans</div></div>";
         }
 
-        public static string ShortNoteFormat()
+        public static string ShortNoteFormat(string gridId)
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'>.Ans</div></div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer' id='" + gridId + "_Answer_.Sr'>.Ans</div></div>";
         }
 
-        public static string WWWFormat()
+        public static string WWWFormat(string gridId)
         {
             return @"<div style='padding-bottom:10px;'><p style='line-height:1.7'>
                             <b>.Que</b>
                         </p>
-                        <p style='line-height:1.7' class='answer'>
+                        <p style='line-height:1.7' class='answer' id='{gridId}_Answer_.Sr'>
                             <span style='font-style:italic; font-weight:900;text-decoration:underline '>.Who</span>
                             <img src='/Images/double-arrow-white.png' width='16px' />
                             <span style='font-style:italic; font-weight:900;text-decoration:underline'>.Whom</span>
@@ -54,37 +51,42 @@ namespace YogiApekshit.Web.Models
                             <i class='doublearrow-white'></i>
                             <img src='/Images/double-arrow-white.png' width='16px' />
                             <span class='whenColumn'>.When</span>
-                        </p></div>";
+                        </p></div>".Replace("{gridId}", gridId);
         }
 
-        public static string SwaminiVaatFormat()
+        public static string SwaminiVaatFormat(string gridId)
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'><b>Description:</b> .Ans</div></div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer' id='" + gridId + "_Answer_.Sr'><b>Description:</b> .Ans</div></div>";
         }
 
-        public static string CorrectSentenceFormat()
+        public static string CorrectSentenceFormat(string gridId)
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'><b>Correct:</b> .Ans</div></div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer' id='" + gridId + "_Answer_.Sr'><b>Correct:</b> .Ans</div></div>";
         }
 
-        public static string CorrectOptionFormat()
+        public static string CorrectOptionFormat(string gridId)
         {
-            return "<div class='answer'>.Ans</div>";
+            return "<div class='answer' id='" + gridId + "_Answer_.Sr'>.Ans</div>";
         }
 
-        public static string CorrectSequenceFormat()
+        public static string CorrectSequenceFormat(string gridId)
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'>.Ans</div></div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer' id='" + gridId + "_Answer_.Sr'>.Ans</div></div>";
         }
 
-        public static string FillInBlanksFormat()
+        public static string FillInBlanksFormat(string gridId)
         {
-            return "<div class='answer'>.Ans</div>";
+            return "<div class='answer' id='" + gridId + "_Answer_.Sr'>.Ans</div>";
         }
 
-        public static string KirtanFormat()
+        public static string KirtanFormat(string gridId)
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'>.Ans</div></div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer' id='" + gridId + "_Answer_.Sr'>.Ans</div></div>";
+        }
+
+        public static string CheckAnswerButton(string gridId)
+        {
+            return "<button type='button' name='btnCheckAnswer' onclick='JavaScript:CheckAnswer(this)' id='" + gridId + "_btnCheckAnswer_.Sr' class='btnCheckAnswer btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10' style='display:none'>Check Answer <i class='fa fa fa-arrow-right'></i></button>";
         }
     }
 }

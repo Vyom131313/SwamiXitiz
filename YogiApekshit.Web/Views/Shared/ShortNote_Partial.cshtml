@@ -17,7 +17,7 @@
             .Sortable(false)
             .Columns(
                     new Column { Name = "Sr", Header = "Sr.", Width = 40 },
-                    new Column { ClientFormat = Utils.ShortNoteFormat(), Header = "Topic and Notes" },
+                    new Column { ClientFormat = Utils.ShortNoteFormat(gridId) + Utils.CheckAnswerButton(gridId), Header = "Topic and Notes" },
                     new Column { Name = "Chapter", Header = "Chapter", Width = 90 },
                     new Column { Name = "Exams", Header = "Exams", Width = 130 }
             ))

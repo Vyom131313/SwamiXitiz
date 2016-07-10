@@ -1,8 +1,6 @@
 ﻿ ================== Templates ================= 
- - Hide/Show individual Answer
  - Remove top header
  - Underscore to partial controls
-
 
  - Menu icons
  - Single Page Application
