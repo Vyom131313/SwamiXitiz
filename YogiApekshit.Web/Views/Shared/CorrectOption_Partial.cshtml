@@ -19,12 +19,11 @@
             .Sortable(false)
             .Columns(
                 new Column { Name = "Sr", Header = "Sr.", Width = 40 },
-                        new Column { Name = "Que", Header = "Topic", Width = 300 },
-                new Column { Name = "Ans", Header = "Correct Options" },
+                new Column { Name = "Que", Header = "Topic", Width = 300 },
+                new Column { Name = "Ans", Header = "Correct Options", ClientFormat = Utils.CorrectOptionFormat(), },
                 new Column { Name = "Chapter", Header = "Chapter", Width = 90 },
                 new Column { Name = "Exams", Header = "Exams", Width = 130 }
                 ))
     </section>
-
 </div>
 

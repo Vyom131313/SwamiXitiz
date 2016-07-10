@@ -7,6 +7,18 @@
 @model QA_Filter_Parameters
 
 <div class="page page-dashboard">
+    <div class="form-group" style="float:right;margin-right:10px;">
+        <label id="lblShowHideAnswers" class="col-sm-2 control-label" style="margin-right:10px;margin-top:2px;">Hide Answer</label>
+        <div class="onoffswitch greensea inline-block" style="float:right;">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="chkShowHideAnswers" checked="">
+            <label class="onoffswitch-label" for="chkShowHideAnswers">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
+        </div>
+    </div>
+    <br />
+
     @if (!string.IsNullOrEmpty(Model.Category))
     {
         Html.RenderPartial(Model.Category.Replace("_", "") + "_Partial", Model);
@@ -30,12 +42,22 @@
     <script language="JavaScript">
 
         $(document).ready(function () {
-            console.log("ready!");
-            var collapsed = false;
+
+            var chkShowHideAnswers = $('#chkShowHideAnswers');
+            chkShowHideAnswers.click(function () {
+                var checked = chkShowHideAnswers.prop('checked');
+                if (checked == true)
+                    $('.answer').show();
+                else
+                    $('.answer').hide();
+
+                $('#lblShowHideAnswers').text(checked == true ? "Hide Answers" : "Show Answers");
+            });
+
+            var gridsCollapsed = false;
 
             var keys = '@string.Join(",", Enum.GetNames(typeof(Constants.Que_Categories)))'.split(',');
             $.each(keys, function (index, value) {
-                //alert(index + ": " + value);
                 var gridId = '#grid' + value;
                 var gridParentId = '#div' + 'grid' + value;
 
@@ -47,8 +69,8 @@
                     }
 
                     /* ================= Collapse grid =================== */
-                    if (collapsed == false) {
-                        collapsed = true;
+                    if (gridsCollapsed == false) {
+                        gridsCollapsed = true;
                         var tileToggleEls = $('.tile .tile-toggle');
                         $.each(tileToggleEls, function (i, element) {
                             var tile = $(element).parents('.tile');

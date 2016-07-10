@@ -28,17 +28,17 @@ namespace YogiApekshit.Web.Models
 
         public static string QuestionAndAnsFormat()
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><br/><b>Ans:</b> .Ans</div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'><b >Ans:</b> .Ans</div></div>";
         }
 
         public static string ReasonFormat()
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><br/><b>Reason:</b> .Ans</div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'><b>Reason:</b> .Ans</div></div>";
         }
 
         public static string ShortNoteFormat()
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><br/>.Ans</div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'>.Ans</div></div>";
         }
 
         public static string WWWFormat()
@@ -46,7 +46,7 @@ namespace YogiApekshit.Web.Models
             return @"<div style='padding-bottom:10px;'><p style='line-height:1.7'>
                             <b>.Que</b>
                         </p>
-                        <p style='line-height:1.7'>
+                        <p style='line-height:1.7' class='answer'>
                             <span style='font-style:italic; font-weight:900;text-decoration:underline '>.Who</span>
                             <img src='/Images/double-arrow-white.png' width='16px' />
                             <span style='font-style:italic; font-weight:900;text-decoration:underline'>.Whom</span>
@@ -59,22 +59,32 @@ namespace YogiApekshit.Web.Models
 
         public static string SwaminiVaatFormat()
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><br/><b>Description:</b> .Ans</div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'><b>Description:</b> .Ans</div></div>";
         }
 
         public static string CorrectSentenceFormat()
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><br/><b>Correct:</b> .Ans</div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'><b>Correct:</b> .Ans</div></div>";
+        }
+
+        public static string CorrectOptionFormat()
+        {
+            return "<div class='answer'>.Ans</div>";
         }
 
         public static string CorrectSequenceFormat()
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><br/>.Ans</div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'>.Ans</div></div>";
+        }
+
+        public static string FillInBlanksFormat()
+        {
+            return "<div class='answer'>.Ans</div>";
         }
 
         public static string KirtanFormat()
         {
-            return "<div style='padding-bottom:10px;'><b>.Que</b><br/>.Ans</div>";
+            return "<div style='padding-bottom:10px;'><b>.Que</b><div class='answer'>.Ans</div></div>";
         }
     }
 }
