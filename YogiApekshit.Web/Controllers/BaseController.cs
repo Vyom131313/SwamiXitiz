@@ -25,16 +25,12 @@ namespace YogiApekshit.Web.Controllers
 
         public MenuItem BuildMenu()
         {
-            var root = new MenuItem { Name = "Home", ControllerName = "Home", ActionName = "Index" };
-            root.MenuItems = new List<MenuItem>();
-
+            var root = new MenuItem { Name = "Home", ControllerName = "Home", ActionName = "Index", MenuItems = new List<MenuItem>() };
             root.MenuItems.Add(new MenuItem { Name = "Dashboard", ControllerName = "Home", ActionName = "Index", IConClass = "fa fa-dashboard" });
 
-            var mnuPrarambh = new MenuItem { Name = "Prarambh", IConClass = "fa fa-pencil" };
-            mnuPrarambh.MenuItems = new List<MenuItem>();
-
+            #region Prarambh
+            var mnuPrarambh = new MenuItem { Name = "Prarambh", IConClass = "fa fa-pencil", MenuItems = new List<MenuItem>() };
             var prarambhBooks = bookRepo.GetAll().Where(c => c.ExamLevelId == Constants.ExamLevels.Prarambh);
-
             foreach (var book in prarambhBooks)
             {
                 var mnuBook = new MenuItem { Name = book.Name_Eng, IConClass = "fa fa-pencil", IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng) };
@@ -50,6 +46,27 @@ namespace YogiApekshit.Web.Controllers
             }
 
             root.MenuItems.Add(mnuPrarambh);
+            #endregion
+
+            #region Pravesh
+            var mnuPravesh = new MenuItem { Name = "Pravesh", IConClass = "fa fa-pencil", MenuItems = new List<MenuItem>() };
+            var praveshBooks = bookRepo.GetAll().Where(c => c.ExamLevelId == Constants.ExamLevels.Pravesh);
+            foreach (var book in praveshBooks)
+            {
+                var mnuBook = new MenuItem { Name = book.Name_Eng, IConClass = "fa fa-pencil", IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng) };
+                mnuBook.MenuItems = new List<MenuItem>();
+                mnuBook.MenuItems.Add(new MenuItem { Name = "--- All Chapters ---", ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", RouteValues = new { bookId = book.Id, chapterNumber = 0 } });
+
+                foreach (var chapter in book.BookChapters)
+                {
+                    mnuBook.MenuItems.Add(new MenuItem { Name = string.Format("{0}. {1}", chapter.ChapterNumber, chapter.Name_Eng), ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", RouteValues = new { bookId = book.Id, chapterNumber = chapter.ChapterNumber } });
+                }
+
+                mnuPravesh.MenuItems.Add(mnuBook);
+            }
+
+            root.MenuItems.Add(mnuPravesh);
+            #endregion
 
             #region Q/A by Categories
 

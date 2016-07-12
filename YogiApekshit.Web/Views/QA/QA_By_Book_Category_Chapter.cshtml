@@ -8,7 +8,7 @@
 
 <div class="page page-dashboard">
     <div class="form-group" style="float:right;margin-right:10px;">
-        <label id="lblReadingOrTestMode" class="col-sm-2 control-label" style="margin-right:10px;margin-top:2px;">Test Mode</label>
+        <label id="lblReadingOrTestMode" class="col-sm-2 control-label" style="margin-right:10px;margin-top:2px;">Switch to Test Mode</label>
         <div class="onoffswitch greensea inline-block" style="float:right;">
             <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="chkReadingOrTestMode" checked="">
             <label class="onoffswitch-label" for="chkReadingOrTestMode">
@@ -62,7 +62,7 @@
                     $('.btnCheckAnswer').show();
                 }
 
-                $('#lblReadingOrTestMode').text(checked == true ? "Test Mode" : "Reading Mode");
+                $('#lblReadingOrTestMode').text(checked == true ? "Switch to Test Mode" : "Switch to Reading Mode");
             });
 
             var gridsCollapsed = false;
