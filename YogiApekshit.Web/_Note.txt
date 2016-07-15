@@ -1,5 +1,10 @@
 ﻿ ================== Templates ================= 
  - Menu icons
+ - July End - Pravesh Eng
+ - Aug End - Prarambh Guj
+ - Sep End - Pravesh Guj
+ - Oct End - Pravin Eng
+ - Nov End - Pravin Guj
  
  - Single Page Application
  - Animation
