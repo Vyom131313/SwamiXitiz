@@ -150,37 +150,7 @@ namespace YogiApekshit.Web.Controllers
                     return null;
             }
         }
-
-        public JsonResult QA_List_Json(QA_Filter_Parameters filter)
-        {
-            switch (filter.Category)
-            {
-                case "OneSentence":
-                    return Json(QA_OneSentence(filter), JsonRequestBehavior.AllowGet);
-                case "CorrectOption":
-                    return Json(QA_CorrectOption(filter), JsonRequestBehavior.AllowGet);
-                case "CorrectSentence":
-                    return Json(QA_CorrectSentence(filter), JsonRequestBehavior.AllowGet);
-                case "CorrectSequence":
-                    return Json(QA_CorrectSequence(filter), JsonRequestBehavior.AllowGet);
-                case "FillInBlank":
-                    return Json(QA_FillInBlank(filter), JsonRequestBehavior.AllowGet);
-                case "Kirtan":
-                    return Json(QA_Kirtan(filter), JsonRequestBehavior.AllowGet);
-                case "Reason":
-                    return Json(QA_Reason(filter), JsonRequestBehavior.AllowGet);
-                case "Shlok":
-                    return Json(QA_Shlok(filter), JsonRequestBehavior.AllowGet);
-                case "ShortNote":
-                    return Json(QA_ShortNote(filter), JsonRequestBehavior.AllowGet);
-                case "SwaminiVat":
-                    return Json(QA_SwaminiVat(filter), JsonRequestBehavior.AllowGet);
-                case "WhoWhomWhen":
-                    return Json(QA_WhoWhomWhen(filter), JsonRequestBehavior.AllowGet);
-                default:
-                    return null;
-            }
-        }
+        
         #endregion
 
         #region Private Methods

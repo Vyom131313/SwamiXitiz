@@ -235,7 +235,6 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QAController.cs" />
-    <Compile Include="Controllers\PrarambhController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -583,46 +582,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Prarambh\OneSentence.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home\CRUD.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Prarambh\WhoWhomWhen.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Prarambh\CorrectSentence.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Prarambh\ShortNote.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Prarambh\CorrectSequence.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Prarambh\FillInBlank.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Prarambh\CorrectOption.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Prarambh\Reason.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Prarambh\Shlok.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Prarambh\Kirtan.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Prarambh\SwaminiVat.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Prarambh\QA_By_Book_Chapter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\WhoWhomWhen_Partial.cshtml" />
