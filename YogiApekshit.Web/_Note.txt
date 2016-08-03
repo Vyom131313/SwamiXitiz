@@ -1,6 +1,10 @@
 ﻿ ================== Templates ================= 
+ - Convert pdf to text
+ - Copy text to word
+ - Replace char by char
+ - Copy to db
+
  - Menu icons
- - July End - Pravesh Eng
  - Aug End - Prarambh Guj
  - Sep End - Pravesh Guj
  - Oct End - Pravin Eng
