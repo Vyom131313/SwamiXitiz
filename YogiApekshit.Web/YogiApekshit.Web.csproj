@@ -245,6 +245,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Guj_Characters_Mapping.sql" />
     <Content Include="App_Data\YogiApekshit_data.sql" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\assets\css\fonts\glyphicons-halflings-regular-2.html" />

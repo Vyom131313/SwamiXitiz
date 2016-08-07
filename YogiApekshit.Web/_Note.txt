@@ -1,9 +1,20 @@
 ﻿ ================== Templates ================= 
- - Convert pdf to text
- - Copy text to word
- - Replace char by char
- - Copy to db
+CÎﬁU›Î‹ - 
 
+ #Prarambh
+	- Who Whom When
+	- One Sentence
+	- Correct Option
+	- Correct Sentence
+	- CorrectSequence
+	- Fill in blanks
+	- Kirtan
+	- Shlok
+	- SwaminiVat
+	- Reasons
+	- Short notes
+	- Chapter name
+	
  - Menu icons
  - Aug End - Prarambh Guj
  - Sep End - Pravesh Guj
