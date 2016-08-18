@@ -1,5 +1,4 @@
 ﻿ ================== Templates ================= 
-CÎﬁU›Î‹ - 
 
  #Prarambh
 	- Who Whom When
