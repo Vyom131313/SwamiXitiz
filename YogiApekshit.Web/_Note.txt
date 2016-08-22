@@ -1,5 +1,10 @@
 ﻿ ================== Templates ================= 
-
+ - Copy sql/data from old laptop
+ - Convert "One Sentence Ans" for 1 paper
+ - Keep Guj button in UI
+ - On clicking on Guj button display in Guj
+ - Convert "One Sentence Ans" for all paper
+ 
  #Prarambh
 	- Who Whom When
 	- One Sentence
