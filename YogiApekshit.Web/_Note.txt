@@ -1,8 +1,10 @@
-﻿ ================== Templates ================= 
- - Copy sql/data from old laptop
- - Convert "One Sentence Ans" for 1 paper
+﻿
+ ================== Templates ================= 
+ - Convert dbo.BookChapter
  - Keep Guj button in UI
  - On clicking on Guj button display in Guj
+ 
+ - Convert "One Sentence Ans" for 1 paper
  - Convert "One Sentence Ans" for all paper
  
  #Prarambh
