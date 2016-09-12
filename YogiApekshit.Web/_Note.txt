@@ -3,7 +3,7 @@
  - Keep Guj button in UI
  - On clicking on Guj button display MENU in Guj
  
- - Convert "One Sentence Ans" for 1 paper
+ - Convert "One Sentence Ans" for prarambh
  - Convert "One Sentence Ans" for all paper
  
  #Prarambh
