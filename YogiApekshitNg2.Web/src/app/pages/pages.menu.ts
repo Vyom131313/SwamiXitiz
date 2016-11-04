@@ -15,6 +15,40 @@ export const PAGES_MENU = [
         }
       },
       {
+          path: 'prarambh',
+          data: {
+              menu: {
+                  title: 'Prarambh',
+                  icon: 'ion-android-home',
+                  selected: false,
+                  expanded: false,
+                  order: 0
+              }
+          },
+          children: [
+              { path: 'allchapters', data: { menu: { title: '--- All Chapters ---', } } },
+              { path: 'ch01', data: { menu: { title: 'CH 01', } } },
+              { path: 'ChildhoodExploits', data: { menu: { title: 'Childhood Exploits', } } },
+          ]
+      },
+      {
+          path: 'QaByCategories',
+          data: {
+              menu: {
+                  title: 'QA By Categories',
+                  icon: 'ion-android-home',
+                  selected: false,
+                  expanded: false,
+                  order: 0
+              }
+          },
+          children: [
+              { path: 'CorrectOption', data: { menu: { title: 'Correct Option', } } },
+              { path: 'CorrectSentence', data: { menu: { title: 'Correct Sentence', } } },
+              { path: 'CorrectSequence', data: { menu: { title: 'Correct Sequence', } } },
+          ]
+      },
+      {
         path: 'editors',
         data: {
           menu: {
