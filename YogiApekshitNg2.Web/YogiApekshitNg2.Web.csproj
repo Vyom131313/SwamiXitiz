@@ -520,7 +520,7 @@
     <TypeScriptCompile Include="src\app\pages\pages.routing.ts" />
     <TypeScriptCompile Include="src\app\pages\Prarambh\Ch01\index.ts" />
     <TypeScriptCompile Include="src\app\pages\Prarambh\Ch01\ch01.component.ts" />
-    <TypeScriptCompile Include="src\app\pages\Prarambh\contact.ts" />
+    <TypeScriptCompile Include="src\app\pages\Prarambh\contact.model.ts" />
     <TypeScriptCompile Include="src\app\pages\Prarambh\index.ts" />
     <TypeScriptCompile Include="src\app\pages\Prarambh\prarambh.service.ts" />
     <TypeScriptCompile Include="src\app\pages\Prarambh\prarambh.component.ts" />
