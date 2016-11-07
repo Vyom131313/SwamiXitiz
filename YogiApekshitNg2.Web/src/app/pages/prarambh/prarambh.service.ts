@@ -1,61 +1,22 @@
 import {Injectable} from '@angular/core';
-
+import {Http} from "@angular/http";
+import { Contact } from './contact';
 
 @Injectable()
 export class PrarambhService {
 
-  constructor() {
-  }
+    constructor(private http: Http) { }
 
   getData() {
 
-     let data = [
-          {
-              id: 1,
-              firstName: 'Mark',
-              lastName: 'Otto',
-              username: '@mdo',
-              email: 'mdo@gmail.com',
-              age: '28'
-          },
-          {
-              id: 2,
-              firstName: 'Jacob',
-              lastName: 'Thornton',
-              username: '@fat',
-              email: 'fat@yandex.ru',
-              age: '45'
-          },
-          {
-              id: 3,
-              firstName: 'Larry',
-              lastName: 'Bird',
-              username: '@twitter',
-              email: 'twitter@outlook.com',
-              age: '18'
-          },
-          {
-              id: 4,
-              firstName: 'John',
-              lastName: 'Snow',
-              username: '@snow',
-              email: 'snow@gmail.com',
-              age: '20'
-          },
-          {
-              id: 5,
-              firstName: 'Jack',
-              lastName: 'Sparrow',
-              username: '@jack',
-              email: 'jack@yandex.ru',
-              age: '30'
-          },
-      ];
-
-      return new Promise((resolve, reject) => {
-          setTimeout(() => {
-              resolve(data);
-          }, 2000);
-      });
+      //let data2 = this.http.get("http://localhost:6007/api/QA/");//.map(response => response.json());
+      return this.http.get("http://localhost:6007/api/QA/")
+          .map(responce => <Contact[]>responce.json());
+         
+      //return new Promise((resolve, reject) => {
+      //    setTimeout(() => {
+      //       resolve(data2);
+      //    }, 2000);
+      //});
   }
 }
