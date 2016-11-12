@@ -1,25 +1,767 @@
 ﻿<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Angular QuickStart</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
+
+    <link href="Content/themes/start/Site.css" rel="stylesheet" />
+    <link href="Content/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href='Content/assets/css/vendor/bootstrap.min.css'>
+    <link rel="stylesheet" href='Content/assets/css/vendor/animate.css'>
+    <link rel="stylesheet" href='Content/assets/css/vendor/font-awesome.min.css'>
+    <link rel="stylesheet" href='Content/assets/css/vendor/simple-line-icons.css'>
+    <link rel="stylesheet" href='Content/assets/js/vendor/animsition/css/animsition.min.css'>
+
+    <link rel="stylesheet" href='Content/assets/css/main.css'>
 
     <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
-
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
-
     <script src="systemjs.config.js"></script>
     <script>
-      System.import('app').catch(function(err){ console.error(err); });
+        System.import('app').catch(function (err) { console.error(err); });
     </script>
-  </head>
+</head>
+<body id="minovate" class="appWrapper">
+    <div id="wrap" >
+        <section id="header">
+            <header class="clearfix">
+                <!-- Branding -->
+                <div class="branding">
+                    <a class="brand" href="~/Home/Index">
+                        <span style="padding-left:25px;font-size:24px"><strong>Yogi</strong> Apekshit</span>
+                    </a>
+                    <a role="button" tabindex="0" class="offcanvas-toggle visible-xs-inline"><i class="fa fa-bars"></i></a>
+                </div>
+                <!-- Branding end -->
+                <!-- Left-side navigation -->
+                <ul class="nav-left pull-left list-unstyled list-inline">
+                    <li class="sidebar-collapse divided-right">
+                        <a role="button" tabindex="0" class="collapse-sidebar">
+                            <i class="fa fa-outdent"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Left-side navigation end -->
+            </header>
+        </section>
 
-  <body>
-    <my-app>Loading...</my-app>
-  </body>
+        <div id="controls">
+            <aside id="sidebar">
+                <div id="sidebar-wrap">
+                    <div class="panel-group slim-scroll" role="tablist">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#sidebarNav">
+                                        Navigation <i class="fa fa-angle-up"></i>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="sidebarNav" class="panel-collapse collapse in" role="tabpanel">
+                                <div class="panel-body active open">
+                                    <ul id="navigation">
+                                        <li class="active">
+                                            <a role="button" href="/"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a role="button" href="/"><i class="fa fa-pencil"></i><span>Prarambh</span><i class="fa fa-plus"></i></a>
+                                            <ul style="display: block;">
+                                                <li class="dropdown submenu">
+                                                    <a href="/">
+                                                        <i class="fa fa-pencil">
+                                                            <img src="/Images/GhC/GhC-eng.jpg" width="24px" height="24px">
+                                                        </i><span>Ghanshyam Charitra</span>
+                                                        <i class="fa fa-plus"></i>
+                                                    </a>
+
+                                                    <ul style="">
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=0">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>--- All Chapters ---</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=1">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>1. Birth of Ghanshyam</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=2">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>2. Childhood Exploits</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=3">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>3. Darshan to Ramdayal</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=4">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>4. Naming the Lord</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=5">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>5. A Test for the Son</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=6">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>6. Ghanshyam Has His Ears Pierced</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=7">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>7. A Boon for Lakshmiji</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=8">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>8. Siddhis at His Service</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=9">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>9. Dudhpakh Instead of Khichdi</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=10">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>10. The Barber Sees a Miracle</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=11">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>11. Kalidatt Meets His End</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=12">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>12. Curing SmallPox</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=13">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>13. Fish Brought Back to Life</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=14">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>14. Sparrows Sent into Samadhi</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=15">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>15. Monkey in a Trance</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=16">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>16. Monkeys Get a Sound Thrashing</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=17">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>17. Ramdatt Is Taught a Lesson</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=18">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>18. In Which Direction Are the Aspirants?</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=19">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>19. Seen in Many Mandirs at the Same Time</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=20">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>20. The Ghost Well</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=21">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>21. The Wrestlers Are Defeated</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=22">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>22. The Greedy Confectioner</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=23">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>23. Khampa Talavdi</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=24">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>24. Sixteen Signs of God</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=25">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>25. Ghanshyam Stops the Killing</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=26">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>26. The Mahout Is Saved</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=27">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>27. A New Set of Teeth</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=28">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>28. A Feast for His Friends</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=29">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>29. Thousands Are Fed and Humbled</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=30">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>30. Lakshmibai Sees a Miracle</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=31">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>31. The Importance of Ekadashi</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=32">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>32. Ghanshyam Is Given the Sacred Thread</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=33">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>33. Ghanshyam Is Seen as Ramchandra</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=34">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>34. Sailing on Stone Slabs</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=35">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>35. Miracle Shown to Aunts</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=36">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>36. Ghanshyam Eats All the Food</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=37">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>37. In Search of Gauri, the Cow</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=38">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>38. Walking on Water</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=39">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>39. Thieves in a Fix</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=40">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>40. Darshan in Two Forms</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=41">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>41. The Priest’s Sight Is Restored</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=42">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>42. Ghanshyam’s Daily Routine</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=43">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>43. Propagating the Vishishtadvait Teachings in Kashi</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=44">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>44. Bhaktimata and Dharmadev Pass Away</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=45">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>45. Ghanshyam Leaves Home</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=46">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>46. On the Banks of River Saryu</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=1&amp;chapterNumber=47">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>47. Oceans of Tears</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown submenu">
+                                                    <a href="/">
+                                                        <i class="fa fa-pencil">
+                                                            <img src="/Images/YoM/YoM-eng.jpg" width="24px" height="24px">
+                                                        </i><span>Yogiji Maharaj</span>
+                                                        <i class="fa fa-plus"></i>
+                                                    </a>
+
+                                                    <ul style="">
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=0">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>--- All Chapters ---</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=1">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>1. Birth of Jinabhai</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=2">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>2. Jinabhai in Meditation</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=3">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>3. Jinabhai’s Courage</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=4">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>4. An Ideal Student</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=5">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>5. Use of Leisure Time</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=6">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>6. Worship of the Lord</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=7">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>7. Initiate Me as a Sadhu</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=8">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>8. Jina Bhagat in Junagadh</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=9">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>9. Jaga Bhakta Appears in a Dream</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=10">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>10. First Meeting</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=11">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>11. I Am Only a Servant</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=12">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>12. Austere Jina Bhagat</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=13">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>13. Krishnaji Ada’s Blessings</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=14">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>14. The Desireless Sadhu</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=15">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>15. Indifferent to Insult</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=16">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>16. A Hard-Working Sadhu</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=17">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>17. A Real Sadhu</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=18">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>18. Mandir Service</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=19">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>19. Swami-Shriji Accepts Offerings</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=20">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>20. Devotion Par Excellence</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=21">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>21. Snake Bite</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=22">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>22. Head of Akshar Mandir</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=23">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>23. Devotion to Guru</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=24">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>24. “Shastriji Maharaj Is Still Manifest.”</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=25">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>25. Youth Centres and Satsang Assemblies</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=26">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>26. Youths and Yogiraj</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=27">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>27. Youths Become Sadhus</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=28">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>28. Yogiji Maharaj’s Life-Work</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=29">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>29. Visits to Africa</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=30">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>30. Reception and Departure</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=31">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>31. The Likings of Yogiji Maharaj</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=32">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>32. Sermons of Yogiji Maharaj</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=2&amp;chapterNumber=33">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>33. Pramukh Swami Maharaj</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown submenu">
+                                                    <a href="/">
+                                                        <i class="fa fa-pencil">
+                                                            <img src="/Images/KSPB/KSPB-eng.jpg" width="24px" height="24px">
+                                                        </i><span>Kishore Satsang Prarambha</span>
+                                                        <i class="fa fa-plus"></i>
+                                                    </a>
+
+                                                    <ul style="">
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=0">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>--- All Chapters ---</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=1">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>1. Gifts from God</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=2">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>2. Chanting God's Holy Name (Dhun)</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=3">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>3. Prayer (Prarthana)</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=4">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>4. Purna Purushottam Sahajanand Swami</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=5">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>5. Daily Puja</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=6">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>6. Brave Child Devotee</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=7">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>7. Gangama</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=8">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>8. Akhandanand Swami</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=9">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>9. Arti</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=10">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>10. Brave Bhaguji</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=11">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>11. Samat Patel</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=12">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>12. Offering of Food to God (Thal)</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=13">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>13. Jodho the Shepherd</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=14">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>14. The Muslim Woman from Bhal Region</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=15">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>15. Aksharbrahman Gunatitanand Swami</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=16">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>16. Gunatitanand Swami’s Talks (Swamini Vatu)</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=17">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>17. Shastriji Maharaj</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=18">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>18. Behaviour in School and at Home</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=19">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>19. Punja Dodia</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=20">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>20. Nath Bhakta</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=21">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>21. Behaviour in Bal Mandal</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=22">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>22. Vajiba of Vijapur</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/QA/QA_By_Book_Category_Chapter?bookId=3&amp;chapterNumber=23">
+                                                                <i class="fa fa-caret-right">
+                                                                </i><span>23. Kirtan</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                       
+                                    </ul>
+                                    <!--/ NAVIGATION Content -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <section id="content">
+            <my-app>
+                Loading...
+
+            </my-app>
+        </section>
+    </div>
+
+
+    <!--/ vendor javascripts -->
+    <!-- Custom JavaScripts -->
+    <script src='Content/assets/js/main.js'></script>
+</body>
 </html>
