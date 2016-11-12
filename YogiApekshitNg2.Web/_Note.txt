@@ -1,6 +1,2 @@
-﻿- MVC WebApi as Service
-- Call service using get/post
-- get data from service and display into UI
-
-- Display all Menus dynamically
+﻿- Display all Menus dynamically
 - Service integration
