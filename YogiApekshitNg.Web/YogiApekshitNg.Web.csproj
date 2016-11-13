@@ -72,16 +72,6 @@
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
-    <Content Include="app\app.component.js.map" />
-    <Content Include="app\app.module.js.map" />
-    <Content Include="app\hero-detail.component.js.map" />
-    <Content Include="app\hero.js.map" />
-    <Content Include="app\hero.service.2.js.map" />
-    <Content Include="app\hero.service.js.map" />
-    <Content Include="app\menuItem.model.js.map" />
-    <Content Include="app\menuItem.service.js.map" />
-    <Content Include="app\mock-heroes.js.map" />
-    <Content Include="app\mock-menuItems.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -90,16 +80,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\app.component.js" />
-    <Content Include="app\app.module.js" />
-    <Content Include="app\hero-detail.component.js" />
-    <Content Include="app\hero.js" />
-    <Content Include="app\hero.service.2.js" />
-    <Content Include="app\hero.service.js" />
-    <Content Include="app\menuItem.model.js" />
-    <Content Include="app\menuItem.service.js" />
-    <Content Include="app\mock-heroes.js" />
-    <Content Include="app\mock-menuItems.js" />
     <Content Include="index.html" />
     <Content Include="styles.css" />
     <Content Include="Web.config" />
