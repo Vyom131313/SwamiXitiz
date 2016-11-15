@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Headers, Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { MenuItem } from './menuItem.model';
 import { MenuItemService } from './menuItem.service';
@@ -65,19 +64,20 @@ import { MenuItemService } from './menuItem.service';
     }
   `],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
     menus: Array<MenuItem>;
 
-    constructor(private http: Http, private menuItemService: MenuItemService) { }
+    constructor(private menuItemService: MenuItemService) { }
 
     ngOnInit(): void {
-        this.menuItemService.getMenus().then(items => this.menus = items);
+        this.menuItemService.getMenus()
+            .then(items => this.menus = items);
 
-         //this.http.get("http://localhost:6007/api/Menu/get")
-         //   .map(res => res.json())
-         //   .subscribe(res => {
-         //       this.menus = res
-         //       console.log(res);
-         //   });
+        //this.http.get("http://localhost:6007/api/Menu/get")
+        //   .map(res => res.json())
+        //   .subscribe(res => {
+        //       this.menus = res
+        //       console.log(res);
+        //   });
     }
 }

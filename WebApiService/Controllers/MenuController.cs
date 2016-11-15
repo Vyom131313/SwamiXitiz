@@ -19,24 +19,24 @@ namespace WebApiService.Controllers
     public class MenuItem
     {
         public string Name { get; set; }
-        //public string AreaName { get; set; }
-        //public string ControllerName { get; set; }
-        //public string ActionName { get; set; }
-        //public string IConClass { get; set; }
-        //public string IConUrl { get; set; }
-        //public object RouteValues { get; set; }
-        //public bool IsActive { get; set; }
+        public string AreaName { get; set; }
+        public string ControllerName { get; set; }
+        public string ActionName { get; set; }
+        public string IConClass { get; set; }
+        public string IConUrl { get; set; }
+        public object RouteValues { get; set; }
+        public bool IsActive { get; set; }
         //public List<MenuItem> MenuItems = new List<MenuItem>();
         //public List<NonMenuItem> NonMenuItems = new List<NonMenuItem>();
 
         public MenuItem()
         {
             Name = string.Empty;
-            //AreaName = string.Empty;
-            //ControllerName = string.Empty;
-            //ActionName = string.Empty;
+            AreaName = string.Empty;
+            ControllerName = string.Empty;
+            ActionName = string.Empty;
 
-            //IConClass = "fa fa-caret-right";
+            IConClass = "fa fa-caret-right";
         }
 
         //public BreadCrumb BreadCrumb
@@ -135,13 +135,12 @@ namespace WebApiService.Controllers
                 var prarambhBooks = dbContext.Books.Where(c => c.ExamLevelId == Constants.ExamLevels.Prarambh).ToList();
                 foreach (var book in prarambhBooks)
                 {
-                    menuItems.Add(new MenuItem { Name = "--- All Chapters ---" });
+                    menuItems.Add(new MenuItem { Name = "--- All Chapters ---", ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", RouteValues = new { bookId = book.Id, chapterNumber = 0 } });
 
                     foreach (var chapter in book.BookChapters)
                     {
-                        menuItems.Add(new MenuItem { Name = string.Format("{0}. {1}", chapter.ChapterNumber, chapter.Name_Eng) });
+                        menuItems.Add(new MenuItem { Name = string.Format("{0}. {1}", chapter.ChapterNumber, chapter.Name_Eng), ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", RouteValues = new { bookId = book.Id, chapterNumber = chapter.ChapterNumber } });
                     }
-
                 }
             }
 
