@@ -15,16 +15,13 @@ export class MenuItemService {
 
     getMenus(){
 
-        this.http.get("http://localhost:6007/api/Menu/get")
-            //.toPromise()
-            //.then((response) => response.json());
-
+        return  this.http.get("http://localhost:6007/api/Menu/get")
+            .map(res => res.json())
             .subscribe(res => {
-                this.menus = res.json()
-                console.log(res.json());
+                this.menus = res
+                console.log(res);
             });
 
-        return this.menus;
             //.map((res: Response) => res.json());
            
        

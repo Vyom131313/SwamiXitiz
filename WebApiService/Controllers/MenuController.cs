@@ -19,68 +19,68 @@ namespace WebApiService.Controllers
     public class MenuItem
     {
         public string Name { get; set; }
-        public string AreaName { get; set; }
-        public string ControllerName { get; set; }
-        public string ActionName { get; set; }
-        public string IConClass { get; set; }
-        public string IConUrl { get; set; }
-        public object RouteValues { get; set; }
-        public bool IsActive { get; set; }
-        public List<MenuItem> MenuItems = new List<MenuItem>();
-        public List<NonMenuItem> NonMenuItems = new List<NonMenuItem>();
+        //public string AreaName { get; set; }
+        //public string ControllerName { get; set; }
+        //public string ActionName { get; set; }
+        //public string IConClass { get; set; }
+        //public string IConUrl { get; set; }
+        //public object RouteValues { get; set; }
+        //public bool IsActive { get; set; }
+        //public List<MenuItem> MenuItems = new List<MenuItem>();
+        //public List<NonMenuItem> NonMenuItems = new List<NonMenuItem>();
 
         public MenuItem()
         {
             Name = string.Empty;
-            AreaName = string.Empty;
-            ControllerName = string.Empty;
-            ActionName = string.Empty;
+            //AreaName = string.Empty;
+            //ControllerName = string.Empty;
+            //ActionName = string.Empty;
 
-            IConClass = "fa fa-caret-right";
+            //IConClass = "fa fa-caret-right";
         }
 
-        public BreadCrumb BreadCrumb
-        {
-            get
-            {
-                return new BreadCrumb
-                {
-                    Title = this.Name,
-                    ControllerName = this.ControllerName,
-                    ActionName = this.ActionName,
-                    AreaName = this.AreaName
-                };
-            }
-        }
+        //public BreadCrumb BreadCrumb
+        //{
+        //    get
+        //    {
+        //        return new BreadCrumb
+        //        {
+        //            Title = this.Name,
+        //            ControllerName = this.ControllerName,
+        //            ActionName = this.ActionName,
+        //            AreaName = this.AreaName
+        //        };
+        //    }
+        //}
 
-        public List<BreadCrumb> GetBreadCrumbByControllerAndAction(string controller, string action, string area = "")
-        {
-            var breadCrumbs = new List<BreadCrumb>();
-            if (this.ControllerName.Equals(controller) && this.ActionName.Equals(action) && this.AreaName.Equals(area))
-            {
-                breadCrumbs.Add(this.BreadCrumb);
-            }
-            else if (this.NonMenuItems.Where(obj => obj.ControllerName.Equals(controller) && obj.ActionName.Equals(action) && obj.AreaName.Equals(area)).Count() > 0)
-            {
-                var nonMenuItem = this.NonMenuItems.Where(obj => obj.ControllerName.Equals(controller) && obj.ActionName.Equals(action) && obj.AreaName.Equals(area)).FirstOrDefault();
-                breadCrumbs.Add(this.BreadCrumb);
-                breadCrumbs.Add(nonMenuItem.BreadCrumb);
-            }
-            else
-            {
-                foreach (var child in this.MenuItems)
-                {
-                    breadCrumbs = child.GetBreadCrumbByControllerAndAction(controller, action, area);
-                    if (breadCrumbs.Count > 0)
-                    {
-                        breadCrumbs.Insert(0, this.BreadCrumb);
-                        break;
-                    }
-                }
-            }
+        //public List<BreadCrumb> GetBreadCrumbByControllerAndAction(string controller, string action, string area = "")
+        //{
+        //    var breadCrumbs = new List<BreadCrumb>();
+        //    if (this.ControllerName.Equals(controller) && this.ActionName.Equals(action) && this.AreaName.Equals(area))
+        //    {
+        //        breadCrumbs.Add(this.BreadCrumb);
+        //    }
+        //    else if (this.NonMenuItems.Where(obj => obj.ControllerName.Equals(controller) && obj.ActionName.Equals(action) && obj.AreaName.Equals(area)).Count() > 0)
+        //    {
+        //        var nonMenuItem = this.NonMenuItems.Where(obj => obj.ControllerName.Equals(controller) && obj.ActionName.Equals(action) && obj.AreaName.Equals(area)).FirstOrDefault();
+        //        breadCrumbs.Add(this.BreadCrumb);
+        //        breadCrumbs.Add(nonMenuItem.BreadCrumb);
+        //    }
+        //    else
+        //    {
+        //        foreach (var child in this.MenuItems)
+        //        {
+        //            breadCrumbs = child.GetBreadCrumbByControllerAndAction(controller, action, area);
+        //            if (breadCrumbs.Count > 0)
+        //            {
+        //                breadCrumbs.Insert(0, this.BreadCrumb);
+        //                break;
+        //            }
+        //        }
+        //    }
 
-            return breadCrumbs;
-        }
+        //    return breadCrumbs;
+        //}
     }
 
     public class NonMenuItem
@@ -120,12 +120,6 @@ namespace WebApiService.Controllers
         {
         }
 
-       
-        //public IEnumerable<string> Get2()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-       // [HttpGet]
         public IEnumerable<MenuItem> Get()
         {
             return BuildMenu();
@@ -133,30 +127,24 @@ namespace WebApiService.Controllers
 
         public IEnumerable<MenuItem> BuildMenu()
         {
-            var root = new MenuItem { Name = "Home", ControllerName = "Home", ActionName = "Index", MenuItems = new List<MenuItem>() };
-            root.MenuItems.Add(new MenuItem { Name = "Dashboard", ControllerName = "Home", ActionName = "Index", IConClass = "fa fa-dashboard" });
+            var menuItems = new List<MenuItem>();
 
             #region Prarambh
-            var mnuPrarambh = new MenuItem { Name = "Prarambh", IConClass = "fa fa-pencil", MenuItems = new List<MenuItem>() };
             using (var dbContext = new YogiApekshitContext())
             {
                 var prarambhBooks = dbContext.Books.Where(c => c.ExamLevelId == Constants.ExamLevels.Prarambh).ToList();
                 foreach (var book in prarambhBooks)
                 {
-                    var mnuBook = new MenuItem { Name = book.Name_Eng, IConClass = "fa fa-pencil", IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng) };
-                    mnuBook.MenuItems = new List<MenuItem>();
-                    mnuBook.MenuItems.Add(new MenuItem { Name = "--- All Chapters ---", ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", RouteValues = new { bookId = book.Id, chapterNumber = 0 } });
+                    menuItems.Add(new MenuItem { Name = "--- All Chapters ---" });
 
                     foreach (var chapter in book.BookChapters)
                     {
-                        mnuBook.MenuItems.Add(new MenuItem { Name = string.Format("{0}. {1}", chapter.ChapterNumber, chapter.Name_Eng), ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", RouteValues = new { bookId = book.Id, chapterNumber = chapter.ChapterNumber } });
+                        menuItems.Add(new MenuItem { Name = string.Format("{0}. {1}", chapter.ChapterNumber, chapter.Name_Eng) });
                     }
 
-                    mnuPrarambh.MenuItems.Add(mnuBook);
                 }
             }
 
-            root.MenuItems.Add(mnuPrarambh);
             #endregion
 
             //#region Pravesh
@@ -233,19 +221,19 @@ namespace WebApiService.Controllers
             //System.Web.HttpContext.Current.Session["Menus"] = root;
             //return System.Web.HttpContext.Current.Session["Menus"] as MenuItem;
 
-            return root.MenuItems;
+            return menuItems;
         }
     }
 
     public class MenuBuilder
     {
-        public static List<BreadCrumb> BuildBreadCrumb(string controller, string action, string area = "")
-        {
-            var menus = BuildMenu();
-            return menus != null
-                ? menus.GetBreadCrumbByControllerAndAction(controller, action, area)
-                : new List<BreadCrumb>();
-        }
+        //public static List<BreadCrumb> BuildBreadCrumb(string controller, string action, string area = "")
+        //{
+        //    var menus = BuildMenu();
+        //    return menus != null
+        //        ? menus.GetBreadCrumbByControllerAndAction(controller, action, area)
+        //        : new List<BreadCrumb>();
+        //}
 
         public static MenuItem BuildMenu()
         {
