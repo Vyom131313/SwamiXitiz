@@ -9,17 +9,22 @@ import { MenuItem } from './menuItem.model';
 
 @Injectable()
 export class MenuItemService {
+    menus: Promise<MenuItem[]>;
+
     constructor(private http: Http) { }
 
     getMenus(){
 
-        return this.http.get("http://localhost:6007/api/Menu/get")
+        this.http.get("http://localhost:6007/api/Menu/get")
             //.toPromise()
             //.then((response) => response.json());
 
             .subscribe(res => {
+                this.menus = res.json()
                 console.log(res.json());
-        });
+            });
+
+        return this.menus;
             //.map((res: Response) => res.json());
            
        

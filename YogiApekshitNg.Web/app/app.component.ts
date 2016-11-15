@@ -70,8 +70,6 @@ export class AppComponent implements OnInit{
     constructor(private menuItemService: MenuItemService) { }
 
     ngOnInit(): void {
-        //this.menus = this.menuItemService.getMenus();
-        this.menuItemService.getMenus();
-            //.then(items => this.menus = items);
+        this.menus = this.menuItemService.getMenus();
     }
 }
