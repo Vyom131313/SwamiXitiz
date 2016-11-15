@@ -25,7 +25,6 @@ namespace WebApiService.Controllers
         public string IConClass { get; set; }
         public string IConUrl { get; set; }
         public object RouteValues { get; set; }
-
         public bool IsActive { get; set; }
         public List<MenuItem> MenuItems = new List<MenuItem>();
         public List<NonMenuItem> NonMenuItems = new List<NonMenuItem>();
@@ -114,18 +113,25 @@ namespace WebApiService.Controllers
         }
     }
 
+    //[Route("api/Menu")]
     public class MenuController : ApiController
     {
         public MenuController()
         {
         }
 
-        public MenuItem Get()
+       
+        //public IEnumerable<string> Get2()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
+       // [HttpGet]
+        public IEnumerable<MenuItem> Get()
         {
             return BuildMenu();
         }
 
-        public MenuItem BuildMenu()
+        public IEnumerable<MenuItem> BuildMenu()
         {
             var root = new MenuItem { Name = "Home", ControllerName = "Home", ActionName = "Index", MenuItems = new List<MenuItem>() };
             root.MenuItems.Add(new MenuItem { Name = "Dashboard", ControllerName = "Home", ActionName = "Index", IConClass = "fa fa-dashboard" });
@@ -227,7 +233,7 @@ namespace WebApiService.Controllers
             //System.Web.HttpContext.Current.Session["Menus"] = root;
             //return System.Web.HttpContext.Current.Session["Menus"] as MenuItem;
 
-            return root;
+            return root.MenuItems;
         }
     }
 

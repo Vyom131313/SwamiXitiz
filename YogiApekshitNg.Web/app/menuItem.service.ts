@@ -13,8 +13,10 @@ export class MenuItemService {
 
     getMenus(): MenuItem[] {
 
-        let x = this.http.get("http://localhost:6007/api/Menu/").map(res => res.json());
-        alert(JSON.stringify(x));
+        let result = this.http.get("http://localhost:6007/api/Menu/get").subscribe(res => {
+            console.log(res);
+        });
+       
             
         let MENUS: MenuItem[] = [
             { id: 11, name: 'Mr. Paresh' },
