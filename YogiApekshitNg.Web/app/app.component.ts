@@ -10,7 +10,7 @@ import { MenuItemService } from './menuItem.service';
     <h2>My Heroes</h2>
     <ul class="heroes">
       <li *ngFor="let hero of menus">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
+        <span class="badge">#</span> {{hero.Name}}
       </li>
     </ul>
   `,
@@ -65,11 +65,13 @@ import { MenuItemService } from './menuItem.service';
   `],
 })
 export class AppComponent implements OnInit{
-    menus: MenuItem[];
+    menus: Promise<MenuItem[]>;
 
     constructor(private menuItemService: MenuItemService) { }
 
     ngOnInit(): void {
-        this.menus = this.menuItemService.getMenus();
+        //this.menus = this.menuItemService.getMenus();
+        this.menuItemService.getMenus();
+            //.then(items => this.menus = items);
     }
 }

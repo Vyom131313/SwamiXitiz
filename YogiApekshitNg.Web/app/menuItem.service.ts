@@ -11,25 +11,31 @@ import { MenuItem } from './menuItem.model';
 export class MenuItemService {
     constructor(private http: Http) { }
 
-    getMenus(): MenuItem[] {
+    getMenus(){
 
-        let result = this.http.get("http://localhost:6007/api/Menu/get").subscribe(res => {
-            console.log(res);
+        return this.http.get("http://localhost:6007/api/Menu/get")
+            //.toPromise()
+            //.then((response) => response.json());
+
+            .subscribe(res => {
+                console.log(res.json());
         });
+            //.map((res: Response) => res.json());
+           
        
             
-        let MENUS: MenuItem[] = [
-            { id: 11, name: 'Mr. Paresh' },
-            { id: 12, name: 'Narco' },
-            { id: 13, name: 'Bombasto' },
-            { id: 14, name: 'Celeritas' },
-            { id: 15, name: 'Magneta' },
-            { id: 16, name: 'RubberMan' },
-            { id: 17, name: 'Dynama' },
-            { id: 18, name: 'Dr IQ' },
-            { id: 19, name: 'Magma' },
-            { id: 20, name: 'Tornado' }
-        ];
-        return MENUS;
+        //let MENUS: MenuItem[] = [
+        //    { id: 11, name: 'Mr. Paresh' },
+        //    { id: 12, name: 'Narco' },
+        //    { id: 13, name: 'Bombasto' },
+        //    { id: 14, name: 'Celeritas' },
+        //    { id: 15, name: 'Magneta' },
+        //    { id: 16, name: 'RubberMan' },
+        //    { id: 17, name: 'Dynama' },
+        //    { id: 18, name: 'Dr IQ' },
+        //    { id: 19, name: 'Magma' },
+        //    { id: 20, name: 'Tornado' }
+        //];
+        //return MENUS;
     }
 }
