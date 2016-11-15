@@ -16,11 +16,8 @@ export class MenuItemService {
     getMenus(){
 
         return  this.http.get("http://localhost:6007/api/Menu/get")
-            .map(res => res.json())
-            .subscribe(res => {
-                this.menus = res
-                console.log(res);
-            });
+            .toPromise()
+            .then((response) => response.json());
 
             //.map((res: Response) => res.json());
            

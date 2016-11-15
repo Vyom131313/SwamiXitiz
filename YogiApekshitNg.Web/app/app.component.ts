@@ -66,18 +66,18 @@ import { MenuItemService } from './menuItem.service';
   `],
 })
 export class AppComponent implements OnInit{
-    menus: Promise<MenuItem[]>;
+    menus: Array<MenuItem>;
 
     constructor(private http: Http, private menuItemService: MenuItemService) { }
 
     ngOnInit(): void {
-       // this.menuItemService.getMenus();//.subscribe(users => this.menus  = users);
+        this.menuItemService.getMenus().then(items => this.menus = items);
 
-         this.http.get("http://localhost:6007/api/Menu/get")
-            .map(res => res.json())
-            .subscribe(res => {
-                this.menus = res
-                console.log(res);
-            });
+         //this.http.get("http://localhost:6007/api/Menu/get")
+         //   .map(res => res.json())
+         //   .subscribe(res => {
+         //       this.menus = res
+         //       console.log(res);
+         //   });
     }
 }
