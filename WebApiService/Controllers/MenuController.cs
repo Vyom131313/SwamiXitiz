@@ -154,7 +154,7 @@ namespace WebApiService.Controllers
                 }
             }
 
-            menuItems.Add(mnuPrarambh);
+            menuItems.AddRange(mnuPrarambh.MenuItems);
             #endregion
 
             //#region Pravesh

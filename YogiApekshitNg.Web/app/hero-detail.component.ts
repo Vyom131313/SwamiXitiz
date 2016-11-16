@@ -30,7 +30,7 @@ export class HeroDetailComponent implements OnChanges {
 
     constructor(private menuItemService: MenuItemService) { }
     ngOnChanges(changes: SimpleChanges) {
-        //console.log(changes);
+        console.log(changes);
         this.getData();
     }
     getData() {

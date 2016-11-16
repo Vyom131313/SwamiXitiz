@@ -1,129 +1,77 @@
-﻿<!--<div id="controls">
-    <aside id="sidebar" class="scheme-default aside-fixed">
-        <div id="sidebar-wrap">
-            <div class="panel-group slim-scroll" role="tablist">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#sidebarNav">
-                                Navigation <i class="fa fa-angle-up"></i>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="sidebarNav" class="panel-collapse collapse in" role="tabpanel">
-                        <div class="panel-body">
-                            <ul id="navigation">
-                                <li *ngFor="let examMenu of menus"
-                                    [class.selected]="menu === selectedMenu"
+﻿<div class="row">
+    <div class="nav-side-menu">
+        <div class="brand">Brand Logo</div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                    </a>
+                </li>
 
-                                    (click)="onSelect(examMenu)">
-                                    <a role="button"><i class="{{examMenu.IConClass}}"></i><span>{{examMenu.Name}}</span></a>
-
-                                    <ul>
-                                        <li *ngFor="let bookmenu of examMenu.MenuItems">
-                                            <a role="button"><i class="{{bookmenu.IConClass}}"><img src="{{bookmenu.IConUrl}}" width="24px" height="24px" /></i><span>{{bookmenu.Name}}</span></a>
-                                            <ul>
-                                                <li *ngFor="let chaptermenu of bookmenu.MenuItems">
-                                                    <a role="button"><i class="{{chaptermenu.IConClass}}"></i><span>{{chaptermenu.Name}}</span></a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 208.876px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
-        </div>
-    </aside>
-</div>
-
-<section id="content">
-    <div class="row">
-        <my-hero-detail [menu]="selectedMenu"></my-hero-detail>
-    </div>
-</section>-->
-
-<div class="nav-side-menu">
-    <div class="brand">Brand Logo</div>
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-    <div class="menu-list">
-        <ul id="menu-content" class="menu-content collapse out">
-            <li>
-                <a href="#">
-                    <i class="fa fa-dashboard fa-lg"></i> Dashboard
-                </a>
-            </li>
-
-            <li *ngFor="let examMenu of menus"
-                [class.selected]="menu === selectedMenu"
-                (click)="onSelect(examMenu)"
-                data-toggle="collapse" 
-                attr.data-target="#Exam{{examMenu.Id}}"
-                class="collapsed">
-                <a href="#"><i class="{{examMenu.IConClass}}"></i>{{examMenu.Name}}<span class="arrow"></span></a>
-
-                <ul class="sub-menu collapse" id="Exam{{examMenu.Id}}">
-                    <li *ngFor="let bookmenu of examMenu.MenuItems"
-                        data-toggle="collapse" 
+                <div *ngFor="let bookmenu of menus">
+                    <li data-toggle="collapse"
                         attr.data-target="#Book{{bookmenu.Id}}"
-                        class="collapsed">
+                        class="sub-menu collapsed">
                         <a href="#"><i class="{{bookmenu.IConClass}}"></i>{{bookmenu.Name}}<span class="arrow"></span></a>
-
-                        <ul id="Book{{bookmenu.Name}}">
-                            <li *ngFor="let chaptermenu of bookmenu.MenuItems">
-                                <a href="#"><i class="{{chaptermenu.IConClass}}"></i>{{chaptermenu.Name}}<span class="arrow"></span></a>
-                            </li>
-                        </ul>
                     </li>
+
+                    <ul class="sub-menu collapse" id="Book{{bookmenu.Id}}">
+                        <li *ngFor="let chaptermenu of bookmenu.MenuItems"
+                            [class.selected]="menu === selectedMenu"
+                            (click)="onSelect(chaptermenu)">
+                            <a href="#">{{chaptermenu.Name}}</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <li data-toggle="collapse" data-target="#products" class="collapsed active">
+                    <a href="#"><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="products">
+                    <li class="active"><a href="#">CSS3 Animation</a></li>
+                    <li><a href="#">General</a></li>
+                    <li><a href="#">Buttons</a></li>
+                    <li><a href="#">Tabs &amp; Accordions</a></li>
+                    <li><a href="#">Typography</a></li>
+                    <li><a href="#">FontAwesome</a></li>
+                    <li><a href="#">Slider</a></li>
+                    <li><a href="#">Panels</a></li>
+                    <li><a href="#">Widgets</a></li>
+                    <li><a href="#">Bootstrap Model</a></li>
                 </ul>
-            </li>
-
-            <li data-toggle="collapse" data-target="#products" class="collapsed active">
-                <a href="#"><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
-            </li>
-            <ul class="sub-menu collapse" id="products">
-                <li class="active"><a href="#">CSS3 Animation</a></li>
-                <li><a href="#">General</a></li>
-                <li><a href="#">Buttons</a></li>
-                <li><a href="#">Tabs &amp; Accordions</a></li>
-                <li><a href="#">Typography</a></li>
-                <li><a href="#">FontAwesome</a></li>
-                <li><a href="#">Slider</a></li>
-                <li><a href="#">Panels</a></li>
-                <li><a href="#">Widgets</a></li>
-                <li><a href="#">Bootstrap Model</a></li>
+                <!-- <li data-toggle="collapse" data-target="#service" class="collapsed">
+                    <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="service">
+                    <li>New Service 1</li>
+                    <li>New Service 2</li>
+                    <li>New Service 3</li>
+                </ul>
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                    <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="new">
+                    <li>New New 1</li>
+                    <li>New New 2</li>
+                    <li>New New 3</li>
+                </ul>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-user fa-lg"></i> Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users fa-lg"></i> Users
+                    </a>
+                </li>-->
             </ul>
+        </div>
+    </div>
 
-            <li data-toggle="collapse" data-target="#service" class="collapsed">
-                <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
-            </li>
-            <ul class="sub-menu collapse" id="service">
-                <li>New Service 1</li>
-                <li>New Service 2</li>
-                <li>New Service 3</li>
-            </ul>
-
-            <li data-toggle="collapse" data-target="#new" class="collapsed">
-                <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
-            </li>
-            <ul class="sub-menu collapse" id="new">
-                <li>New New 1</li>
-                <li>New New 2</li>
-                <li>New New 3</li>
-            </ul>
-            <li>
-                <a href="#">
-                    <i class="fa fa-user fa-lg"></i> Profile
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-users fa-lg"></i> Users
-                </a>
-            </li>
-        </ul>
+    <div class="col-sm-10" style="margin-left:300px">
+        <my-hero-detail [menu]="selectedMenu"></my-hero-detail>
     </div>
 </div>
