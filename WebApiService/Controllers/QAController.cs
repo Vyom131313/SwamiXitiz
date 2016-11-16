@@ -16,7 +16,8 @@ namespace WebApiService.Controllers
 
         public IEnumerable<QA_WWW_VM> GetWWW(int bookId, int chapterNumber = 0)
         {
-            return QA_WhoWhomWhen(new QA_Filter_Parameters { BookId = bookId, Category = "Who_Whom_When", ChapterNumber = chapterNumber });
+            var data= QA_WhoWhomWhen(new QA_Filter_Parameters { BookId = bookId, Category = "Who_Whom_When", ChapterNumber = chapterNumber });
+            return data;
         }
 
         public IEnumerable<QA_VM> QA_List(QA_Filter_Parameters filter)
@@ -310,19 +311,21 @@ namespace WebApiService.Controllers
             var seq = 1;
             using (var context = new YogiApekshitContext())
             {
-                return context.QueWhoWhomWhens.Where(obj => obj.BookId == filter.BookId &&
-               (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
-                .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new QA_WWW_VM
-                {
-                    Sr = seq++,
-                    Que = c.Que_Eng,
-                    Who = c.Who_Eng,
-                    Whom = c.Whom_Eng,
-                    When = c.WhenSpeaking_Eng,
-                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
-                    Exams = c.Exams,
-                }).ToList();
+                var data= context.QueWhoWhomWhens.Where(obj => obj.BookId == filter.BookId &&
+                           (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
+                            .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
+                            .Select(c => new QA_WWW_VM
+                            {
+                                Sr = seq++,
+                                Que = c.Que_Eng,
+                                Who = c.Who_Eng,
+                                Whom = c.Whom_Eng,
+                                When = c.WhenSpeaking_Eng,
+                                Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                                Exams = c.Exams,
+                            }).ToList();
+
+                return data;
             }
         }
         #endregion

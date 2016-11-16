@@ -10,7 +10,6 @@ import { MenuItem } from './menuItem.model';
 
 @Injectable()
 export class MenuItemService {
-    //menus: Promise<MenuItem[]>;
 
     constructor(private http: Http) { }
 

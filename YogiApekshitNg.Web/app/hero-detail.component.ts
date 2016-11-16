@@ -17,6 +17,8 @@ import { MenuItemService } from './menuItem.service';
       </div>
     </div>
 
+    <button (click)="getData()">update model</button>
+    
     <ul class="heroes">
       <li *ngFor="let qa of qa_www_list">
         <span class="badge">#</span> {{qa.Que}}
@@ -24,22 +26,15 @@ import { MenuItemService } from './menuItem.service';
     </ul>
   `
 })
-export class HeroDetailComponent implements OnInit {
+export class HeroDetailComponent {
     @Input() menu: MenuItem;
     qa_www_list: Array<QA_WWW>;
 
-    constructor(private menuItemService: MenuItemService) { }
+    constructor(private menuItemService: MenuItemService) {  }
 
-    ngOnInit(): void {
-        //alert(this.menu);
-        this.menuItemService.getQAWWW(1, 2)
+    getData() {
+        
+        this.menuItemService.getQAWWW(this.menu.BookId, this.menu.ChapterNumber)
             .then(items => this.qa_www_list = items);
-
-        //this.http.get("http://localhost:6007/api/Menu/get")
-        //   .map(res => res.json())
-        //   .subscribe(res => {
-        //       this.menus = res
-        //       console.log(res);
-        //   });
     }
 }
