@@ -25,7 +25,9 @@ namespace WebApiService.Controllers
         public string IConClass { get; set; }
         public string IConUrl { get; set; }
         public object RouteValues { get; set; }
-        public bool IsActive { get; set; }
+        public int BookId { get; set; }
+        public int ChapterNumber { get; set; }
+    public bool IsActive { get; set; }
         //public List<MenuItem> MenuItems = new List<MenuItem>();
         //public List<NonMenuItem> NonMenuItems = new List<NonMenuItem>();
 
@@ -135,11 +137,11 @@ namespace WebApiService.Controllers
                 var prarambhBooks = dbContext.Books.Where(c => c.ExamLevelId == Constants.ExamLevels.Prarambh).ToList();
                 foreach (var book in prarambhBooks)
                 {
-                    menuItems.Add(new MenuItem { Name = "--- All Chapters ---", ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", RouteValues = new { bookId = book.Id, chapterNumber = 0 } });
+                    menuItems.Add(new MenuItem { Name = "--- All Chapters ---", ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", BookId = book.Id, ChapterNumber =0,  RouteValues = new { bookId = book.Id, chapterNumber = 0 } });
 
                     foreach (var chapter in book.BookChapters)
                     {
-                        menuItems.Add(new MenuItem { Name = string.Format("{0}. {1}", chapter.ChapterNumber, chapter.Name_Eng), ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", RouteValues = new { bookId = book.Id, chapterNumber = chapter.ChapterNumber } });
+                        menuItems.Add(new MenuItem { Name = string.Format("{0}. {1}", chapter.ChapterNumber, chapter.Name_Eng), ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", BookId = book.Id, ChapterNumber = chapter.ChapterNumber.Value, RouteValues = new { bookId = book.Id, chapterNumber = chapter.ChapterNumber } });
                     }
                 }
             }

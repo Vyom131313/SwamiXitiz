@@ -3,4 +3,6 @@
     //id: number;
     //name: string;
     Name: string;
+    BookId: number;
+    ChapterNumber: number;
 }

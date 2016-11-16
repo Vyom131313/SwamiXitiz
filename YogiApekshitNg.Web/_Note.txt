@@ -1,0 +1,4 @@
+﻿- display QA based on menu click
+- menu styles
+- table style
+- wait indicator
