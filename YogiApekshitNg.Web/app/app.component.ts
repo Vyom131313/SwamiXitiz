@@ -5,19 +5,7 @@ import { MenuItemService } from './menuItem.service';
 
 @Component({
     selector: 'my-app',
-    template: `
-    <h1>{{title}}</h1>
-    <h2>My Heroes</h2>
-    <ul class="heroes">
-      <li *ngFor="let menu of menus"
-        [class.selected]="menu === selectedMenu"
-        (click)="onSelect(menu)">
-        <span class="badge">#</span> {{menu.Name}}
-      </li>
-    </ul>
-    <my-hero-detail [menu]="selectedMenu"></my-hero-detail>
-  `,
-    styleUrls: ['./styles.css'],
+    templateUrl:'./app/app.component.html'
 })
 export class AppComponent implements OnInit {
     menus: Array<MenuItem>;

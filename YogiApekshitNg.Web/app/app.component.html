@@ -1,0 +1,35 @@
+﻿<div id="controls">
+    <aside id="sidebar"  class="scheme-default aside-fixed">
+        <div id="sidebar-wrap">
+            <div class="panel-group slim-scroll" role="tablist">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#sidebarNav">
+                                Navigation <i class="fa fa-angle-up"></i>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="sidebarNav" class="panel-collapse collapse in" role="tabpanel">
+                        <div class="panel-body">
+                            <ul class="heroes" id="navigation">
+                                <li *ngFor="let menu of menus"
+                                    [class.selected]="menu === selectedMenu"
+                                    (click)="onSelect(menu)">
+                                    <a role="button"><i class="{{menu.IConClass}}"></i><span>{{menu.Name}}</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
+
+<section id="content">
+    <div class="row">
+
+        <my-hero-detail [menu]="selectedMenu"></my-hero-detail>
+    </div>
+</section>
