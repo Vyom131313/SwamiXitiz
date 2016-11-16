@@ -5,7 +5,7 @@ import { MenuItemService } from './menuItem.service';
 
 @Component({
     selector: 'my-app',
-    templateUrl:'./app/app.component.html'
+    templateUrl: './app/app.component.html',
 })
 export class AppComponent implements OnInit {
     menus: Array<MenuItem>;
