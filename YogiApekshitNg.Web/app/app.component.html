@@ -12,11 +12,22 @@
                     </div>
                     <div id="sidebarNav" class="panel-collapse collapse in" role="tabpanel">
                         <div class="panel-body">
-                            <ul class="heroes" id="navigation">
-                                <li *ngFor="let menu of menus"
+                            <ul id="navigation">
+                                <li *ngFor="let examMenu of menus"
                                     [class.selected]="menu === selectedMenu"
-                                    (click)="onSelect(menu)">
-                                    <a role="button"><i class="{{menu.IConClass}}"></i><span>{{menu.Name}}</span></a>
+                                    (click)="onSelect(examMenu)">
+                                    <a role="button"><i class="{{examMenu.IConClass}}"></i><span>{{examMenu.Name}}</span></a>
+                                
+                                    <ul>
+                                        <li *ngFor="let bookmenu of examMenu.MenuItems">
+                                            <a role="button"><i class="{{bookmenu.IConClass}}"><img src="{{bookmenu.IConUrl}}" width="24px" height="24px" /></i><span>{{bookmenu.Name}}</span></a>
+                                            <ul>
+                                                <li *ngFor="let chaptermenu of bookmenu.MenuItems">
+                                                    <a role="button"><i class="{{chaptermenu.IConClass}}"></i><span>{{chaptermenu.Name}}</span></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>                                
                                 </li>
                             </ul>
                         </div>
