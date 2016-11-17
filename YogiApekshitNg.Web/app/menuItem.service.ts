@@ -25,8 +25,10 @@ export class MenuItemService {
         let params: URLSearchParams = new URLSearchParams();
         params.set('bookId', bookId.toString());
         params.set('chapterNumber', chapterNumber.toString());
+        params.set('category', "One_Sentence");
 
-        return this.http.get("http://localhost:6007/api/QA/getWWW", {search: params })
+
+        return this.http.get("http://localhost:6007/api/QA/getQA", {search: params })
             .toPromise()
             .then((response) => response.json());
     }
