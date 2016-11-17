@@ -21,7 +21,6 @@ namespace WebApiService.Controllers
         public int ChapterNumber { get; set; }
         public bool IsActive { get; set; }
         public List<MenuItem> MenuItems = new List<MenuItem>();
-        //public List<NonMenuItem> NonMenuItems = new List<NonMenuItem>();
 
         public MenuItem()
         {
@@ -29,52 +28,8 @@ namespace WebApiService.Controllers
             AreaName = string.Empty;
             ControllerName = string.Empty;
             ActionName = string.Empty;
-
             IConClass = "fa fa-caret-right";
         }
-
-        //public BreadCrumb BreadCrumb
-        //{
-        //    get
-        //    {
-        //        return new BreadCrumb
-        //        {
-        //            Title = this.Name,
-        //            ControllerName = this.ControllerName,
-        //            ActionName = this.ActionName,
-        //            AreaName = this.AreaName
-        //        };
-        //    }
-        //}
-
-        //public List<BreadCrumb> GetBreadCrumbByControllerAndAction(string controller, string action, string area = "")
-        //{
-        //    var breadCrumbs = new List<BreadCrumb>();
-        //    if (this.ControllerName.Equals(controller) && this.ActionName.Equals(action) && this.AreaName.Equals(area))
-        //    {
-        //        breadCrumbs.Add(this.BreadCrumb);
-        //    }
-        //    else if (this.NonMenuItems.Where(obj => obj.ControllerName.Equals(controller) && obj.ActionName.Equals(action) && obj.AreaName.Equals(area)).Count() > 0)
-        //    {
-        //        var nonMenuItem = this.NonMenuItems.Where(obj => obj.ControllerName.Equals(controller) && obj.ActionName.Equals(action) && obj.AreaName.Equals(area)).FirstOrDefault();
-        //        breadCrumbs.Add(this.BreadCrumb);
-        //        breadCrumbs.Add(nonMenuItem.BreadCrumb);
-        //    }
-        //    else
-        //    {
-        //        foreach (var child in this.MenuItems)
-        //        {
-        //            breadCrumbs = child.GetBreadCrumbByControllerAndAction(controller, action, area);
-        //            if (breadCrumbs.Count > 0)
-        //            {
-        //                breadCrumbs.Insert(0, this.BreadCrumb);
-        //                break;
-        //            }
-        //        }
-        //    }
-
-        //    return breadCrumbs;
-        //}
     }
 
     //[Route("api/Menu")]
