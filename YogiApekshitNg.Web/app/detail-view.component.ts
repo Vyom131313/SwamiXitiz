@@ -7,7 +7,7 @@ import { QA_WWW } from './qa_www.model';
 import { MenuItemService } from './menuItem.service';
 
 @Component({
-    selector: 'my-hero-detail',
+    selector: 'detail-view',
     template: `
     <div *ngIf="menu">
       <h2>{{menu.Name}} details!</h2>
@@ -24,7 +24,7 @@ import { MenuItemService } from './menuItem.service';
     </ul>
   `
 })
-export class HeroDetailComponent implements OnChanges {
+export class DetailViewComponent implements OnChanges {
     @Input() menu: MenuItem;
     qa_www_list: Array<QA_WWW>;
 

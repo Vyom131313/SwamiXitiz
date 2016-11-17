@@ -4,11 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { MenuItemService } from './menuItem.service';
 import { AppComponent } from './app.component';
-import { HeroDetailComponent } from './hero-detail.component';
+import { DetailViewComponent } from './detail-view.component';
 
 @NgModule({
   imports: [BrowserModule, HttpModule ],
-  declarations: [AppComponent, HeroDetailComponent ],
+  declarations: [AppComponent, DetailViewComponent ],
   bootstrap: [AppComponent],
   providers: [MenuItemService ]
 })
