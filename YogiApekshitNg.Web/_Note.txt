@@ -11,3 +11,5 @@
 - Menu : display icon
 - Menu : highlight selected menu
 - wait indicator
+- responsiveness
+- dashboard
