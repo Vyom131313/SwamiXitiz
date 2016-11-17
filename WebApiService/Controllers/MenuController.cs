@@ -1,5 +1,4 @@
-﻿using Data.Core.IRepository;
-using SwamiXitiz.Data.Models;
+﻿using SwamiXitiz.Data.Models;
 using SwamiXitiz.Data.ModelsPartial;
 using System;
 using System.Collections.Generic;
@@ -8,14 +7,6 @@ using System.Web.Http;
 
 namespace WebApiService.Controllers
 {
-    public class BreadCrumb
-    {
-        public string Title { get; set; }
-        public string AreaName { get; set; }
-        public string ControllerName { get; set; }
-        public string ActionName { get; set; }
-    }
-
     public class MenuItem
     {
         public int Id { get; set; }
@@ -84,36 +75,6 @@ namespace WebApiService.Controllers
 
         //    return breadCrumbs;
         //}
-    }
-
-    public class NonMenuItem
-    {
-        public string Name { get; set; }
-        public string AreaName { get; set; }
-        public string ControllerName { get; set; }
-        public string ActionName { get; set; }
-
-        public NonMenuItem()
-        {
-            Name = string.Empty;
-            AreaName = string.Empty;
-            ControllerName = string.Empty;
-            ActionName = string.Empty;
-        }
-
-        public BreadCrumb BreadCrumb
-        {
-            get
-            {
-                return new BreadCrumb
-                {
-                    Title = this.Name,
-                    ControllerName = this.ControllerName,
-                    ActionName = this.ActionName,
-                    AreaName = this.AreaName
-                };
-            }
-        }
     }
 
     //[Route("api/Menu")]
