@@ -81,6 +81,7 @@
     <Content Include=".editorconfig" />
     <Content Include=".gitignore" />
     <Content Include=".travis.yml" />
+    <Content Include="app\qa-view.component.html" />
     <Content Include="app\app.component.html" />
     <Content Include="CHANGELOG.md" />
     <Content Include="Content\assets\css\fonts\glyphicons-halflings-regular-2.html" />
@@ -285,8 +286,10 @@
     <TypeScriptCompile Include="app\app.component.spec.ts" />
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\qa-view.component.ts" />
     <TypeScriptCompile Include="app\detail-view.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\qa.model.ts" />
     <TypeScriptCompile Include="app\qa_www.model.ts" />
     <TypeScriptCompile Include="app\menuItem.service.ts" />
     <TypeScriptCompile Include="app\menuItem.model.ts" />

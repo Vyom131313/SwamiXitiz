@@ -1037,6 +1037,7 @@ ul.awe-ajaxlist {
 
 .awe-hrow > th {
     text-decoration: underline;
+    padding-left:10px;
 }
 
 #header .branding a.brand {

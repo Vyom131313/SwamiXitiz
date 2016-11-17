@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.menuItemService.getMenus()
             .then(items => { this.menus = items; });
-        
 
         //this.http.get("http://localhost:6007/api/Menu/get")
         //   .map(res => res.json())
