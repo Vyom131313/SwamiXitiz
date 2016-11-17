@@ -1,4 +1,13 @@
-﻿- table style
+﻿- QA: display all category QA for each chapger
+- QA: display all chapter QA for each category
+- QA: Test Mode
+- QA: Collapse QA table
+- QA: Display title of selected book/chapter
+
+- Language: Language selection
+- Language: display menu based on language selection
+- Language: display QA based on language selection
+
 - Menu : display icon
+- Menu : highlight selected menu
 - wait indicator
-- display QA for each category
