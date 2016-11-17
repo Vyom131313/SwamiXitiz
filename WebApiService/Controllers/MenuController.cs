@@ -142,8 +142,7 @@ namespace WebApiService.Controllers
                 var prarambhBooks = dbContext.Books.Where(c => c.ExamLevelId == Constants.ExamLevels.Prarambh).ToList();
                 foreach (var book in prarambhBooks)
                 {
-                    var mnuBook = new MenuItem { Id = menuCounter++, Name = book.Name_Eng, IConClass = "fa fa-pencil", IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng), BookId = book.Id, ChapterNumber = 0, };
-                    mnuBook.MenuItems = new List<MenuItem>();
+                    var mnuBook = new MenuItem { Id = menuCounter++, Name = book.Name_Eng, IConClass = "fa fa-pencil", IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng), BookId = book.Id, ChapterNumber = 0, MenuItems = new List<MenuItem>() };
                     mnuBook.MenuItems.Add(new MenuItem { Id = menuCounter++, Name = "--- All Chapters ---", ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", BookId = book.Id, ChapterNumber = 0, RouteValues = new { bookId = book.Id, chapterNumber = 0 } });
                     foreach (var chapter in book.BookChapters)
                     {
@@ -152,107 +151,23 @@ namespace WebApiService.Controllers
 
                     mnuPrarambh.MenuItems.Add(mnuBook);
                 }
-            }
 
+                var categories = Enum.GetNames(typeof(Constants.Que_Categories));
+                foreach (var category in categories)
+                {
+                    var menucategory = new MenuItem { Id = menuCounter++, Name = category.Replace("_", " "), MenuItems = new List<MenuItem>() };
+                    foreach (var book in prarambhBooks)
+                    {
+                        menucategory.MenuItems.Add(new MenuItem { Id = menuCounter++, Name = book.Name_Eng, IConClass = "fa fa-pencil", IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng), BookId = book.Id, ChapterNumber = 0, MenuItems = new List<MenuItem>() });
+                    }
+
+                    mnuPrarambh.MenuItems.Add(menucategory);
+                }
+            }
             menuItems.AddRange(mnuPrarambh.MenuItems);
             #endregion
 
-            //#region Pravesh
-            //var mnuPravesh = new MenuItem { Name = "Pravesh", IConClass = "fa fa-pencil", MenuItems = new List<MenuItem>() };
-            //var praveshBooks = dbContext.Books.Where(c => c.ExamLevelId == Constants.ExamLevels.Pravesh);
-            //foreach (var book in praveshBooks)
-            //{
-            //    var mnuBook = new MenuItem { Name = book.Name_Eng, IConClass = "fa fa-pencil", IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng) };
-            //    mnuBook.MenuItems = new List<MenuItem>();
-            //    mnuBook.MenuItems.Add(new MenuItem { Name = "--- All Chapters ---", ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", RouteValues = new { bookId = book.Id, chapterNumber = 0 } });
-
-            //    foreach (var chapter in book.BookChapters)
-            //    {
-            //        mnuBook.MenuItems.Add(new MenuItem { Name = string.Format("{0}. {1}", chapter.ChapterNumber, chapter.Name_Eng), ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", RouteValues = new { bookId = book.Id, chapterNumber = chapter.ChapterNumber } });
-            //    }
-
-            //    mnuPravesh.MenuItems.Add(mnuBook);
-            //}
-
-            //root.MenuItems.Add(mnuPravesh);
-            //#endregion
-
-            //#region Q/A by Categories
-
-            //var mnuCategories = new MenuItem { Name = "Q/A by Categories", IConClass = "fa fa-pencil", MenuItems = new List<MenuItem>() };
-
-            //var categories = Enum.GetNames(typeof(Constants.Que_Categories));
-            //foreach (var category in categories)
-            //{
-            //    var categoryMenu = new MenuItem { Name = category.Replace("_", " "), MenuItems = new List<MenuItem>() };
-
-            //    foreach (var book in prarambhBooks)
-            //    {
-            //        var mnuBook = new MenuItem
-            //        {
-            //            Name = book.Name_Eng,
-            //            IConClass = "fa fa-pencil",
-            //            IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng),
-            //            ControllerName = "QA",
-            //            ActionName = "QA_By_Book_Category_Chapter",
-            //            RouteValues = new { bookId = book.Id, category = category }
-            //        };
-
-            //        categoryMenu.MenuItems.Add(mnuBook);
-            //    }
-
-            //    mnuCategories.MenuItems.Add(categoryMenu);
-            //}
-
-            //root.MenuItems.Add(mnuCategories);
-
-            ///*
-            //root.MenuItems.Add(new MenuItem
-            //{
-            //    Name = "Q/A by Categories",
-            //    IConClass = "fa fa-pencil",
-            //    MenuItems = new List<MenuItem> 
-            //    {
-            //        new MenuItem { Name = "Who Whom When", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Who_Whom_When } },
-            //        new MenuItem { Name = "Ans in One Sentence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.One_Sentence }  },
-            //        new MenuItem { Name = "Incorrect Sentence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Correct_Sentence }  },
-            //        new MenuItem { Name = "Short Notes", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Short_Note}  },
-            //        new MenuItem { Name = "Correct Sequence", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Correct_Sequence }  },
-            //        new MenuItem { Name = "Fill In Blanks", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Fill_In_Blank }  },
-            //        new MenuItem { Name = "Select Correct Options", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Correct_Option }  },
-            //        new MenuItem { Name = "Give Reasons", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Reason }  },
-            //        new MenuItem { Name = "Shloks", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Shlok }  },
-            //        new MenuItem { Name = "Kirtan", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Kirtan }  },
-            //        new MenuItem { Name = "Swamini Vato", ControllerName="Prarambh", ActionName="QuestionCategory", RouteValues=new { category=Constants.Que_Categories.Swamini_Vaato }  },
-            //    }
-            //});*/
-            //#endregion
-
-            //System.Web.HttpContext.Current.Session["Menus"] = root;
-            //return System.Web.HttpContext.Current.Session["Menus"] as MenuItem;
-
             return menuItems;
-        }
-    }
-
-    public class MenuBuilder
-    {
-        //public static List<BreadCrumb> BuildBreadCrumb(string controller, string action, string area = "")
-        //{
-        //    var menus = BuildMenu();
-        //    return menus != null
-        //        ? menus.GetBreadCrumbByControllerAndAction(controller, action, area)
-        //        : new List<BreadCrumb>();
-        //}
-
-        public static MenuItem BuildMenu()
-        {
-            if (System.Web.HttpContext.Current.Session["Menus"] != null)
-            {
-                return System.Web.HttpContext.Current.Session["Menus"] as MenuItem;
-            }
-
-            return System.Web.HttpContext.Current.Session["Menus"] as MenuItem;
         }
     }
 }
