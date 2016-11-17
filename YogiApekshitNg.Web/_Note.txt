@@ -1,4 +1,4 @@
-﻿- sub menu styles
-- table style
+﻿- table style
+- Menu : display icon
 - wait indicator
 - display QA for each category
