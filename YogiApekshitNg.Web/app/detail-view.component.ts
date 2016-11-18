@@ -8,17 +8,7 @@ import { MenuItemService } from './menuItem.service';
 
 @Component({
     selector: 'detail-view',
-    template: `
-    <div *ngIf="menu">
-      <h2>{{menu.Name}} details!</h2>
-      <div>
-        <label>Book Id: </label>{{menu.bookId}}
-        <label>Chapter Number: </label>{{menu.chapterNumber}}
-      </div>
-    </div>
-
-<qa-view [qa_list]="qa_list"><qa-view>
-  `
+    template: `<qa-view [qa_list]="qa_list"><qa-view>`
 })
 export class DetailViewComponent implements OnChanges {
     @Input() menu: MenuItem;

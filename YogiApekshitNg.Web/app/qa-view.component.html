@@ -1,43 +1,29 @@
-﻿<div style="width:100%">
-    <div class="form-group" style="float:right;">
-        <label id="lblReadingOrTestMode" class="col-sm-2 control-label" style="margin-right:10px;margin-top:2px;">Switch to Test Mode</label>
-        <div class="onoffswitch greensea inline-block" style="float:right;">
-            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="chkReadingOrTestMode" checked="">
-            <label class="onoffswitch-label" for="chkReadingOrTestMode">
-                <span class="onoffswitch-inner"></span>
-                <span class="onoffswitch-switch"></span>
-            </label>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="bg-greensea">
-        <table class="table table-sm table-inverse">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>
-                        Question and Answer
-                    </th>
-                    <th>
-                        Chapter
-                    </th>
-                    <th>Exams</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let qa of qa_list">
-                    <td>{{qa.Sr}}</td>
-                    <td>
-                        <div style="padding-bottom:10px;">
-                            <b>{{qa.Que}}</b>
-                            <div class="answer"><b>Ans:</b> {{qa.Ans}}</div>
-                        </div>
-                    </td>
-                    <td>{{qa.Chapter}}</td>
-                    <td>{{qa.Exams}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+﻿<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>
+                    Question and Answer
+                </th>
+                <th>
+                    Chapter
+                </th>
+                <th>Exams</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let qa of qa_list">
+                <td>{{qa.Sr}}</td>
+                <td>
+                    <div style="padding-bottom:10px;">
+                        <b>{{qa.Que}}</b>
+                        <div class="answer"><b>Ans:</b> {{qa.Ans}}</div>
+                    </div>
+                </td>
+                <td>{{qa.Chapter}}</td>
+                <td>{{qa.Exams}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

@@ -1,34 +1,137 @@
-﻿<div class="row">
-    <div class="nav-side-menu col-xs-3">
-        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-        <div class="menu-list">
-            <ul id="menu-content" class="menu-content collapse out">
-                <li>
+﻿<nav class="navbar navbar-m2p sidebar" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display --><div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                Foobar<b>Company</b>
+            </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <!-- Dashboard -->
+                <li class="active open">
                     <a href="#">
-                        <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                        <span class="pull-right hidden-xs showopacity glyphicon material-icons">av_timer</span> Dashboard
                     </a>
                 </li>
 
-                <div *ngFor="let bookmenu of menus">
-                    <li data-toggle="collapse"
-                        attr.data-target="#Book{{bookmenu.Id}}"
-                        class="sub-menu collapsed">
-                        <a href="#"><i class="{{bookmenu.IConClass}}"></i>{{bookmenu.Name}}<span class="arrow"></span></a>
-                    </li>
+                <li attr.data-target="#Book{{bookmenu.Id}}"
+                    *ngFor="let bookmenu of menus">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">burst_mode</span>
+                        {{bookmenu.Name}} <span class="caret"></span>
+                    </a>
 
-                    <ul class="sub-menu collapse" id="Book{{bookmenu.Id}}">
+                    <ul class="dropdown-menu forAnimate" role="menu" id="Book{{bookmenu.Id}}">
                         <li *ngFor="let chaptermenu of bookmenu.MenuItems"
                             [class.selected]="menu === selectedMenu"
                             (click)="onSelect(chaptermenu)">
-                            <a href="#">{{chaptermenu.Name}}</a>
+                            <a href="#"><i class="material-icons">add</i>{{chaptermenu.Name}}</a>
                         </li>
                     </ul>
-                </div>
+                </li>
+
+                <!-- Banner -->
+                <li class="">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">burst_mode</span>
+                        Banners <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#"><i class="material-icons">add</i> Add</a></li>
+                        <li><a href="#"><i class="material-icons">sort</i> List</a></li>
+                    </ul>
+                </li>
+                <li class="separator">Content</li>
+                <!-- Page -->
+                <li class="">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">description</span>
+                        Pages <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#"><i class="material-icons">add</i> Add</a></li>
+                        <li><a href="#"><i class="material-icons">sort</i> List</a></li>
+                    </ul>
+                </li>
+                <!-- Blog -->
+                <li class="">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">chat_bubble_outline</span>
+                        Blog <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#"><i class="material-icons">add</i> Add</a></li>
+                        <li><a href="#"><i class="material-icons">sort</i> List</a></li>
+                    </ul>
+                </li>
+                <!-- Tags -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon material-icons">label</span>
+                        Tags <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#"> <i class="material-icons">add</i> Add</a></li>
+                        <li><a href="#"> <i class="material-icons">sort</i> List</a></li>
+                    </ul>
+                </li>
+                <li class="separator">System</li>
+                <!-- Users -->
+                <li class="#">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">group</span>
+                        Users <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#"><i class="material-icons">add</i> Add</a></li>
+                        <li><a href="#"><i class="material-icons">sort</i> List</a></li>
+                    </ul>
+                </li>
+                <!-- Exit -->
+                <li>
+                    <a href="#">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">exit_to_app</span> Exit
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
-        
-    <div style="padding:15px;" class="col-xs-9">      
-        <detail-view [menu]="selectedMenu"></detail-view>
+</nav>
+
+
+<!--<div class="nav-side-menu">
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <div class="menu-list">
+        <ul id="menu-content" class="menu-content collapse out">
+            <li>
+                <a href="#">
+                    <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                </a>
+            </li>
+
+            <div *ngFor="let bookmenu of menus">
+                <li data-toggle="collapse"
+                    attr.data-target="#Book{{bookmenu.Id}}"
+                    class="sub-menu collapsed">
+                    <a href="#"><i class="{{bookmenu.IConClass}}"></i>{{bookmenu.Name}}<span class="arrow"></span></a>
+                </li>
+
+                <ul class="sub-menu collapse" id="Book{{bookmenu.Id}}">
+                    <li *ngFor="let chaptermenu of bookmenu.MenuItems"
+                        [class.selected]="menu === selectedMenu"
+                        (click)="onSelect(chaptermenu)">
+                        <a href="#">{{chaptermenu.Name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </ul>
     </div>
-</div>
+</div>-->
+<detail-view [menu]="selectedMenu"></detail-view>
