@@ -10,54 +10,32 @@
 </div>
 <br>
 <br>
-<div class="page-dashboard" id="divgridOne_Sentence">
-    <section class="tile bg-greensea">
-        <div class="tile-header dvd dvd-btm">
-            <h3><strong>Answer ALL of the following, using one sentence (not just one word) for each answer. </strong>(Total Marks: 4)</h3>
-            <ul class="controls">
-                
-                <li>
-                    <a role="button" tabindex="0" class="tile-toggle">
-                        <span class="minimize"><i class="fa fa-angle-down"></i></span>
-                        <span class="expand"><i class="fa fa-angle-up"></i></span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <div id="gridOne_Sentence" class="awe-grid awe-nh awe-ltr" style="display: block;">
-            <div class="awe-content">
-                <div class="awe-tablw">
-                    <table class="awe-table">
-                        <thead>
-                            <tr class="awe-hrow">
-                                <th><div class="awe-col" unselectable="on" data-i="0">#</div></th>
-                                <th>
-                                    <div class="awe-col" unselectable="on" data-i="1">Question and Answer</div>
-                                </th>
-                                <th>
-                                    <div class="awe-col" unselectable="on" data-i="2">Chapter</div>
-                                </th>
-                                <th><div class="awe-col" unselectable="on" data-i="3">Exams</div></th>
-                            </tr>
-                        </thead>
-                        <tbody class="awe-tbody">
-                            <tr data-lvl="1" class="awe-row" *ngFor="let qa of qa_list">
-                                <td>{{qa.Sr}}</td>
-                                <td>
-                                    <div style="padding-bottom:10px;">
-                                        <b>{{qa.Que}}</b>
-                                        <div class="answer"><b>Ans:</b> {{qa.Ans}}</div>
-                                    </div>
-                                    <button type="button" name="btnCheckAnswer" onclick="JavaScript:CheckAnswer(this)" class="btnCheckAnswer btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" style="display:none">Check Answer <i class="fa fa fa-arrow-right"></i></button>
-                                </td>
-                                <td>{{qa.Chapter}}</td>
-                                <td>{{qa.Exams}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="bg-greensea">
+    <table class="table table-sm table-inverse">
+        <thead>
+            <tr >
+                <th>#</th>
+                <th>
+                    Question and Answer
+                </th>
+                <th>
+                    Chapter
+                </th>
+                <th>Exams</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let qa of qa_list">
+                <td>{{qa.Sr}}</td>
+                <td>
+                    <div style="padding-bottom:10px;">
+                        <b>{{qa.Que}}</b>
+                        <div class="answer"><b>Ans:</b> {{qa.Ans}}</div>
+                    </div>
+                </td>
+                <td>{{qa.Chapter}}</td>
+                <td>{{qa.Exams}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

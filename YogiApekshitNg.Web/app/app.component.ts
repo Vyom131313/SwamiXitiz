@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
     menus: Array<MenuItem>;
     selectedMenu: MenuItem;
 
+
     constructor(private menuItemService: MenuItemService) { }
 
     ngOnInit(): void {

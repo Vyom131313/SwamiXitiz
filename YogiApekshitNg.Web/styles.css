@@ -6,7 +6,6 @@
     background-color: #2e353d;
     position: fixed;
     top: 0px;
-    width: 250px;
     height: 100%;
     color: #e1ffff;
 }
@@ -126,14 +125,13 @@
 @media (max-width: 767px) {
     .nav-side-menu {
         position: relative;
-        width: 100%;
         margin-bottom: 10px;
     }
 
         .nav-side-menu .toggle-btn {
             display: block;
             cursor: pointer;
-            position: absolute;
+            /*position: absolute;*/
             right: 10px;
             top: 10px;
             z-index: 10 !important;
