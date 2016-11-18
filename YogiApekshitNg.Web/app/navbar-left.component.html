@@ -1,4 +1,5 @@
-﻿<nav class="navbar navbar-m2p sidebar" role="navigation">
+﻿
+<nav class="navbar navbar-m2p sidebar" role="navigation" id="myDropdown">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display --><div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -16,7 +17,7 @@
             <ul class="nav navbar-nav">
                 <!-- Dashboard -->
                 <li class="active open">
-                    <a href="#">
+                    <a href="#" >
                         <span class="pull-right hidden-xs showopacity glyphicon material-icons">av_timer</span> Dashboard
                     </a>
                 </li>
@@ -31,7 +32,7 @@
                     <ul class="dropdown-menu forAnimate" role="menu" id="Book{{bookmenu.Id}}">
                         <li *ngFor="let chaptermenu of bookmenu.MenuItems"
                             [class.selected]="menu === selectedMenu"
-                            (click)="onSelect(chaptermenu)">
+                            (click)="onSelect(chaptermenu, $event)">
                             <a href="#"><i class="material-icons">add</i>{{chaptermenu.Name}}</a>
                         </li>
                     </ul>
@@ -104,5 +105,4 @@
         </div>
     </div>
 </nav>
-
 <detail-view [menu]="selectedMenu"></detail-view>

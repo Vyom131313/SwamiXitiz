@@ -20,7 +20,9 @@ export class NavbarLeftComponent  {
             .then(items => { this.menus = items; });
     }
 
-    onSelect(menu: MenuItem): void {
+    onSelect(menu: MenuItem, event:any): void {
+        event.stopPropagation();
         this.selectedMenu = menu;
-    }   
+        
+    }
 }

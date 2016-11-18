@@ -1,4 +1,7 @@
-﻿- QA: display all category QA for each chapger
+﻿- Menu : display icon
+- Menu : onclick don't scroll at top
+
+- QA: display all category QA for each chapger
 - QA: display all chapter QA for each category
 - QA: Test Mode
 - QA: Collapse QA table
@@ -8,8 +11,6 @@
 - Language: display menu based on language selection
 - Language: display QA based on language selection
 
-- Menu : display icon
-- Menu : highlight selected menu
 - wait indicator
 - responsiveness
 - dashboard

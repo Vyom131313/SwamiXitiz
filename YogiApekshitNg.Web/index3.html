@@ -206,7 +206,28 @@
     </style>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
+    
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+
+    <script>
+        System.import('app').catch(function (err) { console.error(err); });
+    </script>
+</head>
+<body style="height: 496px;">
+    <!-- Based on http://bootsnipp.com/snippets/featured/responsive-sidebar-menu -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <my-app>Loading...</my-app>
+</body>
+</html>
+
+<script type="text/javascript">
 function htmlbodyHeightUpdate() {
     var height3 = $(window).height();
     var height1 = $('.nav').height() + 50;
@@ -230,22 +251,11 @@ $(document).ready(function () {
         height2 = $('.container-main').height();
         htmlbodyHeightUpdate();
     });
+
+    $('.dropdown-menu').on({
+        "click": function (e) {
+            alert('')
+            e.stopPropagation();
+        }
+    });
 });</script>
-
-    <!-- Polyfill(s) for older browsers -->
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="systemjs.config.js"></script>
-
-    <script>
-        System.import('app').catch(function (err) { console.error(err); });
-    </script>
-</head>
-<body style="height: 496px;">
-    <!-- Based on http://bootsnipp.com/snippets/featured/responsive-sidebar-menu -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <my-app>Loading...</my-app>
-</body>
-</html>
