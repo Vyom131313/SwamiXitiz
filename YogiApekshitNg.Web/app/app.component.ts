@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'my-app',
-    template: '<menu-component></menu-component>',
+    template: '<navbar-left></navbar-left>',
 })
 export class AppComponent {
     constructor() { }

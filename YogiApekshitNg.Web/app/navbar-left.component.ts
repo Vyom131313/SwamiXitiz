@@ -6,10 +6,10 @@ import { MenuItem } from './menuItem.model';
 import { MenuItemService } from './menuItem.service';
 
 @Component({
-    selector: 'menu-component',
-    templateUrl: './app/menu.component.html'
+    selector: 'navbar-left',
+    templateUrl: './app/navbar-left.component.html'
 })
-export class MenuComponent  {
+export class NavbarLeftComponent  {
     menus: Array<MenuItem>;
     selectedMenu: MenuItem;
 
@@ -22,6 +22,5 @@ export class MenuComponent  {
 
     onSelect(menu: MenuItem): void {
         this.selectedMenu = menu;
-    }
-   
+    }   
 }

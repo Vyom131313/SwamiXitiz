@@ -105,33 +105,4 @@
     </div>
 </nav>
 
-
-<!--<div class="nav-side-menu">
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-    <div class="menu-list">
-        <ul id="menu-content" class="menu-content collapse out">
-            <li>
-                <a href="#">
-                    <i class="fa fa-dashboard fa-lg"></i> Dashboard
-                </a>
-            </li>
-
-            <div *ngFor="let bookmenu of menus">
-                <li data-toggle="collapse"
-                    attr.data-target="#Book{{bookmenu.Id}}"
-                    class="sub-menu collapsed">
-                    <a href="#"><i class="{{bookmenu.IConClass}}"></i>{{bookmenu.Name}}<span class="arrow"></span></a>
-                </li>
-
-                <ul class="sub-menu collapse" id="Book{{bookmenu.Id}}">
-                    <li *ngFor="let chaptermenu of bookmenu.MenuItems"
-                        [class.selected]="menu === selectedMenu"
-                        (click)="onSelect(chaptermenu)">
-                        <a href="#">{{chaptermenu.Name}}</a>
-                    </li>
-                </ul>
-            </div>
-        </ul>
-    </div>
-</div>-->
 <detail-view [menu]="selectedMenu"></detail-view>
