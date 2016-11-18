@@ -5,12 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MenuItemService } from './menuItem.service';
 import { AppComponent } from './app.component';
 import { DetailViewComponent } from './detail-view.component';
-import { QAViewComponent } from './qa-view.component';
+import { QueAnsComponent } from './queans.component';
+import { MenuComponent } from './menu.component';
 
 
 @NgModule({
   imports: [BrowserModule, HttpModule ],
-  declarations: [AppComponent, DetailViewComponent, QAViewComponent ],
+  declarations: [AppComponent, MenuComponent, DetailViewComponent, QueAnsComponent ],
   bootstrap: [AppComponent],
   providers: [MenuItemService ]
 })
