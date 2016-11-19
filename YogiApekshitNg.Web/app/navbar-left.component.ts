@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { MenuItem } from './menuItem.model';
 import { MenuItemService } from './menuItem.service';
+import { SharedService } from './shared.service';
+
 
 @Component({
     selector: 'navbar-left',
@@ -13,7 +15,7 @@ export class NavbarLeftComponent  {
     menus: Array<MenuItem>;
     selectedMenu: MenuItem;
 
-    constructor(private menuItemService: MenuItemService) { }
+    constructor(private menuItemService: MenuItemService, private sharedService: SharedService) { }
 
     ngOnInit(): void {
         this.menuItemService.getMenus()
@@ -23,6 +25,9 @@ export class NavbarLeftComponent  {
     onSelect(menu: MenuItem, event:any): void {
         event.stopPropagation();
         this.selectedMenu = menu;
-        
+    }
+
+    ChangeLanguage(lang: string, event: Event) {
+        this.sharedService.SetLanguage(lang);
     }
 }

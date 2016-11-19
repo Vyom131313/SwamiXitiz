@@ -33,11 +33,10 @@ export class MenuItemService {
         params.set('chapterNumber', chapterNumber.toString());
         params.set('category', "One_Sentence");
 
-        this.sharedService.SetLanguage(this.sharedService.Lang.getValue() == "Eng" ? "Guj": "Eng");
+        //this.sharedService.SetLanguage(this.sharedService.Lang.getValue() == "Eng" ? "Guj": "Eng");
 
         return this.http.get("http://localhost:6007/api/QA/getQA", {search: params })
             .toPromise()
             .then((response) => response.json());
-
-    }
+    }   
 }

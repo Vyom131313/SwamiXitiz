@@ -17,16 +17,16 @@ namespace WebApiService.Controllers
         }
 
         [Route("api/QA/GetQA")]
-        public HttpResponseMessage GetQA(string category, int bookId, int chapterNumber = 0)
+        public HttpResponseMessage GetQA(string lang, string category, int bookId, int chapterNumber = 0)
         {
             if(category == Constants.Que_Categories.Who_Whom_When.ToString())
             {
-                var data = QA_WhoWhomWhen(new QA_Filter_Parameters { BookId = bookId, Category = category, ChapterNumber = chapterNumber });
+                var data = QA_WhoWhomWhen(new QA_Filter_Parameters { Lang= lang, BookId = bookId, Category = category, ChapterNumber = chapterNumber });
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
             else
             {
-                var data = QA_List(new QA_Filter_Parameters { BookId = bookId, Category = category, ChapterNumber = chapterNumber });
+                var data = QA_List(new QA_Filter_Parameters { Lang = lang, BookId = bookId, Category = category, ChapterNumber = chapterNumber });
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
         }
@@ -169,9 +169,9 @@ namespace WebApiService.Controllers
                     .Select(c => new QA_VM
                     {
                         Sr = seq++,
-                        Que = c.Que_Eng,
-                        Ans = c.Ans_Eng,
-                        Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                        Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
+                        Ans = filter.Lang == "Guj" ? c.Ans_Guj : c.Ans_Eng,
+                        Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
                         Exams = c.Exams,
                     }).ToList();
             }
@@ -280,6 +280,7 @@ namespace WebApiService.Controllers
 
     public class QA_Filter_Parameters
     {
+        public string Lang { get; set; }
         public int BookId { get; set; }
         public int ChapterNumber { get; set; }
         public string Category { get; set; }
