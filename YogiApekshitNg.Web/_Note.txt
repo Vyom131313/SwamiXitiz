@@ -10,10 +10,6 @@
 - QA: Collapse QA table
 - QA: Display title of selected book/chapter
 
-- Language: Language selection
-- Language: display menu based on language selection
-- Language: display QA based on language selection
-
 - wait indicator
 - responsiveness
 - dashboard
