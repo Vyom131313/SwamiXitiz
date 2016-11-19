@@ -1,4 +1,9 @@
-﻿- Menu : display icon
+﻿
+- Keep Guj button in UI
+- On clicking on Guj button display MENU in Guj
+- Test mode 
+
+- Menu : display icon
 - Menu : onclick don't scroll at top
 
 - QA: display all category QA for each chapger
