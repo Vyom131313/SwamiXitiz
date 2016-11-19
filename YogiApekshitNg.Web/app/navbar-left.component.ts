@@ -18,8 +18,11 @@ export class NavbarLeftComponent  {
     constructor(private menuItemService: MenuItemService, private sharedService: SharedService) { }
 
     ngOnInit(): void {
-        this.menuItemService.getMenus()
-            .then(items => { this.menus = items; });
+        this.getMenus();
+    }
+
+    getMenus() {
+        this.menuItemService.getMenus().then(items => { this.menus = items; });
     }
 
     onSelect(menu: MenuItem, event:any): void {
@@ -29,5 +32,6 @@ export class NavbarLeftComponent  {
 
     ChangeLanguage(lang: string, event: Event) {
         this.sharedService.SetLanguage(lang);
+        this.getMenus();
     }
 }

@@ -11,16 +11,16 @@ import { MenuItem } from './menuItem.model';
 @Injectable()
 export class MenuItemService {
 
-    lang: string;
-
     constructor(private http: Http, private sharedService: SharedService)
     {
-        //this.sharedService.Lang.subscribe(value => { this.lang = value;});
+      //  this.sharedService.Lang.subscribe(value => { alert(''); this.getMenus(); });
     }
 
     getMenus() {
-                
-        return this.http.get("http://localhost:6007/api/Menu/get")
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('lang', this.sharedService.Lang.getValue());
+
+        return this.http.get("http://localhost:6007/api/Menu/get", { search: params })
             .toPromise()
             .then((response) => response.json());
     }
