@@ -19,9 +19,10 @@ export class DetailViewComponent implements OnChanges {
         console.log(changes);
         this.getData();
     }
+
     getData() {
         if (this.menu != undefined) {
-            this.menuItemService.getQAWWW(this.menu.BookId, this.menu.ChapterNumber)
+            this.menuItemService.getQA(this.menu.BookId, this.menu.ChapterNumber, this.menu.Category)
                 .then(items => { this.qa_list = items; });
         }
     }

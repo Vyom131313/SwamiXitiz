@@ -21,6 +21,8 @@ namespace WebApiService.Controllers
         public object RouteValues { get; set; }
         public int BookId { get; set; }
         public int ChapterNumber { get; set; }
+        public string Category { get; set; }
+
         public bool IsActive { get; set; }
         public List<MenuItem> MenuItems = new List<MenuItem>();
 
@@ -64,24 +66,33 @@ namespace WebApiService.Controllers
                     //mnuBook.MenuItems.Add(new MenuItem { Id = menuCounter++, Name = "--- All Chapters ---", ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", BookId = book.Id, ChapterNumber = 0, RouteValues = new { bookId = book.Id, chapterNumber = 0 } });
                     foreach (var chapter in book.BookChapters)
                     {
-                        mnuBook.MenuItems.Add(new MenuItem { Id = menuCounter++, Name = string.Format("{0}. {1}", chapter.ChapterNumber, lang == "Guj" ? chapter.Name_Guj : chapter.Name_Eng), ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", BookId = book.Id, ChapterNumber = chapter.ChapterNumber.Value, RouteValues = new { bookId = book.Id, chapterNumber = chapter.ChapterNumber } });
+                        mnuBook.MenuItems.Add(new MenuItem { Id = menuCounter++, Name = string.Format("{0}. {1}", chapter.ChapterNumber, lang == "Guj" ? chapter.Name_Guj : chapter.Name_Eng), ControllerName = "QA", ActionName = "QA_By_Book_Category_Chapter", BookId = book.Id, ChapterNumber = chapter.ChapterNumber.Value, Category="All", RouteValues = new { bookId = book.Id, chapterNumber = chapter.ChapterNumber } });
                     }
 
                     mnuPrarambh.MenuItems.Add(mnuBook);
                 }
 
-                var categories = from Constants.Que_Categories n in Enum.GetValues(typeof(Constants.Que_Categories))
-                                         select GetEnumDescription(n, lang);
+                var categories = Enum.GetValues(typeof(Constants.Que_Categories));
+                                         //select GetEnumDescription(n, lang);
 
                 //var categories = Enum.GetNames(typeof(Constants.Que_Categories));
-                foreach (var category in categories)
+                foreach (var categoryEnum in categories)
                 {
-                    //string description = GetEnumDescription((Constants.Que_Categories)category, lang);
+                    string category = GetEnumDescription((Constants.Que_Categories)categoryEnum, lang);
+
+                    if (category == "All")
+                        continue;
 
                     var menucategory = new MenuItem { Id = menuCounter++, Name = category.Replace("_", " "), MenuItems = new List<MenuItem>() };
                     foreach (var book in prarambhBooks)
                     {
-                        menucategory.MenuItems.Add(new MenuItem { Id = menuCounter++, Name = lang == "Guj" ? book.Name_Guj : book.Name_Eng, IConClass = "fa fa-pencil", IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng), BookId = book.Id, ChapterNumber = 0, MenuItems = new List<MenuItem>() });
+                        menucategory.MenuItems.Add(new MenuItem { Id = menuCounter++,
+                            Name = lang == "Guj" ? book.Name_Guj : book.Name_Eng, IConClass = "fa fa-pencil",
+                            IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng),
+                            BookId = book.Id,
+                            ChapterNumber = 0,
+                            Category = category.ToString()
+                        });
                     }
 
                     mnuPrarambh.MenuItems.Add(menucategory);

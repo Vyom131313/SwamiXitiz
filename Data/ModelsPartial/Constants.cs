@@ -34,6 +34,9 @@ namespace SwamiXitiz.Data.ModelsPartial
 
         public enum Que_Categories
         {
+            [Description("All")]
+            All,
+
             [Description("સાચા_વિકલ્પો")]
             Correct_Option,
 
@@ -64,8 +67,8 @@ namespace SwamiXitiz.Data.ModelsPartial
             [Description("સ્વામીની_વાતો")]
             Swamini_Vaato,
 
-            [Description("કોણ_કોને_કહે_છે")]
-            Who_Whom_When
+            //[Description("કોણ_કોને_કહે_છે")]
+            //Who_Whom_When
         }
     }
 }

@@ -19,12 +19,12 @@ namespace WebApiService.Controllers
         [Route("api/QA/GetQA")]
         public HttpResponseMessage GetQA(string lang, string category, int bookId, int chapterNumber = 0)
         {
-            if(category == Constants.Que_Categories.Who_Whom_When.ToString())
-            {
-                var data = QA_WhoWhomWhen(new QA_Filter_Parameters { Lang= lang, BookId = bookId, Category = category, ChapterNumber = chapterNumber });
-                return Request.CreateResponse(HttpStatusCode.OK, data);
-            }
-            else
+            //if(category == Constants.Que_Categories.Who_Whom_When.ToString())
+            //{
+            //    var data = QA_WhoWhomWhen(new QA_Filter_Parameters { Lang= lang, BookId = bookId, Category = category, ChapterNumber = chapterNumber });
+            //    return Request.CreateResponse(HttpStatusCode.OK, data);
+            //}
+            //else
             {
                 var data = QA_List(new QA_Filter_Parameters { Lang = lang, BookId = bookId, Category = category, ChapterNumber = chapterNumber });
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -57,8 +57,19 @@ namespace WebApiService.Controllers
                     return QA_ShortNote(filter);
                 case Constants.Que_Categories.Swamini_Vaato:
                     return QA_SwaminiVat(filter);
+                //case Constants.Que_Categories.All:
+                //    var data = new List<QA_VM>();
+                //    foreach(var cat in Enum.GetValues(typeof(Constants.Que_Categories)))
+                //    {
+                //        if (cat.ToString() == "All")
+                //            continue;
+                //        filter.Category = cat.ToString();
+                //        data.AddRange(QA_List(filter));
+                //    }
+
+                //    return data;
                 default:
-                    return null;
+                    return new List<QA_VM>();
             }
         }
 
@@ -258,8 +269,8 @@ namespace WebApiService.Controllers
             var seq = 1;
             using (var context = new YogiApekshitContext())
             {
-                var data= context.QueWhoWhomWhens.Where(obj => obj.BookId == filter.BookId &&
-                           (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
+                var data = context.QueWhoWhomWhens.Where(obj => obj.BookId == filter.BookId &&
+                            (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                             .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                             .Select(c => new QA_WWW_VM
                             {

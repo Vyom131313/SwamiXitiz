@@ -25,13 +25,14 @@ export class MenuItemService {
             .then((response) => response.json());
     }
 
-    getQAWWW(bookId: number, chapterNumber :number ) {
+    getQA(bookId: number, chapterNumber: number, category: string) {
 
         let params: URLSearchParams = new URLSearchParams();
         params.set('lang', this.sharedService.Lang.getValue());
         params.set('bookId', bookId.toString());
         params.set('chapterNumber', chapterNumber.toString());
-        params.set('category', "One_Sentence");
+        //params.set('category', "One_Sentence");
+        params.set('category', category);
 
         //this.sharedService.SetLanguage(this.sharedService.Lang.getValue() == "Eng" ? "Guj": "Eng");
 

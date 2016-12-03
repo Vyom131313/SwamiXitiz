@@ -5,5 +5,6 @@
     Name: string;
     BookId: number;
     ChapterNumber: number;
+    Category: string;
     MenuItems: Array<MenuItem>;
 }
