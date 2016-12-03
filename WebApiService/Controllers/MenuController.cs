@@ -2,7 +2,9 @@
 using SwamiXitiz.Data.ModelsPartial;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Web.Http;
 
 namespace WebApiService.Controllers
@@ -68,9 +70,14 @@ namespace WebApiService.Controllers
                     mnuPrarambh.MenuItems.Add(mnuBook);
                 }
 
-                var categories = Enum.GetNames(typeof(Constants.Que_Categories));
+                var categories = from Constants.Que_Categories n in Enum.GetValues(typeof(Constants.Que_Categories))
+                                         select GetEnumDescription(n, lang);
+
+                //var categories = Enum.GetNames(typeof(Constants.Que_Categories));
                 foreach (var category in categories)
                 {
+                    //string description = GetEnumDescription((Constants.Que_Categories)category, lang);
+
                     var menucategory = new MenuItem { Id = menuCounter++, Name = category.Replace("_", " "), MenuItems = new List<MenuItem>() };
                     foreach (var book in prarambhBooks)
                     {
@@ -84,6 +91,27 @@ namespace WebApiService.Controllers
             #endregion
 
             return menuItems;
+        }
+
+        public string GetEnumDescription(Enum value, string lang)
+        {
+            if(lang=="Eng")
+            {
+                return value.ToString();
+            }
+
+            FieldInfo fi = value.GetType().GetField(value.ToString());
+
+            DescriptionAttribute[] attributes =
+                (DescriptionAttribute[])fi.GetCustomAttributes(
+                typeof(DescriptionAttribute),
+                false);
+
+            if (attributes != null &&
+                attributes.Length > 0)
+                return attributes[0].Description;
+            else
+                return value.ToString();
         }
     }
 }
