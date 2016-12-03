@@ -85,9 +85,13 @@ namespace WebApiService.Controllers
                     .Select(c => new QA_VM
                     {
                         Sr = seq++,
-                        Que = c.Title_Eng,
-                        Ans = c.Correct_Eng,
-                        Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                        //Que = c.Title_Eng,
+                        //Ans = c.Correct_Eng,
+                        //Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                        Que = filter.Lang == "Guj" ? c.Title_Guj : c.Title_Eng,
+                        Ans = filter.Lang == "Guj" ? c.Correct_Guj : c.Correct_Eng,
+                        Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
+
                         Exams = c.Exams,
                     }).ToList();
             }
@@ -104,9 +108,13 @@ namespace WebApiService.Controllers
                 .Select(c => new QA_VM
                 {
                     Sr = seq++,
-                    Que = c.Title_Eng,
-                    Ans = c.Correct_Eng,
-                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                    //Que = c.Title_Eng,
+                    //Ans = c.Correct_Eng,
+                    //Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                    Que = filter.Lang == "Guj" ? c.Title_Guj : c.Title_Eng,
+                    Ans = filter.Lang == "Guj" ? c.Correct_Guj : c.Correct_Eng,
+                    Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
+
                     Exams = c.Exams,
                 }).ToList();
             }
@@ -123,9 +131,10 @@ namespace WebApiService.Controllers
                 .Select(c => new QA_VM
                 {
                     Sr = seq++,
-                    Que = c.Title_Eng,
-                    Ans = c.Correct_Eng,
-                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                    Que = filter.Lang == "Guj" ? c.Title_Guj : c.Title_Eng,
+                    Ans = filter.Lang == "Guj" ? c.Correct_Guj : c.Correct_Eng,
+                    Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
+
                     Exams = c.Exams,
                 }).ToList();
             }
@@ -142,9 +151,13 @@ namespace WebApiService.Controllers
                 .Select(c => new QA_VM
                 {
                     Sr = seq++,
-                    Que = c.Que_Eng,
-                    Ans = c.Ans_Eng,
-                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                    //Que = c.Que_Eng,
+                    //Ans = c.Ans_Eng,
+                    //Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                    Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
+                    Ans = filter.Lang == "Guj" ? c.Ans_Guj : c.Ans_Eng,
+                    Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
+
                     Exams = c.Exams,
                 }).ToList();
             }
@@ -161,9 +174,13 @@ namespace WebApiService.Controllers
                 .Select(c => new QA_VM
                 {
                     Sr = seq++,
-                    Que = c.Que_Eng,
-                    Ans = c.Ans_Eng,
-                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                    //Que = c.Que_Eng,
+                    //Ans = c.Ans_Eng,
+                    //Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                    Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
+                    Ans = filter.Lang == "Guj" ? c.Ans_Guj : c.Ans_Eng,
+                    Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
+
                     Exams = c.Exams,
                 }).ToList();
             }
@@ -199,9 +216,9 @@ namespace WebApiService.Controllers
                 .Select(c => new QA_VM
                 {
                     Sr = seq++,
-                    Que = c.Que_Eng,
-                    Ans = c.Ans_Eng,
-                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                    Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
+                    Ans = filter.Lang == "Guj" ? c.Ans_Guj : c.Ans_Eng,
+                    Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 }).ToList();
             }
@@ -218,9 +235,9 @@ namespace WebApiService.Controllers
                 .Select(c => new QA_VM
                 {
                     Sr = seq++,
-                    Que = c.Que_Eng,
-                    Ans = c.Ans_Eng,
-                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                    Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
+                    Ans = filter.Lang == "Guj" ? c.Ans_Guj : c.Ans_Eng,
+                    Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 }).ToList();
             }
@@ -237,9 +254,9 @@ namespace WebApiService.Controllers
                 .Select(c => new QA_VM
                 {
                     Sr = seq++,
-                    Que = c.Que_Eng,
-                    Ans = c.Ans_Eng,
-                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                    Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
+                    Ans = filter.Lang == "Guj" ? c.Ans_Guj : c.Ans_Eng,
+                    Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 }).ToList();
             }
@@ -256,9 +273,9 @@ namespace WebApiService.Controllers
                 .Select(c => new QA_VM
                 {
                     Sr = seq++,
-                    Que = c.Que_Eng,
-                    Ans = c.Ans_Eng,
-                    Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                    Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
+                    Ans = filter.Lang == "Guj" ? c.Ans_Guj : c.Ans_Eng,
+                    Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
                     Exams = c.Exams,
                 }).ToList();
             }
@@ -275,11 +292,12 @@ namespace WebApiService.Controllers
                             .Select(c => new QA_WWW_VM
                             {
                                 Sr = seq++,
-                                Que = c.Que_Eng,
-                                Who = c.Who_Eng,
-                                Whom = c.Whom_Eng,
-                                When = c.WhenSpeaking_Eng,
-                                Chapter = string.Format("{0}/{1}", c.Book.Code_Eng, c.ChapterNumber),
+                                Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
+                                Who = filter.Lang == "Guj" ? c.Who_Guj : c.Who_Eng,
+                                Whom = filter.Lang == "Guj" ? c.Whom_Guj : c.Whom_Eng,
+                                When = filter.Lang == "Guj" ? c.WhenSpeaking_Guj : c.WhenSpeaking_Eng,
+
+                                Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
                                 Exams = c.Exams,
                             }).ToList();
 

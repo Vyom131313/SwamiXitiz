@@ -78,20 +78,21 @@ namespace WebApiService.Controllers
                 //var categories = Enum.GetNames(typeof(Constants.Que_Categories));
                 foreach (var categoryEnum in categories)
                 {
-                    string category = GetEnumDescription((Constants.Que_Categories)categoryEnum, lang);
+                    string categoryDesc = GetEnumDescription((Constants.Que_Categories)categoryEnum, lang);
 
-                    if (category == "All")
+                    if (categoryDesc == "All")
                         continue;
 
-                    var menucategory = new MenuItem { Id = menuCounter++, Name = category.Replace("_", " "), MenuItems = new List<MenuItem>() };
+                    var menucategory = new MenuItem { Id = menuCounter++, Name = categoryDesc.Replace("_", " "), MenuItems = new List<MenuItem>() };
                     foreach (var book in prarambhBooks)
                     {
                         menucategory.MenuItems.Add(new MenuItem { Id = menuCounter++,
-                            Name = lang == "Guj" ? book.Name_Guj : book.Name_Eng, IConClass = "fa fa-pencil",
+                            Name = lang == "Guj" ? book.Name_Guj : book.Name_Eng,
+                            IConClass = "fa fa-pencil",
                             IConUrl = string.Format("/Images/{0}/{1}-eng.jpg", book.Code_Eng, book.Code_Eng),
                             BookId = book.Id,
                             ChapterNumber = 0,
-                            Category = category.ToString()
+                            Category = categoryEnum.ToString()
                         });
                     }
 

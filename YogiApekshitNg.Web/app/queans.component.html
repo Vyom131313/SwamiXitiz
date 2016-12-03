@@ -4,12 +4,12 @@
             <tr>
                 <th>#</th>
                 <th>
-                    Question and Answer
+                    {{QueAnsColumnText}}
                 </th>
                 <th>
-                    Chapter
+                    {{ChapterColumnText}}
                 </th>
-                <th>Exams</th>
+                <th>{{ExamsColumnText}}</th>
             </tr>
         </thead>
         <tbody>
@@ -18,7 +18,7 @@
                 <td>
                     <div style="padding-bottom:10px;">
                         <b>{{qa.Que}}</b>
-                        <div class="answer"><b>Ans:</b> {{qa.Ans}}</div>
+                        <div class="answer"><b>Ans:</b> <div [innerHTML]="qa.Ans"></div></div>
                     </div>
                 </td>
                 <td>{{qa.Chapter}}</td>

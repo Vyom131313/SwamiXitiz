@@ -38,11 +38,13 @@ export class NavbarLeftComponent  {
     }
 
     ChangeLanguage(lang: string, event: Event) {
-        this.title = lang == "Eng" ? "Yogi<b> Apekshit</b>" : "યોગી<b> અપેક્ષિત</b>";
-        this.selectLangText = lang == "Eng" ? "Language" : "ભાષા";
+        //this.title = lang == "Eng" ? "Yogi<b> Apekshit</b>" : "યોગી<b> અપેક્ષિત</b>";
+        //this.selectLangText = lang == "Eng" ? "Language" : "ભાષા";
 
         this.sharedService.SetLanguage(lang);
         this.getMenus();
+        this.title = this.sharedService.TitleText;
+        this.selectLangText = this.sharedService.SelectLangText;
 
         if (this.selectedMenu != null && this.selectedMenu != undefined)
         {
