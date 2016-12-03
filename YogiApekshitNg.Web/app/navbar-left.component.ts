@@ -16,6 +16,7 @@ export class NavbarLeftComponent  {
     selectedMenu: MenuItem;
     selectLangText: string;
     title: string;
+    lastEvent: any;
 
     constructor(private menuItemService: MenuItemService, private sharedService: SharedService) { }
 
@@ -32,16 +33,21 @@ export class NavbarLeftComponent  {
 
     onSelect(menu: MenuItem, event:any): void {
         event.stopPropagation();
+        this.lastEvent = event;
         this.selectedMenu = menu;
     }
 
     ChangeLanguage(lang: string, event: Event) {
+        this.title = lang == "Eng" ? "Yogi<b> Apekshit</b>" : "યોગી<b> અપેક્ષિત</b>";
+        this.selectLangText = lang == "Eng" ? "Language" : "ભાષા";
+
         this.sharedService.SetLanguage(lang);
         this.getMenus();
 
-        this.title = lang == "Eng" ? "Yogi<b> Apekshit</b>" : "યોગી<b> અપેક્ષિત</b>";
-
-        this.selectLangText = lang == "Eng" ? "Language" : "ભાષા";
-        
+        if (this.selectedMenu != null && this.selectedMenu != undefined)
+        {
+            this.selectedMenu.Lang = lang;
+            //this.onSelect(this.selectedMenu, this.lastEvent);
+        }
     }
 }

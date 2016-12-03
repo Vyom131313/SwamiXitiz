@@ -1,7 +1,7 @@
 ﻿export class MenuItem
 {
     Id: number;
-    //name: string;
+    Lang: string;
     Name: string;
     BookId: number;
     ChapterNumber: number;
