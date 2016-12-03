@@ -8,8 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
-                Foobar<b>Company</b>
+            <a class="navbar-brand" href="#" [innerHTML]="title">
             </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -18,7 +17,7 @@
                
                 <li class="active open">
                     <a href="#" >
-                        Select Language
+                        {{selectLangText}}
                         <span style="margin-top:-5px;margin-left:15px;" (click)="ChangeLanguage('Eng', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">E</span>
                         <span style="margin-top:-5px;" (click)="ChangeLanguage('Guj', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">G</span>
                     </a>

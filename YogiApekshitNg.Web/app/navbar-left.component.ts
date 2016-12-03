@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+﻿import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
@@ -14,10 +14,15 @@ import { SharedService } from './shared.service';
 export class NavbarLeftComponent  {
     menus: Array<MenuItem>;
     selectedMenu: MenuItem;
+    selectLangText: string;
+    title: string;
 
     constructor(private menuItemService: MenuItemService, private sharedService: SharedService) { }
 
     ngOnInit(): void {
+        this.selectLangText = "Select Language";
+        this.title = "Yogi<b> Apekshit</b>";
+
         this.getMenus();
     }
 
@@ -33,5 +38,10 @@ export class NavbarLeftComponent  {
     ChangeLanguage(lang: string, event: Event) {
         this.sharedService.SetLanguage(lang);
         this.getMenus();
+
+        this.title = lang == "Eng" ? "Yogi<b> Apekshit</b>" : "યોગી<b> અપેક્ષિત</b>";
+
+        this.selectLangText = lang == "Eng" ? "Language" : "ભાષા";
+        
     }
 }
