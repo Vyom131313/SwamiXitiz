@@ -1,29 +1,33 @@
-﻿<div class="table-responsive bg-greensea">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>
-                    {{QueAnsColumnText}}
-                </th>
-                <th>
-                    {{ChapterColumnText}}
-                </th>
-                <th>{{ExamsColumnText}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let qa of qa_list">
-                <td>{{qa.Sr}}</td>
-                <td>
-                    <div style="padding-bottom:10px;">
-                        <b>{{qa.Que}}</b>
-                        <div class="answer"><b>Ans:</b> <div [innerHTML]="qa.Ans"></div></div>
-                    </div>
-                </td>
-                <td>{{qa.Chapter}}</td>
-                <td>{{qa.Exams}}</td>
-            </tr>
-        </tbody>
-    </table>
+﻿<div *ngIf="qa_list != null && qa_list != undefined && qa_list.length > 0">
+    <br />
+    <div class="table-responsive bg-greensea">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>
+                        {{QueAnsColumnText}}
+                    </th>
+                    <th>
+                        {{ChapterColumnText}}
+                    </th>
+                    <th>{{ExamsColumnText}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let qa of qa_list">
+                    <td>{{qa.Sr}}</td>
+                    <td>
+                        <div style="padding-bottom:10px;">
+                            <b>{{qa.Que}}</b>
+                            <div class="answer"><b>Ans:</b> <div [innerHTML]="qa.Ans"></div></div>
+                        </div>
+                    </td>
+                    <td>{{qa.Chapter}}</td>
+                    <td>{{qa.Exams}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
 </div>

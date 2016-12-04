@@ -1,17 +1,17 @@
-﻿- QA: display all category QA for each chapter
-- QA: display all chapter QA for each category
+﻿- QA: display all chapter QA for each category
 - Test mode 
 - Move Service to the same project
 
 - Menu : display icon
 - Menu : onclick don't scroll at top
 
-- QA: Test Mode
+- QA: Table Title
 - QA: Table style
 - QA: Collapse QA table
 - QA: Display title of selected book/chapter
 - QA: On changing language also change QA contents according to selected language
 - QA: Display WWW QA in same format as other
+- QA: Test Mode
 
 - wait indicator
 - responsiveness
