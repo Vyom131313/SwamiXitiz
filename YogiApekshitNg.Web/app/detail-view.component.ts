@@ -8,7 +8,7 @@ import { MenuItemService } from './menuItem.service';
 
 @Component({
     selector: 'detail-view',
-    template: `<queans [qa_list]="qa_list"><queans>`
+    template: `<queans  [qa_list]="qa_list"><queans>`
 })
 export class DetailViewComponent implements OnChanges {
     @Input() menu: MenuItem;

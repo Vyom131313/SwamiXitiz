@@ -83,6 +83,9 @@
     <Content Include=".travis.yml" />
     <Content Include="app\queans.component.html" />
     <Content Include="app\navbar-left.component.html" />
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\scripts\bootstrap.min.js" />
+    <Content Include="Assets\scripts\jquery-1.10.2.min.js" />
     <Content Include="CHANGELOG.md" />
     <Content Include="Dockerfile" />
     <Content Include="Images\accent.png" />

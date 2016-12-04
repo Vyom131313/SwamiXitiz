@@ -73,9 +73,6 @@ namespace WebApiService.Controllers
                 }
 
                 var categories = Enum.GetValues(typeof(Constants.Que_Categories));
-                                         //select GetEnumDescription(n, lang);
-
-                //var categories = Enum.GetNames(typeof(Constants.Que_Categories));
                 foreach (var categoryEnum in categories)
                 {
                     string categoryDesc = GetEnumDescription((Constants.Que_Categories)categoryEnum, lang);
