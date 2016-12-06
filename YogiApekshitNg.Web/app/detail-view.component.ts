@@ -10,19 +10,19 @@ import { MenuItemService } from './menuItem.service';
     selector: 'detail-view',
     template: `
                 <div *ngIf="menu != null && menu != undefined &&  menu.Category !='All' ">
-                    <queans [qa_list]="qa_list"></queans>
+                    <queans [category]='' [qa_list]="qa_list"></queans>
                 </div>
                 <div *ngIf="menu != null && menu != undefined && menu.Category =='All'">
-                    <queans [qa_list]="qa_list_Correct_Option"></queans>
-                    <queans [qa_list]="qa_list_Fill_In_Blank"></queans> 
-                    <queans [qa_list]="qa_list_One_Sentence"></queans> 
-                    <queans [qa_list]="qa_list_Correct_Sentence"></queans>
-                    <queans [qa_list]="qa_list_Correct_Sequence"></queans>
-                    <queans [qa_list]="qa_list_Kirtan"></queans> 
-                    <queans [qa_list]="qa_list_Reason"></queans> 
-                    <queans [qa_list]="qa_list_Shlok"></queans> 
-                    <queans [qa_list]="qa_list_Short_Note"></queans>                   
-                    <queans [qa_list]="qa_list_Swamini_Vaato"></queans> 
+                    <queans [category]="'Correct_Option'"   [qa_list]="qa_list_Correct_Option"></queans>
+                    <queans [category]="'Fill_In_Blank'"    [qa_list]="qa_list_Fill_In_Blank"></queans> 
+                    <queans [category]="'One_Sentence'"     [qa_list]="qa_list_One_Sentence"></queans> 
+                    <queans [category]="'Correct_Sentence'" [qa_list]="qa_list_Correct_Sentence"></queans>
+                    <queans [category]="'Correct_Sequence'" [qa_list]="qa_list_Correct_Sequence"></queans>
+                    <queans [category]="'Kirtan'"           [qa_list]="qa_list_Kirtan"></queans> 
+                    <queans [category]="'Reason'"           [qa_list]="qa_list_Reason"></queans> 
+                    <queans [category]="'Shlok'"            [qa_list]="qa_list_Shlok"></queans> 
+                    <queans [category]="'Short_Note'"       [qa_list]="qa_list_Short_Note"></queans>                   
+                    <queans [category]="'Swamini_Vaato'"    [qa_list]="qa_list_Swamini_Vaato"></queans> 
                 </div>
             `
 })

@@ -13,6 +13,7 @@ import { SharedService } from './shared.service';
 })
 export class QueAnsComponent implements OnChanges {
     @Input() qa_list: Array<QA>;
+    @Input() category: string;
 
     QueAnsColumnText: string;
     ChapterColumnText: string;
@@ -22,7 +23,7 @@ export class QueAnsComponent implements OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        this.QueAnsColumnText = this.sharedService.QueAnsColumnText;
+        this.QueAnsColumnText = this.sharedService.GetQueAnsColumnText(this.category);
         this.ChapterColumnText = this.sharedService.ChapterColumnText;
         this.ExamsColumnText = this.sharedService.ExamsColumnText;
     }
