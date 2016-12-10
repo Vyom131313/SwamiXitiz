@@ -10,7 +10,39 @@ import { SharedService } from './shared.service';
 
 @Component({
     selector: 'queans',
-    templateUrl: './app/queans.component.html'
+    template: `
+        <div *ngIf="qa_vm != null && qa_vm != undefined && qa_vm.QARecords != null && qa_vm.QARecords != undefined && qa_vm.QARecords.length > 0">
+            <div class="table-responsive bg-greensea">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>
+                                {{QueAnsColumnText}}
+                            </th>
+                            <th>
+                                {{ChapterColumnText}}
+                            </th>
+                            <th>{{ExamsColumnText}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let qa of qa_vm.QARecords">
+                            <td>{{qa.Sr}}</td>
+                            <td>
+                                <div style="padding-bottom:10px;">
+                                    <b>{{qa.Que}}</b>
+                                    <div class="answer"><b>Ans:</b> <div [innerHTML]="qa.Ans"></div></div>
+                                </div>
+                            </td>
+                            <td>{{qa.Chapter}}</td>
+                            <td>{{qa.Exams}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />   
+        </div>`
 })
 export class QueAnsComponent implements OnChanges {
     @Input() qa_vm: Array<QA_VM>;

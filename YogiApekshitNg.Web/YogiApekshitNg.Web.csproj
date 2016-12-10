@@ -81,7 +81,6 @@
     <Content Include=".editorconfig" />
     <Content Include=".gitignore" />
     <Content Include=".travis.yml" />
-    <Content Include="app\queans.component.html" />
     <Content Include="app\navbar-left.component.html" />
     <Content Include="Assets\css\bootstrap.min.css" />
     <Content Include="Assets\scripts\bootstrap.min.js" />
