@@ -8,19 +8,15 @@ import { SharedService } from './shared.service';
 
 @Component({
     selector: 'queans',
-    template: `
+    template: ` 
         <div *ngIf="qa_vm != null && qa_vm != undefined && qa_vm.QARecords != null && qa_vm.QARecords != undefined && qa_vm.QARecords.length > 0">
             <div class="table-responsive bg-greensea">
                 <table class="table">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>
-                                {{QueAnsColumnText}}
-                            </th>
-                            <th>
-                                {{ChapterColumnText}}
-                            </th>
+                            <th>{{QueAnsColumnText}}</th>
+                            <th>{{ChapterColumnText}}</th>
                             <th>{{ExamsColumnText}}</th>
                         </tr>
                     </thead>
@@ -30,11 +26,11 @@ import { SharedService } from './shared.service';
                             <td>
                                 <div style="padding-bottom:10px;">
                                     <b>{{qa.Que}}</b>
-                                    <div class="answer"><b>Ans:</b> <div [innerHTML]="qa.Ans"></div></div>
+                                    <div class="answer" [innerHTML]="qa.Ans"></div>
                                 </div>
                             </td>
                             <td>{{qa.Chapter}}</td>
-                            <td>{{qa.Exams}}</td>
+                            <td style='white-space:noWrap'>{{qa.Exams}}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -19,16 +19,8 @@ namespace WebApiService.Controllers
         [Route("api/QA/GetQA")]
         public HttpResponseMessage GetQA(string lang, string category, int bookId, int chapterNumber = 0)
         {
-            //if(category == Constants.Que_Categories.Who_Whom_When.ToString())
-            //{
-            //    var data = QA_WhoWhomWhen(new QA_Filter_Parameters { Lang= lang, BookId = bookId, Category = category, ChapterNumber = chapterNumber });
-            //    return Request.CreateResponse(HttpStatusCode.OK, data);
-            //}
-            //else
-            {
-                var data = QA_List(new QA_Filter_Parameters { Lang = lang, BookId = bookId, Category = category, ChapterNumber = chapterNumber });
-                return Request.CreateResponse(HttpStatusCode.OK, data);
-            }
+            var data = QA_List(new QA_Filter_Parameters { Lang = lang, BookId = bookId, Category = category, ChapterNumber = chapterNumber });
+            return Request.CreateResponse(HttpStatusCode.OK, data);
         }
 
         public QA_VM QA_List(QA_Filter_Parameters filter)
@@ -49,7 +41,7 @@ namespace WebApiService.Controllers
                 if (filter.ChapterNumber > 0)
                 {
                     var chapter = context.BookChapters.Where(c => c.Id == filter.ChapterNumber).FirstOrDefault();
-                    qa_vm.ChapterTitle= chapter != null
+                    qa_vm.ChapterTitle = chapter != null
                                         ? filter.Lang == "Guj" ? chapter.Name_Guj : chapter.Name_Eng
                                         : string.Empty;
                 }
@@ -78,6 +70,8 @@ namespace WebApiService.Controllers
                     qaRecords = QA_ShortNote(filter); break;
                 case Constants.Que_Categories.Swamini_Vaato:
                     qaRecords = QA_SwaminiVat(filter); break;
+                case Constants.Que_Categories.Who_Whom_When:
+                    qaRecords = QA_WhoWhomWhen(filter); break;
                 //case Constants.Que_Categories.All:
                 //    var data = new List<QA_VM>();
                 //    foreach(var cat in Enum.GetValues(typeof(Constants.Que_Categories)))
@@ -305,7 +299,7 @@ namespace WebApiService.Controllers
             }
         }
 
-        private List<QA_WWW_VM> QA_WhoWhomWhen(QA_Filter_Parameters filter)
+        private List<QARecord> QA_WhoWhomWhen(QA_Filter_Parameters filter)
         {
             var seq = 1;
             using (var context = new YogiApekshitContext())
@@ -313,17 +307,29 @@ namespace WebApiService.Controllers
                 var data = context.QueWhoWhomWhens.Where(obj => obj.BookId == filter.BookId &&
                             (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                             .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                            .Select(c => new QA_WWW_VM
+                            .Select(c => new QARecord
                             {
                                 Sr = seq++,
                                 Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
-                                Who = filter.Lang == "Guj" ? c.Who_Guj : c.Who_Eng,
-                                Whom = filter.Lang == "Guj" ? c.Whom_Guj : c.Whom_Eng,
-                                When = filter.Lang == "Guj" ? c.WhenSpeaking_Guj : c.WhenSpeaking_Eng,
+                                Who = filter.Lang == "Guj"
+                                        ? "કોણ: " + c.Who_Guj
+                                        : "Who: " + c.Who_Eng,
+
+                                Whom = filter.Lang == "Guj"
+                                        ? "કોને: " + c.Whom_Guj
+                                        : "Whom: " + c.Whom_Eng,
+                                When = filter.Lang == "Guj"
+                                        ? "ક્યારે: " + c.WhenSpeaking_Guj
+                                        : "When: " + c.WhenSpeaking_Eng,
 
                                 Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
                                 Exams = c.Exams,
                             }).ToList();
+
+                data.ForEach(c =>
+                {
+                    c.Ans = c.Who + "<br/>" + c.Whom + "<br/>" + c.When + "<br/>";
+                });
 
                 return data;
             }
@@ -360,17 +366,10 @@ namespace WebApiService.Controllers
         public string Ans { get; set; }
         public string Chapter { get; set; }
         public string Exams { get; set; }
-    }
 
-    public class QA_WWW_VM
-    {
-        public int Id { get; set; }
-        public int Sr { get; set; }
-        public string Que { get; set; }
+        //Properties for WWW
         public string Who { get; set; }
         public string Whom { get; set; }
         public string When { get; set; }
-        public string Chapter { get; set; }
-        public string Exams { get; set; }
     }
 }

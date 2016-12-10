@@ -14,6 +14,7 @@ export class SharedService {
     public ChapterColumnText: string = "Chapter";
     public ExamsColumnText: string = "Exams";
     public BookColumnText: string = "Book";
+    public AnsColumnText: string = "Ans";
 
     constructor() {
         //this.Lang = 'Eng';
@@ -27,6 +28,7 @@ export class SharedService {
         this.ExamsColumnText = newValue == "Eng" ? "Exams" : "પરીક્ષા";
         this.ChapterColumnText = newValue == "Eng" ? "Chapter" : "પ્રકરણ";
         this.BookColumnText = newValue == "Eng" ? "Book" : "પુસ્તક";
+        this.AnsColumnText = newValue == "Eng" ? "Ans" : "જવાબ";
     }
 
     GetQueAnsColumnText(category: string): string {
