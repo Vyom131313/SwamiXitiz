@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { MenuItem } from './menuItem.model';
-import { QARecord } from './Models.model';
-import { QA_VM } from './Models.model';
+import { MenuItem, QARecord, QA_VM } from './Models.model';
+import { SharedService } from './shared.service';
 
 import { MenuItemService } from './menuItem.service';
 
@@ -12,11 +11,11 @@ import { MenuItemService } from './menuItem.service';
     selector: 'detail-view',
     template: `
                 <div *ngIf="menu != null && menu != undefined &&  menu.Category !='All' ">
-                    <h4 style='align:center'>{{menu.Name}}</h4>
+                    <h4 style='align:center'>{{this.sharedService.BookColumnText}} {{menu.Name}}</h4>
                     <queans [category]='menu.Category' [qa_vm]="qa_vm"></queans>
                 </div>
                 <div *ngIf="menu != null && menu != undefined && menu.Category =='All'">
-                    <h4>{{menu.Name}}</h4>
+                    <h4 style='align:center'>{{this.sharedService.ChapterColumnText}} {{menu.Name}}</h4>
                     <queans [category]="'Correct_Option'"   [qa_vm]="qa_vm_Correct_Option"></queans>
                     <queans [category]="'Fill_In_Blank'"    [qa_vm]="qa_vm_Fill_In_Blank"></queans> 
                     <queans [category]="'One_Sentence'"     [qa_vm]="qa_vm_One_Sentence"></queans> 
@@ -44,7 +43,7 @@ export class DetailViewComponent implements OnChanges {
     qa_vm_Short_Note: Array<QARecord>;
     qa_vm_Swamini_Vaato: Array<QARecord>;
 
-    constructor(private menuItemService: MenuItemService) { }
+    constructor(private menuItemService: MenuItemService, private sharedService: SharedService) { }
 
     ngOnChanges(changes: SimpleChanges) {
         console.log(changes);

@@ -11,8 +11,9 @@ export class SharedService {
     public Lang: BehaviorSubject<string> = new BehaviorSubject<string>("Eng");
     public TitleText: string = "Yogi<b> Apekshit</b>";
     public SelectLangText: string = "Language";
-    public ChapterColumnText: string = "Exams";
-    public ExamsColumnText: string = "Chapter";
+    public ChapterColumnText: string = "Chapter";
+    public ExamsColumnText: string = "Exams";
+    public BookColumnText: string = "Book";
 
     constructor() {
         //this.Lang = 'Eng';
@@ -25,6 +26,7 @@ export class SharedService {
         this.SelectLangText = newValue == "Eng" ? "Language" : "ભાષા";
         this.ExamsColumnText = newValue == "Eng" ? "Exams" : "પરીક્ષા";
         this.ChapterColumnText = newValue == "Eng" ? "Chapter" : "પ્રકરણ";
+        this.BookColumnText = newValue == "Eng" ? "Book" : "પુસ્તક";
     }
 
     GetQueAnsColumnText(category: string): string {

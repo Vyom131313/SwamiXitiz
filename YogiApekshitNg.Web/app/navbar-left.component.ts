@@ -2,7 +2,7 @@
 import { FormsModule } from '@angular/forms';
 
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { MenuItem } from './menuItem.model';
+import { MenuItem } from './Models.model';
 import { MenuItemService } from './menuItem.service';
 import { SharedService } from './shared.service';
 

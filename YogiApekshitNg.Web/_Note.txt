@@ -1,5 +1,4 @@
-﻿- QA: Display title of selected book/chapter
-- QA: Display WWW QA in same format as other
+﻿- QA: Display WWW QA in same format as other
 - QA: Test Mode
 - QA: missing QAs
 - QA: Collapse QA table

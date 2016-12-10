@@ -136,7 +136,6 @@
     <TypeScriptCompile Include="app\Models.model.ts" />
     <TypeScriptCompile Include="app\qa_www.model.ts" />
     <TypeScriptCompile Include="app\menuItem.service.ts" />
-    <TypeScriptCompile Include="app\menuItem.model.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config" />

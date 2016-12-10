@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map'
 import { SharedService } from './shared.service';
-import { MenuItem } from './menuItem.model';
+import { MenuItem } from './Models.model';
 
 @Injectable()
 export class MenuItemService {
