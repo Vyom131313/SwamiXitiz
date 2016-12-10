@@ -134,7 +134,7 @@
     <TypeScriptCompile Include="app\queans.component.ts" />
     <TypeScriptCompile Include="app\detail-view.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
-    <TypeScriptCompile Include="app\qa.model.ts" />
+    <TypeScriptCompile Include="app\Models.model.ts" />
     <TypeScriptCompile Include="app\qa_www.model.ts" />
     <TypeScriptCompile Include="app\menuItem.service.ts" />
     <TypeScriptCompile Include="app\menuItem.model.ts" />

@@ -31,32 +31,53 @@ namespace WebApiService.Controllers
             }
         }
 
-        public IEnumerable<QA_VM> QA_List(QA_Filter_Parameters filter)
+        public QA_VM QA_List(QA_Filter_Parameters filter)
         {
-            Constants.Que_Categories category = (Constants.Que_Categories)Enum.Parse(typeof(Constants.Que_Categories), filter.Category);
+            var qa_vm = new QA_VM();
+            var qaRecords = new List<QARecord>();
 
+            using (var context = new YogiApekshitContext())
+            {
+                if (filter.BookId > 0)
+                {
+                    var book = context.Books.Where(c => c.Id == filter.BookId).FirstOrDefault();
+                    qa_vm.BookTitle = book != null
+                                        ? filter.Lang == "Guj" ? book.Name_Guj : book.Name_Eng
+                                        : string.Empty;
+                }
+
+                if (filter.ChapterNumber > 0)
+                {
+                    var chapter = context.BookChapters.Where(c => c.Id == filter.ChapterNumber).FirstOrDefault();
+                    qa_vm.ChapterTitle= chapter != null
+                                        ? filter.Lang == "Guj" ? chapter.Name_Guj : chapter.Name_Eng
+                                        : string.Empty;
+                }
+            }
+
+            Constants.Que_Categories category = (Constants.Que_Categories)Enum.Parse(typeof(Constants.Que_Categories), filter.Category);
             switch (category)
             {
                 case Constants.Que_Categories.One_Sentence:
-                    return QA_OneSentence(filter);
+                    qaRecords = QA_OneSentence(filter); break;
                 case Constants.Que_Categories.Correct_Option:
-                    return QA_CorrectOption(filter);
+                    qaRecords = QA_CorrectOption(filter); break;
                 case Constants.Que_Categories.Correct_Sentence:
-                    return QA_CorrectSentence(filter);
+                    qaRecords = QA_CorrectSentence(filter); break;
                 case Constants.Que_Categories.Correct_Sequence:
-                    return QA_CorrectSequence(filter);
+                    qaRecords = QA_CorrectSequence(filter); break;
                 case Constants.Que_Categories.Fill_In_Blank:
-                    return QA_FillInBlank(filter);
+                    qaRecords = QA_FillInBlank(filter); break;
                 case Constants.Que_Categories.Kirtan:
-                    return QA_Kirtan(filter);
+                    qaRecords = QA_Kirtan(filter); break;
                 case Constants.Que_Categories.Reason:
-                    return QA_Reason(filter);
+                    qaRecords = QA_Reason(filter); break;
                 case Constants.Que_Categories.Shlok:
-                    return QA_Shlok(filter);
+                    qaRecords = QA_Shlok(filter); break;
                 case Constants.Que_Categories.Short_Note:
-                    return QA_ShortNote(filter);
+                    qaRecords = QA_ShortNote(filter); break;
                 case Constants.Que_Categories.Swamini_Vaato:
-                    return QA_SwaminiVat(filter);
+                    qaRecords = QA_SwaminiVat(filter); break;
                 //case Constants.Que_Categories.All:
                 //    var data = new List<QA_VM>();
                 //    foreach(var cat in Enum.GetValues(typeof(Constants.Que_Categories)))
@@ -69,12 +90,15 @@ namespace WebApiService.Controllers
 
                 //    return data;
                 default:
-                    return new List<QA_VM>();
+                    qaRecords = new List<QARecord>(); break;
             }
+
+            qa_vm.QARecords = qaRecords;
+            return qa_vm;
         }
 
         #region Private Methods
-        private List<QA_VM> QA_CorrectSentence(QA_Filter_Parameters filter)
+        private List<QARecord> QA_CorrectSentence(QA_Filter_Parameters filter)
         {
             var seq = 1;
             using (var context = new YogiApekshitContext())
@@ -82,7 +106,7 @@ namespace WebApiService.Controllers
                 return context.QueCorrectSentences.Where(obj => obj.BookId == filter.BookId &&
                   (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                     .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                    .Select(c => new QA_VM
+                    .Select(c => new QARecord
                     {
                         Sr = seq++,
                         //Que = c.Title_Eng,
@@ -97,7 +121,7 @@ namespace WebApiService.Controllers
             }
         }
 
-        private List<QA_VM> QA_CorrectSequence(QA_Filter_Parameters filter)
+        private List<QARecord> QA_CorrectSequence(QA_Filter_Parameters filter)
         {
             var seq = 1;
             using (var context = new YogiApekshitContext())
@@ -105,7 +129,7 @@ namespace WebApiService.Controllers
                 return context.QueCorrectSequences.Where(obj => obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new QA_VM
+                .Select(c => new QARecord
                 {
                     Sr = seq++,
                     //Que = c.Title_Eng,
@@ -120,7 +144,7 @@ namespace WebApiService.Controllers
             }
         }
 
-        private List<QA_VM> QA_CorrectOption(QA_Filter_Parameters filter)
+        private List<QARecord> QA_CorrectOption(QA_Filter_Parameters filter)
         {
             var seq = 1;
             using (var context = new YogiApekshitContext())
@@ -128,7 +152,7 @@ namespace WebApiService.Controllers
                 return context.QueCorrectOptions.Where(obj => obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new QA_VM
+                .Select(c => new QARecord
                 {
                     Sr = seq++,
                     Que = filter.Lang == "Guj" ? c.Title_Guj : c.Title_Eng,
@@ -140,7 +164,7 @@ namespace WebApiService.Controllers
             }
         }
 
-        private List<QA_VM> QA_FillInBlank(QA_Filter_Parameters filter)
+        private List<QARecord> QA_FillInBlank(QA_Filter_Parameters filter)
         {
             var seq = 1;
             using (var context = new YogiApekshitContext())
@@ -148,7 +172,7 @@ namespace WebApiService.Controllers
                 return context.QueFillInBlanks.Where(obj => obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new QA_VM
+                .Select(c => new QARecord
                 {
                     Sr = seq++,
                     //Que = c.Que_Eng,
@@ -163,7 +187,7 @@ namespace WebApiService.Controllers
             }
         }
 
-        private List<QA_VM> QA_Kirtan(QA_Filter_Parameters filter)
+        private List<QARecord> QA_Kirtan(QA_Filter_Parameters filter)
         {
             var seq = 1;
             using (var context = new YogiApekshitContext())
@@ -171,7 +195,7 @@ namespace WebApiService.Controllers
                 return context.QueKirtans.Where(obj => obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new QA_VM
+                .Select(c => new QARecord
                 {
                     Sr = seq++,
                     //Que = c.Que_Eng,
@@ -186,7 +210,7 @@ namespace WebApiService.Controllers
             }
         }
 
-        private List<QA_VM> QA_OneSentence(QA_Filter_Parameters filter)
+        private List<QARecord> QA_OneSentence(QA_Filter_Parameters filter)
         {
             var seq = 1;
             using (var context = new YogiApekshitContext())
@@ -194,7 +218,7 @@ namespace WebApiService.Controllers
                 return context.QueOneSentences.Where(obj => obj.BookId == filter.BookId &&
                    (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                     .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                    .Select(c => new QA_VM
+                    .Select(c => new QARecord
                     {
                         Sr = seq++,
                         Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
@@ -205,7 +229,7 @@ namespace WebApiService.Controllers
             }
         }
 
-        private List<QA_VM> QA_Reason(QA_Filter_Parameters filter)
+        private List<QARecord> QA_Reason(QA_Filter_Parameters filter)
         {
             var seq = 1;
             using (var context = new YogiApekshitContext())
@@ -213,7 +237,7 @@ namespace WebApiService.Controllers
                 return context.QueReasons.Where(obj => obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new QA_VM
+                .Select(c => new QARecord
                 {
                     Sr = seq++,
                     Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
@@ -224,7 +248,7 @@ namespace WebApiService.Controllers
             }
         }
 
-        private List<QA_VM> QA_Shlok(QA_Filter_Parameters filter)
+        private List<QARecord> QA_Shlok(QA_Filter_Parameters filter)
         {
             var seq = 1;
             using (var context = new YogiApekshitContext())
@@ -232,7 +256,7 @@ namespace WebApiService.Controllers
                 return context.QueShloks.Where(obj => obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new QA_VM
+                .Select(c => new QARecord
                 {
                     Sr = seq++,
                     Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
@@ -243,7 +267,7 @@ namespace WebApiService.Controllers
             }
         }
 
-        private List<QA_VM> QA_ShortNote(QA_Filter_Parameters filter)
+        private List<QARecord> QA_ShortNote(QA_Filter_Parameters filter)
         {
             var seq = 1;
             using (var context = new YogiApekshitContext())
@@ -251,7 +275,7 @@ namespace WebApiService.Controllers
                 return context.QueShortNotes.Where(obj => obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new QA_VM
+                .Select(c => new QARecord
                 {
                     Sr = seq++,
                     Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
@@ -262,7 +286,7 @@ namespace WebApiService.Controllers
             }
         }
 
-        private List<QA_VM> QA_SwaminiVat(QA_Filter_Parameters filter)
+        private List<QARecord> QA_SwaminiVat(QA_Filter_Parameters filter)
         {
             var seq = 1;
             using (var context = new YogiApekshitContext())
@@ -270,7 +294,7 @@ namespace WebApiService.Controllers
                 return context.QueSwaminiVats.Where(obj => obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new QA_VM
+                .Select(c => new QARecord
                 {
                     Sr = seq++,
                     Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
@@ -316,6 +340,19 @@ namespace WebApiService.Controllers
     }
 
     public class QA_VM
+    {
+        public QA_VM()
+        {
+            QARecords = new List<QARecord>();
+        }
+
+        public string BookTitle { get; set; }
+        public string ChapterTitle { get; set; }
+
+        public IList<QARecord> QARecords { get; set; }
+    }
+
+    public class QARecord
     {
         public int Id { get; set; }
         public int Sr { get; set; }

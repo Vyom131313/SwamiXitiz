@@ -1,7 +1,8 @@
-﻿<div *ngIf="qa_list != null && qa_list != undefined && qa_list.length > 0">
+﻿<div *ngIf="qa_vm != null && qa_vm != undefined && qa_vm.QARecords != null && qa_vm.QARecords != undefined && qa_vm.QARecords.length > 0">
     <br />
    
     <div class="table-responsive bg-greensea">
+        <h4>{{qa_vm.BookTitle}}</h4>
         <table class="table">
             <thead>
                 <tr>
@@ -16,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let qa of qa_list">
+                <tr *ngFor="let qa of qa_vm.QARecords">
                     <td>{{qa.Sr}}</td>
                     <td>
                         <div style="padding-bottom:10px;">

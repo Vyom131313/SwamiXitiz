@@ -3,7 +3,8 @@ import { FormsModule } from '@angular/forms';
 
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { MenuItem } from './menuItem.model';
-import { QA } from './qa.model';
+import { QARecord } from './Models.model';
+import { QA_VM } from './Models.model';
 import { MenuItemService } from './menuItem.service';
 import { SharedService } from './shared.service';
 
@@ -12,7 +13,7 @@ import { SharedService } from './shared.service';
     templateUrl: './app/queans.component.html'
 })
 export class QueAnsComponent implements OnChanges {
-    @Input() qa_list: Array<QA>;
+    @Input() qa_vm: Array<QA_VM>;
     @Input() category: string;
 
     QueAnsColumnText: string;
