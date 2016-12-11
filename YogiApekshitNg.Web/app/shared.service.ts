@@ -16,7 +16,7 @@ export class SharedService {
     public BookColumnText: string = "Book";
     public AnsColumnText: string = "Ans";
     public IsTestMode: boolean = false;
-    public SwitchModeText: string="Reading mode"
+    public SwitchModeText: string = "Reading mode"
 
     constructor() {
         //this.Lang = 'Eng';
@@ -45,35 +45,19 @@ export class SharedService {
 
     GetQueAnsColumnText(category: string): string {
 
-        if (this.Lang.value == 'Guj') {
-            switch (category) {
-                case 'Correct_Option': return 'ફક્ત સાચા વિકલ્પો પસંદ કરો.'
-                case 'Fill_In_Blank': return 'ખાલી જગ્યા પૂરો.'
-                case 'One_Sentence': return 'એક (સંપૂર્ણ) વાક્યમાં જવાબ આપો.'
-                case 'Correct_Sentence': return 'ખોટા વાક્યોને મથાળાના સંદર્ભમાં સાચા લખો.'
-                case 'Correct_Sequence': return 'સાચા ક્રમ નંબર અને ઘટના ક્રમ પ્રમાણે ગોઠવો.'
-                case 'Kirtan': return 'કીર્તન / શ્લોક / અષ્ટક ની ખૂટતી કડીઓ પુરી કરો.'
-                case 'Reason': return 'વાક્યોના કારણો જણાવો '
-                case 'Shlok': return 'કીર્તન / શ્લોક / અષ્ટક ની ખૂટતી કડીઓ પુરી કરો.'
-                case 'Short_Note': return 'ટૂંક નોંધ લખો.'
-                case 'Swamini_Vaato': return 'સ્વામીની વાત પુરી કરી તેનું નિરુપણ કરો.'
-                default: return 'પ્રશ્નના જવાબ આપો.'
-            }
-        }
-        else {
-            switch (category) {
-                case 'Correct_Option': return 'Select Correct Options'
-                case 'Fill_In_Blank': return 'Fill In Blanks'
-                case 'One_Sentence': return 'Answer in One Sentence'
-                case 'Correct_Sentence': return 'Correct the Sentence'
-                case 'Correct_Sequence': return 'Correct the Sentence of incident'
-                case 'Kirtan': return 'Complete the Kirtan'
-                case 'Reason': return 'Give Reasons'
-                case 'Shlok': return 'Complete the Shloks'
-                case 'Short_Note': return 'Write a short note'
-                case 'Swamini_Vaato': return 'Complete Swamini Vaato'
-                default: return 'Question and Answer'
-            }
+        switch (category) {
+            case 'Correct_Option': return this.Lang.value == 'Guj' ? 'ફક્ત સાચા વિકલ્પો પસંદ કરો.' : 'Select Correct Options'
+            case 'Fill_In_Blank': return this.Lang.value == 'Guj' ? 'ખાલી જગ્યા પૂરો.' : 'Fill In Blanks'
+            case 'One_Sentence': return this.Lang.value == 'Guj' ? 'એક (સંપૂર્ણ) વાક્યમાં જવાબ આપો.' : 'Answer in One Sentence'
+            case 'Correct_Sentence': return this.Lang.value == 'Guj' ? 'ખોટા વાક્યોને મથાળાના સંદર્ભમાં સાચા લખો.' : 'Correct the Sentence'
+            case 'Correct_Sequence': return this.Lang.value == 'Guj' ? 'સાચા ક્રમ નંબર અને ઘટના ક્રમ પ્રમાણે ગોઠવો.' : 'Correct the Sentence of incident'
+            case 'Kirtan': return this.Lang.value == 'Guj' ? 'કીર્તન / શ્લોક / અષ્ટક ની ખૂટતી કડીઓ પુરી કરો.' : 'Complete the Kirtan'
+            case 'Reason': return this.Lang.value == 'Guj' ? 'વાક્યોના કારણો જણાવો.' : 'Give Reasons'
+            case 'Shlok': return this.Lang.value == 'Guj' ? 'કીર્તન / શ્લોક / અષ્ટક ની ખૂટતી કડીઓ પુરી કરો.' : 'Complete the Shloks'
+            case 'Short_Note': return this.Lang.value == 'Guj' ? 'ટૂંક નોંધ લખો.' : 'Write a short note'
+            case 'Swamini_Vaato': return this.Lang.value == 'Guj' ? 'સ્વામીની વાત પુરી કરી તેનું નિરુપણ કરો.' : 'Complete Swamini Vaato'
+            case 'Who_Whom_When': return this.Lang.value == 'Guj' ? 'કોણ, કોને, ક્યારે કહે છે.' : 'Speaking: Who, Whom, When'
+            default: return this.Lang.value == 'Guj' ? 'પ્રશ્નના જવાબ આપો.' : 'Question and Answer'
         }
     }
 }

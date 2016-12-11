@@ -37,7 +37,7 @@ import { SharedService } from './shared.service';
                         <li *ngFor="let chaptermenu of bookmenu.MenuItems"
                             [class.selected]="menu === selectedMenu"
                             (click)="onSelect(chaptermenu, $event)">
-                            <a href="#"><i class="material-icons">add</i>{{chaptermenu.Name}}</a>
+                            <a href="#" title="{{chaptermenu.Name}}" ><i class="material-icons" style="verticle-alignment:bottom;font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>{{chaptermenu.Name}}</a>
                         </li>
                     </ul>
                 </li>
