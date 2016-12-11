@@ -20,11 +20,13 @@ import { SharedService } from './shared.service';
                     </a>                   
                 </li>
 
-                <li class="active open">
-                    <a href="#" class="dropdown-toggle" >
-                        {{this.sharedService.SelectLangText}}
-                        <span style="padding-top:-5px;margin-left:15px;" (click)="ChangeLanguage('Eng', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">E</span>
-                        <span style="padding-top:-5px;" (click)="ChangeLanguage('Guj', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">G</span>
+                <li class="active open" style="background: #ec1b5a;">
+                    <a href="#" class="dropdown-toggle" style="padding-bottom:30px;">
+                        <div style="float:left;width:100px;" >{{this.sharedService.SelectLangText}}</div>
+                        <div style="float:right;width:100px;">
+                            <span style="margin-top:-8px;margin-left:15px;" (click)="ChangeLanguage('Eng', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">E</span>
+                            <span style="margin-top:-8px;margin-left:15px;" (click)="ChangeLanguage('Guj', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">G</span>
+                        </div>
                     </a>
                 </li>
                 <li class="dropdown" attr.data-target="#Book{{bookmenu.Id}}"
