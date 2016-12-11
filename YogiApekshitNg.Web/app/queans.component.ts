@@ -10,8 +10,7 @@ import { SharedService } from './shared.service';
     selector: 'queans',
     template: ` 
         <div *ngIf="qa_vm != null && qa_vm != undefined && qa_vm.QARecords != null && qa_vm.QARecords != undefined && qa_vm.QARecords.length > 0">
-            <div class="table-responsive bg-greensea">
-                <table class="table">
+                <table class="table table-responsive" style="border-collapse:collapse;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -34,7 +33,6 @@ import { SharedService } from './shared.service';
                         </tr>
                     </tbody>
                 </table>
-            </div>
             <br />   
         </div>`
 })
