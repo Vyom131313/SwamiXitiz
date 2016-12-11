@@ -16,7 +16,7 @@ export class SharedService {
     public BookColumnText: string = "Book";
     public AnsColumnText: string = "Ans";
     public IsTestMode: boolean = false;
-    public SwitchModeText: string="Switch to Reading mode"
+    public SwitchModeText: string="Reading mode"
 
     constructor() {
         //this.Lang = 'Eng';
@@ -31,23 +31,16 @@ export class SharedService {
         this.ChapterColumnText = newValue == "Eng" ? "Chapter" : "પ્રકરણ";
         this.BookColumnText = newValue == "Eng" ? "Book" : "પુસ્તક";
         this.AnsColumnText = newValue == "Eng" ? "Ans" : "જવાબ";
-        this.SwitchModeText = newValue == "Eng" ? "Switch to Reading mode" : "જવાબ";
+        this.SwitchModeText = newValue == "Eng" ? "Reading mode" : "વાંચન સ્થિતિ";
     }
 
     SetTestMode(isTestMode: boolean) {
         this.IsTestMode = isTestMode;
 
         if (this.IsTestMode)
-        {
-            this.SwitchModeText = this.Lang.getValue() == "Eng"
-                                    ? "Switch to Reading mode"
-                                    : "વાંચન સ્થિતિ";
-        }
-        else {
-            this.SwitchModeText = this.Lang.getValue() == "Eng"
-                ? "Switch to Self Test mode"
-                : "સ્વ પરીક્ષણ સ્થિતિ";
-        }
+            this.SwitchModeText = this.Lang.getValue() == "Eng" ? "Self Test mode" : "સ્વ પરીક્ષણ સ્થિતિ";
+        else
+            this.SwitchModeText = this.Lang.getValue() == "Eng" ? "Reading mode" : "વાંચન સ્થિતિ";
     }
 
     GetQueAnsColumnText(category: string): string {

@@ -17,6 +17,7 @@ import { MenuItemService } from './menuItem.service';
                                 </label>
                             </div>
                         </div>
+<br/>
                 <div *ngIf="menu != null && menu != undefined &&  menu.Category !='All' ">
                     <h4 style='float:left'>{{this.sharedService.BookColumnText}} {{menu.Name}}</h4>         
                     <queans [category]='menu.Category' [qa_vm]="qa_vm"></queans>
