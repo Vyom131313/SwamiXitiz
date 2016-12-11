@@ -1,10 +1,9 @@
-﻿- QA: Display WWW QA in same format as other
-- QA: Test Mode
+﻿- QA: Test Mode
 - QA: missing QAs
 - QA: Collapse QA table
+- QA: Table style
 - QA: On changing language also change QA contents according to selected language
 
-- QA: Table style
 - Menu : display icon
 - Menu : onclick don't scroll at top
 - Move Service to the same project

@@ -9,9 +9,16 @@ import { MenuItemService } from './menuItem.service';
 
 @Component({
     selector: 'detail-view',
-    template: `
+    template: `           <div style="float:right;margin-top:20px;" >
+                            <span>{{this.sharedService.SwitchModeText}}</span>
+                            <div style="margin-top:5px;" class="checkbox-inline checkbox-ios">
+                                <label for="checkbox-ios1" class="switch">
+                                <input type="checkbox" class="ios" checked id="checkbox-ios1" (click)="this.sharedService.SetTestMode(!this.sharedService.IsTestMode)"><i></i>
+                                </label>
+                            </div>
+                        </div>
                 <div *ngIf="menu != null && menu != undefined &&  menu.Category !='All' ">
-                    <h4 style='align:center'>{{this.sharedService.BookColumnText}} {{menu.Name}}</h4>
+                    <h4 style='float:left'>{{this.sharedService.BookColumnText}} {{menu.Name}}</h4>         
                     <queans [category]='menu.Category' [qa_vm]="qa_vm"></queans>
                 </div>
                 <div *ngIf="menu != null && menu != undefined && menu.Category =='All'">
@@ -28,6 +35,28 @@ import { MenuItemService } from './menuItem.service';
                     <queans [category]="'Short_Note'"       [qa_vm]="qa_vm_Short_Note"></queans>                   
                     <queans [category]="'Swamini_Vaato'"    [qa_vm]="qa_vm_Swamini_Vaato"></queans> 
                 </div>
+
+<script>
+    $('.btn-toggle').click(function () {
+        $(this).find('.btn').toggleClass('active');
+
+        if ($(this).find('.btn-primary').size() > 0) {
+            $(this).find('.btn').toggleClass('btn-primary');
+        }
+        if ($(this).find('.btn-danger').size() > 0) {
+            $(this).find('.btn').toggleClass('btn-danger');
+        }
+        if ($(this).find('.btn-success').size() > 0) {
+            $(this).find('.btn').toggleClass('btn-success');
+        }
+        if ($(this).find('.btn-info').size() > 0) {
+            $(this).find('.btn').toggleClass('btn-info');
+        }
+
+        $(this).find('.btn').toggleClass('btn-default');
+
+    });
+</script>
             `
 })
 export class DetailViewComponent implements OnChanges {
@@ -56,7 +85,7 @@ export class DetailViewComponent implements OnChanges {
         if (this.menu != undefined) {
             if (this.menu.Category == 'All') {
                 this.menuItemService.getQA(this.menu.BookId, this.menu.ChapterNumber, "Who_Whom_When").then(result => { this.qa_vm_Who_Whom_When = result; });
-                this.menuItemService.getQA(this.menu.BookId, this.menu.ChapterNumber, "Correct_Option").then(result => { this.qa_vm_Correct_Option = result;});
+                this.menuItemService.getQA(this.menu.BookId, this.menu.ChapterNumber, "Correct_Option").then(result => { this.qa_vm_Correct_Option = result; });
                 this.menuItemService.getQA(this.menu.BookId, this.menu.ChapterNumber, "Fill_In_Blank").then(result => { this.qa_vm_Fill_In_Blank = result; });
                 this.menuItemService.getQA(this.menu.BookId, this.menu.ChapterNumber, "One_Sentence").then(result => { this.qa_vm_One_Sentence = result; });
                 this.menuItemService.getQA(this.menu.BookId, this.menu.ChapterNumber, "Correct_Sentence").then(result => { this.qa_vm_Correct_Sentence = result; });
