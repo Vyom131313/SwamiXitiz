@@ -15,12 +15,9 @@ import { SharedService } from './shared.service';
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand" style="background:white">
-                    
-                    <button style="float:right" type="button" class="hamburger is-open" data-toggle="offcanvas" onclick="$('#wrapper').toggleClass('toggled')">
-                        <span class="hamb-top"></span>
-                        <span class="hamb-middle"></span>
-                        <span class="hamb-bottom"></span>
-                    </button>
+                     <a href="#">
+                        Brand
+                    </a>                   
                 </li>
 
                 <li class="active open">
@@ -53,6 +50,11 @@ import { SharedService } from './shared.service';
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
+                        <button style="float:right" type="button" class="hamburger is-open" data-toggle="offcanvas" onclick="$('#wrapper').toggleClass('toggled')">
+                            <span class="hamb-top"></span>
+                            <span class="hamb-middle"></span>
+                            <span class="hamb-bottom"></span>
+                        </button>
                         <detail-view [menu]="selectedMenu"></detail-view>
                     </div>
                 </div>

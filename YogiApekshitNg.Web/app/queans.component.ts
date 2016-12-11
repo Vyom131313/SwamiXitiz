@@ -9,14 +9,14 @@ import { SharedService } from './shared.service';
 @Component({
     selector: 'queans',
     template: ` 
-        <div *ngIf="qa_vm != null && qa_vm != undefined && qa_vm.QARecords != null && qa_vm.QARecords != undefined && qa_vm.QARecords.length > 0">
-                <table class="table table-responsive" style="border-collapse:collapse;">
+        <div class="table-responsive" *ngIf="qa_vm != null && qa_vm != undefined && qa_vm.QARecords != null && qa_vm.QARecords != undefined && qa_vm.QARecords.length > 0">
+                <table class="table" style="border:1px;">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th width="10px">#</th>
                             <th>{{QueAnsColumnText}}</th>
-                            <th>{{ChapterColumnText}}</th>
-                            <th>{{ExamsColumnText}}</th>
+                            <th width="10px">{{ChapterColumnText}}</th>
+                            <th width="10px">{{ExamsColumnText}}</th>
                         </tr>
                     </thead>
                     <tbody>
