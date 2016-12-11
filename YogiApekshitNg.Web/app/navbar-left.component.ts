@@ -14,7 +14,7 @@ import { SharedService } from './shared.service';
         <!-- Sidebar -->
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
-                <li class="sidebar-brand" style="background:white">
+                <li class="sidebar-brand">
                      <a href="#">
                         Brand
                     </a>                   
@@ -23,8 +23,8 @@ import { SharedService } from './shared.service';
                 <li class="active open">
                     <a href="#" class="dropdown-toggle" >
                         {{this.sharedService.SelectLangText}}
-                        <span style="margin-top:-5px;margin-left:15px;" (click)="ChangeLanguage('Eng', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">E</span>
-                        <span style="margin-top:-5px;" (click)="ChangeLanguage('Guj', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">G</span>
+                        <span style="padding-top:-5px;margin-left:15px;" (click)="ChangeLanguage('Eng', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">E</span>
+                        <span style="padding-top:-5px;" (click)="ChangeLanguage('Guj', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">G</span>
                     </a>
                 </li>
                 <li class="dropdown" attr.data-target="#Book{{bookmenu.Id}}"

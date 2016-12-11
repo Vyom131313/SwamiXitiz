@@ -36,15 +36,15 @@
         }
 
             #wrapper.toggled {
-                padding-left: 220px;
+                padding-left: 300px;
             }
 
         #sidebar-wrapper {
             z-index: 1000;
-            left: 220px;
+            left: 300px;
             width: 0;
             height: 100%;
-            margin-left: -220px;
+            margin-left: -300px;
             overflow-y: auto;
             overflow-x: hidden;
             background: #1a1a1a;
@@ -59,7 +59,7 @@
             }
 
         #wrapper.toggled #sidebar-wrapper {
-            width: 220px;
+            width: 300px;
         }
 
         #page-content-wrapper {
@@ -69,7 +69,7 @@
 
         #wrapper.toggled #page-content-wrapper {
             position: absolute;
-            margin-right: -220px;
+            margin-right: -300px;
         }
 
         /*-------------------------------*/
@@ -79,7 +79,7 @@
         .sidebar-nav {
             position: absolute;
             top: 0;
-            width: 220px;
+            width: 300px;
             margin: 0;
             padding: 0;
             list-style: none;
@@ -158,6 +158,7 @@
                     color: #ddd;
                     text-decoration: none;
                     padding: 10px 15px 10px 30px;
+                    white-space:nowrap;                    
                 }
 
                     .sidebar-nav li a:hover,
@@ -334,18 +335,16 @@
             background-color: rgba(250,250,250,.8);
             z-index: 1;
         }
-/* Override */
-        .dropdown {
+        
+        /* Override */
+        /*.dropdown {
             font-size: 12px;
         }
 
         .dropdown-menu {
             font-size: 10px;
         }
-        
-        .sidebar-nav li a{
-            padding:7px 10px 7px 20px;
-        }
+        */
     </style>
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
