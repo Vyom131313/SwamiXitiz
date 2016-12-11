@@ -1,8 +1,8 @@
-﻿- QA: Test Mode
+﻿- QA: Table style
+- QA: On changing language also change QA contents according to selected language
+- Menu: side bar
 - QA: missing QAs
 - QA: Collapse QA table
-- QA: Table style
-- QA: On changing language also change QA contents according to selected language
 
 - Menu : display icon
 - Menu : onclick don't scroll at top
