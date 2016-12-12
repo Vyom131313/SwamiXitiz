@@ -16,11 +16,25 @@ import { SharedService } from './shared.service';
             <ul class="nav sidebar-nav">
 
                 <li class="active open" style="background: #ec1b5a;">
-                    <a href="#" class="dropdown-toggle" style="padding-bottom:30px;">
-                        <div style="float:left;width:100px;" >&nbsp;&nbsp;{{this.sharedService.SelectLangText}}</div>
-                        <div style="float:right;width:100px;">
-                            <span style="margin-top:-8px;margin-left:15px;" (click)="ChangeLanguage('Eng', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">E</span>
-                            <span style="margin-top:-8px;margin-left:15px;" (click)="ChangeLanguage('Guj', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">G</span>
+                    <a href="#" class="dropdown-toggle">
+                        <div style="float:right;width:130px;white-space;noWrap">
+                            <tr>
+                                <td>
+                                    {{this.sharedService.SelectLangText}}
+                                </td>
+                                <td>
+                                    <span style="margin-top:-8px;margin-left:10px;" (click)="ChangeLanguage('Eng', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">E</span>
+                                    <span style="margin-top:-8px;margin-left:10px;" (click)="ChangeLanguage('Guj', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">G</span>
+                                </td>
+                            </tr>
+                        </div>
+                        <div>
+                            <span> &nbsp;{{this.sharedService.SwitchModeText}}</span>
+                            <div style="margin-top:-20px;" class="checkbox-inline checkbox-ios">
+                                <label for="checkbox-ios1" class="switch">
+                                <input type="checkbox" class="ios" checked id="checkbox-ios1" (click)="this.sharedService.SetTestMode(!this.sharedService.IsTestMode)"><i></i>
+                                </label>
+                            </div>
                         </div>
                         <button style="float:right" type="button" class="hamburger is-open" data-toggle="offcanvas" onclick="$('#wrapper').toggleClass('toggled')">
                             <span class="hamb-top"></span>

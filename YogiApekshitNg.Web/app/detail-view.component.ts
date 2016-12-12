@@ -9,14 +9,7 @@ import { MenuItemService } from './menuItem.service';
 
 @Component({
     selector: 'detail-view',
-    template: `           <div style="float:right;margin-top:20px;" >
-                            <span>{{this.sharedService.SwitchModeText}}</span>
-                            <div style="margin-top:5px;" class="checkbox-inline checkbox-ios">
-                                <label for="checkbox-ios1" class="switch">
-                                <input type="checkbox" class="ios" checked id="checkbox-ios1" (click)="this.sharedService.SetTestMode(!this.sharedService.IsTestMode)"><i></i>
-                                </label>
-                            </div>
-                        </div>
+    template: `          
 <br/>
                 <div *ngIf="menu != null && menu != undefined &&  menu.Category !='All' ">
                     <h4 style='float:left'>{{this.sharedService.BookColumnText}} {{menu.Name}}</h4>         
