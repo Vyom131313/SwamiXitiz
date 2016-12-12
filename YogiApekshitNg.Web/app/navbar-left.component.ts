@@ -17,11 +17,16 @@ import { SharedService } from './shared.service';
 
                 <li class="active open" style="background: #ec1b5a;">
                     <a href="#" class="dropdown-toggle" style="padding-bottom:30px;">
-                        <div style="float:left;width:100px;" >{{this.sharedService.SelectLangText}}</div>
+                        <div style="float:left;width:100px;" >&nbsp;&nbsp;{{this.sharedService.SelectLangText}}</div>
                         <div style="float:right;width:100px;">
                             <span style="margin-top:-8px;margin-left:15px;" (click)="ChangeLanguage('Eng', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">E</span>
                             <span style="margin-top:-8px;margin-left:15px;" (click)="ChangeLanguage('Guj', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">G</span>
                         </div>
+                        <button style="float:right" type="button" class="hamburger is-open" data-toggle="offcanvas" onclick="$('#wrapper').toggleClass('toggled')">
+                            <span class="hamb-top"></span>
+                            <span class="hamb-middle"></span>
+                            <span class="hamb-bottom"></span>
+                        </button>
                     </a>
                 </li>
                 <li class="dropdown" attr.data-target="#Book{{bookmenu.Id}}"
@@ -47,11 +52,6 @@ import { SharedService } from './shared.service';
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <button style="float:right" type="button" class="hamburger is-open" data-toggle="offcanvas" onclick="$('#wrapper').toggleClass('toggled')">
-                            <span class="hamb-top"></span>
-                            <span class="hamb-middle"></span>
-                            <span class="hamb-bottom"></span>
-                        </button>
                         <detail-view [menu]="selectedMenu"></detail-view>
                     </div>
                 </div>
