@@ -14,11 +14,6 @@ import { SharedService } from './shared.service';
         <!-- Sidebar -->
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
-                <li class="sidebar-brand">
-                     <a href="#">
-                        Brand
-                    </a>                   
-                </li>
 
                 <li class="active open" style="background: #ec1b5a;">
                     <a href="#" class="dropdown-toggle" style="padding-bottom:30px;">
