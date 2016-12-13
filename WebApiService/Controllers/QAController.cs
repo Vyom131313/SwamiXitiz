@@ -51,37 +51,37 @@ namespace WebApiService.Controllers
             switch (category)
             {
                 case Constants.Que_Categories.One_Sentence:
-                    qa_vm.Color = "#f5f5f5";
+                    qa_vm.Color = "#16a085";
                     qaRecords = QA_OneSentence(filter); break;
                 case Constants.Que_Categories.Correct_Option:
-                    qa_vm.Color = "#dff0d8";
+                    qa_vm.Color = "#e05d6f";
                     qaRecords = QA_CorrectOption(filter); break;
                 case Constants.Que_Categories.Correct_Sentence:
-                    qa_vm.Color = "#d9edf7";
+                    qa_vm.Color = "#418bca";
                     qaRecords = QA_CorrectSentence(filter); break;
                 case Constants.Que_Categories.Correct_Sequence:
-                    qa_vm.Color = "#fcf8e3";
+                    qa_vm.Color = "#3f4e62";
                     qaRecords = QA_CorrectSequence(filter); break;
                 case Constants.Que_Categories.Fill_In_Blank:
-                    qa_vm.Color = "#f2dede";
+                    qa_vm.Color = "#5cb85c";
                     qaRecords = QA_FillInBlank(filter); break;
                 case Constants.Que_Categories.Kirtan:
-                    qa_vm.Color = "#7d5d81";
+                    qa_vm.Color = "#f0ad4e";
                     qaRecords = QA_Kirtan(filter); break;
                 case Constants.Que_Categories.Reason:
-                    qa_vm.Color = "#ead24c";
+                    qa_vm.Color = "#d9534f";
                     qaRecords = QA_Reason(filter); break;
                 case Constants.Que_Categories.Shlok:
-                    qa_vm.Color = "#2d2366";
+                    qa_vm.Color = "#616f77";
                     qaRecords = QA_Shlok(filter); break;
                 case Constants.Que_Categories.Short_Note:
-                    qa_vm.Color = "#35acdf";
+                    qa_vm.Color = "#616f77";
                     qaRecords = QA_ShortNote(filter); break;
                 case Constants.Que_Categories.Swamini_Vaato:
-                    qa_vm.Color = "#f2dede";
+                    qa_vm.Color = "#116f7d";
                     qaRecords = QA_SwaminiVat(filter); break;
                 case Constants.Que_Categories.Who_Whom_When:
-                    qa_vm.Color = "#f5f5f5";
+                    qa_vm.Color = "#2d3846";
                     qaRecords = QA_WhoWhomWhen(filter); break;
                 //case Constants.Que_Categories.All:
                 //    var data = new List<QA_VM>();
