@@ -1,5 +1,4 @@
-﻿- QA: Table style
-- QA: Fix header
+﻿- QA: Fix header
 - QA: On changing language also change QA contents according to selected language
 - QA: missing QAs
 - QA: Collapse QA table
