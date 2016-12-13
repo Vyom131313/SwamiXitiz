@@ -14,7 +14,6 @@ import { SharedService } from './shared.service';
         <!-- Sidebar -->
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
-
                 <li class="active open" style="background: #ec1b5a;">
                     <a href="#" class="dropdown-toggle">
                         <div style="float:right;width:130px;white-space;noWrap">
@@ -32,7 +31,7 @@ import { SharedService } from './shared.service';
                             <span> &nbsp;{{this.sharedService.SwitchModeText}}</span>
                             <div style="margin-top:-20px;" class="checkbox-inline checkbox-ios">
                                 <label for="checkbox-ios1" class="switch">
-                                <input type="checkbox" class="ios" checked id="checkbox-ios1" (click)="this.sharedService.SetTestMode(!this.sharedService.IsTestMode)"><i></i>
+                                    <input type="checkbox" class="ios" checked id="checkbox-ios1" (click)="this.sharedService.SetTestMode(!this.sharedService.IsTestMode)"><i></i>
                                 </label>
                             </div>
                         </div>
