@@ -32,6 +32,7 @@ export class QA_WWW {
 
 export class QA_VM{
     BookTitle:string;
-    ChapterTitle :string;
+    ChapterTitle: string;
+    Color: string;
     QARecords: Array<QARecord>;
 }

@@ -10,9 +10,9 @@ import { SharedService } from './shared.service';
     selector: 'queans',
     template: ` 
         <div class="table-responsive" *ngIf="qa_vm != null && qa_vm != undefined && qa_vm.QARecords != null && qa_vm.QARecords != undefined && qa_vm.QARecords.length > 0">
-                <table class="table" style="border:1px;">
+                <table class="table table-striped" style="border:1px;">
                     <thead>
-                        <tr>
+                        <tr [style.background-color]="qa_vm.Color" >
                             <th width="10px">#</th>
                             <th>{{QueAnsColumnText}}</th>
                             <th width="10px">{{ChapterColumnText}}</th>
@@ -20,7 +20,7 @@ import { SharedService } from './shared.service';
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let qa of qa_vm.QARecords">
+                        <tr *ngFor="let qa of qa_vm.QARecords"> 
                             <td>{{qa.Sr}}</td>
                             <td>
                                 <div style="padding-bottom:10px;">

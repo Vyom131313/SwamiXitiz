@@ -346,12 +346,8 @@
         */
        
 /* Zebra striping */
-.table tr:nth-of-type(odd) { 
-  background: #eee; 
-}
+
 .table th { 
-  background: #333; 
-  color: white; 
   font-weight: bold; 
 }
 .table td, th { 
@@ -359,6 +355,49 @@
   border: 1px solid #ccc; 
   text-align: left; 
 }
+
+.table-striped
+{
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+}
+.table-striped:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+}
+
+
+/*
+.table-striped > tbody > tr:nth-child(3n+1) > td, .table-striped > tbody > tr:nth-child(3n+1) > th {
+   background-color: #f5f5f5;
+}
+.table-striped > tbody > tr:nth-child(3n+2) > td, .table-striped > tbody > tr:nth-child(3n+2) > th {
+   background-color: #dff0d8;
+}
+.table-striped > tbody > tr:nth-child(3n+3) > td, .table-striped > tbody > tr:nth-child(3n+3) > th {
+   background-color: #d9edf7;
+}
+
+.table-striped > tbody > tr:nth-child(3n+4) > td, .table-striped > tbody > tr:nth-child(3n+4) > th {
+   background-color:#fcf8e3;
+}
+.table-striped > tbody > tr:nth-child(3n+5) > td, .table-striped > tbody > tr:nth-child(3n+5) > th {
+   background-color: #f2dede;
+}
+
+.table-striped > tbody > tr:nth-child(3n+6) > td, .table-striped > tbody > tr:nth-child(3n+6) > th {
+   background-color: #7d5d81;
+}
+
+.table-striped > tbody > tr:nth-child(3n+7) > td, .table-striped > tbody > tr:nth-child(3n+7) > th {
+   background-color:#ead24c;
+}
+.table-striped > tbody > tr:nth-child(3n+8) > td, .table-striped > tbody > tr:nth-child(3n+8) > th {
+   background-color: #2d2366;
+}
+.table-striped > tbody > tr:nth-child(3n+9) > td, .table-striped > tbody > tr:nth-child(3n+9) > th {
+   background-color: #35acdf;
+}*/
 
     </style>
 

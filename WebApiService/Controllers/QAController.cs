@@ -51,26 +51,37 @@ namespace WebApiService.Controllers
             switch (category)
             {
                 case Constants.Que_Categories.One_Sentence:
+                    qa_vm.Color = "#f5f5f5";
                     qaRecords = QA_OneSentence(filter); break;
                 case Constants.Que_Categories.Correct_Option:
+                    qa_vm.Color = "#dff0d8";
                     qaRecords = QA_CorrectOption(filter); break;
                 case Constants.Que_Categories.Correct_Sentence:
+                    qa_vm.Color = "#d9edf7";
                     qaRecords = QA_CorrectSentence(filter); break;
                 case Constants.Que_Categories.Correct_Sequence:
+                    qa_vm.Color = "#fcf8e3";
                     qaRecords = QA_CorrectSequence(filter); break;
                 case Constants.Que_Categories.Fill_In_Blank:
+                    qa_vm.Color = "#f2dede";
                     qaRecords = QA_FillInBlank(filter); break;
                 case Constants.Que_Categories.Kirtan:
+                    qa_vm.Color = "#7d5d81";
                     qaRecords = QA_Kirtan(filter); break;
                 case Constants.Que_Categories.Reason:
+                    qa_vm.Color = "#ead24c";
                     qaRecords = QA_Reason(filter); break;
                 case Constants.Que_Categories.Shlok:
+                    qa_vm.Color = "#2d2366";
                     qaRecords = QA_Shlok(filter); break;
                 case Constants.Que_Categories.Short_Note:
+                    qa_vm.Color = "#35acdf";
                     qaRecords = QA_ShortNote(filter); break;
                 case Constants.Que_Categories.Swamini_Vaato:
+                    qa_vm.Color = "#f2dede";
                     qaRecords = QA_SwaminiVat(filter); break;
                 case Constants.Que_Categories.Who_Whom_When:
+                    qa_vm.Color = "#f5f5f5";
                     qaRecords = QA_WhoWhomWhen(filter); break;
                 //case Constants.Que_Categories.All:
                 //    var data = new List<QA_VM>();
@@ -354,6 +365,7 @@ namespace WebApiService.Controllers
 
         public string BookTitle { get; set; }
         public string ChapterTitle { get; set; }
+        public string Color { get; set; }
 
         public IList<QARecord> QARecords { get; set; }
     }
