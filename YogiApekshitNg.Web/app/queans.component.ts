@@ -25,7 +25,7 @@ import { SharedService } from './shared.service';
                         <tr *ngFor="let qa of qa_vm.QARecords"> 
                             <td>{{qa.Sr}}</td>
                             <td>
-                                <div style="padding-bottom:10px;">
+                                <div>
                                     <b>{{qa.Que}}</b>
                                     <div *ngIf="!this.sharedService.IsTestMode" class="answer" [innerHTML]="qa.Ans"></div>
                                 </div>
