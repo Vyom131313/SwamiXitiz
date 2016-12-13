@@ -28,12 +28,7 @@ import { SharedService } from './shared.service';
                             </tr>
                         </div>
                         <div>
-                            <span> &nbsp;{{this.sharedService.SwitchModeText}}</span>
-                            <div style="margin-top:-20px;" class="checkbox-inline checkbox-ios">
-                                <label for="checkbox-ios1" class="switch">
-                                    <input type="checkbox" class="ios" checked id="checkbox-ios1" (click)="this.sharedService.SetTestMode(!this.sharedService.IsTestMode)"><i></i>
-                                </label>
-                            </div>
+                            <button class="btn btn-info btn-xs" style="margin-left:10px;" (click)="this.sharedService.SetTestMode(!this.sharedService.IsTestMode)">{{this.sharedService.SwitchModeText}}</button>
                         </div>
                         <button style="float:right" type="button" class="hamburger is-open" data-toggle="offcanvas" onclick="$('#wrapper').toggleClass('toggled')">
                             <span class="hamb-top"></span>

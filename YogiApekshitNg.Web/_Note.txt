@@ -5,6 +5,8 @@
 - QA: Collapse QA table
 
 - Menu : display icon
+- Menu: Keep selected
+- Mode Checkbox style
 - Menu : onclick don't scroll at top
 - Move Service to the same project
 
