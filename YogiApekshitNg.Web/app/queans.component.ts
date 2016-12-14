@@ -13,14 +13,14 @@ import { SharedService } from './shared.service';
                     <thead>
                         <tr>
                             <th width="10px">
-                                <a class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse"attr.data-target="#tbody{{this.category}}" aria-expanded="true"></a>
+                                <a class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbody{{this.category}}" aria-expanded="true"></a>
                             </th>
                             <th>{{QueAnsColumnText}}</th>
                             <th width="10px">{{ChapterColumnText}}</th>
                             <th width="10px">{{ExamsColumnText}}</th>
                         </tr>
                     </thead>
-                    <tbody id="tbody{{this.category}}" class="panel-collapse collapse in">
+                    <tbody id="tbody{{this.category}}" class="collapse in">
                         <tr *ngFor="let qa of qa_vm.QARecords"> 
                             <td>{{qa.Sr}}</td>
                             <td>

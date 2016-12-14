@@ -1,4 +1,5 @@
-﻿- QA: Fix header
+﻿- QA: header style
+- QA: Fix header
 
 - QA: On changing language also change QA contents according to selected language
 - Menu: display icon

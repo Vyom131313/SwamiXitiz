@@ -60,7 +60,7 @@ import { SharedService } from './shared.service';
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <div class="container-fluid">
+            <div class="container-fluid" style="padding-left:10px;">
                 <div class="row">
                     <div class="col-lg-12">
                         <detail-view [menu]="selectedMenu"></detail-view>
