@@ -1,14 +1,14 @@
-﻿- QA: Fix header
-- QA: On changing language also change QA contents according to selected language
-- QA: missing QAs
-- QA: Collapse QA table
+﻿- Menu: pin icon
+- QA: Fix header
 
-- Menu : display icon
+- QA: On changing language also change QA contents according to selected language
+- Menu: display icon
 - Menu: Keep selected
 - Mode Checkbox style
 - Menu : onclick don't scroll at top
 - Move Service to the same project
 
-- wait indicator
+- QA: missing QAs
+- Wait indicator
 - responsiveness
 - dashboard

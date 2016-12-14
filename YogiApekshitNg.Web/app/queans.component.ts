@@ -12,16 +12,16 @@ import { SharedService } from './shared.service';
         <div class="table-responsive" *ngIf="qa_vm != null && qa_vm != undefined && qa_vm.QARecords != null && qa_vm.QARecords != undefined && qa_vm.QARecords.length > 0">
                 <table class="table" [style.background-color]="qa_vm.Color">
                     <thead>
-                        <tr  >
+                        <tr>
                             <th width="10px">
-                                <a href="#" data-toggle="collapse" data-target="#tbody{{this.category}}" aria-expanded="true" class="">#</a>
+                                <a class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse"attr.data-target="#tbody{{this.category}}" aria-expanded="true"></a>
                             </th>
                             <th>{{QueAnsColumnText}}</th>
                             <th width="10px">{{ChapterColumnText}}</th>
                             <th width="10px">{{ExamsColumnText}}</th>
                         </tr>
                     </thead>
-                    <tbody id="tbody{{this.category}}" class="panel-collapse collapse in" aria-expanded="true">
+                    <tbody id="tbody{{this.category}}" class="panel-collapse collapse in">
                         <tr *ngFor="let qa of qa_vm.QARecords"> 
                             <td>{{qa.Sr}}</td>
                             <td>
@@ -30,7 +30,7 @@ import { SharedService } from './shared.service';
                                     <div *ngIf="!this.sharedService.IsTestMode" class="answer" [innerHTML]="qa.Ans"></div>
                                 </div>
                             </td>
-                            <td>{{qa.Chapter}}</td>
+                            <td style='white-space:noWrap'>{{qa.Chapter}}</td>
                             <td style='white-space:noWrap'>{{qa.Exams}}</td>
                         </tr>
                     </tbody>
