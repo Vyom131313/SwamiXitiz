@@ -34,6 +34,7 @@ import { SharedService } from './shared.service';
                         </tr>
                     </tbody>
                 </table>
+            <br/>
         </div>`
 })
 export class QueAnsComponent implements OnChanges {

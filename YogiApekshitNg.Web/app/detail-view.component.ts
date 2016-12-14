@@ -9,12 +9,12 @@ import { MenuItemService } from './menuItem.service';
     selector: 'detail-view',
     template: `          
                 <div *ngIf="menu != null && menu != undefined &&  menu.Category !='All' ">
-                    <h4 style='margin-top:0px;background-color:#ec1b5a;padding:10px 5px 10px 50px'>{{this.sharedService.BookColumnText}} {{menu.Name}}</h4>
+                    <h4 class='QAListTitle'>{{this.sharedService.BookColumnText}} {{menu.Name}}</h4>
 
                     <queans [category]='menu.Category' [qa_vm]="qa_vm"></queans>
                 </div>
                 <div *ngIf="menu != null && menu != undefined && menu.Category =='All'">
-                    <h4 style='margin-top:0px;background-color:#ec1b5a;padding:10px 5px 10px 50px'>{{this.sharedService.ChapterColumnText}} {{menu.Name}}</h4>
+                    <h4 class='QAListTitle'>{{this.sharedService.ChapterColumnText}} {{menu.Name}}</h4>
                 
                     <queans [category]="'Who_Whom_When'"    [qa_vm]="qa_vm_Who_Whom_When"></queans>
                     <queans [category]="'Correct_Option'"   [qa_vm]="qa_vm_Correct_Option"></queans>
