@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { MenuItem, QARecord, QA_VM } from './Models.model';
 import { MenuItemService } from './menuItem.service';
@@ -35,7 +34,6 @@ import { SharedService } from './shared.service';
                         </tr>
                     </tbody>
                 </table>
-            <br />   
         </div>`
 })
 export class QueAnsComponent implements OnChanges {

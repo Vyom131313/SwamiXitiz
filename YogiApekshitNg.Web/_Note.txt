@@ -1,5 +1,4 @@
-﻿- Menu: pin icon
-- QA: Fix header
+﻿- QA: Fix header
 
 - QA: On changing language also change QA contents according to selected language
 - Menu: display icon
@@ -11,4 +10,4 @@
 - QA: missing QAs
 - Wait indicator
 - responsiveness
-- dashboard
+- dashboard.0.3

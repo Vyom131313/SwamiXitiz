@@ -1,11 +1,9 @@
 ﻿import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { MenuItem } from './Models.model';
 import { MenuItemService } from './menuItem.service';
 import { SharedService } from './shared.service';
-
 
 @Component({
     selector: 'navbar-left',
@@ -16,6 +14,16 @@ import { SharedService } from './shared.service';
             <ul class="nav sidebar-nav">
                 <li class="active open" style="background: #ec1b5a;">
                     <a href="#" class="dropdown-toggle">
+                        <button type="button" 
+                                class="hamburger navbar-toggle" 
+                                data-toggle="collapse" 
+                                onclick="$('#wrapper').toggleClass('toggled')">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                        </button>
+
                         <div style="float:right;width:130px;white-space;noWrap">
                             <tr>
                                 <td>
@@ -28,13 +36,8 @@ import { SharedService } from './shared.service';
                             </tr>
                         </div>
                         <div>
-                            <button class="btn btn-info btn-xs" style="margin-left:10px;" (click)="this.sharedService.SetTestMode(!this.sharedService.IsTestMode)">{{this.sharedService.SwitchModeText}}</button>
-                        </div>
-                        <button style="float:right" type="button" class="hamburger is-open" data-toggle="offcanvas" onclick="$('#wrapper').toggleClass('toggled')">
-                            <span class="hamb-top"></span>
-                            <span class="hamb-middle"></span>
-                            <span class="hamb-bottom"></span>
-                        </button>
+                            <button class="btn btn-info btn-xs" style="margin-left:30px;" (click)="this.sharedService.SetTestMode(!this.sharedService.IsTestMode)">{{this.sharedService.SwitchModeText}}</button>
+                        </div>                  
                     </a>
                 </li>
                 <li class="dropdown" attr.data-target="#Book{{bookmenu.Id}}"

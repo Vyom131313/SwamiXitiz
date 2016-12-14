@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { MenuItem, QARecord, QA_VM } from './Models.model';
 import { SharedService } from './shared.service';
-
 import { MenuItemService } from './menuItem.service';
 
 @Component({
     selector: 'detail-view',
     template: `          
                 <div *ngIf="menu != null && menu != undefined &&  menu.Category !='All' ">
-                    <h4 style='align:center'>&nbsp;&nbsp;&nbsp;&nbsp;{{this.sharedService.BookColumnText}} {{menu.Name}}</h4>         
+                    <h4 style='margin-left:50px;'>{{this.sharedService.BookColumnText}} {{menu.Name}}</h4>         
                     <queans [category]='menu.Category' [qa_vm]="qa_vm"></queans>
                 </div>
                 <div *ngIf="menu != null && menu != undefined && menu.Category =='All'">
-                    <h4 style='align:center'>&nbsp;&nbsp;&nbsp;&nbsp;{{this.sharedService.ChapterColumnText}} {{menu.Name}}</h4>
+                    <h4 style='margin-left:50px;'>{{this.sharedService.ChapterColumnText}} {{menu.Name}}</h4>
                 
                     <queans [category]="'Who_Whom_When'"    [qa_vm]="qa_vm_Who_Whom_When"></queans>
                     <queans [category]="'Correct_Option'"   [qa_vm]="qa_vm_Correct_Option"></queans>
