@@ -90,6 +90,7 @@
     <Content Include="Images\bullet.png" />
     <Content Include="Images\double-arrow-white.png" />
     <Content Include="Images\GhC\GhC-eng.jpg" />
+    <Content Include="Images\GhC\GhC-mnu.png" />
     <Content Include="Images\heroAccent.png" />
     <Content Include="Images\KsP\KsP-eng.jpg" />
     <Content Include="Images\orderedList0.png" />
