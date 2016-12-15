@@ -24,19 +24,19 @@ import { SharedService } from './shared.service';
                               <span class="icon-bar"></span>
                         </button>
 
-                        <div style="float:right;width:130px;white-space;noWrap">
+                        <div style="float:right;white-space;noWrap;">
                             <tr>
-                                <td>
+                                <td style='font-size:13px'>
                                     {{this.sharedService.SelectLangText}}
                                 </td>
-                                <td>
-                                    <span style="margin-top:-8px;margin-left:10px;" (click)="ChangeLanguage('Eng', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">E</span>
-                                    <span style="margin-top:-8px;margin-left:10px;" (click)="ChangeLanguage('Guj', $event)" class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">G</span>
+                                <td align='right'>
+                                    <button type="button" class="btn btn-info btn-sm" (click)="ChangeLanguage('Eng', $event)" >E</button>
+                                    <button type="button" class="btn btn-info btn-sm" (click)="ChangeLanguage('Guj', $event)" >G</button>
                                 </td>
                             </tr>
                         </div>
                         <div>
-                            <button class="btn btn-info btn-xs" style="margin-left:30px;" (click)="this.sharedService.SetTestMode(!this.sharedService.IsTestMode)">{{this.sharedService.SwitchModeText}}</button>
+                            <button class="btn btn-info btn-sm" style="margin-left:25px;" (click)="this.sharedService.SetTestMode(!this.sharedService.IsTestMode)">{{this.sharedService.SwitchModeText}}</button>
                         </div>                  
                     </a>
                 </li>
