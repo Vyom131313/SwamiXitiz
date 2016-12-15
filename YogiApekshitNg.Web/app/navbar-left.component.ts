@@ -24,14 +24,14 @@ import { SharedService } from './shared.service';
                               <span class="icon-bar"></span>
                         </button>
 
-                        <div style="float:right;white-space;noWrap; margin-top:-5px;">
+                        <div style="float:right;white-space;noWrap; ">
                             <tr>
                                 <td style='font-size:13px;padding-right:5px;'>
                                     {{this.sharedService.SelectLangText}}
                                 </td>
                                 <td align='right'>
-                                    <button type="button" class="btn btn-info btn-sm" (click)="ChangeLanguage('Eng', $event)" >E</button>
-                                    <button type="button" class="btn btn-info btn-sm" (click)="ChangeLanguage('Guj', $event)" >G</button>
+                                    <button type="button" class="btn btn-info btn-xs" (click)="ChangeLanguage('Eng', $event)" >E</button>
+                                    <button type="button" class="btn btn-info btn-xs" (click)="ChangeLanguage('Guj', $event)" >G</button>
                                 </td>
                             </tr>
                         </div>
