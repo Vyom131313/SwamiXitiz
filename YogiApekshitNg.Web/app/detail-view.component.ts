@@ -13,7 +13,6 @@ import { MenuItemService } from './menuItem.service';
                     {{menu.Name}} 
                 </h4>
                 <h4 *ngIf="menu != null && menu != undefined && menu.Category !='All' " class='QAListTitle'>
-                    {{this.sharedService.BookColumnText}} 
                     {{menu.Name}} 
                 </h4>
                 <div style="margin-top:50px;" *ngIf="menu != null && menu != undefined && menu.Category !='All' ">
