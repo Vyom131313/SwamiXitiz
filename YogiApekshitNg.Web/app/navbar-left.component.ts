@@ -24,9 +24,9 @@ import { SharedService } from './shared.service';
                               <span class="icon-bar"></span>
                         </button>
 
-                        <div style="float:right;white-space;noWrap;">
+                        <div style="float:right;white-space;noWrap; margin-top:-5px;">
                             <tr>
-                                <td style='font-size:13px'>
+                                <td style='font-size:13px;padding-right:5px;'>
                                     {{this.sharedService.SelectLangText}}
                                 </td>
                                 <td align='right'>
@@ -36,7 +36,7 @@ import { SharedService } from './shared.service';
                             </tr>
                         </div>
                         <div>
-                            <button class="btn btn-info btn-sm" style="margin-left:25px;" (click)="this.sharedService.SetTestMode(!this.sharedService.IsTestMode)">{{this.sharedService.SwitchModeText}}</button>
+                            <button class="btn btn-info btn-xs" style="margin-left:25px;font-size:13px" (click)="this.sharedService.SetTestMode(!this.sharedService.IsTestMode)">{{this.sharedService.SwitchModeText}}</button>
                         </div>                  
                     </a>
                 </li>

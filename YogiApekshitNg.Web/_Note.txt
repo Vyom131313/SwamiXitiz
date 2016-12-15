@@ -1,5 +1,4 @@
-﻿- QA: In other items in Header
-- QA: On changing language also change QA contents according to selected language
+﻿- QA: On changing language also change QA contents according to selected language
 
 - Move Service to the same project
 - Menu: display icon
