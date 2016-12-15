@@ -31,7 +31,6 @@ export class SharedService {
         this.ChapterColumnText = newValue == "Eng" ? "Chapter" : "પ્રકરણ";
         this.BookColumnText = newValue == "Eng" ? "Book" : "પુસ્તક";
         this.AnsColumnText = newValue == "Eng" ? "Ans" : "જવાબ";
-        //this.SwitchModeText = newValue == "Eng" ? "Reading mode" : "વાંચન સ્થિતિ";
         this.SetTestMode(this.IsTestMode);
     }
 

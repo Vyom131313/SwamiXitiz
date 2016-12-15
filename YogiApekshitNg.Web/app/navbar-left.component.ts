@@ -121,7 +121,6 @@ import { SharedService } from './shared.service';
 export class NavbarLeftComponent {
     menus: Array<MenuItem>;
     selectedMenu: MenuItem;
-    lastEvent: any;
 
     constructor(private menuItemService: MenuItemService, private sharedService: SharedService) { }
 
@@ -135,18 +134,22 @@ export class NavbarLeftComponent {
 
     onSelect(menu: MenuItem, event: any): void {
         event.stopPropagation();
-        this.lastEvent = event;
         this.selectedMenu = menu;
     }
 
     ChangeLanguage(lang: string, event: Event) {
+
+        if (this.sharedService.Lang.value == lang)
+            return;
 
         this.sharedService.SetLanguage(lang);
         this.getMenus();
 
         if (this.selectedMenu != null && this.selectedMenu != undefined) {
             this.selectedMenu.Lang = lang;
-            //this.onSelect(this.selectedMenu, this.lastEvent);
+
+            var mnu = this.selectedMenu;
+            this.selectedMenu = null;
         }
     }
 }
