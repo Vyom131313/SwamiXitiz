@@ -7,15 +7,19 @@ import { MenuItemService } from './menuItem.service';
 
 @Component({
     selector: 'detail-view',
-    template: `          
-                <div *ngIf="menu != null && menu != undefined &&  menu.Category !='All' ">
-                    <h4 class='QAListTitle'>{{this.sharedService.BookColumnText}} {{menu.Name}}</h4>
-
+    template: ` 
+                <h4 *ngIf="menu != null && menu != undefined && menu.Category =='All' " class='QAListTitle'>
+                    {{this.sharedService.ChapterColumnText}} 
+                    {{menu.Name}} 
+                </h4>
+                <h4 *ngIf="menu != null && menu != undefined && menu.Category !='All' " class='QAListTitle'>
+                    {{this.sharedService.BookColumnText}} 
+                    {{menu.Name}} 
+                </h4>
+                <div style="margin-top:50px;" *ngIf="menu != null && menu != undefined && menu.Category !='All' ">
                     <queans [category]='menu.Category' [qa_vm]="qa_vm"></queans>
                 </div>
-                <div *ngIf="menu != null && menu != undefined && menu.Category =='All'">
-                    <h4 class='QAListTitle'>{{this.sharedService.ChapterColumnText}} {{menu.Name}}</h4>
-                
+                <div style="margin-top:50px;" *ngIf="menu != null && menu != undefined && menu.Category =='All'">
                     <queans [category]="'Who_Whom_When'"    [qa_vm]="qa_vm_Who_Whom_When"></queans>
                     <queans [category]="'Correct_Option'"   [qa_vm]="qa_vm_Correct_Option"></queans>
                     <queans [category]="'Fill_In_Blank'"    [qa_vm]="qa_vm_Fill_In_Blank"></queans> 
