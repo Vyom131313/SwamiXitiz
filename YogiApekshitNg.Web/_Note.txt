@@ -1,4 +1,10 @@
 ﻿- QA: missing QAs
+- QA: Add new QAs
+- QA: table colors
+- QA Test mode : provide Show Ans button
+- Page Header and Logo
+
+- Deployment
 - Menu: Keep selected
 - Menu : onclick don't scroll at top
 - Mode Checkbox style

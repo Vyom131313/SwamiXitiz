@@ -108,7 +108,12 @@ namespace WebApiService.Controllers
             var seq = 1;
             using (var context = new YogiApekshitContext())
             {
-                return context.QueCorrectSentences.Where(obj => obj.BookId == filter.BookId &&
+                return context.QueCorrectSentences.Where(obj =>
+                    (filter.Lang == "Guj"
+                                    ? !string.IsNullOrEmpty(obj.Title_Guj)
+                                    : !string.IsNullOrEmpty(obj.Title_Eng)
+                                    ) &&
+                    obj.BookId == filter.BookId &&
                   (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                     .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                     .Select(c => new QARecord
@@ -131,7 +136,12 @@ namespace WebApiService.Controllers
             var seq = 1;
             using (var context = new YogiApekshitContext())
             {
-                return context.QueCorrectSequences.Where(obj => obj.BookId == filter.BookId &&
+                return context.QueCorrectSequences.Where(obj =>
+                (filter.Lang == "Guj"
+                                    ? !string.IsNullOrEmpty(obj.Title_Guj)
+                                    : !string.IsNullOrEmpty(obj.Title_Eng)
+                                    ) &&
+                obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QARecord
@@ -154,7 +164,12 @@ namespace WebApiService.Controllers
             var seq = 1;
             using (var context = new YogiApekshitContext())
             {
-                return context.QueCorrectOptions.Where(obj => obj.BookId == filter.BookId &&
+                return context.QueCorrectOptions.Where(obj =>
+                (filter.Lang == "Guj"
+                                    ? !string.IsNullOrEmpty(obj.Title_Guj)
+                                    : !string.IsNullOrEmpty(obj.Title_Eng)
+                                    ) && 
+                obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QARecord
@@ -174,7 +189,12 @@ namespace WebApiService.Controllers
             var seq = 1;
             using (var context = new YogiApekshitContext())
             {
-                return context.QueFillInBlanks.Where(obj => obj.BookId == filter.BookId &&
+                return context.QueFillInBlanks.Where(obj =>
+                (filter.Lang == "Guj"
+                                    ? !string.IsNullOrEmpty(obj.Que_Guj)
+                                    : !string.IsNullOrEmpty(obj.Que_Eng)
+                                    ) &&
+                obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QARecord
@@ -197,7 +217,12 @@ namespace WebApiService.Controllers
             var seq = 1;
             using (var context = new YogiApekshitContext())
             {
-                return context.QueKirtans.Where(obj => obj.BookId == filter.BookId &&
+                return context.QueKirtans.Where(obj =>
+                (filter.Lang == "Guj"
+                                    ? !string.IsNullOrEmpty(obj.Que_Guj)
+                                    : !string.IsNullOrEmpty(obj.Que_Eng)
+                                    ) && 
+                obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QARecord
@@ -220,7 +245,13 @@ namespace WebApiService.Controllers
             var seq = 1;
             using (var context = new YogiApekshitContext())
             {
-                return context.QueOneSentences.Where(obj => obj.BookId == filter.BookId &&
+                return context.QueOneSentences.Where(obj =>
+
+                    (filter.Lang == "Guj" 
+                                    ? !string.IsNullOrEmpty(obj.Que_Guj)
+                                    : !string.IsNullOrEmpty(obj.Que_Eng) 
+                                    ) &&
+                    obj.BookId == filter.BookId &&
                    (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                     .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                     .Select(c => new QARecord
@@ -239,7 +270,12 @@ namespace WebApiService.Controllers
             var seq = 1;
             using (var context = new YogiApekshitContext())
             {
-                return context.QueReasons.Where(obj => obj.BookId == filter.BookId &&
+                return context.QueReasons.Where(obj =>
+                (filter.Lang == "Guj"
+                                    ? !string.IsNullOrEmpty(obj.Que_Guj)
+                                    : !string.IsNullOrEmpty(obj.Que_Eng)
+                                    ) && 
+                obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QARecord
@@ -258,7 +294,12 @@ namespace WebApiService.Controllers
             var seq = 1;
             using (var context = new YogiApekshitContext())
             {
-                return context.QueShloks.Where(obj => obj.BookId == filter.BookId &&
+                return context.QueShloks.Where(obj =>
+                (filter.Lang == "Guj"
+                                    ? !string.IsNullOrEmpty(obj.Que_Guj)
+                                    : !string.IsNullOrEmpty(obj.Que_Eng)
+                                    ) && 
+                obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QARecord
@@ -277,7 +318,12 @@ namespace WebApiService.Controllers
             var seq = 1;
             using (var context = new YogiApekshitContext())
             {
-                return context.QueShortNotes.Where(obj => obj.BookId == filter.BookId &&
+                return context.QueShortNotes.Where(obj =>
+                (filter.Lang == "Guj"
+                                    ? !string.IsNullOrEmpty(obj.Que_Guj)
+                                    : !string.IsNullOrEmpty(obj.Que_Eng)
+                                    ) && 
+                obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QARecord
@@ -296,7 +342,12 @@ namespace WebApiService.Controllers
             var seq = 1;
             using (var context = new YogiApekshitContext())
             {
-                return context.QueSwaminiVats.Where(obj => obj.BookId == filter.BookId &&
+                return context.QueSwaminiVats.Where(obj =>
+                (filter.Lang == "Guj"
+                                    ? !string.IsNullOrEmpty(obj.Que_Guj)
+                                    : !string.IsNullOrEmpty(obj.Que_Eng)
+                                    ) && 
+                obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                 .Select(c => new QARecord
@@ -315,7 +366,12 @@ namespace WebApiService.Controllers
             var seq = 1;
             using (var context = new YogiApekshitContext())
             {
-                var data = context.QueWhoWhomWhens.Where(obj => obj.BookId == filter.BookId &&
+                var data = context.QueWhoWhomWhens.Where(obj =>
+                            (filter.Lang == "Guj"
+                                    ? !string.IsNullOrEmpty(obj.Que_Guj)
+                                    : !string.IsNullOrEmpty(obj.Que_Eng)
+                                    ) && 
+                            obj.BookId == filter.BookId &&
                             (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                             .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
                             .Select(c => new QARecord
