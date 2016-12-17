@@ -128,6 +128,7 @@
     <TypeScriptCompile Include="app\app.component.spec.ts" />
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\button-radio.component.ts" />
     <TypeScriptCompile Include="app\shared.service.ts" />
     <TypeScriptCompile Include="app\navbar-left.component.ts" />
     <TypeScriptCompile Include="app\queans.component.ts" />

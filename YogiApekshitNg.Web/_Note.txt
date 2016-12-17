@@ -1,10 +1,9 @@
-﻿- Move Service to the same project
-- Menu: display icon
+﻿- QA: missing QAs
 - Menu: Keep selected
-- Mode Checkbox style
 - Menu : onclick don't scroll at top
+- Mode Checkbox style
+- Move Service to the same project
 
-- QA: missing QAs
 - Wait indicator
 - responsiveness
 - dashboard
