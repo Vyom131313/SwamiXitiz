@@ -25,7 +25,7 @@ import { SharedService } from './shared.service';
                             <td>{{qa.Sr}}</td>
                             <td>
                                 <div>
-                                    <b>{{qa.Que}}</b>
+                                    <div style='font-weight:bold' [innerHTML]="qa.Que"></div>
                                     <div *ngIf="!this.sharedService.IsTestMode" class="answer answer{{this.sharedService.Lang.value}}" [innerHTML]="qa.Ans"></div>
                                 </div>
                             </td>
