@@ -2,8 +2,9 @@
 - QA: Add new QAs
 - QA: table colors
 - QA Test mode : provide Show Ans button
-- Page Header and Logo
+- QA:  Validate all QAs
 
+- Page Header and Logo
 - Deployment
 - Menu: Keep selected
 - Menu : onclick don't scroll at top
@@ -11,5 +12,4 @@
 - Move Service to the same project
 
 - Wait indicator
-- responsiveness
 - dashboard
