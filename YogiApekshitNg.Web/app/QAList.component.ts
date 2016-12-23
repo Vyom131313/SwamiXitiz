@@ -26,7 +26,7 @@ import { SharedService } from './shared.service';
                                 <div style='float:left'>
                                     {{qa.Sr}}
                                 </div>                            
-                                <button type="button" style='float:right' *ngIf="this.sharedService.IsAssessmentMode" (click)="qa.ShowAns = !qa.ShowAns" class="btn btn-info btn-xs" >A</button>
+                                <button type="button" style='float:right' *ngIf="this.sharedService.IsAssessmentMode" (click)="qa.ShowAns = !qa.ShowAns" class="btn btn-info btn-xs" >{{this.sharedService.ShowAnsText}}</button>
                             </td>
                             <td>
                                 <div style='font-weight:bold' [innerHTML]="qa.Que"></div>

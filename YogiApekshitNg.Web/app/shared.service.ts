@@ -17,6 +17,7 @@ export class SharedService {
     public AnsColumnText: string = "Ans";
     public IsAssessmentMode: boolean = false;
     public SwitchModeText: string = "Self Assessment"
+    public ShowAnsText: string = "A";
 
     constructor() {
         //this.Lang = 'Eng';
@@ -31,10 +32,12 @@ export class SharedService {
         this.ChapterColumnText = newValue == "Eng" ? "Chapter" : "પ્રકરણ";
         this.BookColumnText = newValue == "Eng" ? "Book" : "પુસ્તક";
         this.AnsColumnText = newValue == "Eng" ? "Ans" : "જવાબ";
-        this.SetTestMode(this.IsAssessmentMode);
+        this.ShowAnsText = newValue == "Eng" ? "A" : "જ";
+
+        this.SetAssessmentMode(this.IsAssessmentMode);
     }
 
-    SetTestMode(isAssessmentMode: boolean) {
+    SetAssessmentMode(isAssessmentMode: boolean) {
         this.IsAssessmentMode = isAssessmentMode;
 
         if (this.IsAssessmentMode)
