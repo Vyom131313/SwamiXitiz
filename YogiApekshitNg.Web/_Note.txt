@@ -1,15 +1,18 @@
-﻿- QA: table colors
-- QA Test mode : provide Show Ans button
-- Move Service to the same project
-- QA: Add new QAs
-- QA:  Validate all QAs
+﻿- QA: table colors (0.5)
+- QA Test mode : provide Show Ans button  (0.5)
+- Move Service to the same project  (0.5)
+- QA: Add new QAs  (1)
+- QA:  Validate all QAs  (1)
 
-- Page Header and Logo
-- Deployment
-- Menu: Keep selected
-- Menu : onclick don't scroll at top
-- Mode Checkbox style
-- Wait indicator
-
+- Page Header and Logo  (1)
+- Deployment (1)
+----------------------------------
+- Wait indicator for menu and detail view  (1)
+- Menu: Keep selected  (1)
+- Menu : onclick don't scroll at top  (1)
+- QA: Collapase/Expand All QAs
 =========== Pravesh QAs =========== 
-- dashboard
+- Dashboard
+- QA: Guj QA
+- QA: New QA
+- Mode Checkbox style

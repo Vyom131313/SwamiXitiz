@@ -47,7 +47,7 @@ namespace WebApiService.Controllers
                 }
             }
 
-            Constants.Que_Categories category = (Constants.Que_Categories)Enum.Parse(typeof(Constants.Que_Categories), filter.Category);
+            var category = (Constants.Que_Categories)Enum.Parse(typeof(Constants.Que_Categories), filter.Category);
             switch (category)
             {
                 case Constants.Que_Categories.One_Sentence:
@@ -60,7 +60,7 @@ namespace WebApiService.Controllers
                     qa_vm.Color = "#418bca";
                     qaRecords = QA_CorrectSentence(filter); break;
                 case Constants.Que_Categories.Correct_Sequence:
-                    qa_vm.Color = "#3f4e62";
+                    qa_vm.Color = "#56b1bf";
                     qaRecords = QA_CorrectSequence(filter); break;
                 case Constants.Que_Categories.Fill_In_Blank:
                     qa_vm.Color = "#5cb85c";
@@ -71,29 +71,15 @@ namespace WebApiService.Controllers
                 case Constants.Que_Categories.Reason:
                     qa_vm.Color = "#d9534f";
                     qaRecords = QA_Reason(filter); break;
-                //case Constants.Que_Categories.Shlok:
-                //    qa_vm.Color = "#616f77";
-                //    qaRecords = QA_Shlok(filter); break;
                 case Constants.Que_Categories.Short_Note:
-                    qa_vm.Color = "#616f77";
+                    qa_vm.Color = "#afae8b";
                     qaRecords = QA_ShortNote(filter); break;
                 case Constants.Que_Categories.Swamini_Vaato:
                     qa_vm.Color = "#116f7d";
                     qaRecords = QA_SwaminiVat(filter); break;
                 case Constants.Que_Categories.Who_Whom_When:
-                    qa_vm.Color = "#2d3846";
-                    qaRecords = QA_WhoWhomWhen(filter); break;
-                //case Constants.Que_Categories.All:
-                //    var data = new List<QA_VM>();
-                //    foreach(var cat in Enum.GetValues(typeof(Constants.Que_Categories)))
-                //    {
-                //        if (cat.ToString() == "All")
-                //            continue;
-                //        filter.Category = cat.ToString();
-                //        data.AddRange(QA_List(filter));
-                //    }
-
-                //    return data;
+                    qa_vm.Color = "#d0aa90";
+                    qaRecords = QA_WhoWhomWhen(filter); break;                
                 default:
                     qaRecords = new List<QARecord>(); break;
             }
@@ -288,31 +274,7 @@ namespace WebApiService.Controllers
                 }).ToList();
             }
         }
-
-        //private List<QARecord> QA_Shlok(QA_Filter_Parameters filter)
-        //{
-        //    var seq = 1;
-        //    using (var context = new YogiApekshitContext())
-        //    {
-        //        return context.QueShloks.Where(obj =>
-        //        (filter.Lang == "Guj"
-        //                            ? !string.IsNullOrEmpty(obj.Que_Guj)
-        //                            : !string.IsNullOrEmpty(obj.Que_Eng)
-        //                            ) && 
-        //        obj.BookId == filter.BookId &&
-        //       (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
-        //        .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-        //        .Select(c => new QARecord
-        //        {
-        //            Sr = seq++,
-        //            Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
-        //            Ans = filter.Lang == "Guj" ? c.Ans_Guj : c.Ans_Eng,
-        //            Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
-        //            Exams = c.Exams,
-        //        }).ToList();
-        //    }
-        //}
-
+             
         private List<QARecord> QA_ShortNote(QA_Filter_Parameters filter)
         {
             var seq = 1;

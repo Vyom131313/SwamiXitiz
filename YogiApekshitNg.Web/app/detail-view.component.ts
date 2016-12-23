@@ -27,7 +27,6 @@ import { MenuItemService } from './menuItem.service';
                     <QAList [category]="'Correct_Sequence'" [qa_vm]="qa_vm_Correct_Sequence"></QAList>
                     <QAList [category]="'Kirtan'"           [qa_vm]="qa_vm_Kirtan"></QAList> 
                     <QAList [category]="'Reason'"           [qa_vm]="qa_vm_Reason"></QAList> 
-                    <QAList [category]="'Shlok'"            [qa_vm]="qa_vm_Shlok"></QAList> 
                     <QAList [category]="'Short_Note'"       [qa_vm]="qa_vm_Short_Note"></QAList>                   
                     <QAList [category]="'Swamini_Vaato'"    [qa_vm]="qa_vm_Swamini_Vaato"></QAList> 
                 </div>
