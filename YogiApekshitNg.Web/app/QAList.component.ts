@@ -26,11 +26,11 @@ import { SharedService } from './shared.service';
                                 <div style='float:left'>
                                     {{qa.Sr}}
                                 </div>                            
-                                <button type="button" style='float:right' *ngIf="this.sharedService.IsAssessmentMode" class="btn btn-info btn-xs" >A</button>
+                                <button type="button" style='float:right' *ngIf="this.sharedService.IsAssessmentMode" (click)="qa.ShowAns = !qa.ShowAns" class="btn btn-info btn-xs" >A</button>
                             </td>
                             <td>
                                 <div style='font-weight:bold' [innerHTML]="qa.Que"></div>
-                                <div [style.display]="this.sharedService.IsAssessmentMode ? 'none' : 'block' "  class="answer answer{{this.sharedService.Lang.value}}" [innerHTML]="qa.Ans"></div>
+                                <div [style.display]="this.sharedService.IsAssessmentMode && !qa.ShowAns ? 'none' : 'block' "  class="answer answer{{this.sharedService.Lang.value}}" [innerHTML]="qa.Ans"></div>
                             </td>
                             <td style='white-space:noWrap'>{{qa.Chapter}}</td>
                             <td style='white-space:noWrap'>{{qa.Exams}}</td>
