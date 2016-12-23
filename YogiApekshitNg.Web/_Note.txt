@@ -1,7 +1,7 @@
-﻿- QA: missing QAs
-- QA: Add new QAs
-- QA: table colors
+﻿- QA: table colors
 - QA Test mode : provide Show Ans button
+- Move Service to the same project
+- QA: Add new QAs
 - QA:  Validate all QAs
 
 - Page Header and Logo
@@ -9,7 +9,7 @@
 - Menu: Keep selected
 - Menu : onclick don't scroll at top
 - Mode Checkbox style
-- Move Service to the same project
-
 - Wait indicator
+
+=========== Pravesh QAs =========== 
 - dashboard

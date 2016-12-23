@@ -131,7 +131,7 @@
     <TypeScriptCompile Include="app\button-radio.component.ts" />
     <TypeScriptCompile Include="app\shared.service.ts" />
     <TypeScriptCompile Include="app\navbar-left.component.ts" />
-    <TypeScriptCompile Include="app\queans.component.ts" />
+    <TypeScriptCompile Include="app\QAList.component.ts" />
     <TypeScriptCompile Include="app\detail-view.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\Models.model.ts" />

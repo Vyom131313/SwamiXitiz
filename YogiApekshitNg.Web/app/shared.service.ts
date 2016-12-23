@@ -16,7 +16,7 @@ export class SharedService {
     public BookColumnText: string = "Book";
     public AnsColumnText: string = "Ans";
     public IsTestMode: boolean = false;
-    public SwitchModeText: string = "Self Test mode"
+    public SwitchModeText: string = "Self Assessment"
 
     constructor() {
         //this.Lang = 'Eng';
@@ -40,7 +40,7 @@ export class SharedService {
         if (this.IsTestMode)
             this.SwitchModeText = this.Lang.getValue() == "Eng" ? "Reading mode" : "વાંચન સ્થિતિ";
         else
-            this.SwitchModeText = this.Lang.getValue() == "Eng" ? "Self Test mode" : "સ્વ પરીક્ષણ સ્થિતિ";
+            this.SwitchModeText = this.Lang.getValue() == "Eng" ? "Self Assessment" : "સ્વ પરીક્ષણ સ્થિતિ";
     }
 
     GetQueAnsColumnText(category: string): string {

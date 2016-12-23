@@ -16,20 +16,20 @@ import { MenuItemService } from './menuItem.service';
                     {{menu.Name}} 
                 </h4>
                 <div style="margin-top:50px;" *ngIf="menu != null && menu != undefined && menu.Category !='All' ">
-                    <queans [category]='menu.Category' [qa_vm]="qa_vm"></queans>
+                    <QAList [category]='menu.Category' [qa_vm]="qa_vm"></QAList>
                 </div>
                 <div style="margin-top:50px;" *ngIf="menu != null && menu != undefined && menu.Category =='All'">
-                    <queans [category]="'Who_Whom_When'"    [qa_vm]="qa_vm_Who_Whom_When"></queans>
-                    <queans [category]="'Correct_Option'"   [qa_vm]="qa_vm_Correct_Option"></queans>
-                    <queans [category]="'Fill_In_Blank'"    [qa_vm]="qa_vm_Fill_In_Blank"></queans> 
-                    <queans [category]="'One_Sentence'"     [qa_vm]="qa_vm_One_Sentence"></queans> 
-                    <queans [category]="'Correct_Sentence'" [qa_vm]="qa_vm_Correct_Sentence"></queans>
-                    <queans [category]="'Correct_Sequence'" [qa_vm]="qa_vm_Correct_Sequence"></queans>
-                    <queans [category]="'Kirtan'"           [qa_vm]="qa_vm_Kirtan"></queans> 
-                    <queans [category]="'Reason'"           [qa_vm]="qa_vm_Reason"></queans> 
-                    <queans [category]="'Shlok'"            [qa_vm]="qa_vm_Shlok"></queans> 
-                    <queans [category]="'Short_Note'"       [qa_vm]="qa_vm_Short_Note"></queans>                   
-                    <queans [category]="'Swamini_Vaato'"    [qa_vm]="qa_vm_Swamini_Vaato"></queans> 
+                    <QAList [category]="'Who_Whom_When'"    [qa_vm]="qa_vm_Who_Whom_When"></QAList>
+                    <QAList [category]="'Correct_Option'"   [qa_vm]="qa_vm_Correct_Option"></QAList>
+                    <QAList [category]="'Fill_In_Blank'"    [qa_vm]="qa_vm_Fill_In_Blank"></QAList> 
+                    <QAList [category]="'One_Sentence'"     [qa_vm]="qa_vm_One_Sentence"></QAList> 
+                    <QAList [category]="'Correct_Sentence'" [qa_vm]="qa_vm_Correct_Sentence"></QAList>
+                    <QAList [category]="'Correct_Sequence'" [qa_vm]="qa_vm_Correct_Sequence"></QAList>
+                    <QAList [category]="'Kirtan'"           [qa_vm]="qa_vm_Kirtan"></QAList> 
+                    <QAList [category]="'Reason'"           [qa_vm]="qa_vm_Reason"></QAList> 
+                    <QAList [category]="'Shlok'"            [qa_vm]="qa_vm_Shlok"></QAList> 
+                    <QAList [category]="'Short_Note'"       [qa_vm]="qa_vm_Short_Note"></QAList>                   
+                    <QAList [category]="'Swamini_Vaato'"    [qa_vm]="qa_vm_Swamini_Vaato"></QAList> 
                 </div>
 
 <script>

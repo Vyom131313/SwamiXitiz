@@ -6,7 +6,7 @@ import { MenuItemService } from './menuItem.service';
 import { SharedService } from './shared.service';
 
 @Component({
-    selector: 'queans',
+    selector: 'QAList',
     template: ` 
         <div class="table-responsive" *ngIf="qa_vm != null && qa_vm != undefined && qa_vm.QARecords != null && qa_vm.QARecords != undefined && qa_vm.QARecords.length > 0">
                 <table class="table" [style.background-color]="qa_vm.Color">
@@ -36,7 +36,7 @@ import { SharedService } from './shared.service';
                 </table>
         </div>`
 })
-export class QueAnsComponent implements OnChanges {
+export class QAListComponent implements OnChanges {
     @Input() qa_vm: Array<QA_VM>;
     @Input() category: string;
 
