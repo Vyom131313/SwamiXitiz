@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web.Http;
 
-namespace WebApiService.Controllers
+namespace YogiApekshitNg.Web.Controllers
 {
     public class MenuItem
     {

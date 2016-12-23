@@ -1,5 +1,4 @@
-﻿- Move Service to the same project  (0.5)
-- QA: Add new QAs  (1)
+﻿- QA: Add new QAs  (1)
 - Page Header and Logo  (1)
 - Deployment (1)
 

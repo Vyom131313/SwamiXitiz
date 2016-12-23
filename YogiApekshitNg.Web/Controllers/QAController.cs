@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace WebApiService.Controllers
+namespace YogiApekshitNg.Web.Controllers
 {
     public class QAController : ApiController
     {
