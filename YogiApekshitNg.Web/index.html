@@ -1,21 +1,31 @@
-﻿<html lang="en">
+﻿<!DOCTYPE html>
+<html style="height: 496px;">
 <head>
     <meta charset="utf-8">
-    <meta name="robots" content="noindex">
-
-    <title>Fancy Sidebar Navigation - Bootsnipp.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <title>Yogi Apekshit</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--<link href="Assets/css/bootstrap.min.css" rel="stylesheet" />-->
     <style type="text/css">
         body {
             position: relative;
             overflow-x: hidden;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            /*font-family: Georgia, serif;*/
+            /*font-family: "Lato", "Arial", sans-serif;*/
+            font-style: normal;
+            font-size: 14px;
+            font-weight: bold;
         }
 
         body,
         html {
             height: 100%;
         }
+
+        @charset "UTF-8";
+        @import url(http://fonts.googleapis.com/css?family=Dosis:300,700|Ubuntu+Mono|Lato:300,400,700,300italic,400italic&subset=latin,latin-ext);
 
         .nav .open > a,
         .nav .open > a:hover,
@@ -36,15 +46,15 @@
         }
 
             #wrapper.toggled {
-                padding-left: 220px;
+                padding-left: 300px;
             }
 
         #sidebar-wrapper {
             z-index: 1000;
-            left: 220px;
+            left: 300px;
             width: 0;
             height: 100%;
-            margin-left: -220px;
+            margin-left: -300px;
             overflow-y: auto;
             overflow-x: hidden;
             background: #1a1a1a;
@@ -59,17 +69,16 @@
             }
 
         #wrapper.toggled #sidebar-wrapper {
-            width: 220px;
+            width: 300px;
         }
 
         #page-content-wrapper {
             width: 100%;
-            padding-top: 70px;
         }
 
         #wrapper.toggled #page-content-wrapper {
             position: absolute;
-            margin-right: -220px;
+            margin-right: -300px;
         }
 
         /*-------------------------------*/
@@ -79,7 +88,7 @@
         .sidebar-nav {
             position: absolute;
             top: 0;
-            width: 220px;
+            width: 300px;
             margin: 0;
             padding: 0;
             list-style: none;
@@ -108,12 +117,11 @@
                 }
 
                 .sidebar-nav li:first-child a {
-                    color: #fff;
-                    background-color: #1a1a1a;
+                    background-color: #ec1b5a;
                 }
 
                 .sidebar-nav li:nth-child(2):before {
-                    background-color: #ec1b5a;
+                    background-color: #35acdf;
                 }
 
                 .sidebar-nav li:nth-child(3):before {
@@ -157,7 +165,8 @@
                     display: block;
                     color: #ddd;
                     text-decoration: none;
-                    padding: 10px 15px 10px 30px;
+                    padding: 10px 5px 10px 30px;
+                    white-space: nowrap;
                 }
 
                     .sidebar-nav li a:hover,
@@ -194,13 +203,18 @@
 
         .hamburger {
             position: fixed;
-            top: 20px;
+            top: -3px;
+            left: 15px;
             z-index: 999;
             display: block;
-            width: 32px;
-            height: 32px;
-            margin-left: 15px;
-            background: transparent;
+            padding-left: 7px;
+            width: 35px;
+            height: 30px;
+            /*
+            padding-top:9px;
+
+            */
+            background: black;
             border: none;
         }
 
@@ -335,195 +349,128 @@
             background-color: rgba(250,250,250,.8);
             z-index: 1;
         }
-    </style>
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        window.alert = function(){};
-        var defaultCSS = document.getElementById('bootstrap-css');
-        function changeCSS(css){
-            if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />');
-            else $('head > link').filter(':first').replaceWith(defaultCSS);
+
+        /* Override */
+        /*.dropdown {
+            font-size: 12px;
         }
-        $( document ).ready(function() {
-          var iframe_height = parseInt($('html').height());
-          window.parent.postMessage( iframe_height, 'http://bootsnipp.com');
-        });
+
+        .dropdown-menu {
+            font-size: 10px;
+        }
+        */
+
+        /* Zebra striping */
+
+        .table th {
+            font-weight: bold;
+        }
+
+        .table td, th {
+            padding: 6px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        .table {
+            box-shadow: 3px 3px 2px #ccc;
+            transition: 0.5s;
+            color: white;
+            margin-bottom: 10px;
+            text-rendering: optimizeLegibility !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+            -ms-overflow-style: scrollbar;
+            background-color: #e7eaeb;
+        }
+        /* Icon when the collapsible content is shown */
+        .btnTableCollapse:after {
+            font-family: "Glyphicons Halflings";
+            content: "\e114";
+            background-color: transparent;
+            font-style: normal;
+            color: white;
+        }
+
+        .btnTableCollapse:hover {
+            cursor: pointer;
+        }
+
+        .btnTableCollapse.collapsed:after {
+            content: "\e080";
+        }
+
+        .QAListTitle {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            margin-top: 0px;
+            background-color: #ec1b5a;
+            padding: 12px 5px 12px 50px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .answer {
+            color: black;
+        }
+
+        .answerEng {
+            font-weight: bold;
+        }
+    </style>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <!--<script src="Assets/scripts/bootstrap.min.js"></script>
+    <script src="Assets/scripts/jquery-1.10.2.min.js"></script>-->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+
+    <script>
+        System.import('app').catch(function (err) { console.error(err); });
     </script>
 </head>
-<body>
-    <div id="wrapper" class="toggled">
-        <div class="overlay" style="display: block;"></div>
+<body style="height: 496px;">
+    <!-- Based on http://bootsnipp.com/snippets/featured/responsive-sidebar-menu -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-        <!-- Sidebar -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-            <ul class="nav sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Brand
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">Team</a>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Works <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li class="dropdown-header">Dropdown heading</li>
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/maridlcrmn">Follow me</a>
-                </li>
-            </ul>
-        </nav>
-        <!-- /#sidebar-wrapper -->
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <button type="button" class="hamburger is-open" data-toggle="offcanvas">
-                <span class="hamb-top"></span>
-                <span class="hamb-middle"></span>
-                <span class="hamb-bottom"></span>
-            </button>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <h1>Fancy Toggle Sidebar Navigation</h1>
-
-                        <table class="table table-condensed" style="border-collapse:collapse;">
-                            <thead>
-                                <tr>
-                                    <th> </th>
-                                    <th>Job Name</th>
-                                    <th>Description</th>
-                                    <th>Provider Name</th>
-                                    <th>Region</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
-                                    <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
-                                    <td>OBS Name</td>
-                                    <td>OBS Description</td>
-                                    <td>hpcloud</td>
-                                    <td>nova</td>
-                                    <td> created</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="12" class="hiddenRow">
-                                        <div class="accordian-body collapse" id="demo1">
-                                            <table class="table table-striped">
-                                                <thead>
-                                                    <tr><td><a href="WorkloadURL">Workload link</a></td><td>Bandwidth: Dandwidth Details</td><td>OBS Endpoint: end point</td></tr>
-                                                    <tr><th>Access Key</th><th>Secret Key</th><th>Status </th><th> Created</th><th> Expires</th><th>Actions</th></tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>access-key-1</td>
-                                                        <td>secretKey-1</td>
-                                                        <td>Status</td>
-                                                        <td>some date</td>
-                                                        <td>some date</td>
-                                                        <td>
-                                                            <a href="#" class="btn btn-default btn-sm">
-                                                                <i class="glyphicon glyphicon-cog"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-
-
-
-                                                </tbody>
-                                            </table>
-
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
-                                    <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
-                                    <td>OBS Name</td>
-                                    <td>OBS Description</td>
-                                    <td>hpcloud</td>
-                                    <td>nova</td>
-                                    <td> created</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6" class="hiddenRow"><div id="demo2" class="accordian-body collapse">Demo2</div></td>
-                                </tr>
-                                <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
-                                    <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
-                                    <td>OBS Name</td>
-                                    <td>OBS Description</td>
-                                    <td>hpcloud</td>
-                                    <td>nova</td>
-                                    <td> created</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6" class="hiddenRow"><div id="demo3" class="accordian-body collapse">Demo3</div></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-            
-                </div>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
+    <my-app>Loading...</my-app>
     <script type="text/javascript">
-	$(document).ready(function () {
-  var trigger = $('.hamburger'),
-      overlay = $('.overlay'),
-     isClosed = false;
+        $(document).ready(function () {
+            var trigger = $('.hamburger'),
+                overlay = $('.overlay'),
+               isClosed = false;
 
-    trigger.click(function () {
-      hamburger_cross();
-    });
+            trigger.click(function () {
+                hamburger_cross();
+            });
 
-    function hamburger_cross() {
+            function hamburger_cross() {
 
-      if (isClosed == true) {
-        overlay.hide();
-        trigger.removeClass('is-open');
-        trigger.addClass('is-closed');
-        isClosed = false;
-      } else {
-        overlay.show();
-        trigger.removeClass('is-closed');
-        trigger.addClass('is-open');
-        isClosed = true;
-      }
-  }
+                if (isClosed == true) {
+                    overlay.hide();
+                    trigger.removeClass('is-open');
+                    trigger.addClass('is-closed');
+                    isClosed = false;
+                } else {
+                    overlay.show();
+                    trigger.removeClass('is-closed');
+                    trigger.addClass('is-open');
+                    isClosed = true;
+                }
+            }
 
-  $('[data-toggle="offcanvas"]').click(function () {
-        $('#wrapper').toggleClass('toggled');
-  });
-});
+            $('[data-toggle="offcanvas"]').click(function () {
+                $('#wrapper').toggleClass('toggled');
+            });
+        });
     </script>
-
 
 </body>
 </html>
