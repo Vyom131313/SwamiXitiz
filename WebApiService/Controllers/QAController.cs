@@ -71,9 +71,9 @@ namespace WebApiService.Controllers
                 case Constants.Que_Categories.Reason:
                     qa_vm.Color = "#d9534f";
                     qaRecords = QA_Reason(filter); break;
-                case Constants.Que_Categories.Shlok:
-                    qa_vm.Color = "#616f77";
-                    qaRecords = QA_Shlok(filter); break;
+                //case Constants.Que_Categories.Shlok:
+                //    qa_vm.Color = "#616f77";
+                //    qaRecords = QA_Shlok(filter); break;
                 case Constants.Que_Categories.Short_Note:
                     qa_vm.Color = "#616f77";
                     qaRecords = QA_ShortNote(filter); break;
@@ -289,29 +289,29 @@ namespace WebApiService.Controllers
             }
         }
 
-        private List<QARecord> QA_Shlok(QA_Filter_Parameters filter)
-        {
-            var seq = 1;
-            using (var context = new YogiApekshitContext())
-            {
-                return context.QueShloks.Where(obj =>
-                (filter.Lang == "Guj"
-                                    ? !string.IsNullOrEmpty(obj.Que_Guj)
-                                    : !string.IsNullOrEmpty(obj.Que_Eng)
-                                    ) && 
-                obj.BookId == filter.BookId &&
-               (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
-                .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
-                .Select(c => new QARecord
-                {
-                    Sr = seq++,
-                    Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
-                    Ans = filter.Lang == "Guj" ? c.Ans_Guj : c.Ans_Eng,
-                    Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
-                    Exams = c.Exams,
-                }).ToList();
-            }
-        }
+        //private List<QARecord> QA_Shlok(QA_Filter_Parameters filter)
+        //{
+        //    var seq = 1;
+        //    using (var context = new YogiApekshitContext())
+        //    {
+        //        return context.QueShloks.Where(obj =>
+        //        (filter.Lang == "Guj"
+        //                            ? !string.IsNullOrEmpty(obj.Que_Guj)
+        //                            : !string.IsNullOrEmpty(obj.Que_Eng)
+        //                            ) && 
+        //        obj.BookId == filter.BookId &&
+        //       (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
+        //        .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
+        //        .Select(c => new QARecord
+        //        {
+        //            Sr = seq++,
+        //            Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
+        //            Ans = filter.Lang == "Guj" ? c.Ans_Guj : c.Ans_Eng,
+        //            Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
+        //            Exams = c.Exams,
+        //        }).ToList();
+        //    }
+        //}
 
         private List<QARecord> QA_ShortNote(QA_Filter_Parameters filter)
         {

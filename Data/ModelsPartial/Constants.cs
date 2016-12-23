@@ -58,8 +58,8 @@ namespace SwamiXitiz.Data.ModelsPartial
             [Description("કારણો")]
             Reason,
 
-            [Description("શ્લોક")]
-            Shlok,
+            //[Description("શ્લોક")]
+            //Shlok,
 
             [Description("ટૂંકી_નોંધ")]
             Short_Note,
