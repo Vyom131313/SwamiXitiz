@@ -15,17 +15,7 @@ export class QARecord {
     Sr: number;
     Que: string;
     Ans: string;
-    Chapter: string;
-    Exams: string;
-}
-
-export class QA_WWW {
-    Id: number;
-    Sr: number;
-    Que: string;
-    Who: string;
-    Whom: string;
-    When: string;
+    ShowAns: boolean;
     Chapter: string;
     Exams: string;
 }

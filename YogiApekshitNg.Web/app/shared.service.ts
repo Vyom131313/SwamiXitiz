@@ -53,7 +53,6 @@ export class SharedService {
             case 'Correct_Sequence': return this.Lang.value == 'Guj' ? 'સાચા ક્રમ નંબર અને ઘટના ક્રમ પ્રમાણે ગોઠવો.' : 'Correct the Sentence of incident'
             case 'Kirtan': return this.Lang.value == 'Guj' ? 'કીર્તન / શ્લોક / અષ્ટક ની ખૂટતી કડીઓ પુરી કરો.' : 'Complete the Kirtan'
             case 'Reason': return this.Lang.value == 'Guj' ? 'વાક્યોના કારણો જણાવો.' : 'Give Reasons'
-            case 'Shlok': return this.Lang.value == 'Guj' ? 'કીર્તન / શ્લોક / અષ્ટક ની ખૂટતી કડીઓ પુરી કરો.' : 'Complete the Shloks'
             case 'Short_Note': return this.Lang.value == 'Guj' ? 'ટૂંક નોંધ લખો.' : 'Write a short note'
             case 'Swamini_Vaato': return this.Lang.value == 'Guj' ? 'સ્વામીની વાત પુરી કરી તેનું નિરુપણ કરો.' : 'Complete Swamini Vaato'
             case 'Who_Whom_When': return this.Lang.value == 'Guj' ? 'કોણ, કોને, ક્યારે કહે છે.' : 'Speaking: Who, Whom, When'

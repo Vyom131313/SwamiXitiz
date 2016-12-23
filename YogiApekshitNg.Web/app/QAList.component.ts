@@ -12,7 +12,7 @@ import { SharedService } from './shared.service';
                 <table class="table" [style.background-color]="qa_vm.Color">
                     <thead>
                         <tr>
-                            <th width="10px">
+                            <th width="50px">
                                 <a class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbody{{this.category}}" aria-expanded="true"></a>
                             </th>
                             <th>{{QueAnsColumnText}}</th>
@@ -22,12 +22,15 @@ import { SharedService } from './shared.service';
                     </thead>
                     <tbody id="tbody{{this.category}}" class="collapse in">
                         <tr *ngFor="let qa of qa_vm.QARecords"> 
-                            <td>{{qa.Sr}}</td>
+                            <td style='white-space:nowrap' align='center'>
+                                <div style='float:left'>
+                                    {{qa.Sr}}
+                                </div>                            
+                                <button type="button" style='float:right' *ngIf="this.sharedService.IsAssessmentMode" class="btn btn-info btn-xs" >A</button>
+                            </td>
                             <td>
-                                <div>
-                                    <div style='font-weight:bold' [innerHTML]="qa.Que"></div>
-                                    <div *ngIf="!this.sharedService.IsAssessmentMode" class="answer answer{{this.sharedService.Lang.value}}" [innerHTML]="qa.Ans"></div>
-                                </div>
+                                <div style='font-weight:bold' [innerHTML]="qa.Que"></div>
+                                <div [style.display]="this.sharedService.IsAssessmentMode ? 'none' : 'block' "  class="answer answer{{this.sharedService.Lang.value}}" [innerHTML]="qa.Ans"></div>
                             </td>
                             <td style='white-space:noWrap'>{{qa.Chapter}}</td>
                             <td style='white-space:noWrap'>{{qa.Exams}}</td>

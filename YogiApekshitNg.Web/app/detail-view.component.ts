@@ -65,7 +65,6 @@ export class DetailViewComponent implements OnChanges {
     qa_vm_Correct_Sequence: Array<QARecord>;
     qa_vm_Kirtan: Array<QARecord>;
     qa_vm_Reason: Array<QARecord>;
-    qa_vm_Shlok: Array<QARecord>;
     qa_vm_Short_Note: Array<QARecord>;
     qa_vm_Swamini_Vaato: Array<QARecord>;
 
@@ -87,7 +86,6 @@ export class DetailViewComponent implements OnChanges {
                 this.menuItemService.getQA(this.menu.BookId, this.menu.ChapterNumber, "Correct_Sequence").then(result => { this.qa_vm_Correct_Sequence = result; });
                 this.menuItemService.getQA(this.menu.BookId, this.menu.ChapterNumber, "Kirtan").then(result => { this.qa_vm_Kirtan = result; });
                 this.menuItemService.getQA(this.menu.BookId, this.menu.ChapterNumber, "Reason").then(result => { this.qa_vm_Reason = result; });
-                this.menuItemService.getQA(this.menu.BookId, this.menu.ChapterNumber, "Shlok").then(result => { this.qa_vm_Shlok = result; });
                 this.menuItemService.getQA(this.menu.BookId, this.menu.ChapterNumber, "Short_Note").then(result => { this.qa_vm_Short_Note = result; });
                 this.menuItemService.getQA(this.menu.BookId, this.menu.ChapterNumber, "Swamini_Vaato").then(result => { this.qa_vm_Swamini_Vaato = result; });
             }
