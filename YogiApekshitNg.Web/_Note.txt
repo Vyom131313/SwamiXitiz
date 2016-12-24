@@ -1,4 +1,6 @@
 ﻿- QA: Add new QAs  (1)
+	- Kishore Prarambh
+	- Yogiji Maharaj
 - Page Header and Logo  (1)
 - Deployment (1)
 
