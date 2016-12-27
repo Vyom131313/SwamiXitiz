@@ -12,7 +12,7 @@ import { SharedService } from './shared.service';
                 <table class="table" [style.background-color]="qa_vm.Color">
                     <thead>
                         <tr>
-                            <th width="50px">
+                            <th width="{{this.sharedService.SrColumnWidth}}">
                                 <a class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbody{{this.category}}" aria-expanded="true"></a>
                             </th>
                             <th>{{QueAnsColumnText}}</th>

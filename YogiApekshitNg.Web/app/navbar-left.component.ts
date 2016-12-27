@@ -36,7 +36,7 @@ import { SharedService } from './shared.service';
                             </tr>
                         </div>
                         <div>
-                            <button class="btn btn-info btn-xs" style="margin-left:25px;font-size:13px" (click)="this.sharedService.SetAssessmentMode(!this.sharedService.IsAssessmentMode)">{{this.sharedService.SwitchModeText}}</button>
+                            <button class="btn btn-info btn-xs" style="margin-left:25px;font-size:13px" (click)="this.sharedService.SetAssessmentMode(!this.sharedService.IsAssessmentMode);">{{this.sharedService.SwitchModeText}}</button>
                         </div>                  
                     </a>
                 </li>
