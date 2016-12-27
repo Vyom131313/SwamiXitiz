@@ -8,7 +8,7 @@ import { SharedService } from './shared.service';
 @Component({
     selector: 'QAList',
     template: ` 
-        <div class="table-responsive" *ngIf="qa_vm != null && qa_vm != undefined && qa_vm.QARecords != null && qa_vm.QARecords != undefined && qa_vm.QARecords.length > 0">
+        <div *ngIf="qa_vm != null && qa_vm != undefined && qa_vm.QARecords != null && qa_vm.QARecords != undefined && qa_vm.QARecords.length > 0">
                 <table class="table" [style.background-color]="qa_vm.Color">
                     <thead>
                         <tr>

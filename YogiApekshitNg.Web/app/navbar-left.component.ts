@@ -63,7 +63,7 @@ import { SharedService } from './shared.service';
         <div id="page-content-wrapper">
             <div class="container-fluid" style="padding-left:10px;">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 col-md-10 col-sm-9">
                         <detail-view [menu]="selectedMenu"></detail-view>
                     </div>
                 </div>
