@@ -71,7 +71,7 @@ export class DetailViewComponent implements OnChanges {
     constructor(private menuItemService: MenuItemService, private sharedService: SharedService) { }
 
     ngOnChanges(changes: SimpleChanges) {
-        console.log(changes);
+        //console.log(changes);
         this.getData();
     }
 
