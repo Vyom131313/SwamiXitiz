@@ -1,4 +1,7 @@
-﻿- QA: Add new QAs  (1)
+﻿- Rename domain name
+- QA: Table content wrap
+- QA: Next chapter button
+- QA: Add new QAs  (1)
 	- Kishore Prarambh
 	- Yogiji Maharaj
 - Page Header and Logo  (1)
