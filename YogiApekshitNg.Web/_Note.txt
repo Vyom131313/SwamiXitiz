@@ -1,6 +1,7 @@
 ﻿- Rename domain name
 - QA: Table content wrap
 - QA: Next chapter button
+- QA: Caching
 - QA: Add new QAs  (1)
 	- Kishore Prarambh
 	- Yogiji Maharaj

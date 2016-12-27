@@ -294,7 +294,7 @@ namespace YogiApekshitNg.Web.Controllers
                     Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
                     Ans = filter.Lang == "Guj" ? c.Ans_Guj : c.Ans_Eng,
                     Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
-                    Exams = c.Exams,
+                    Exams = c.Exams.Replace("|","<br/>"),
                 }).ToList();
             }
         }
