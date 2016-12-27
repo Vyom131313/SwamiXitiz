@@ -12,7 +12,7 @@ import { SharedService } from './shared.service';
                 <table class="table" [style.background-color]="qa_vm.Color">
                     <thead>
                         <tr>
-                            <th width="{{this.sharedService.SrColumnWidth}}">
+                            <th width="30px;">
                                 <a class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbody{{this.category}}" aria-expanded="true"></a>
                             </th>
                             <th>{{QueAnsColumnText}}</th>
@@ -20,11 +20,11 @@ import { SharedService } from './shared.service';
                     </thead>
                     <tbody id="tbody{{this.category}}" class="collapse in">
                         <tr *ngFor="let qa of qa_vm.QARecords"> 
-                            <td style='white-space:nowrap' align='center'>
-                                <div style='float:left'>
+                            <td style='white-space:nowrap;' align='center'>
+                                <div style='text-align:center'>
                                     {{qa.Sr}}
                                 </div>                            
-                                <button type="button" style='float:right' *ngIf="this.sharedService.IsAssessmentMode" (click)="qa.ShowAns = !qa.ShowAns" class="btn btn-info btn-xs" >{{this.sharedService.ShowAnsText}}</button>
+                                <button type="button" style='float:left;' *ngIf="this.sharedService.IsAssessmentMode" (click)="qa.ShowAns = !qa.ShowAns" class="btn btn-info btn-xs" >{{this.sharedService.ShowAnsText}}</button>
                             </td>
                             <td>
                                 <div style='font-weight:bold' [innerHTML]="qa.Que"></div>

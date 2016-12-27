@@ -18,7 +18,6 @@ export class SharedService {
     public IsAssessmentMode: boolean = false;
     public SwitchModeText: string = "Self Assessment"
     public ShowAnsText: string = "A";
-    public SrColumnWidth: string ="30px";
 
     constructor() {
         //this.Lang = 'Eng';
@@ -43,11 +42,9 @@ export class SharedService {
 
         if (this.IsAssessmentMode) {
             this.SwitchModeText = this.Lang.getValue() == "Eng" ? "Reading mode" : "વાંચન સ્થિતિ";
-            this.SrColumnWidth = "60px";
         }
         else {
             this.SwitchModeText = this.Lang.getValue() == "Eng" ? "Self Assessment" : "સ્વ પરીક્ષણ સ્થિતિ";
-            this.SrColumnWidth = "30px";
         }
     }
 
