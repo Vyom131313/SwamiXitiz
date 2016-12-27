@@ -20,6 +20,11 @@ namespace YogiApekshitNg.Web.Controllers
         public HttpResponseMessage GetQA(string lang, string category, int bookId, int chapterNumber = 0)
         {
             var data = QA_List(new QA_Filter_Parameters { Lang = lang, BookId = bookId, Category = category, ChapterNumber = chapterNumber });
+            data.QARecords.ToList().ForEach(c =>
+            {
+                if (!string.IsNullOrEmpty(c.Exams))
+                    c.Que = string.Format("{0} ({1})",c.Que , c.Exams);
+            });
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
 
@@ -79,7 +84,7 @@ namespace YogiApekshitNg.Web.Controllers
                     qaRecords = QA_SwaminiVat(filter); break;
                 case Constants.Que_Categories.Who_Whom_When:
                     qa_vm.Color = "#d0aa90";
-                    qaRecords = QA_WhoWhomWhen(filter); break;                
+                    qaRecords = QA_WhoWhomWhen(filter); break;
                 default:
                     qaRecords = new List<QARecord>(); break;
             }
@@ -154,7 +159,7 @@ namespace YogiApekshitNg.Web.Controllers
                 (filter.Lang == "Guj"
                                     ? !string.IsNullOrEmpty(obj.Title_Guj)
                                     : !string.IsNullOrEmpty(obj.Title_Eng)
-                                    ) && 
+                                    ) &&
                 obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
@@ -207,7 +212,7 @@ namespace YogiApekshitNg.Web.Controllers
                 (filter.Lang == "Guj"
                                     ? !string.IsNullOrEmpty(obj.Que_Guj)
                                     : !string.IsNullOrEmpty(obj.Que_Eng)
-                                    ) && 
+                                    ) &&
                 obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
@@ -233,9 +238,9 @@ namespace YogiApekshitNg.Web.Controllers
             {
                 return context.QueOneSentences.Where(obj =>
 
-                    (filter.Lang == "Guj" 
+                    (filter.Lang == "Guj"
                                     ? !string.IsNullOrEmpty(obj.Que_Guj)
-                                    : !string.IsNullOrEmpty(obj.Que_Eng) 
+                                    : !string.IsNullOrEmpty(obj.Que_Eng)
                                     ) &&
                     obj.BookId == filter.BookId &&
                    (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
@@ -260,7 +265,7 @@ namespace YogiApekshitNg.Web.Controllers
                 (filter.Lang == "Guj"
                                     ? !string.IsNullOrEmpty(obj.Que_Guj)
                                     : !string.IsNullOrEmpty(obj.Que_Eng)
-                                    ) && 
+                                    ) &&
                 obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
@@ -274,7 +279,7 @@ namespace YogiApekshitNg.Web.Controllers
                 }).ToList();
             }
         }
-             
+
         private List<QARecord> QA_ShortNote(QA_Filter_Parameters filter)
         {
             var seq = 1;
@@ -284,7 +289,7 @@ namespace YogiApekshitNg.Web.Controllers
                 (filter.Lang == "Guj"
                                     ? !string.IsNullOrEmpty(obj.Que_Guj)
                                     : !string.IsNullOrEmpty(obj.Que_Eng)
-                                    ) && 
+                                    ) &&
                 obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
@@ -294,7 +299,7 @@ namespace YogiApekshitNg.Web.Controllers
                     Que = filter.Lang == "Guj" ? c.Que_Guj : c.Que_Eng,
                     Ans = filter.Lang == "Guj" ? c.Ans_Guj : c.Ans_Eng,
                     Chapter = string.Format("{0}/{1}", filter.Lang == "Guj" ? c.Book.Code_Guj : c.Book.Code_Eng, c.ChapterNumber),
-                    Exams = c.Exams.Replace("|","<br/>"),
+                    Exams = c.Exams,
                 }).ToList();
             }
         }
@@ -308,7 +313,7 @@ namespace YogiApekshitNg.Web.Controllers
                 (filter.Lang == "Guj"
                                     ? !string.IsNullOrEmpty(obj.Que_Guj)
                                     : !string.IsNullOrEmpty(obj.Que_Eng)
-                                    ) && 
+                                    ) &&
                 obj.BookId == filter.BookId &&
                (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                 .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()
@@ -332,7 +337,7 @@ namespace YogiApekshitNg.Web.Controllers
                             (filter.Lang == "Guj"
                                     ? !string.IsNullOrEmpty(obj.Que_Guj)
                                     : !string.IsNullOrEmpty(obj.Que_Eng)
-                                    ) && 
+                                    ) &&
                             obj.BookId == filter.BookId &&
                             (filter.ChapterNumber == 0 || obj.ChapterNumber == filter.ChapterNumber))
                             .OrderBy(obj => obj.BookId).ThenBy(obj => obj.ChapterNumber).ToList()

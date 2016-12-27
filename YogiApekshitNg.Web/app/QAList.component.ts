@@ -16,8 +16,6 @@ import { SharedService } from './shared.service';
                                 <a class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbody{{this.category}}" aria-expanded="true"></a>
                             </th>
                             <th>{{QueAnsColumnText}}</th>
-                            <th width="10px">{{ChapterColumnText}}</th>
-                            <th width="10px">{{ExamsColumnText}}</th>
                         </tr>
                     </thead>
                     <tbody id="tbody{{this.category}}" class="collapse in">
@@ -32,8 +30,6 @@ import { SharedService } from './shared.service';
                                 <div style='font-weight:bold' [innerHTML]="qa.Que"></div>
                                 <div [style.display]="this.sharedService.IsAssessmentMode && !qa.ShowAns ? 'none' : 'block' "  class="answer answer{{this.sharedService.Lang.value}}" [innerHTML]="qa.Ans"></div>
                             </td>
-                            <td style='white-space:noWrap'>{{qa.Chapter}}</td>
-                            <td style='white-space:noWrap'>{{qa.Exams}}</td>
                         </tr>
                     </tbody>
                 </table>
