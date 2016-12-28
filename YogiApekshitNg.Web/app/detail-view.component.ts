@@ -8,11 +8,14 @@ import { MenuItemService } from './menuItem.service';
 @Component({
     selector: 'detail-view',
     template: ` 
+
                 <h4 *ngIf="menu != null && menu != undefined && menu.Category =='All' " class='QAListTitle'>
+                    <img src="{{menu.IConUrl}}" width='40px' height='40px' style='padding:0px;' />                   
                     {{this.sharedService.ChapterColumnText}} 
                     {{menu.Name}} 
                 </h4>
                 <h4 *ngIf="menu != null && menu != undefined && menu.Category !='All' " class='QAListTitle'>
+                    <img src="{{menu.IConUrl}}" width='40px' height='40px' style='padding:0px;' />                   
                     {{menu.Name}} 
                 </h4>
                 <div style="margin-top:50px;" *ngIf="menu != null && menu != undefined && menu.Category !='All' ">

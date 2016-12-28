@@ -7,6 +7,7 @@ export class MenuItem{
     BookId: number;
     ChapterNumber: number;
     Category: string;
+    IConUrl: string;
     MenuItems: Array<MenuItem>;
 }
 
