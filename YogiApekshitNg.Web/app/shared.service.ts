@@ -8,16 +8,16 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class SharedService {
-    public Lang: BehaviorSubject<string> = new BehaviorSubject<string>("Eng");
-    public TitleText: string = "Yogi<b> Apekshit</b>";
-    public SelectLangText: string = "Language";
-    public ChapterColumnText: string = "Chapter";
-    public ExamsColumnText: string = "Exams";
-    public BookColumnText: string = "Book";
-    public AnsColumnText: string = "Ans";
+    public Lang: BehaviorSubject<string> = new BehaviorSubject<string>("Guj");
+    public TitleText: string = "યોગી<b> અપેક્ષિત</b>";
+    public SelectLangText: string = "ભાષા";
+    public ChapterColumnText: string = "પ્રકરણ";
+    public ExamsColumnText: string = "પરીક્ષા";
+    public BookColumnText: string = "પુસ્તક";
+    public AnsColumnText: string = "જવાબ";
     public IsAssessmentMode: boolean = false;
-    public SwitchModeText: string = "Self Assessment"
-    public ShowAnsText: string = "A";
+    public SwitchModeText: string = "સ્વ પરીક્ષણ સ્થિતિ"
+    public ShowAnsText: string = "જ";
 
     constructor() {
         //this.Lang = 'Eng';
