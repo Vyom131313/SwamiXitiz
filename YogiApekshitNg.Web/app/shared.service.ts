@@ -27,7 +27,7 @@ export class SharedService {
         this.Lang = new BehaviorSubject<string>(newValue);
         this.TitleText = this.Lang.getValue() == "Eng" ? "Yogi<b> Apekshit</b>" : "યોગી<b> અપેક્ષિત</b>";
 
-        this.SelectLangText = newValue == "Eng" ? "Language" : "ભાષા";
+        this.SelectLangText = newValue == "Eng" ? "Lang" : "ભાષા";
         this.ExamsColumnText = newValue == "Eng" ? "Exams" : "પરીક્ષા";
         this.ChapterColumnText = newValue == "Eng" ? "Chapter" : "પ્રકરણ";
         this.BookColumnText = newValue == "Eng" ? "Book" : "પુસ્તક";

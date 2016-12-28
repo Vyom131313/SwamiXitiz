@@ -32,6 +32,7 @@ import { SharedService } from './shared.service';
                                 <td align='right'>
                                     <button type="button" class="btn btn-info btn-xs" (click)="ChangeLanguage('Eng', $event)" >E</button>
                                     <button type="button" class="btn btn-info btn-xs" (click)="ChangeLanguage('Guj', $event)" >G</button>
+                                    <button type="button" class="btn btn-success btn-xs" style='margin-left:15px' title="Feedback"  (click)="SendFeedback($event)" >F</button>
                                 </td>
                             </tr>
                         </div>
@@ -70,7 +71,8 @@ import { SharedService } from './shared.service';
             </div>
         </div>
         <!-- /#page-content-wrapper -->
-    </div>`
+    </div>   
+`
 
     //template: `
     //    <nav class="navbar navbar-m2p sidebar" role="navigation" id="myDropdown">
@@ -152,5 +154,9 @@ export class NavbarLeftComponent {
             var mnu = this.selectedMenu;
             this.selectedMenu = null;
         }
+    }
+
+    SendFeedback(event: Event) {
+        alert("Please send your feedback on vyom131313@yahoo.com......Jai Swaminarayan");
     }
 }
