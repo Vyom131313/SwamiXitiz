@@ -28,12 +28,14 @@ import { SharedService } from './shared.service';
                             </td>
                             <td>
                                 <div style='font-weight:bold' [innerHTML]="qa.Que"></div>
+                                <div *ngIf="qa.Exams != null && qa.Exams !=''" class="examIcon" style='width:16px;height:16px;' title='{{qa.Exams}}'></div>
                                 <div [style.display]="this.sharedService.IsAssessmentMode && !qa.ShowAns ? 'none' : 'block' "  class="answer answer{{this.sharedService.Lang.value}}" [innerHTML]="qa.Ans"></div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-        </div>`
+        </div>
+`
 })
 export class QAListComponent implements OnChanges {
     @Input() qa_vm: Array<QA_VM>;

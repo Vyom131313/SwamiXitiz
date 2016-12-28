@@ -26,11 +26,11 @@ namespace YogiApekshitNg.Web.Controllers
             else
             {
                 data = QA_List(new QA_Filter_Parameters { Lang = lang, BookId = bookId, Category = category, ChapterNumber = chapterNumber });
-                data.QARecords.ToList().ForEach(c =>
-                {
-                    if (!string.IsNullOrEmpty(c.Exams))
-                        c.Que = string.Format("{0} ({1})", c.Que, c.Exams);
-                });
+                //data.QARecords.ToList().ForEach(c =>
+                //{
+                //    if (!string.IsNullOrEmpty(c.Exams))
+                //        c.Que = string.Format("{0} {1}", c.Que, "<div class='examIcon' style='width:16px;height:16px;' title='"+ c.Exams + "'></div>");
+                //});
 
                 HttpContext.Current.Cache[cacheKey] = data;
             }

@@ -1,9 +1,11 @@
-﻿- Domain: default as index page
-- QA: Validate all QAs  (1)
-- QA: Update new QAs Chapter number
-- QA: Add new QAs  (1)
-	- Kishore Prarambh
-	- Yogiji Maharaj
+﻿- Calendar icon (0.5)
+- Dashboard  (0.5)
+- QA: Validate all QAs (2)
+- QA: Update new QAs Chapter number (1)
+- QA: Add new QAs  
+	- Kishore Prarambh (1)
+	- Yogiji Maharaj (1)
+- Inform Tonybhai
 ----------------------------------
 - Menu: Keep selected  (1)
 - Menu: onclick don't scroll at top  (1)
