@@ -27,8 +27,7 @@ import { SharedService } from './shared.service';
                                 <button type="button" style='float:left;' *ngIf="this.sharedService.IsAssessmentMode" (click)="qa.ShowAns = !qa.ShowAns" class="btn btn-info btn-xs" >{{this.sharedService.ShowAnsText}}</button>
                             </td>
                             <td>
-                                <div style='font-weight:bold' [innerHTML]="qa.Que"></div>
-                                <div *ngIf="qa.Exams != null && qa.Exams !=''" class="examIcon" style='width:16px;height:16px;' title='{{qa.Exams}}'></div>
+                                <div style='font-weight:bold' [innerHTML]="qa.Que"></div>                                
                                 <div [style.display]="this.sharedService.IsAssessmentMode && !qa.ShowAns ? 'none' : 'block' "  class="answer answer{{this.sharedService.Lang.value}}" [innerHTML]="qa.Ans"></div>
                             </td>
                         </tr>
