@@ -35,7 +35,15 @@ namespace YogiApekshitNg.Web.Controllers
                 {
                     if (!string.IsNullOrEmpty(c.Exams))
                     {
-                        c.Que = string.Format("{0} {1}", c.Que, "<span class='examIcon' style='width:16px;height:16px;' title='"+c.Exams+"' >&nbsp;&nbsp;</span>");
+                        var exams = string.Empty;
+                        c.Exams.Split(new char[] { '|' }).ToList().ForEach(e => 
+                        {
+                            exams += "<span class='examIcon' style='width:16px;height:16px;' title='" + e + "' >&nbsp;&nbsp;</span>";
+                        });
+
+                        c.Que = string.Format("{0} {1}", c.Que, exams);
+                        //c.Que = string.Format("{0} {1}", c.Que,
+                        //    "<span class='examIcon' style='width:16px;height:16px;' title='"+c.Exams+"' >&nbsp;&nbsp;</span>");
                     }
                 });
 
