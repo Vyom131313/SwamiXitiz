@@ -8,10 +8,18 @@ import { MenuItemService } from './menuItem.service';
 @Component({
     selector: 'detail-view',
     template: ` 
-                <div *ngIf="menu == null && this.sharedService.Lang.value=='Eng'" style="font-family:'Segoe Print';font-size:120px;text-align:center;margin-right:300px;margin-top:50px;color:brown"> Y<img src="Images/logo.png" width='60px' height='60px' style='padding:0px;' />gi <br/><span style='color:#5bc0de'>Apekshit</span>
+                <div *ngIf="menu == null && this.sharedService.Lang.value=='Eng'" 
+                    style="font-family:'Segoe Print';font-size:120px;text-align:center;margin-right:300px;margin-top:0px;color:brown"> 
+                    Y<img src="Images/logo.png" width='60px' height='60px' />gi 
+                   <p> <img src="Images/Prarambha.png"  align='center' /></p>
+                    <p style='color:#5bc0de'>Apekshit</p>
                 </div>
 
-                <div *ngIf="menu == null && this.sharedService.Lang.value=='Guj'" style="font-family:'Segoe Print';font-size:120px;text-align:center;margin-right:300px;margin-top:50px;color:brown"> યોગી<img src="Images/logo.png" width='35px' height='35px' style='margin-top:-46px;margin-left:-132px;;' /> <br/><span style='color:#4a9db6'>અપેક્ષિત </span>
+                <div *ngIf="menu == null && this.sharedService.Lang.value=='Guj'" 
+                        style="font-family:'Segoe Print';font-size:120px;text-align:center;margin-right:300px;margin-top:5px;color:brown;"> 
+                    યોગી<img src="Images/logo.png" width='35px' height='35px' style='margin-top:-46px;margin-left:-132px;' />
+                    <p><img src="Images/Prarambha.png" align='center'/></p>
+                    <p style='color:#4a9db6'>અપેક્ષિત </p>
                 </div>
 
                 <h4 *ngIf="menu != null && menu != undefined && menu.Category =='All' " class='QAListTitle'>
