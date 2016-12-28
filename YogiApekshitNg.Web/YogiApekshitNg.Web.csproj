@@ -118,9 +118,12 @@
     <Content Include="Images\bullet.png" />
     <Content Include="Images\double-arrow-white.png" />
     <Content Include="Images\GhC\GhC-eng.jpg" />
-    <Content Include="Images\GhC\GhC-mnu.png" />
+    <Content Include="Images\GhC\GhC.png" />
     <Content Include="Images\heroAccent.png" />
-    <Content Include="Images\KsP\KsP-eng.jpg" />
+    <Content Include="Images\KsPb\KsP-eng.jpg" />
+    <Content Include="Images\KsPb\KsPb-guj.png" />
+    <Content Include="Images\KsPb\KsPb.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\orderedList0.png" />
     <Content Include="Images\orderedList1.png" />
     <Content Include="Images\orderedList2.png" />
@@ -131,6 +134,7 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="Images\YoM\YoM.png" />
     <Content Include="Images\YoM\YoM-eng.jpg" />
     <Content Include="index3.html" />
     <Content Include="index2.html" />
