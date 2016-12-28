@@ -1,6 +1,4 @@
-﻿- Page Header and Logo  (1)
-
-- QA: Validate all QAs  (1)
+﻿- QA: Validate all QAs  (1)
 - QA: Update new QAs Chapter number
 
 - QA: Add new QAs  (1)

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+﻿import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { MenuItem, QARecord, QA_VM } from './Models.model';
@@ -8,6 +8,11 @@ import { MenuItemService } from './menuItem.service';
 @Component({
     selector: 'detail-view',
     template: ` 
+                <div *ngIf="menu == null && this.sharedService.Lang.value=='Eng'" style="font-family:'Segoe Print';font-size:120px;text-align:center;margin-right:300px;margin-top:50px;color:brown"> Y<img src="Images/logo.png" width='60px' height='60px' style='padding:0px;' />gi <br/><span style='color:#5bc0de'>Apekshit</span>
+                </div>
+
+                <div *ngIf="menu == null && this.sharedService.Lang.value=='Guj'" style="font-family:'Segoe Print';font-size:120px;text-align:center;margin-right:300px;margin-top:50px;color:brown"> યોગી<img src="Images/logo.png" width='35px' height='35px' style='margin-top:-46px;margin-left:-132px;;' /> <br/><span style='color:#4a9db6'>અપેક્ષિત </span>
+                </div>
 
                 <h4 *ngIf="menu != null && menu != undefined && menu.Category =='All' " class='QAListTitle'>
                     <img src="{{menu.IConUrl}}" width='40px' height='40px' style='padding:0px;' />                   
