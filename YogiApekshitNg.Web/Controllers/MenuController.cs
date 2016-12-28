@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Web;
 using System.Web.Http;
 
 namespace YogiApekshitNg.Web.Controllers
@@ -36,13 +37,8 @@ namespace YogiApekshitNg.Web.Controllers
         }
     }
 
-    //[Route("api/Menu")]
     public class MenuController : ApiController
     {
-        public MenuController()
-        {
-        }
-
         public IEnumerable<MenuItem> Get(string lang)
         {
             return BuildMenu(lang);
@@ -52,11 +48,22 @@ namespace YogiApekshitNg.Web.Controllers
         {
             var menuCounter = 0;
 
+            var cacheKey = string.Format("Menu_{0}", lang);
+
             var menuItems = new List<MenuItem>();
+
+            if(HttpContext.Current.Cache[cacheKey] != null && 
+                HttpContext.Current.Cache[cacheKey] is List<MenuItem>)
+            {
+                menuItems = HttpContext.Current.Cache[cacheKey] as List<MenuItem>;
+
+                return menuItems;
+            }
 
             var mnuPrarambh = new MenuItem { Id = menuCounter++, Name = "Prarambh", IConClass = "fa fa-pencil", MenuItems = new List<MenuItem>() };
 
             #region Prarambh
+
             using (var dbContext = new YogiApekshitContext())
             {
                 var prarambhBooks = dbContext.Books.Where(c => c.ExamLevelId == Constants.ExamLevels.Prarambh).ToList();
@@ -98,6 +105,8 @@ namespace YogiApekshitNg.Web.Controllers
             }
             menuItems.AddRange(mnuPrarambh.MenuItems);
             #endregion
+
+            HttpContext.Current.Cache[cacheKey] = menuItems;
 
             return menuItems;
         }

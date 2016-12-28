@@ -5,26 +5,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace YogiApekshitNg.Web.Controllers
 {
     public class QAController : ApiController
     {
-        public QAController()
-        {
-
-        }
-
         [Route("api/QA/GetQA")]
         public HttpResponseMessage GetQA(string lang, string category, int bookId, int chapterNumber = 0)
         {
-            var data = QA_List(new QA_Filter_Parameters { Lang = lang, BookId = bookId, Category = category, ChapterNumber = chapterNumber });
-            data.QARecords.ToList().ForEach(c =>
+            var cacheKey = string.Format("QAList_{0}_{1}_{2}_{3}", lang, category, bookId, chapterNumber);
+            var data = new QA_VM();
+
+            if (HttpContext.Current.Cache[cacheKey] != null &&
+               HttpContext.Current.Cache[cacheKey] is QA_VM)
             {
-                if (!string.IsNullOrEmpty(c.Exams))
-                    c.Que = string.Format("{0} ({1})",c.Que , c.Exams);
-            });
+                data = HttpContext.Current.Cache[cacheKey] as QA_VM;
+            }
+            else
+            {
+                data = QA_List(new QA_Filter_Parameters { Lang = lang, BookId = bookId, Category = category, ChapterNumber = chapterNumber });
+                data.QARecords.ToList().ForEach(c =>
+                {
+                    if (!string.IsNullOrEmpty(c.Exams))
+                        c.Que = string.Format("{0} ({1})", c.Que, c.Exams);
+                });
+
+                HttpContext.Current.Cache[cacheKey] = data;
+            }
+
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
 
