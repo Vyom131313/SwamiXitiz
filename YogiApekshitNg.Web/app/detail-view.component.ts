@@ -12,7 +12,7 @@ import { MenuItemService } from './menuItem.service';
                     style="font-family:'Segoe Print';font-size:120px;text-align:center;margin-right:300px;margin-top:0px;color:brown"> 
                     Y<img src="Images/logo.png" width='60px' height='60px' />gi 
                    <p> <img src="Images/Prarambha.png"  align='center' /></p>
-                    <p style='color:#5bc0de'>Apekshit</p>
+                   <p style='color:#5bc0de'>Apekshit</p>
                 </div>
 
                 <div *ngIf="menu == null && this.sharedService.Lang.value=='Guj'" 
@@ -26,6 +26,9 @@ import { MenuItemService } from './menuItem.service';
                     <img src="{{menu.IConUrl}}" width='40px' height='40px' style='padding:0px;' />                   
                     {{this.sharedService.ChapterColumnText}} 
                     {{menu.Name}} 
+
+                    <span class='examIcon' style='margin-left:50px;width:12px;height:12px;font-size:12px'>&nbsp;&nbsp;</span>
+                    <span style='font-size:12px'>{{this.sharedService.AlreadyAskedInExams}}</span>
                 </h4>
                 <h4 *ngIf="menu != null && menu != undefined && menu.Category !='All' " class='QAListTitle'>
                     <img src="{{menu.IConUrl}}" width='40px' height='40px' style='padding:0px;' />                   

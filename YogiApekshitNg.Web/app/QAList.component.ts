@@ -8,8 +8,8 @@ import { SharedService } from './shared.service';
 @Component({
     selector: 'QAList',
     template: ` 
-        <div *ngIf="qa_vm != null && qa_vm != undefined && qa_vm.QARecords != null && qa_vm.QARecords != undefined && qa_vm.QARecords.length > 0">
-                <table class="table" [style.background-color]="qa_vm.Color">
+                <table *ngIf="qa_vm != null && qa_vm != undefined && qa_vm.QARecords != null && qa_vm.QARecords != undefined && qa_vm.QARecords.length > 0"
+                        class="table" [style.background-color]="qa_vm.Color">
                     <thead>
                         <tr>
                             <th width="30px;">
@@ -33,7 +33,6 @@ import { SharedService } from './shared.service';
                         </tr>
                     </tbody>
                 </table>
-        </div>
 `
 })
 export class QAListComponent implements OnChanges {

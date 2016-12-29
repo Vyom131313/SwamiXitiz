@@ -18,6 +18,7 @@ export class SharedService {
     public IsAssessmentMode: boolean = false;
     public SwitchModeText: string = "સ્વ પરીક્ષણ સ્થિતિ"
     public ShowAnsText: string = "જ";
+    public AlreadyAskedInExams: string = "સૂચવે છે કે અગાઉની પરીક્ષામાં પુછાયેલા છે.";
 
     constructor() {
         //this.Lang = 'Eng';
@@ -33,7 +34,7 @@ export class SharedService {
         this.BookColumnText = newValue == "Eng" ? "Book" : "પુસ્તક";
         this.AnsColumnText = newValue == "Eng" ? "Ans" : "જવાબ";
         this.ShowAnsText = newValue == "Eng" ? "A" : "જ";
-
+        this.AlreadyAskedInExams = newValue == "Eng" ? " indicates already asked in previous exams." : "સૂચવે છે કે અગાઉની પરીક્ષામાં પુછાયેલા છે.";
         this.SetAssessmentMode(this.IsAssessmentMode);
     }
 
