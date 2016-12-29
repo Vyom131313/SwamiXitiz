@@ -1,15 +1,19 @@
 ﻿- QA: Validate
-	QueCorrectOption
-	QueCorrectSentence
-	QueCorrectSequence
-	QueFillInBlank
-	QueKirtan
-	QueOneSentence
-	QueReason
-	QueShlok
-	QueShortNote
-	QueSwaminiVat
-	QueWhoWhomWhen
+	1. QueWhoWhomWhen
+	2. QueOneSentence
+	3. QueFillInBlank
+	4. QueReason
+	5. QueShortNote
+	6. QueCorrectSentence
+	7. QueCorrectSequence
+	8. QueSwaminiVat
+	9. QueKirtan
+	10. QueShlok
+
+- Language icons
+- change sequence of menus
+- spliter of menus
+- Dashboard text Jai Swaminarayan
 
 - QA: Update new QAs Chapter number (1)
 - QA: Add new QAs  
