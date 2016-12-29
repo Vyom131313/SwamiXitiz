@@ -1,25 +1,25 @@
 ﻿- QA: Validate
-	5. QueShortNote
 	6. QueCorrectSentence
 	7. QueCorrectSequence
 	8. QueSwaminiVat
 	9. QueKirtan
 	10. QueShlok
 
-- QA: Update new QAs Chapter number (1)
-- Dashboard image of Prarambh/Pravesh (1)
-- Copy Que details for CorrectOptions, CorrectSequence
-- Check 2016 materials
-- all images size reduce
-- remove duplicate records
-
 - QA: Add new QAs  
 	- Kishore Prarambh (1)
 	- Yogiji Maharaj (1)
-- QA: Add Guj QAs whose ans are availabe from past papers
-- Spliter of menus (1)
+- QA: Update new QAs Chapter number (1)
+
+- Dashboard image of Prarambh/Pravesh (1)
+- Copy Que details for CorrectOptions, CorrectSequence
+- remove duplicate records
 - Prepare message text (0.5)
 - Inform Tonybhai
+
+- Check 2016 materials
+- QA: Add Guj QAs whose ans are availabe from past papers
+- Spliter of menus (1)
+- all images size reduce
 ----------------------------------
 - disable right click (1)
 - Menu: Keep selected  (1)
