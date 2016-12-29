@@ -18,19 +18,15 @@ namespace YogiApekshitNg.Web.Controllers
             var cacheKey = string.Format("QAList_{0}_{1}_{2}_{3}", lang, category, bookId, chapterNumber);
             var data = new QA_VM();
 
-            //if (HttpContext.Current.Cache[cacheKey] != null &&
-            //   HttpContext.Current.Cache[cacheKey] is QA_VM)
-            //{
-            //    data = HttpContext.Current.Cache[cacheKey] as QA_VM;
-            //}
-            //else
+            if (HttpContext.Current.Cache[cacheKey] != null &&
+               HttpContext.Current.Cache[cacheKey] is QA_VM)
+            {
+                data = HttpContext.Current.Cache[cacheKey] as QA_VM;
+            }
+            else
             {
                 data = QA_List(new QA_Filter_Parameters { Lang = lang, BookId = bookId, Category = category, ChapterNumber = chapterNumber });
-                //data.QARecords.ToList().ForEach(c =>
-                //{
-                //    if (!string.IsNullOrEmpty(c.Exams))
-                //        c.Que = string.Format("{0} {1}", c.Que, "<span *ngIf='qa.Exams != null && qa.Exams.length>0 ' class='examIcon' style='width:16px;height:16px;' title='{{qa.Exams}}'></span>");
-                //});
+                
                 data.QARecords.ToList().ForEach(c =>
                 {
                     if (!string.IsNullOrEmpty(c.Exams))
@@ -42,8 +38,6 @@ namespace YogiApekshitNg.Web.Controllers
                         });
 
                         c.Que = string.Format("{0} {1}", c.Que, exams);
-                        //c.Que = string.Format("{0} {1}", c.Que,
-                        //    "<span class='examIcon' style='width:16px;height:16px;' title='"+c.Exams+"' >&nbsp;&nbsp;</span>");
                     }
                 });
 

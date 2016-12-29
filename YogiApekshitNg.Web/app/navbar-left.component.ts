@@ -32,7 +32,7 @@ import { SharedService } from './shared.service';
                                 <td align='right'>
                                     <button type="button" class="btn btn-info btn-xs" (click)="ChangeLanguage('Eng', $event)" >E</button>
                                     <button type="button" class="btn btn-info btn-xs" (click)="ChangeLanguage('Guj', $event)" >G</button>
-                                    <button type="button" class="btn btn-success btn-xs" style='margin-left:15px' title="Feedback"  (click)="SendFeedback($event)" >F</button>
+                                    <button type="button" class="btn btn-success btn-xs" style='margin-left:15px;' title="Feedback"  (click)="SendFeedback($event)" >@</button>
                                 </td>
                             </tr>
                         </div>
@@ -157,6 +157,6 @@ export class NavbarLeftComponent {
     }
 
     SendFeedback(event: Event) {
-        alert("Please send your feedback on vyom131313@yahoo.com......Jai Swaminarayan");
+        alert("Please send your feedback/suggestion on vyom131313@yahoo.com.........Jai Swaminarayan");
     }
 }
