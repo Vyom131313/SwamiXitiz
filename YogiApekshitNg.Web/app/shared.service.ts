@@ -19,6 +19,7 @@ export class SharedService {
     public SwitchModeText: string = "સ્વ પરીક્ષણ સ્થિતિ"
     public ShowAnsText: string = "જ";
     public AlreadyAskedInExams: string = "સૂચવે છે કે અગાઉની પરીક્ષામાં પુછાયેલા છે.";
+    public FeedbackContent: string = "તમારો પ્રતિસાદ/સૂચનો આ ઇમેઇલ પર મોકલો: vyom131313@yahoo.com........જય સ્વામિનારાયણ";
 
     constructor() {
         //this.Lang = 'Eng';
@@ -35,6 +36,8 @@ export class SharedService {
         this.AnsColumnText = newValue == "Eng" ? "Ans" : "જવાબ";
         this.ShowAnsText = newValue == "Eng" ? "A" : "જ";
         this.AlreadyAskedInExams = newValue == "Eng" ? " indicates already asked in previous exams." : "સૂચવે છે કે અગાઉની પરીક્ષામાં પુછાયેલા છે.";
+        this.FeedbackContent = newValue == "Eng" ? "Please send your feedback/suggestion on vyom131313@yahoo.com.........Jai Swaminarayan" : "તમારો પ્રતિસાદ/સૂચનો આ ઇમેઇલ પર મોકલો: vyom131313@yahoo.com........જય સ્વામિનારાયણ";
+
         this.SetAssessmentMode(this.IsAssessmentMode);
     }
 

@@ -157,6 +157,6 @@ export class NavbarLeftComponent {
     }
 
     SendFeedback(event: Event) {
-        alert("Please send your feedback/suggestion on vyom131313@yahoo.com.........Jai Swaminarayan");
+        alert(this.sharedService.FeedbackContent);
     }
 }

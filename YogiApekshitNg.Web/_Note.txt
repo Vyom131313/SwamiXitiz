@@ -1,6 +1,16 @@
-﻿- Calendar icon (0.5)
-- Dashboard  (0.5)
-- QA: Validate all QAs (2)
+﻿- QA: Validate
+	QueCorrectOption
+	QueCorrectSentence
+	QueCorrectSequence
+	QueFillInBlank
+	QueKirtan
+	QueOneSentence
+	QueReason
+	QueShlok
+	QueShortNote
+	QueSwaminiVat
+	QueWhoWhomWhen
+
 - QA: Update new QAs Chapter number (1)
 - QA: Add new QAs  
 	- Kishore Prarambh (1)
