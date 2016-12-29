@@ -10,10 +10,7 @@
 	9. QueKirtan
 	10. QueShlok
 
-- Language icons
-- change sequence of menus
 - spliter of menus
-- Dashboard text Jai Swaminarayan
 
 - QA: Update new QAs Chapter number (1)
 - QA: Add new QAs  

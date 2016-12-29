@@ -30,14 +30,14 @@ import { SharedService } from './shared.service';
                                     {{this.sharedService.SelectLangText}}
                                 </td>
                                 <td align='right'>
-                                    <button type="button" class="btn btn-info btn-xs" (click)="ChangeLanguage('Eng', $event)" >E</button>
-                                    <button type="button" class="btn btn-info btn-xs" (click)="ChangeLanguage('Guj', $event)" >G</button>
+                                    <img src="Images/us-icon.png" style='width:26px;cursor:pointer' (click)="ChangeLanguage('Eng', $event)"/>
+                                    <img src="Images/india-icon.png" style='width:26px;cursor:pointer' (click)="ChangeLanguage('Guj', $event)"/>
                                     <button type="button" class="btn btn-success btn-xs" style='margin-left:15px;' title="Feedback"  (click)="SendFeedback($event)" >@</button>
                                 </td>
                             </tr>
                         </div>
                         <div>
-                            <button class="btn btn-info btn-xs" style="margin-left:25px;font-size:13px" (click)="this.sharedService.SetAssessmentMode(!this.sharedService.IsAssessmentMode);">{{this.sharedService.SwitchModeText}}</button>
+                            <button class="btn btn-info btn-xs" style="margin-left:35px;font-size:13px" (click)="this.sharedService.SetAssessmentMode(!this.sharedService.IsAssessmentMode);">{{this.sharedService.SwitchModeText}}</button>
                         </div>                  
                     </a>
                 </li>

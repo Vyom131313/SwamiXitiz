@@ -8,19 +8,10 @@ import { MenuItemService } from './menuItem.service';
 @Component({
     selector: 'detail-view',
     template: ` 
-                <!--div *ngIf="menu == null && this.sharedService.Lang.value=='Eng'" 
-                    style="font-family:'Segoe Print';font-size:120px;text-align:center;margin-right:300px;margin-top:0px;color:brown"> 
-                    Y<img src="Images/logo.png" width='60px' height='60px' />gi 
-                   <p> <img src="Images/Prarambha.png"  align='center' /></p>
-                   <p style='color:#5bc0de'>Apekshit</p>
-                </div>
-
-                <div *ngIf="menu == null && this.sharedService.Lang.value=='Guj'" 
-                        style="font-family:'Segoe Print';font-size:120px;text-align:center;margin-right:300px;margin-top:5px;color:brown;"> 
-                    યોગી<img src="Images/logo.png" width='35px' height='35px' style='margin-top:-46px;margin-left:-132px;' />
-                    <p><img src="Images/Prarambha.png" align='center'/></p>
-                    <p style='color:#4a9db6'>અપેક્ષિત </p>
-                </div-->
+                <p *ngIf="menu == null" 
+                    style="font-family:'Segoe Print';font-size:5.9vw;text-align:center;margin-right:300px;margin-top:0px;color:brown"
+                    [innerHtml]="this.sharedService.JaiSwaminarayanText"> 
+                </p>
 
                 <h4 *ngIf="menu != null && menu != undefined && menu.Category =='All' " class='QAListTitle'>
                     <img src="{{menu.IConUrl}}" width='40px' height='40px' style='padding:0px;' />                   
@@ -36,14 +27,14 @@ import { MenuItemService } from './menuItem.service';
                 </div>
                 <div style="margin-top:50px;" *ngIf="menu != null && menu != undefined && menu.Category =='All'">
                     <QAList [category]="'Who_Whom_When'"    [qa_vm]="qa_vm_Who_Whom_When"></QAList>
-                    <QAList [category]="'Correct_Option'"   [qa_vm]="qa_vm_Correct_Option"></QAList>
-                    <QAList [category]="'Fill_In_Blank'"    [qa_vm]="qa_vm_Fill_In_Blank"></QAList> 
                     <QAList [category]="'One_Sentence'"     [qa_vm]="qa_vm_One_Sentence"></QAList> 
-                    <QAList [category]="'Correct_Sentence'" [qa_vm]="qa_vm_Correct_Sentence"></QAList>
-                    <QAList [category]="'Correct_Sequence'" [qa_vm]="qa_vm_Correct_Sequence"></QAList>
-                    <QAList [category]="'Kirtan'"           [qa_vm]="qa_vm_Kirtan"></QAList> 
+                    <QAList [category]="'Fill_In_Blank'"    [qa_vm]="qa_vm_Fill_In_Blank"></QAList> 
                     <QAList [category]="'Reason'"           [qa_vm]="qa_vm_Reason"></QAList> 
                     <QAList [category]="'Short_Note'"       [qa_vm]="qa_vm_Short_Note"></QAList>                   
+                    <QAList [category]="'Correct_Sentence'" [qa_vm]="qa_vm_Correct_Sentence"></QAList>
+                    <QAList [category]="'Correct_Option'"   [qa_vm]="qa_vm_Correct_Option"></QAList>
+                    <QAList [category]="'Correct_Sequence'" [qa_vm]="qa_vm_Correct_Sequence"></QAList>
+                    <QAList [category]="'Kirtan'"           [qa_vm]="qa_vm_Kirtan"></QAList> 
                     <QAList [category]="'Swamini_Vaato'"    [qa_vm]="qa_vm_Swamini_Vaato"></QAList> 
                 </div>
 

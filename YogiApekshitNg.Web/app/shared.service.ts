@@ -11,12 +11,14 @@ export class SharedService {
     public Lang: BehaviorSubject<string> = new BehaviorSubject<string>("Guj");
     public TitleText: string = "યોગી<b> અપેક્ષિત</b>";
     public SelectLangText: string = "ભાષા";
+    public JaiSwaminarayanText: string = "જય<br/>સ્વામિનારાયણ";
+
     public ChapterColumnText: string = "પ્રકરણ";
     public ExamsColumnText: string = "પરીક્ષા";
     public BookColumnText: string = "પુસ્તક";
     public AnsColumnText: string = "જવાબ";
     public IsAssessmentMode: boolean = false;
-    public SwitchModeText: string = "સ્વ પરીક્ષણ સ્થિતિ"
+    public SwitchModeText: string = "ચકાસો"
     public ShowAnsText: string = "જ";
     public AlreadyAskedInExams: string = "સૂચવે છે કે અગાઉની પરીક્ષામાં પુછાયેલા છે.";
     public FeedbackContent: string = "તમારો પ્રતિસાદ/સૂચનો આ ઇમેઇલ પર મોકલો: vyom131313@yahoo.com........જય સ્વામિનારાયણ";
@@ -29,7 +31,8 @@ export class SharedService {
         this.Lang = new BehaviorSubject<string>(newValue);
         this.TitleText = this.Lang.getValue() == "Eng" ? "Yogi<b> Apekshit</b>" : "યોગી<b> અપેક્ષિત</b>";
 
-        this.SelectLangText = newValue == "Eng" ? "Lang" : "ભાષા";
+        this.JaiSwaminarayanText = newValue == "Eng" ? "Jai<br/>Swaminarayan" : "જય<br/>સ્વામિનારાયણ";
+        this.SelectLangText = newValue == "Eng" ? "Lang." : "ભાષા";
         this.ExamsColumnText = newValue == "Eng" ? "Exams" : "પરીક્ષા";
         this.ChapterColumnText = newValue == "Eng" ? "Chapter" : "પ્રકરણ";
         this.BookColumnText = newValue == "Eng" ? "Book" : "પુસ્તક";
@@ -45,10 +48,10 @@ export class SharedService {
         this.IsAssessmentMode = isAssessmentMode;
 
         if (this.IsAssessmentMode) {
-            this.SwitchModeText = this.Lang.getValue() == "Eng" ? "Reading mode" : "વાંચન સ્થિતિ";
+            this.SwitchModeText = this.Lang.getValue() == "Eng" ? "Preparation" : "તૈયારી કરો";
         }
         else {
-            this.SwitchModeText = this.Lang.getValue() == "Eng" ? "Self Assessment" : "સ્વ પરીક્ષણ સ્થિતિ";
+            this.SwitchModeText = this.Lang.getValue() == "Eng" ? "Assessment" : "ચકાસો";
         }
     }
 

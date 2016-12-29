@@ -37,38 +37,35 @@ namespace SwamiXitiz.Data.ModelsPartial
             [Description("All")]
             All,
 
-            [Description("સાચા_વિકલ્પો")]
-            Correct_Option,
-
-            [Description("સાચા_વાક્યો")]
-            Correct_Sentence,
-
-            [Description("સાચા_ક્રમ")]
-            Correct_Sequence,
-
-            [Description("ખાલી_જગ્યા")]
-            Fill_In_Blank,
-
-            [Description("કીર્તન")]
-            Kirtan,
+            [Description("કોણ_કોને_કહે_છે")]
+            Who_Whom_When,
 
             [Description("એક_વાક્યમાં_જવાબ")]
             One_Sentence,
 
+            [Description("ખાલી_જગ્યા")]
+            Fill_In_Blank,
+
             [Description("કારણો")]
             Reason,
-
-            //[Description("શ્લોક")]
-            //Shlok,
 
             [Description("ટૂંકી_નોંધ")]
             Short_Note,
 
+            [Description("સાચા_વાક્યો")]
+            Correct_Sentence,
+
+            [Description("સાચા_વિકલ્પો")]
+            Correct_Option,
+
+            [Description("સાચા_ક્રમ")]
+            Correct_Sequence,
+
+            [Description("કીર્તન")]
+            Kirtan,
+
             [Description("સ્વામીની_વાતો")]
             Swamini_Vaato,
-
-            [Description("કોણ_કોને_કહે_છે")]
-            Who_Whom_When
         }
     }
 }
