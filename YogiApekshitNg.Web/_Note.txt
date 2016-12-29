@@ -1,5 +1,4 @@
 ﻿- QA: Validate
-	1. QueWhoWhomWhen
 	2. QueOneSentence
 	3. QueFillInBlank
 	4. QueReason
@@ -10,14 +9,18 @@
 	9. QueKirtan
 	10. QueShlok
 
-- spliter of menus
-
 - QA: Update new QAs Chapter number (1)
+- Dashboard image of Prarambh/Pravesh (1)
+- image size reduce
+
 - QA: Add new QAs  
 	- Kishore Prarambh (1)
 	- Yogiji Maharaj (1)
+- Spliter of menus (1)
+- Prepare message text (0.5)
 - Inform Tonybhai
 ----------------------------------
+- disable right click (1)
 - Menu: Keep selected  (1)
 - Menu: onclick don't scroll at top  (1)
 - QA: Next chapter button (1)

@@ -58,16 +58,16 @@ export class SharedService {
     GetQueAnsColumnText(category: string): string {
 
         switch (category) {
-            case 'Correct_Option': return this.Lang.value == 'Guj' ? 'ફક્ત સાચા વિકલ્પો પસંદ કરો.' : 'Select Correct Options'
-            case 'Fill_In_Blank': return this.Lang.value == 'Guj' ? 'ખાલી જગ્યા પૂરો.' : 'Fill In Blanks'
+            case 'Who_Whom_When': return this.Lang.value == 'Guj' ? 'કોણ, કોને, ક્યારે કહે છે ?' : 'Speaking: Who, Whom, When ?'
             case 'One_Sentence': return this.Lang.value == 'Guj' ? 'એક (સંપૂર્ણ) વાક્યમાં જવાબ આપો.' : 'Answer in One Sentence'
-            case 'Correct_Sentence': return this.Lang.value == 'Guj' ? 'ખોટા વાક્યોને મથાળાના સંદર્ભમાં સાચા લખો.' : 'Correct the Sentence'
-            case 'Correct_Sequence': return this.Lang.value == 'Guj' ? 'સાચા ક્રમ નંબર અને ઘટના ક્રમ પ્રમાણે ગોઠવો.' : 'Correct the Sentence of incident'
-            case 'Kirtan': return this.Lang.value == 'Guj' ? 'કીર્તન / શ્લોક / અષ્ટક ની ખૂટતી કડીઓ પુરી કરો.' : 'Complete the Kirtan'
+            case 'Fill_In_Blank': return this.Lang.value == 'Guj' ? 'ખાલી જગ્યા પૂરો.' : 'Fill In Blanks'
             case 'Reason': return this.Lang.value == 'Guj' ? 'વાક્યોના કારણો જણાવો.' : 'Give Reasons'
             case 'Short_Note': return this.Lang.value == 'Guj' ? 'ટૂંક નોંધ લખો.' : 'Write a short note'
+            case 'Correct_Sentence': return this.Lang.value == 'Guj' ? 'ખોટા વાક્યોને મથાળાના સંદર્ભમાં સાચા લખો.' : 'Correct the Sentence'
+            case 'Correct_Option': return this.Lang.value == 'Guj' ? 'ફક્ત સાચા વિકલ્પો પસંદ કરો.' : 'Select Correct Options'
+            case 'Correct_Sequence': return this.Lang.value == 'Guj' ? 'સાચા ક્રમ નંબર અને ઘટના ક્રમ પ્રમાણે ગોઠવો.' : 'Correct the Sentence of incident'
+            case 'Kirtan': return this.Lang.value == 'Guj' ? 'કીર્તન / શ્લોક / અષ્ટક ની ખૂટતી કડીઓ પુરી કરો.' : 'Complete the Kirtan'
             case 'Swamini_Vaato': return this.Lang.value == 'Guj' ? 'સ્વામીની વાત પુરી કરી તેનું નિરુપણ કરો.' : 'Complete Swamini Vaato'
-            case 'Who_Whom_When': return this.Lang.value == 'Guj' ? 'કોણ, કોને, ક્યારે કહે છે.' : 'Speaking: Who, Whom, When'
             default: return this.Lang.value == 'Guj' ? 'પ્રશ્નના જવાબ આપો.' : 'Question and Answer'
         }
     }
