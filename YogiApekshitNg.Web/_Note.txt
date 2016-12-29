@@ -1,5 +1,4 @@
 ﻿- QA: Validate
-	2. QueOneSentence
 	3. QueFillInBlank
 	4. QueReason
 	5. QueShortNote
@@ -11,7 +10,10 @@
 
 - QA: Update new QAs Chapter number (1)
 - Dashboard image of Prarambh/Pravesh (1)
-- image size reduce
+- Copy Que details for CorrectOptions, CorrectSequence
+- Check 2016 materials
+- all images size reduce
+- remove duplicate records
 
 - QA: Add new QAs  
 	- Kishore Prarambh (1)
