@@ -8,7 +8,7 @@ import { MenuItemService } from './menuItem.service';
 @Component({
     selector: 'detail-view',
     template: ` 
-                <div *ngIf="menu == null && this.sharedService.Lang.value=='Eng'" 
+                <!--div *ngIf="menu == null && this.sharedService.Lang.value=='Eng'" 
                     style="font-family:'Segoe Print';font-size:120px;text-align:center;margin-right:300px;margin-top:0px;color:brown"> 
                     Y<img src="Images/logo.png" width='60px' height='60px' />gi 
                    <p> <img src="Images/Prarambha.png"  align='center' /></p>
@@ -20,15 +20,12 @@ import { MenuItemService } from './menuItem.service';
                     યોગી<img src="Images/logo.png" width='35px' height='35px' style='margin-top:-46px;margin-left:-132px;' />
                     <p><img src="Images/Prarambha.png" align='center'/></p>
                     <p style='color:#4a9db6'>અપેક્ષિત </p>
-                </div>
+                </div-->
 
                 <h4 *ngIf="menu != null && menu != undefined && menu.Category =='All' " class='QAListTitle'>
                     <img src="{{menu.IConUrl}}" width='40px' height='40px' style='padding:0px;' />                   
                     {{this.sharedService.ChapterColumnText}} 
                     {{menu.Name}} 
-
-                    <span class='examIcon' style='margin-left:50px;width:12px;height:12px;font-size:12px'>&nbsp;&nbsp;</span>
-                    <span style='font-size:12px'>{{this.sharedService.AlreadyAskedInExams}}</span>
                 </h4>
                 <h4 *ngIf="menu != null && menu != undefined && menu.Category !='All' " class='QAListTitle'>
                     <img src="{{menu.IConUrl}}" width='40px' height='40px' style='padding:0px;' />                   

@@ -34,7 +34,8 @@ namespace YogiApekshitNg.Web.Controllers
                         var exams = string.Empty;
                         c.Exams.Split(new char[] { '|' }).ToList().ForEach(e => 
                         {
-                            exams += "<span class='examIcon' style='width:16px;height:16px;' title='" + e + "' >&nbsp;&nbsp;</span>";
+                            //exams += "<span class='examIcon' title='" + e + "' >&nbsp;&nbsp;</span>";
+                            exams += "<i class='examIcon glyphicon glyphicon-calendar'></i>"+e;
                         });
 
                         c.Que = string.Format("{0} {1}", c.Que, exams);
