@@ -1,5 +1,4 @@
 ﻿- QA: Validate
-	4. QueReason
 	5. QueShortNote
 	6. QueCorrectSentence
 	7. QueCorrectSequence
@@ -17,6 +16,7 @@
 - QA: Add new QAs  
 	- Kishore Prarambh (1)
 	- Yogiji Maharaj (1)
+- QA: Add Guj QAs whose ans are availabe from past papers
 - Spliter of menus (1)
 - Prepare message text (0.5)
 - Inform Tonybhai
