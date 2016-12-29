@@ -1,5 +1,4 @@
 ﻿- QA: Validate
-	3. QueFillInBlank
 	4. QueReason
 	5. QueShortNote
 	6. QueCorrectSentence
