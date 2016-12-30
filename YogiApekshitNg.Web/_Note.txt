@@ -1,8 +1,4 @@
-﻿- QA: Validate
-	9. QueKirtan
-	10. QueShlok
-
-- QA: Add new QAs  
+﻿- QA: Add new QAs  
 	- Kishore Prarambh (1)
 	- Yogiji Maharaj (1)
 - QA: Update new QAs Chapter number (1)
