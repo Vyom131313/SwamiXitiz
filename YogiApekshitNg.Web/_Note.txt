@@ -1,6 +1,7 @@
-﻿- Check 2016 materials
-- QA: Update new QAs Chapter number (1)
+﻿- QA: Update new QAs Chapter number (1)
+- QA:  check syntax for newly added QAs
 - remove duplicate records
+- deploy (0.5)
 - Prepare message text (0.5)
 - Inform Tonybhai
 
