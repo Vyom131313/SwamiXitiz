@@ -1,7 +1,4 @@
-﻿- QA: Add new QAs  
-	- Kishore Prarambh (1)
-	- Yogiji Maharaj (1)
-- QA: Update new QAs Chapter number (1)
+﻿- QA: Update new QAs Chapter number (1)
 
 - Dashboard image of Prarambh/Pravesh (1)
 - Copy Que details for CorrectOptions, CorrectSequence
