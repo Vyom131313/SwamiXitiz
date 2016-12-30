@@ -121,7 +121,7 @@ namespace YogiApekshitNg.Web.Controllers
             {
                 return context.QueCorrectSentences.Where(obj =>
                     (filter.Lang == "Guj"
-                                    ? !string.IsNullOrEmpty(obj.Title_Guj)
+                                    ? !string.IsNullOrEmpty(obj.Correct_Guj)
                                     : !string.IsNullOrEmpty(obj.Title_Eng)
                                     ) &&
                     obj.BookId == filter.BookId &&

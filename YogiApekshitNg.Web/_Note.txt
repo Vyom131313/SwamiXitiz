@@ -1,5 +1,4 @@
 ﻿- QA: Validate
-	7. QueCorrectSequence
 	8. QueSwaminiVat
 	9. QueKirtan
 	10. QueShlok
