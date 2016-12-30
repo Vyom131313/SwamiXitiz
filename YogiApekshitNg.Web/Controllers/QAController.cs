@@ -149,7 +149,7 @@ namespace YogiApekshitNg.Web.Controllers
             {
                 return context.QueCorrectSequences.Where(obj =>
                 (filter.Lang == "Guj"
-                                    ? !string.IsNullOrEmpty(obj.Title_Guj)
+                                    ? !string.IsNullOrEmpty(obj.Correct_Guj)
                                     : !string.IsNullOrEmpty(obj.Title_Eng)
                                     ) &&
                 obj.BookId == filter.BookId &&
@@ -177,7 +177,7 @@ namespace YogiApekshitNg.Web.Controllers
             {
                 return context.QueCorrectOptions.Where(obj =>
                 (filter.Lang == "Guj"
-                                    ? !string.IsNullOrEmpty(obj.Title_Guj)
+                                    ? !string.IsNullOrEmpty(obj.Correct_Guj)
                                     : !string.IsNullOrEmpty(obj.Title_Eng)
                                     ) &&
                 obj.BookId == filter.BookId &&
