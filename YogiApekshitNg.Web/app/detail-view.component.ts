@@ -8,10 +8,12 @@ import { MenuItemService } from './menuItem.service';
 @Component({
     selector: 'detail-view',
     template: ` 
-                <p *ngIf="menu == null" 
-                    style="font-family:'Segoe Print';font-size:5.9vw;text-align:center;margin-right:300px;margin-top:0px;color:brown"
-                    [innerHtml]="this.sharedService.JaiSwaminarayanText"> 
-                </p>
+                <div *ngIf="menu == null" >
+                    <p style="font-family:'Segoe Print';font-size:5.9vw;text-align:center;color:brown"
+                        [innerHtml]="this.sharedService.JaiSwaminarayanText"> 
+                    </p>
+                    <img src="/Images/Prarambh.jpg" class="img-responsive img-rounded" width='100%'/>
+                </div>
 
                 <h4 *ngIf="menu != null && menu != undefined && menu.Category =='All' " class='QAListTitle'>
                     <img src="{{menu.IConUrl}}" width='40px' height='40px' style='padding:0px;' />                   
