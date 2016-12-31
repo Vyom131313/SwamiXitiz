@@ -1,17 +1,16 @@
-﻿- QA: Update new QAs Chapter number (1)
-- QA:  check syntax for newly added QAs
-- remove duplicate records
+﻿- QA:  check syntax for newly added QAs
+- Spliter of menus (1)
+
 - deploy (0.5)
 - Prepare message text (0.5)
 - Inform Tonybhai
 
-- Spliter of menus (1)
+- QA: Next chapter button (1)
 - QA: Add Guj QAs whose ans are availabe from past papers
 ----------------------------------
 - disable right click (1)
 - Menu: Keep selected  (1)
 - Menu: onclick don't scroll at top  (1)
-- QA: Next chapter button (1)
 - QA: Collapse annimation
 - QA: Collapase/Expand All QAs
 - Wait indicator for menu and detail view  (1)
