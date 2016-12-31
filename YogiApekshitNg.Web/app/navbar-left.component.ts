@@ -30,9 +30,9 @@ import { SharedService } from './shared.service';
                                     {{this.sharedService.SelectLangText}}
                                 </td>
                                 <td align='right'>
-                                    <img src="Images/us-icon.png" style='width:26px;cursor:pointer' (click)="ChangeLanguage('Eng', $event)"/>
-                                    <img src="Images/india-icon.png" style='width:26px;cursor:pointer' (click)="ChangeLanguage('Guj', $event)"/>
-                                    <button type="button" class="btn btn-success btn-xs" style='margin-left:15px;' title="Feedback"  (click)="SendFeedback($event)" >@</button>
+                                    <img src="Images/us-icon.png" style='width:24px;cursor:pointer' (click)="ChangeLanguage('Eng', $event)"/>
+                                    <img src="Images/gujarat-icon.png" style='width:26px;cursor:pointer' (click)="ChangeLanguage('Guj', $event)"/>
+                                    <button type="button" class="btn btn-info btn-xs" style='margin-left:15px;' title="Feedback"  (click)="SendFeedback($event)" >@</button>
                                 </td>
                             </tr>
                         </div>
