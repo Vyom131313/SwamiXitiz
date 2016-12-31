@@ -24,7 +24,7 @@ namespace YogiApekshitNg.Web.Controllers
         public int ChapterNumber { get; set; }
         public string Category { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsDivider { get; set; }
         public List<MenuItem> MenuItems = new List<MenuItem>();
 
         public MenuItem()
@@ -78,6 +78,9 @@ namespace YogiApekshitNg.Web.Controllers
 
                     mnuPrarambh.MenuItems.Add(mnuBook);
                 }
+
+                // Divider
+                mnuPrarambh.MenuItems.Add(new MenuItem { IsDivider = true });
 
                 var categories = Enum.GetValues(typeof(Constants.Que_Categories));
                 foreach (var categoryEnum in categories)

@@ -8,6 +8,7 @@ export class MenuItem{
     ChapterNumber: number;
     Category: string;
     IConUrl: string;
+    IsDivider: boolean;
     MenuItems: Array<MenuItem>;
 }
 

@@ -43,11 +43,14 @@ import { SharedService } from './shared.service';
                 </li>
                 <li class="dropdown" attr.data-target="#Book{{bookmenu.Id}}"
                     *ngFor="let bookmenu of menus">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    
+                    <hr *ngIf="bookmenu.IsDivider" />
+                    
+                    <a *ngIf="bookmenu.IsDivider==false" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         {{bookmenu.Name}} <span class="caret"></span>
                     </a>
 
-                    <ul class="dropdown-menu" role="menu" id="Book{{bookmenu.Id}}">
+                    <ul *ngIf="bookmenu.IsDivider==false" class="dropdown-menu" role="menu" id="Book{{bookmenu.Id}}">
                         <li *ngFor="let chaptermenu of bookmenu.MenuItems"
                             [class.selected]="menu === selectedMenu"
                             (click)="onSelect(chaptermenu, $event)">

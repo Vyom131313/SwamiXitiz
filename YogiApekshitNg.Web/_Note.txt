@@ -1,7 +1,4 @@
-﻿- Spliter of menus (1)
-
-- deploy (0.5)
-- Prepare message text (0.5)
+﻿- Prepare message text (0.5)
 - Inform Tonybhai
 
 - QA: Next chapter button (1)
