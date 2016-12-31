@@ -1,5 +1,4 @@
-﻿- QA:  check syntax for newly added QAs
-- Spliter of menus (1)
+﻿- Spliter of menus (1)
 
 - deploy (0.5)
 - Prepare message text (0.5)
