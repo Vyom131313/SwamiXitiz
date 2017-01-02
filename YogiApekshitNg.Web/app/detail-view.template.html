@@ -1,0 +1,52 @@
+﻿<div *ngIf="menu == null">
+    <p style="font-family:'Segoe Print';font-size:5.9vw;text-align:center;color:brown"
+       [innerHtml]="this.sharedService.JaiSwaminarayanText">
+    </p>
+    <img src="/Images/Prarambh.jpg" class="img-responsive img-rounded" width='100%' />
+</div>
+
+<h4 *ngIf="menu != null && menu != undefined && menu.Category =='All' " class='QAListTitle'>
+    <img src="{{menu.IConUrl}}" width='40px' height='40px' style='padding:0px;' />
+    {{this.sharedService.ChapterColumnText}}
+    {{menu.Name}}
+</h4>
+<h4 *ngIf="menu != null && menu != undefined && menu.Category !='All' " class='QAListTitle'>
+    <img src="{{menu.IConUrl}}" width='40px' height='40px' style='padding:0px;' />
+    {{menu.Name}}
+</h4>
+<div style="margin-top:50px;" *ngIf="menu != null && menu != undefined && menu.Category !='All' ">
+    <QAList [category]='menu.Category' [qa_vm]="qa_vm"></QAList>
+</div>
+<div style="margin-top:50px;" *ngIf="menu != null && menu != undefined && menu.Category =='All'">
+    <QAList [category]="'Who_Whom_When'" [qa_vm]="qa_vm_Who_Whom_When"></QAList>
+    <QAList [category]="'One_Sentence'" [qa_vm]="qa_vm_One_Sentence"></QAList>
+    <QAList [category]="'Fill_In_Blank'" [qa_vm]="qa_vm_Fill_In_Blank"></QAList>
+    <QAList [category]="'Reason'" [qa_vm]="qa_vm_Reason"></QAList>
+    <QAList [category]="'Short_Note'" [qa_vm]="qa_vm_Short_Note"></QAList>
+    <QAList [category]="'Correct_Sentence'" [qa_vm]="qa_vm_Correct_Sentence"></QAList>
+    <QAList [category]="'Correct_Option'" [qa_vm]="qa_vm_Correct_Option"></QAList>
+    <QAList [category]="'Correct_Sequence'" [qa_vm]="qa_vm_Correct_Sequence"></QAList>
+    <QAList [category]="'Kirtan'" [qa_vm]="qa_vm_Kirtan"></QAList>
+    <QAList [category]="'Swamini_Vaato'" [qa_vm]="qa_vm_Swamini_Vaato"></QAList>
+</div>
+
+<script>
+    $('.btn-toggle').click(function () {
+        $(this).find('.btn').toggleClass('active');
+
+        if ($(this).find('.btn-primary').size() > 0) {
+            $(this).find('.btn').toggleClass('btn-primary');
+        }
+        if ($(this).find('.btn-danger').size() > 0) {
+            $(this).find('.btn').toggleClass('btn-danger');
+        }
+        if ($(this).find('.btn-success').size() > 0) {
+            $(this).find('.btn').toggleClass('btn-success');
+        }
+        if ($(this).find('.btn-info').size() > 0) {
+            $(this).find('.btn').toggleClass('btn-info');
+        }
+
+        $(this).find('.btn').toggleClass('btn-default');
+    });
+</script>
