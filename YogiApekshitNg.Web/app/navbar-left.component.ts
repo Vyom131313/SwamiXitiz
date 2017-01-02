@@ -31,12 +31,15 @@ import { SharedService } from './shared.service';
                                 </td-->
 
                                 <td align='left'>
-                                    <button class="btn btn-info btn-xs" style='width:110px' (click)="ChangeLanguage('Guj', $event)">
+                                    <button class="btn btn-xs {{this.sharedService.Lang.value==='Guj'?'btn-success':'btn-info'}}" 
+                                            style='width:110px' (click)="ChangeLanguage('Guj', $event)">
                                         <img src="Images/india-icon.png" style='float:left;width:26px;padding-right:5px;' />
                                         <span style='vertical-align:middle;float:left'>ગુજરાતી</span>
                                     </button>
                                     
-                                    <button class="btn btn-info btn-xs" style='width:90px' (click)="ChangeLanguage('Eng', $event)">
+                                    <button 
+                                        class="btn btn-xs {{this.sharedService.Lang.value==='Eng'?'btn-success':'btn-info'}}" 
+                                        style='width:90px' (click)="ChangeLanguage('Eng', $event)">
                                         <img src="Images/us-icon.png" style='float:left;width:26px;padding-right:5px;' />
                                         <span style='vertical-align:middle;float:left'>English</span>
                                     </button>
@@ -49,11 +52,13 @@ import { SharedService } from './shared.service';
                             </tr>
                             <tr>
                                 <td align='left'>
-                                    <button class="btn btn-info btn-xs" style="margin-top:5px;margin-bottom:5px;width:110px;" (click)="this.sharedService.SetAssessmentMode(false);">
+                                    <button class="btn btn-xs {{this.sharedService.IsAssessmentMode==false?'btn-success':'btn-info'}}" 
+                                        style="margin-top:5px;margin-bottom:5px;width:110px;" (click)="this.sharedService.SetAssessmentMode(false);">
                                         <img src="Images/preparation-icon.png" style='float:left;width:26px;padding-right:5px;' />
                                         <span style='vertical-align:middle;float:left'>{{this.sharedService.PreparationModeText}}</span>
                                     </button>
-                                    <button class="btn btn-info btn-xs" style="width:120px" (click)="this.sharedService.SetAssessmentMode(true);">
+                                    <button class="btn btn-xs {{this.sharedService.IsAssessmentMode==true?'btn-success':'btn-info'}}"  
+                                            style="width:120px" (click)="this.sharedService.SetAssessmentMode(true);">
                                         <img src="Images/assessment-icon.png" style='float:left;width:26px;padding-right:5px;' />
                                         <span style='vertical-align:middle;float:left'>{{this.sharedService.AssessmentModeText}}</span>
                                     </button>

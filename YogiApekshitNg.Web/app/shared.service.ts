@@ -50,6 +50,8 @@ export class SharedService {
         this.SetAssessmentMode(this.IsAssessmentMode);
     }
 
+
+
     SetAssessmentMode(isAssessmentMode: boolean) {
         this.IsAssessmentMode = isAssessmentMode;
 
