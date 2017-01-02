@@ -114,6 +114,7 @@
     <Content Include="CHANGELOG.md" />
     <Content Include="Dockerfile" />
     <Content Include="Global.asax" />
+    <Content Include="Images\assessment-icon.png" />
     <Content Include="Images\Calendar-icon.png" />
     <Content Include="Images\GhC\GhC-eng.jpg" />
     <Content Include="Images\GhC\GhC.png" />
@@ -124,6 +125,7 @@
     <Content Include="Images\KsPb\KsPb.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\Prarambh.jpg" />
+    <Content Include="Images\preparation-icon.png" />
     <Content Include="Images\us-icon.png" />
     <Content Include="Images\YoM\YoM.png" />
     <Content Include="Images\YoM\YoM-eng.jpg" />

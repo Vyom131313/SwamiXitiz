@@ -24,21 +24,45 @@ import { SharedService } from './shared.service';
                               <span class="icon-bar"></span>
                         </button>
 
-                        <div style="float:right;white-space;noWrap; ">
+                        <div style="float:right;white-space;noWrap;font-size:13px;">
                             <tr>
-                                <td style='font-size:13px;padding-right:5px;'>
+                                <!--td style='font-size:13px;padding-right:5px;'>
                                     {{this.sharedService.SelectLangText}}
+                                </td-->
+
+                                <td align='left'>
+                                    <button class="btn btn-info btn-xs" style='width:110px' (click)="ChangeLanguage('Guj', $event)">
+                                        <img src="Images/india-icon.png" style='float:left;width:26px;padding-right:5px;' />
+                                        <span style='vertical-align:middle;float:left'>ગુજરાતી</span>
+                                    </button>
+                                    
+                                    <button class="btn btn-info btn-xs" style='width:90px' (click)="ChangeLanguage('Eng', $event)">
+                                        <img src="Images/us-icon.png" style='float:left;width:26px;padding-right:5px;' />
+                                        <span style='vertical-align:middle;float:left'>English</span>
+                                    </button>
+                                    
+                                    <!-- img src="Images/us-icon.png" style='width:26px;cursor:pointer' (click)="ChangeLanguage('Eng', $event)"/> 
+                                    <img src="Images/india-icon.png" style='width:26px;cursor:pointer' (click)="ChangeLanguage('Guj', $event)"/-->
+
+                                    <button type="button" class="btn btn-info btn-xs" title="Feedback"  (click)="SendFeedback($event)" >@</button>
                                 </td>
-                                <td align='right'>
-                                    <img src="Images/us-icon.png" style='width:26px;cursor:pointer' (click)="ChangeLanguage('Eng', $event)"/>
-                                    <img src="Images/gujarat-icon.png" style='width:26px;cursor:pointer' (click)="ChangeLanguage('Guj', $event)"/>
-                                    <button type="button" class="btn btn-info btn-xs" style='margin-left:15px;' title="Feedback"  (click)="SendFeedback($event)" >@</button>
+                            </tr>
+                            <tr>
+                                <td align='left'>
+                                    <button class="btn btn-info btn-xs" style="margin-top:5px;margin-bottom:5px;width:110px;" (click)="this.sharedService.SetAssessmentMode(false);">
+                                        <img src="Images/preparation-icon.png" style='float:left;width:26px;padding-right:5px;' />
+                                        <span style='vertical-align:middle;float:left'>{{this.sharedService.PreparationModeText}}</span>
+                                    </button>
+                                    <button class="btn btn-info btn-xs" style="width:120px" (click)="this.sharedService.SetAssessmentMode(true);">
+                                        <img src="Images/assessment-icon.png" style='float:left;width:26px;padding-right:5px;' />
+                                        <span style='vertical-align:middle;float:left'>{{this.sharedService.AssessmentModeText}}</span>
+                                    </button>
                                 </td>
                             </tr>
                         </div>
-                        <div>
+                        <!--div>
                             <button class="btn btn-info btn-xs" style="margin-left:35px;font-size:13px" (click)="this.sharedService.SetAssessmentMode(!this.sharedService.IsAssessmentMode);">{{this.sharedService.SwitchModeText}}</button>
-                        </div>                  
+                        </div-->                  
                     </a>
                 </li>
                 <li class="dropdown" attr.data-target="#Book{{bookmenu.Id}}"

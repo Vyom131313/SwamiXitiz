@@ -18,6 +18,9 @@ export class SharedService {
     public BookColumnText: string = "પુસ્તક";
     public AnsColumnText: string = "જવાબ";
     public IsAssessmentMode: boolean = false;
+    public AssessmentModeText: string = "ચકાસો"
+    public PreparationModeText: string = "તૈયારી કરો"
+
     public SwitchModeText: string = "ચકાસો"
     public ShowAnsText: string = "જ";
     public AlreadyAskedInExams: string = "સૂચવે છે કે અગાઉની પરીક્ષામાં પુછાયેલા છે.";
@@ -38,6 +41,9 @@ export class SharedService {
         this.BookColumnText = newValue == "Eng" ? "Book" : "પુસ્તક";
         this.AnsColumnText = newValue == "Eng" ? "Ans" : "જવાબ";
         this.ShowAnsText = newValue == "Eng" ? "A" : "જ";
+        this.AssessmentModeText = newValue == "Eng" ? "Assessment": "ચકાસો";
+        this.PreparationModeText = newValue == "Eng" ? "Preparation": "તૈયારી કરો";
+
         this.AlreadyAskedInExams = newValue == "Eng" ? " indicates already asked in previous exams." : "સૂચવે છે કે અગાઉની પરીક્ષામાં પુછાયેલા છે.";
         this.FeedbackContent = newValue == "Eng" ? "Please send your feedback/suggestion on vyom131313@yahoo.com.........Jai Swaminarayan" : "તમારો પ્રતિસાદ/સૂચનો આ ઇમેઇલ પર મોકલો: vyom131313@yahoo.com........જય સ્વામિનારાયણ";
 
