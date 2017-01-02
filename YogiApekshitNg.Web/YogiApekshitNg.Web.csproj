@@ -130,7 +130,7 @@
     <Content Include="Images\YoM\YoM.png" />
     <Content Include="Images\YoM\YoM-eng.jpg" />
     <Content Include="index3.html" />
-    <Content Include="index2.html" />
+    <Content Include="test.html" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
     <Content Include="README.md" />
