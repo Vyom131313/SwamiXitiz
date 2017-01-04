@@ -1,2 +1,0 @@
-﻿- Display all Menus dynamically
-- Service integration
