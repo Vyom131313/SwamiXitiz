@@ -90,9 +90,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\MenuController.cs" />
-    <Compile Include="Controllers\QAController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -107,11 +104,6 @@
       <Project>{046ef484-2278-4760-b7dd-fadf08ace1f8}</Project>
       <Name>Service</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\css\bootstrap.min.css" />
-    <Content Include="Assets\scripts\bootstrap.min.js" />
-    <Content Include="Assets\scripts\jquery-1.10.2.min.js" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
