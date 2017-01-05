@@ -1,0 +1,26 @@
+﻿- QA: Pre Test
+- QA: missing WHEN
+- QA: Add Guj QAs whose ans are availabe from past papers
+- Menu: Keep selected  (1)
+- Wait indicator for menu and detail view  (1)
+- QA: Next chapter button (1)
+----------------------------------
+- disable right click (1)
+- Menu: onclick don't scroll at top  (1)
+- QA: Collapse annimation
+- QA: Collapase/Expand All QAs
+- all images size reduce
+=========== Pravesh QAs =========== 
+- Dashboard
+- QA: Guj QA
+- QA: New QA
+
+=========== Build Locally Steps =========== 
+* Open Command Prompt
+* CD <current folder location>
+* npm start
+* npm run build
+* npm run build_prod
+* npm run serve
+* Open http://localhost:5556
+===========================================
