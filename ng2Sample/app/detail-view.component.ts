@@ -7,7 +7,10 @@ import { MenuItemService } from './menuItem.service';
 
 @Component({
     selector: 'detail-view',
-    templateUrl: '/app/detail-view.template.html'
+    templateUrl: '/app/detail-view.template.html',
+    styleUrls: [
+        'https://fonts.googleapis.com/icon?family=Material+Icons',
+    ], 
 })
 export class DetailViewComponent implements OnChanges {
     @Input() menu: MenuItem;
