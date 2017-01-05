@@ -90,10 +90,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\detail-view.template.html" />
+    <Content Include="app\navbar-left.template.html" />
+    <Content Include="app\QAList.template.html" />
     <Content Include="Assets\css\bootstrap.min.css" />
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\scripts\bootstrap.min.js" />
     <Content Include="Assets\scripts\jquery-1.10.2.min.js" />
+    <Content Include="Images\angular2-typescript-webpack-source-maps.png" />
     <Content Include="Images\assessment-icon.png" />
     <Content Include="Images\Calendar-icon.png" />
     <Content Include="Images\GhC\GhC-eng.jpg" />
@@ -109,6 +113,8 @@
     <Content Include="Images\us-icon.png" />
     <Content Include="Images\YoM\YoM-eng.jpg" />
     <Content Include="Images\YoM\YoM.png" />
+    <Content Include="index.html" />
+    <Content Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -117,7 +123,13 @@
     <Compile Include="Controllers\QAController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Content Include="tsconfig.json" />
+    <Content Include="typings.json" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
@@ -130,6 +142,21 @@
       <Project>{046ef484-2278-4760-b7dd-fadf08ace1f8}</Project>
       <Name>Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="app\app.component.ts" />
+    <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\detail-view.component.ts" />
+    <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\menuItem.service.ts" />
+    <TypeScriptCompile Include="app\Models.model.ts" />
+    <TypeScriptCompile Include="app\navbar-left.component.ts" />
+    <TypeScriptCompile Include="app\QAList.component.ts" />
+    <TypeScriptCompile Include="app\shared.service.ts" />
+    <TypeScriptCompile Include="app\vendor.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\KsP\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
