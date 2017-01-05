@@ -93,10 +93,7 @@
     <Content Include="app\detail-view.template.html" />
     <Content Include="app\navbar-left.template.html" />
     <Content Include="app\QAList.template.html" />
-    <Content Include="Assets\css\bootstrap.min.css" />
     <Content Include="Assets\css\style.css" />
-    <Content Include="Assets\scripts\bootstrap.min.js" />
-    <Content Include="Assets\scripts\jquery-1.10.2.min.js" />
     <Content Include="Images\angular2-typescript-webpack-source-maps.png" />
     <Content Include="Images\assessment-icon.png" />
     <Content Include="Images\Calendar-icon.png" />
