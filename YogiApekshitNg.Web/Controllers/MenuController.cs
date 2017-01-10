@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using System.Web;
+using System.Runtime.Caching;
 using System.Web.Http;
 
 namespace YogiApekshitNg.Web.Controllers
@@ -39,6 +39,8 @@ namespace YogiApekshitNg.Web.Controllers
 
     public class MenuController : ApiController
     {
+        MemoryCache MemCache = MemoryCache.Default;
+
         public IEnumerable<MenuItem> Get(string lang)
         {
             return BuildMenu(lang);
@@ -52,11 +54,11 @@ namespace YogiApekshitNg.Web.Controllers
 
             var menuItems = new List<MenuItem>();
 
-            if(HttpContext.Current.Cache[cacheKey] != null && 
-                HttpContext.Current.Cache[cacheKey] is List<MenuItem>)
+            //if(HttpContext.Current.Cache[cacheKey] != null && HttpContext.Current.Cache[cacheKey] is List<MenuItem>)
+            if (MemCache.Contains(cacheKey) && MemCache.Get(cacheKey) != null)
             {
-                menuItems = HttpContext.Current.Cache[cacheKey] as List<MenuItem>;
-
+                //menuItems = HttpContext.Current.Cache[cacheKey] as List<MenuItem>;
+                menuItems = MemCache.Get(cacheKey) as List<MenuItem>;
                 return menuItems;
             }
 
@@ -109,7 +111,8 @@ namespace YogiApekshitNg.Web.Controllers
             menuItems.AddRange(mnuPrarambh.MenuItems);
             #endregion
 
-            HttpContext.Current.Cache[cacheKey] = menuItems;
+            //HttpContext.Current.Cache[cacheKey] = menuItems;
+            MemCache.Add(cacheKey, menuItems, DateTimeOffset.UtcNow.AddMonths(1));
 
             return menuItems;
         }

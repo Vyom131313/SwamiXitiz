@@ -7,21 +7,25 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Runtime.Caching;
 
 namespace YogiApekshitNg.Web.Controllers
 {
     public class QAController : ApiController
     {
+        MemoryCache MemCache = MemoryCache.Default;
+
         [Route("api/QA/GetQA")]
         public HttpResponseMessage GetQA(string lang, string category, int bookId, int chapterNumber = 0)
         {
             var cacheKey = string.Format("QAList_{0}_{1}_{2}_{3}", lang, category, bookId, chapterNumber);
             var data = new QA_VM();
 
-            if (HttpContext.Current.Cache[cacheKey] != null &&
-               HttpContext.Current.Cache[cacheKey] is QA_VM)
+            //if (HttpContext.Current.Cache[cacheKey] != null && HttpContext.Current.Cache[cacheKey] is QA_VM)
+            if (MemCache.Contains(cacheKey) && MemCache.Get(cacheKey) != null)
             {
-                data = HttpContext.Current.Cache[cacheKey] as QA_VM;
+                // data = HttpContext.Current.Cache[cacheKey] as QA_VM;
+                data = MemCache.Get(cacheKey) as QA_VM;
             }
             else
             {
@@ -42,7 +46,8 @@ namespace YogiApekshitNg.Web.Controllers
                     }
                 });
 
-                HttpContext.Current.Cache[cacheKey] = data;
+                //HttpContext.Current.Cache[cacheKey] = data;
+                MemCache.Add(cacheKey, data, DateTimeOffset.UtcNow.AddMonths(1));
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, data);
