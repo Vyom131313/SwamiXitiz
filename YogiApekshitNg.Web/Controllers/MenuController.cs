@@ -121,7 +121,7 @@ namespace YogiApekshitNg.Web.Controllers
                                    menuItems,
                                    null,
                                    System.Web.Caching.Cache.NoAbsoluteExpiration,
-                                   TimeSpan.FromMinutes(5));//Data will be cached for 1 mins;
+                                   TimeSpan.FromDays(10));//Data will be cached for 10 days;
 
             return menuItems;
         }
@@ -158,7 +158,7 @@ namespace YogiApekshitNg.Web.Controllers
                                     data,
                                     null,
                                     System.Web.Caching.Cache.NoAbsoluteExpiration,
-                                    TimeSpan.FromMinutes(5));//Data will be cached for 1 mins;
+                                    TimeSpan.FromDays(10));//Data will be cached for 10 day;
             }
 
             return data;
