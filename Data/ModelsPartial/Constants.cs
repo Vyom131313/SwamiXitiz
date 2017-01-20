@@ -61,7 +61,7 @@ namespace SwamiXitiz.Data.ModelsPartial
             [Description("સાચા_ક્રમ")]
             Correct_Sequence,
 
-            [Description("કીર્તન")]
+            [Description("શ્લોક/પ્રાર્થના/કીર્તન")]
             Kirtan,
 
             [Description("સ્વામીની_વાતો")]
