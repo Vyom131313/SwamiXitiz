@@ -1,6 +1,5 @@
-﻿- QA: Add Guj QAs whose ans are availabe from past papers
+﻿- MVC Page
 - QA: Pre Test
-- QA: missing WHEN
 - Menu: Keep selected  (1)
 - Wait indicator for menu and detail view  (1)
 - QA: Next chapter button (1)
