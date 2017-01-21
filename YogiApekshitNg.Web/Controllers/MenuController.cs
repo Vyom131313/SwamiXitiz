@@ -70,6 +70,7 @@ namespace YogiApekshitNg.Web.Controllers
             if (menuDictionary.ContainsKey(cacheKey) && menuDictionary[cacheKey] != null)
             {
                 menuItems = menuDictionary[cacheKey];
+                return menuItems;
             }
 
             var mnuPrarambh = new MenuItem { Id = menuCounter++, Name = "Prarambh", IConClass = "fa fa-pencil", MenuItems = new List<MenuItem>() };
