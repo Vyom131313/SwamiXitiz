@@ -1,4 +1,5 @@
-﻿- MVC Page
+﻿- Wait indicator
+- MVC Page
 - QA: Pre Test
 - Menu: Keep selected  (1)
 - Wait indicator for menu and detail view  (1)
