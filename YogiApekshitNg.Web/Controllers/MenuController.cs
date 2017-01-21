@@ -50,6 +50,9 @@ namespace YogiApekshitNg.Web.Controllers
 
     public static class DS
     {
+        private static Dictionary<string, QA_VM> quaAnsDictionary = new Dictionary<string, QA_VM>();
+        private static Dictionary<string, List<MenuItem>> menuDictionary = new Dictionary<string, List<MenuItem>>();
+
         public static IEnumerable<MenuItem> GetMenu(string lang)
         {
             var menuCounter = 0;
@@ -58,12 +61,15 @@ namespace YogiApekshitNg.Web.Controllers
 
             var menuItems = new List<MenuItem>();
 
-            if (HttpContext.Current.Cache[cacheKey] != null && HttpContext.Current.Cache[cacheKey] is List<MenuItem>)
-            //if (MemCache.Contains(cacheKey) && MemCache.Get(cacheKey) != null)
+            //if (HttpContext.Current.Cache[cacheKey] != null && HttpContext.Current.Cache[cacheKey] is List<MenuItem>)
+            //{
+            //    menuItems = HttpContext.Current.Cache[cacheKey] as List<MenuItem>;
+            //    return menuItems;
+            //}
+
+            if (menuDictionary.ContainsKey(cacheKey) && menuDictionary[cacheKey] != null)
             {
-                menuItems = HttpContext.Current.Cache[cacheKey] as List<MenuItem>;
-                //menuItems = MemCache.Get(cacheKey) as List<MenuItem>;
-                return menuItems;
+                menuItems = menuDictionary[cacheKey];
             }
 
             var mnuPrarambh = new MenuItem { Id = menuCounter++, Name = "Prarambh", IConClass = "fa fa-pencil", MenuItems = new List<MenuItem>() };
@@ -117,11 +123,16 @@ namespace YogiApekshitNg.Web.Controllers
             menuItems.AddRange(mnuPrarambh.MenuItems);
             #endregion
 
-            HttpContext.Current.Cache.Insert(cacheKey,
-                                   menuItems,
-                                   null,
-                                   System.Web.Caching.Cache.NoAbsoluteExpiration,
-                                   TimeSpan.FromDays(10));//Data will be cached for 10 days;
+            if (menuDictionary.ContainsKey(cacheKey))
+                menuDictionary.Remove(cacheKey);
+
+            menuDictionary.Add(cacheKey, menuItems);
+
+            //HttpContext.Current.Cache.Insert(cacheKey,
+            //                       menuItems,
+            //                       null,
+            //                       System.Web.Caching.Cache.NoAbsoluteExpiration,
+            //                       TimeSpan.FromDays(10));//Data will be cached for 10 days;
 
             return menuItems;
         }
@@ -131,9 +142,14 @@ namespace YogiApekshitNg.Web.Controllers
             var cacheKey = string.Format("QAList_{0}_{1}_{2}_{3}", lang, category, bookId, chapterNumber);
             var data = new QA_VM();
 
-            if (HttpContext.Current.Cache[cacheKey] != null && HttpContext.Current.Cache[cacheKey] is QA_VM)
+            //if (HttpContext.Current.Cache[cacheKey] != null && HttpContext.Current.Cache[cacheKey] is QA_VM)
+            //{
+            //    data = HttpContext.Current.Cache[cacheKey] as QA_VM;
+            //}
+
+            if (quaAnsDictionary.ContainsKey(cacheKey) && quaAnsDictionary[cacheKey] != null)
             {
-                data = HttpContext.Current.Cache[cacheKey] as QA_VM;
+                data = quaAnsDictionary[cacheKey];
             }
             else
             {
@@ -154,11 +170,16 @@ namespace YogiApekshitNg.Web.Controllers
                     }
                 });
 
-                HttpContext.Current.Cache.Insert(cacheKey,
-                                    data,
-                                    null,
-                                    System.Web.Caching.Cache.NoAbsoluteExpiration,
-                                    TimeSpan.FromDays(10));//Data will be cached for 10 day;
+                if (quaAnsDictionary.ContainsKey(cacheKey))
+                    quaAnsDictionary.Remove(cacheKey);
+
+                quaAnsDictionary.Add(cacheKey, data);
+
+                //HttpContext.Current.Cache.Insert(cacheKey,
+                //                    data,
+                //                    null,
+                //                    System.Web.Caching.Cache.NoAbsoluteExpiration,
+                //                    TimeSpan.FromDays(10));//Data will be cached for 10 day;
             }
 
             return data;
