@@ -12,16 +12,36 @@ import { MenuItem } from './Models.model';
 @Injectable()
 export class MenuItemService {
 
+    public ServiceBaseUrl: string = "";
+    //public ServiceBaseUrl: string = "http://localhost:9266";
+    //public ServiceBaseUrl: string = "http://yogiapekshit.xitiz.net";
+    
     constructor(private http: Http, private sharedService: SharedService)
     {
       //  this.sharedService.Lang.subscribe(value => { alert(''); this.getMenus(); });
     }
 
+    // getMenus(): Observable<MenuItem[]> {
+    //     let params: URLSearchParams = new URLSearchParams();
+    //     params.set('lang', this.sharedService.Lang.getValue());
+
+    //     return this.http.get(this.ServiceBaseUrl+"/api/Menu/get", { search: params })
+    //     .map(this.extractData);
+    //         // .toPromise()
+    //         // .then((response) => response.json());
+    // }
+
+    //  private extractData(res: Response) {
+    //     let body = res.json();
+    //     return body.data || { };
+    //  }
+
+
     getMenus() {
         let params: URLSearchParams = new URLSearchParams();
         params.set('lang', this.sharedService.Lang.getValue());
 
-        return this.http.get("/api/Menu/get", { search: params })
+        return this.http.get(this.ServiceBaseUrl+"/api/Menu/get", { search: params })
             .toPromise()
             .then((response) => response.json());
     }
@@ -36,7 +56,7 @@ export class MenuItemService {
 
         //this.sharedService.SetLanguage(this.sharedService.Lang.getValue() == "Eng" ? "Guj": "Eng");
 
-        return this.http.get("/api/QA/getQA", {search: params })
+        return this.http.get(this.ServiceBaseUrl+"/api/QA/getQA", {search: params })
             .toPromise()
             .then((response) => response.json());
     }   
