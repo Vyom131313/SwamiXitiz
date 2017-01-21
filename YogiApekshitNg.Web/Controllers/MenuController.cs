@@ -185,6 +185,12 @@ namespace YogiApekshitNg.Web.Controllers
             return data;
         }
 
+        public static void ClearCache()
+        {
+            menuDictionary.Clear();
+            quaAnsDictionary.Clear();
+        }
+
         #region Private Methods
         private static string GetEnumDescription(Enum value, string lang)
         {

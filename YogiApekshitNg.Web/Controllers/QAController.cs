@@ -16,6 +16,15 @@ namespace YogiApekshitNg.Web.Controllers
             var data = DS.GetQA(lang, category, bookId, chapterNumber);
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+
+        [HttpGet]
+        [Route("api/QA/ClearCache")]
+        public HttpResponseMessage ClearCache()
+        {
+            DS.ClearCache();
+            return Request.CreateResponse(HttpStatusCode.OK, true);
+        }
+
     }
 
     public class QA_Filter_Parameters
