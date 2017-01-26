@@ -45,8 +45,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Data.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Data.Core">
       <HintPath>..\libs\Data.Core.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -100,68 +99,10 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="e2e\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include=".dockerignore" />
-    <Content Include=".editorconfig" />
-    <Content Include=".gitignore" />
-    <Content Include=".travis.yml" />
-    <Content Include="app\detail-view.template.html" />
-    <Content Include="app\QAList.template.html" />
-    <Content Include="Assets\css\bootstrap.min.css" />
-    <Content Include="Assets\scripts\bootstrap.min.js" />
-    <Content Include="Assets\scripts\jquery-1.10.2.min.js" />
-    <Content Include="CHANGELOG.md" />
-    <Content Include="Dockerfile" />
     <Content Include="Global.asax" />
-    <Content Include="Images\assessment-icon.png" />
-    <Content Include="Images\Calendar-icon.png" />
-    <Content Include="Images\GhC\GhC-eng.jpg" />
-    <Content Include="Images\GhC\GhC.png" />
-    <Content Include="Images\gujarat-icon.png" />
-    <Content Include="Images\india-icon.png" />
-    <Content Include="Images\KsPb\KsP-eng.jpg" />
-    <Content Include="Images\KsPb\KsPb-guj.png" />
-    <Content Include="Images\KsPb\KsPb.png" />
-    <Content Include="Images\logo.png" />
-    <Content Include="Images\Prarambh.jpg" />
-    <Content Include="Images\preparation-icon.png" />
-    <Content Include="Images\us-icon.png" />
-    <Content Include="Images\YoM\YoM.png" />
-    <Content Include="Images\YoM\YoM-eng.jpg" />
-    <Content Include="index3.html" />
-    <Content Include="test.html" />
-    <Content Include="LICENSE" />
-    <Content Include="package.json" />
-    <Content Include="README.md" />
-    <Content Include="tsconfig.json" />
-    <Content Include="tslint.json" />
     <Content Include="_Note.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="favicon.ico" />
-    <Content Include="index.html" />
-    <Content Include="karma-test-shim.js" />
-    <Content Include="karma.conf.js" />
-    <Content Include="protractor.config.js" />
-    <Content Include="styles.css" />
-    <Content Include="systemjs.config.extras.js" />
-    <Content Include="systemjs.config.js" />
-    <Content Include="wallaby.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="app\app.component.spec.ts" />
-    <TypeScriptCompile Include="app\app.component.ts" />
-    <TypeScriptCompile Include="app\app.module.ts" />
-    <TypeScriptCompile Include="app\shared.service.ts" />
-    <TypeScriptCompile Include="app\navbar-left.component.ts" />
-    <TypeScriptCompile Include="app\QAList.component.ts" />
-    <TypeScriptCompile Include="app\detail-view.component.ts" />
-    <TypeScriptCompile Include="app\main.ts" />
-    <TypeScriptCompile Include="app\Models.model.ts" />
-    <TypeScriptCompile Include="app\menuItem.service.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config">
@@ -170,7 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="app\navbar-left.template.html" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -182,10 +122,6 @@
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{f668a08b-1888-468b-ba3f-9ee5513108ce}</Project>
       <Name>Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Service\Service.csproj">
-      <Project>{046ef484-2278-4760-b7dd-fadf08ace1f8}</Project>
-      <Name>Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

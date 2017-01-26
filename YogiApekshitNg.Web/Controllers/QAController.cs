@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
-using System.Runtime.Caching;
+//using System.Runtime.Caching;
 using System.Web.Http;
 
 namespace YogiApekshitNg.Web.Controllers
 {
     public class QAController : ApiController
     {
-        MemoryCache MemCache = MemoryCache.Default;
+        //MemoryCache MemCache = MemoryCache.Default;
 
         [Route("api/QA/GetQA")]
         public HttpResponseMessage GetQA(string lang, string category, int bookId, int chapterNumber = 0)

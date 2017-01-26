@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Caching;
+//using System.Runtime.Caching;
 using System.Web;
 using System.Web.Http;
 
@@ -40,7 +40,7 @@ namespace YogiApekshitNg.Web.Controllers
 
     public class MenuController : ApiController
     {
-        MemoryCache MemCache = MemoryCache.Default;
+        //MemoryCache MemCache = MemoryCache.Default;
 
         public IEnumerable<MenuItem> Get(string lang)
         {
