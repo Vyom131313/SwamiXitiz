@@ -4,7 +4,7 @@ using System.Net.Http;
 //using System.Runtime.Caching;
 using System.Web.Http;
 
-namespace YogiApekshitNg.Web.Controllers
+namespace YogiApekshitNg.WebApi.Controllers
 {
     public class QAController : ApiController
     {

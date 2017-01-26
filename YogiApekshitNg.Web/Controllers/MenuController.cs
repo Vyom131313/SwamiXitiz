@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Http;
 
-namespace YogiApekshitNg.Web.Controllers
+namespace YogiApekshitNg.WebApi.Controllers
 {
     public class MenuItem
     {
