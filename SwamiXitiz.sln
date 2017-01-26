@@ -9,6 +9,66 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogiApekshitNg.Web", "YogiApekshitNg.Web\YogiApekshitNg.Web.csproj", "{C142DE13-DD6D-49F9-86B6-E1B4DF3EDD49}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "YogiApekshit.UI", "YogiApekshit.UI", "{FEA2F259-12DA-4F39-9EDA-7F7AD255869C}"
+	ProjectSection(SolutionItems) = preProject
+		YogiApekshit.UI\.gitignore = YogiApekshit.UI\.gitignore
+		YogiApekshit.UI\_Note.txt = YogiApekshit.UI\_Note.txt
+		YogiApekshit.UI\favicon.ico = YogiApekshit.UI\favicon.ico
+		YogiApekshit.UI\index.html = YogiApekshit.UI\index.html
+		YogiApekshit.UI\package.json = YogiApekshit.UI\package.json
+		YogiApekshit.UI\README.md = YogiApekshit.UI\README.md
+		YogiApekshit.UI\tsconfig.json = YogiApekshit.UI\tsconfig.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{2F364174-29F2-4B87-81F2-FB7550095BF7}"
+	ProjectSection(SolutionItems) = preProject
+		YogiApekshit.UI\app\app.component.ts = YogiApekshit.UI\app\app.component.ts
+		YogiApekshit.UI\app\app.module.ts = YogiApekshit.UI\app\app.module.ts
+		YogiApekshit.UI\app\detail-view.component.ts = YogiApekshit.UI\app\detail-view.component.ts
+		YogiApekshit.UI\app\detail-view.template.html = YogiApekshit.UI\app\detail-view.template.html
+		YogiApekshit.UI\app\main.ts = YogiApekshit.UI\app\main.ts
+		YogiApekshit.UI\app\menuItem.service.ts = YogiApekshit.UI\app\menuItem.service.ts
+		YogiApekshit.UI\app\Models.model.ts = YogiApekshit.UI\app\Models.model.ts
+		YogiApekshit.UI\app\navbar-left.component.ts = YogiApekshit.UI\app\navbar-left.component.ts
+		YogiApekshit.UI\app\navbar-left.template.html = YogiApekshit.UI\app\navbar-left.template.html
+		YogiApekshit.UI\app\QAList.component.ts = YogiApekshit.UI\app\QAList.component.ts
+		YogiApekshit.UI\app\QAList.template.html = YogiApekshit.UI\app\QAList.template.html
+		YogiApekshit.UI\app\shared.service.ts = YogiApekshit.UI\app\shared.service.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{B8E599D9-A5B2-4D9E-8FCF-529CD433191D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{C784ECFF-6D88-4A49-8530-C51EE93F74CE}"
+	ProjectSection(SolutionItems) = preProject
+		YogiApekshit.UI\Assets\css\style.css = YogiApekshit.UI\Assets\css\style.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dist", "dist", "{37A8E04D-8DDA-4C36-BA6D-B0F15CD22562}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{0063BE2E-BF4F-4BE2-87D4-F8A68055C632}"
+	ProjectSection(SolutionItems) = preProject
+		YogiApekshit.UI\Images\assessment-icon.png = YogiApekshit.UI\Images\assessment-icon.png
+		YogiApekshit.UI\Images\Calendar-icon.png = YogiApekshit.UI\Images\Calendar-icon.png
+		YogiApekshit.UI\Images\gujarat-icon.png = YogiApekshit.UI\Images\gujarat-icon.png
+		YogiApekshit.UI\Images\india-icon.png = YogiApekshit.UI\Images\india-icon.png
+		YogiApekshit.UI\Images\logo.png = YogiApekshit.UI\Images\logo.png
+		YogiApekshit.UI\Images\Prarambh.jpg = YogiApekshit.UI\Images\Prarambh.jpg
+		YogiApekshit.UI\Images\preparation-icon.png = YogiApekshit.UI\Images\preparation-icon.png
+		YogiApekshit.UI\Images\us-icon.png = YogiApekshit.UI\Images\us-icon.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GhC", "GhC", "{99190CC2-BFFC-467E-A84C-7269A96664EB}"
+	ProjectSection(SolutionItems) = preProject
+		YogiApekshit.UI\Images\GhC\GhC-eng.jpg = YogiApekshit.UI\Images\GhC\GhC-eng.jpg
+		YogiApekshit.UI\Images\GhC\GhC.png = YogiApekshit.UI\Images\GhC\GhC.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "YoM", "YoM", "{00A6F67F-9607-4F91-BB87-CF036B767D7B}"
+	ProjectSection(SolutionItems) = preProject
+		YogiApekshit.UI\Images\YoM\YoM-eng.jpg = YogiApekshit.UI\Images\YoM\YoM-eng.jpg
+		YogiApekshit.UI\Images\YoM\YoM.png = YogiApekshit.UI\Images\YoM\YoM.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +90,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2F364174-29F2-4B87-81F2-FB7550095BF7} = {FEA2F259-12DA-4F39-9EDA-7F7AD255869C}
+		{B8E599D9-A5B2-4D9E-8FCF-529CD433191D} = {FEA2F259-12DA-4F39-9EDA-7F7AD255869C}
+		{C784ECFF-6D88-4A49-8530-C51EE93F74CE} = {B8E599D9-A5B2-4D9E-8FCF-529CD433191D}
+		{37A8E04D-8DDA-4C36-BA6D-B0F15CD22562} = {FEA2F259-12DA-4F39-9EDA-7F7AD255869C}
+		{0063BE2E-BF4F-4BE2-87D4-F8A68055C632} = {FEA2F259-12DA-4F39-9EDA-7F7AD255869C}
+		{99190CC2-BFFC-467E-A84C-7269A96664EB} = {0063BE2E-BF4F-4BE2-87D4-F8A68055C632}
+		{00A6F67F-9607-4F91-BB87-CF036B767D7B} = {0063BE2E-BF4F-4BE2-87D4-F8A68055C632}
 	EndGlobalSection
 EndGlobal
