@@ -1,6 +1,4 @@
-﻿- Wait indicator
-- MVC Page
-- QA: Pre Test
+﻿- QA: Pre Test
 - Menu: Keep selected  (1)
 - Wait indicator for menu and detail view  (1)
 - QA: Next chapter button (1)
@@ -18,8 +16,11 @@
 =========== Build Locally Steps =========== 
 * Open Command Prompt
 * CD <current folder location>
+
+* npm install
 * npm start
 * npm run build
+
 * npm run build_prod
 * npm run serve
 * Open http://localhost:5556
