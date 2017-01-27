@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{046EF484-2278-4760-B7DD-FADF08ACE1F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogiApekshitNg.Web", "YogiApekshitNg.Web\YogiApekshitNg.Web.csproj", "{C142DE13-DD6D-49F9-86B6-E1B4DF3EDD49}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "YogiApekshit.UI", "YogiApekshit.UI", "{FEA2F259-12DA-4F39-9EDA-7F7AD255869C}"
 	ProjectSection(SolutionItems) = preProject
 		YogiApekshit.UI\.gitignore = YogiApekshit.UI\.gitignore
@@ -68,6 +66,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "YoM", "YoM", "{00A6F67F-960
 		YogiApekshit.UI\Images\YoM\YoM-eng.jpg = YogiApekshit.UI\Images\YoM\YoM-eng.jpg
 		YogiApekshit.UI\Images\YoM\YoM.png = YogiApekshit.UI\Images\YoM\YoM.png
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogiApekshitNg.WebApi", "YogiApekshitNg.Web\YogiApekshitNg.WebApi.csproj", "{C142DE13-DD6D-49F9-86B6-E1B4DF3EDD49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
