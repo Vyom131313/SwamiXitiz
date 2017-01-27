@@ -94,6 +94,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataService\Base\CrudService.cs" />
+    <Compile Include="DataService\Base\DbContextFactory.cs" />
     <Compile Include="Models\Attendance.cs" />
     <Compile Include="Models\Attendee.cs" />
     <Compile Include="Models\Event.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Models\Mapping\KaryakarMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
