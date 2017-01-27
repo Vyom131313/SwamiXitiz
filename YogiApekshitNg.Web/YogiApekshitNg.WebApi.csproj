@@ -138,6 +138,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="SQL\Guj_Characters_Mapping.sql" />
     <Content Include="SQL\YogiApekshit_data.sql" />
     <Content Include="_Note.txt" />
   </ItemGroup>
