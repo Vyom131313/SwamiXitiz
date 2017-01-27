@@ -1,4 +1,11 @@
-﻿- QA: Pre Test
+﻿
+- TFS Account, Move code there,  
+- Add/Edit/Validate Page, 
+- Logo/Header/Footer
+- Theme changes
+- Database migrat
+----------------------------------
+- QA: Pre Test
 - Menu: Keep selected  (1)
 - Wait indicator for menu and detail view  (1)
 - QA: Next chapter button (1)
