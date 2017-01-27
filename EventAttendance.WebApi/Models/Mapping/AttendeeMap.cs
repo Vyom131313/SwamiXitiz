@@ -22,16 +22,20 @@ namespace EventAttendance.WebApi.Models.Mapping
             this.Property(t => t.Address)
                 .HasMaxLength(500);
 
-            this.Property(t => t.Zone)
-                .HasMaxLength(50);
-
             // Table & Column Mappings
             this.ToTable("Attendee");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.FirstName).HasColumnName("FirstName");
             this.Property(t => t.LastName).HasColumnName("LastName");
             this.Property(t => t.Address).HasColumnName("Address");
-            this.Property(t => t.Zone).HasColumnName("Zone");
+            this.Property(t => t.ZoneId).HasColumnName("ZoneId");
+            this.Property(t => t.IsKaryakar).HasColumnName("IsKaryakar");
+
+            // Relationships
+            this.HasOptional(t => t.Zone)
+                .WithMany(t => t.Attendees)
+                .HasForeignKey(d => d.ZoneId);
+
         }
     }
 }

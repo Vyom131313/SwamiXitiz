@@ -102,6 +102,7 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="_Note.txt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -132,6 +133,8 @@
     <Compile Include="Models\Mapping\EventMap.cs" />
     <Compile Include="Models\Mapping\EventScheduleMap.cs" />
     <Compile Include="Models\Mapping\KaryakarMap.cs" />
+    <Compile Include="Models\Mapping\ZoneMap.cs" />
+    <Compile Include="Models\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
