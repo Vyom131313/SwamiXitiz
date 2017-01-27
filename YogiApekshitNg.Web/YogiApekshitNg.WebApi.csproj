@@ -94,39 +94,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ModelsPartial\Constants.cs" />
-    <Compile Include="ModelsPartial\ModelsPartial.cs" />
-    <Compile Include="Models\Book.cs" />
-    <Compile Include="Models\BookChapter.cs" />
-    <Compile Include="Models\ExamLevel.cs" />
-    <Compile Include="Models\Mapping\BookChapterMap.cs" />
-    <Compile Include="Models\Mapping\BookMap.cs" />
-    <Compile Include="Models\Mapping\ExamLevelMap.cs" />
-    <Compile Include="Models\Mapping\QueCorrectOptionMap.cs" />
-    <Compile Include="Models\Mapping\QueCorrectSentenceMap.cs" />
-    <Compile Include="Models\Mapping\QueCorrectSequenceMap.cs" />
-    <Compile Include="Models\Mapping\QueFillInBlankMap.cs" />
-    <Compile Include="Models\Mapping\QueKirtanMap.cs" />
-    <Compile Include="Models\Mapping\QueOneSentenceMap.cs" />
-    <Compile Include="Models\Mapping\QueReasonMap.cs" />
-    <Compile Include="Models\Mapping\QueShlokMap.cs" />
-    <Compile Include="Models\Mapping\QueShortNoteMap.cs" />
-    <Compile Include="Models\Mapping\QuestionCategoryMap.cs" />
-    <Compile Include="Models\Mapping\QueSwaminiVatMap.cs" />
-    <Compile Include="Models\Mapping\QueWhoWhomWhenMap.cs" />
-    <Compile Include="Models\QueCorrectOption.cs" />
-    <Compile Include="Models\QueCorrectSentence.cs" />
-    <Compile Include="Models\QueCorrectSequence.cs" />
-    <Compile Include="Models\QueFillInBlank.cs" />
-    <Compile Include="Models\QueKirtan.cs" />
-    <Compile Include="Models\QueOneSentence.cs" />
-    <Compile Include="Models\QueReason.cs" />
-    <Compile Include="Models\QueShlok.cs" />
-    <Compile Include="Models\QueShortNote.cs" />
-    <Compile Include="Models\QuestionCategory.cs" />
-    <Compile Include="Models\QueSwaminiVat.cs" />
-    <Compile Include="Models\QueWhoWhomWhen.cs" />
-    <Compile Include="Models\YogiApekshitContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -135,8 +102,6 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="SQL\Guj_Characters_Mapping.sql" />
-    <Content Include="SQL\YogiApekshit_data.sql" />
     <Content Include="_Note.txt" />
   </ItemGroup>
   <ItemGroup>
