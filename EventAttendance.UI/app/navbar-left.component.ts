@@ -9,12 +9,10 @@ export class NavbarLeftComponent {
     @ViewChild('wrapper') wrapper:ElementRef;
     selectedMenu: string;
 
-    constructor(public elementRef: ElementRef,
-                public renderer: Renderer) { }
+    constructor(public elementRef: ElementRef, public renderer: Renderer) { }
 
     ngOnInit(): void {
     }
-
     
     onSelect(menu: string, event: any): void {
         event.stopPropagation();
