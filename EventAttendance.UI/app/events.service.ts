@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { Headers, Http, Response } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { URLSearchParams, QueryEncoder } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -19,11 +19,11 @@ export class EventsService {
     {
     }
 
-    //getAll() {
-    //    return this.http.get(this.ServiceBaseUrl+"/api/Menu/getAll")
-    //        .toPromise()
-    //        .then((response) => response.json());
-    //}
+    getAll() {
+        return this.http.get(this.ServiceBaseUrl+"/api/Events/getAll")
+            .toPromise()
+            .then((response) => response.json());
+    }
 
     //getById(id: number) {
 

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
@@ -15,7 +15,7 @@ import { EventsService } from './Events.service';
     imports: [BrowserModule, HttpModule, AppRoutingModule],
     declarations: [AppComponent, NavbarLeftComponent, HomeComponent, AboutComponent, EventsListViewComponent],
     bootstrap: [AppComponent],
-    providers: [EventsService]
+    providers: [Http, EventsService]
 })
 export class AppModule {
     constructor(router: Router) {

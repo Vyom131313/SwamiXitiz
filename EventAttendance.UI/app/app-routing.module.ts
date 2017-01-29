@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { AboutComponent } from './about.component';
-import { EventsListViewComponent  } from './events-list-view.component';
+import { EventsListViewComponent } from './events-list-view.component';
+import { EventsService } from './Events.service';
 
 export const appRoutes: Routes = [
     {
@@ -32,13 +33,14 @@ export const appRoutes: Routes = [
 @NgModule({
     imports: [
         RouterModule.forRoot(
-            appRoutes,            
+            appRoutes,
         )
     ],
     exports: [
         RouterModule
     ],
     providers: [
+        //EventsService
     ]
 })
 export class AppRoutingModule { }

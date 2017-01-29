@@ -14,7 +14,7 @@ import { EventsService } from './events.service';
 export class EventsListViewComponent implements OnChanges {
     events_vm_list: Array<Event_VM>;
 
-    //constructor(private eventsService: EventsService) { }
+    constructor(private eventsService: EventsService) { }
 
     ngOnChanges(changes: SimpleChanges) {
         //console.log(changes);
