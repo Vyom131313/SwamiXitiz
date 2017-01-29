@@ -1,7 +1,5 @@
 ﻿import {  NgModule, ElementRef, Renderer, ViewChild, Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MenuItem } from './Models.model';
-import { SharedService } from './shared.service';
 
 @Component({
     selector: 'navbar-left',
@@ -9,18 +7,16 @@ import { SharedService } from './shared.service';
 })
 export class NavbarLeftComponent {
     @ViewChild('wrapper') wrapper:ElementRef;
-    menus: Array<MenuItem>;
-    selectedMenu: MenuItem;
+    selectedMenu: string;
 
-    constructor(private sharedService: SharedService,
-                public elementRef: ElementRef,
+    constructor(public elementRef: ElementRef,
                 public renderer: Renderer) { }
 
     ngOnInit(): void {
     }
 
     
-    onSelect(menu: MenuItem, event: any): void {
+    onSelect(menu: string, event: any): void {
         event.stopPropagation();
         this.selectedMenu = menu;
 

@@ -5,13 +5,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavbarLeftComponent } from './navbar-left.component';
 
-import { SharedService } from './shared.service';
-import { MenuItemService } from './menuItem.service';
+import { EventsService } from './Events.service';
 
 @NgModule({
   imports: [BrowserModule, HttpModule ],
   declarations: [AppComponent, NavbarLeftComponent ],
   bootstrap: [AppComponent],
-  providers: [SharedService, MenuItemService]
+  providers: [EventsService]
 })
 export class AppModule { }

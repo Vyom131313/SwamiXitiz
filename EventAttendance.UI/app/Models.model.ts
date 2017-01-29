@@ -1,30 +1,13 @@
 ﻿import { NgModule } from '@angular/core';
 
-export class MenuItem{
+export class Event_VM {
     Id: number;
-    Lang: string;
     Name: string;
-    BookId: number;
-    ChapterNumber: number;
-    Category: string;
-    IConUrl: string;
-    IsDivider: boolean;
-    MenuItems: Array<MenuItem>;
 }
 
-export class QARecord {
+export class EventSchedule_VM {
     Id: number;
-    Sr: number;
-    Que: string;
-    Ans: string;
-    ShowAns: boolean;
-    Chapter: string;
-    Exams: string;
-}
-
-export class QA_VM{
-    BookTitle:string;
-    ChapterTitle: string;
-    Color: string;
-    QARecords: Array<QARecord>;
+    EventId: number;
+    EventDate: string;
+    IsFreezed: boolean;
 }
