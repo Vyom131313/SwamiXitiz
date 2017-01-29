@@ -19,19 +19,19 @@ export class EventsService {
     {
     }
 
-    getAll() {
-        return this.http.get(this.ServiceBaseUrl+"/api/Menu/getAll")
-            .toPromise()
-            .then((response) => response.json());
-    }
+    //getAll() {
+    //    return this.http.get(this.ServiceBaseUrl+"/api/Menu/getAll")
+    //        .toPromise()
+    //        .then((response) => response.json());
+    //}
 
-    getById(id: number) {
+    //getById(id: number) {
 
-        let params: URLSearchParams = new URLSearchParams();
-        params.set('id', id.toString());
+    //    let params: URLSearchParams = new URLSearchParams();
+    //    params.set('id', id.toString());
 
-        return this.http.get(this.ServiceBaseUrl+"/api/Events/getById", {search: params })
-            .toPromise()
-            .then((response) => response.json());
-    }
+    //    return this.http.get(this.ServiceBaseUrl+"/api/Events/getById", {search: params })
+    //        .toPromise()
+    //        .then((response) => response.json());
+    //}
 }

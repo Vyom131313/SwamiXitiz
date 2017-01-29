@@ -5,22 +5,17 @@ import { Event_VM } from './Models.model';
 import { EventsService } from './events.service';
 
 @Component({
-    selector: 'events-list-view',
-    templateUrl: './app/events-list-view.template.html',
+    selector: 'home',
+    template: 'This is Home',
     styleUrls: [
         'https://fonts.googleapis.com/icon?family=Material+Icons',
     ],
 })
-export class EventsListViewComponent implements OnChanges {
-    events_vm_list: Array<Event_VM>;
+export class HomeComponent implements OnChanges {
 
-    //constructor(private eventsService: EventsService) { }
+    constructor() { }
 
     ngOnChanges(changes: SimpleChanges) {
         //console.log(changes);
-        this.getData();
-    }
-
-    getData() {
     }
 }
