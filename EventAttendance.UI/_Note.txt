@@ -1,0 +1,40 @@
+﻿* Events:
+	- ListView 
+	- Add Form
+	- Edit Form
+	- Delete
+* Event Schedule:
+	- ListView 
+	- Add Form
+	- Edit Form
+	- Delete
+* Attendees:
+	- ListView 
+	- Add Form
+	- Edit Form
+	- Delete
+
+* Attendance:
+	- ListView 
+	- Take Attendnace for Schedule
+	- Edit Form
+	- Delete
+
+* Reports:
+	- By Schedule
+	- By Event
+	- By Attendee
+	- Export to Excel
+
+=========== Build Locally Steps =========== 
+* Open Command Prompt
+* CD <current folder location>
+
+* npm install
+* npm start
+* npm run build
+
+* npm run build_prod
+* npm run serve
+* Open http://localhost:5556
+===========================================
