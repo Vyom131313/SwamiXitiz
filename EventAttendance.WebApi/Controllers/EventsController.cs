@@ -21,6 +21,7 @@ namespace EventAttendance.WebApi.Controllers
         }
 
         [HttpGet]
+        [Route("api/Events/Get")]
         [Route("api/Events/Get/{filter}")]
         public IQueryable<Event> GetEvents(string filter = "")
         {
