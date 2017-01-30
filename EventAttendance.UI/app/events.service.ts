@@ -18,14 +18,14 @@ export class EventsService {
     constructor() {
     }
 
-    //getAll(filter: string) {
-    //    let params: URLSearchParams = new URLSearchParams();
-    //    params.set('filter', filter);
+    getAll(http: Http, filter: string) {
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('filter', filter);
 
-    //    return this.http.get(this.ServiceBaseUrl + "/api/Events/getAll", { search: params })
-    //        .toPromise()
-    //        .then((response) => response.json());
-    //}
+        return http.get(this.ServiceBaseUrl + "/api/Events/getAll", { search: params })
+            .toPromise()
+            .then((response) => response.json());
+    }
 
     //getById(id: number) {
 
