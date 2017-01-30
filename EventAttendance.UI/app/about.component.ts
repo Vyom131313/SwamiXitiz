@@ -1,5 +1,4 @@
 ﻿import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
@@ -9,11 +8,6 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
         'https://fonts.googleapis.com/icon?family=Material+Icons',
     ],
 })
-export class AboutComponent implements OnChanges {
-
+export class AboutComponent {
     constructor() { }
-
-    ngOnChanges(changes: SimpleChanges) {
-        //console.log(changes);
-    }
 }
