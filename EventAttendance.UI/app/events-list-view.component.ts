@@ -23,6 +23,8 @@ export class EventsListViewComponent implements OnChanges {
         this.http = _http;
         this.eventsService = _eventsService;
 
+        this.eventsService.get(this.http, 'test').then(items => { this.events_vm_list = items; });
+
        // alert(JSON.stringify(this.eventsService.getAll(this.http, 'test')));
     }
 

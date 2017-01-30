@@ -10,19 +10,18 @@ import { Event_VM } from './models.model';
 @Injectable()
 export class EventsService {
 
-    public ServiceBaseUrl: string = "";
-    //public ServiceBaseUrl: string = "http://localhost:9266";
-    //public ServiceBaseUrl: string = "http://yogiapekshit.xitiz.net";
+    //public ServiceBaseUrl: string = "";
+    public ServiceBaseUrl: string = "http://localhost:23283/";
 
     //constructor(private http: Http) {
     constructor() {
     }
 
-    getAll(http: Http, filter: string) {
+    get(http: Http, filter: string) {
         let params: URLSearchParams = new URLSearchParams();
         params.set('filter', filter);
 
-        return http.get(this.ServiceBaseUrl + "/api/Events/getAll", { search: params })
+        return http.get(this.ServiceBaseUrl + "/api/Events/get", { search: params })
             .toPromise()
             .then((response) => response.json());
     }

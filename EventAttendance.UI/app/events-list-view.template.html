@@ -1,1 +1,17 @@
-﻿This is events-list-view.template
+﻿<table *ngIf="events_vm_list != null && events_vm_list != undefined && events_vm_list.length > 0"
+       class="table">
+    <thead>
+        <tr>
+            <th width="30px;">Id</th>
+            <th>Event</th>
+        </tr>
+    </thead>
+    <tbody style="font-weight:bold;font-size:10.5pt;">
+        <tr *ngFor="let item of events_vm_list">
+            <td style='white-space:nowrap;' align='center'>{{item.Id}}</td>
+            <td>
+                <div [innerHTML]="item.Name"></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
