@@ -15,10 +15,10 @@ import { EventsService } from './Events.service';
     imports: [BrowserModule, HttpModule, AppRoutingModule],
     declarations: [AppComponent, NavbarLeftComponent, HomeComponent, AboutComponent, EventsListViewComponent],
     bootstrap: [AppComponent],
-    providers: [Http, EventsService]
+    providers: [EventsService]
 })
 export class AppModule {
     constructor(router: Router) {
-        console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+        //console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
     }
 }

@@ -10,6 +10,7 @@ import { EventsService } from './events.service';
     styleUrls: [
         'https://fonts.googleapis.com/icon?family=Material+Icons',
     ],
+    providers: [EventsService]
 })
 export class EventsListViewComponent implements OnChanges {
     events_vm_list: Array<Event_VM>;
