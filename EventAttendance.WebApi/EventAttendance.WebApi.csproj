@@ -116,6 +116,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AttendancesController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\AttendeesController.cs" />
     <Compile Include="DataService\Base\CrudService.cs" />
     <Compile Include="DataService\Base\DbContextFactory.cs" />
