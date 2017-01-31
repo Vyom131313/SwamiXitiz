@@ -1,8 +1,22 @@
 ﻿<div *ngIf="menu == null">
-    <p style="font-family:'Segoe Print';font-size:5.9vw;text-align:center;color:brown"
-       [innerHtml]="this.sharedService.JaiSwaminarayanText">
+    <p style="font-family:'Segoe Print';font-size:5vw;text-align:center;color:brown"
+       [innerHtml]="this.sharedService.SatsangExapPreparationText">
     </p>
-    <img src="/Images/Prarambh.jpg" class="img-responsive img-rounded" width='100%' />
+    <img src="/Images/Prarambh.jpg" class="img-responsive img-rounded" width='90%' style="align-content:center" />
+
+    <!--<table width="50%" align="center" border="0">
+        <tr>
+            <td style="margin:10px;padding:10px;">
+                <img src="/Images/Ghc/Ghc-eng.jpg" class="img-responsive img-rounded" />
+            </td>
+            <td style="margin:10px;padding:10px;">
+                <img src="/Images/YoM/YoM-eng.jpg" class="img-responsive img-rounded" />
+            </td>
+            <td style="margin:10px;padding:10px;">
+                <img src="/Images/KSPB/KsPb-eng.jpg" class="img-responsive img-rounded" />
+            </td>
+        </tr>
+    </table>-->
 </div>
 
 <h4 *ngIf="menu != null && menu != undefined && menu.Category =='All' " class='QAListTitle'>

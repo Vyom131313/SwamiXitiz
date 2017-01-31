@@ -12,6 +12,7 @@ export class SharedService {
     public TitleText: string = "યોગી<b> અપેક્ષિત</b>";
     public SelectLangText: string = "ભાષા";
     public JaiSwaminarayanText: string = "જય<br/>સ્વામિનારાયણ";
+    public SatsangExapPreparationText: string = "સત્સંગ શિક્ષણ પરીક્ષા<br/>તૈયારી અને ચકાસણી";
 
     public ChapterColumnText: string = "પ્રકરણ";
     public ExamsColumnText: string = "પરીક્ષા";
@@ -35,6 +36,7 @@ export class SharedService {
         this.TitleText = this.Lang.getValue() == "Eng" ? "Yogi<b> Apekshit</b>" : "યોગી<b> અપેક્ષિત</b>";
 
         this.JaiSwaminarayanText = newValue == "Eng" ? "Jai<br/>Swaminarayan" : "જય<br/>સ્વામિનારાયણ";
+        this.SatsangExapPreparationText = newValue == "Eng" ? "Satsang Exam<br/>Preparation & Assessment" : "સત્સંગ શિક્ષણ પરીક્ષા<br/>તૈયારી અને ચકાસણી";
         this.SelectLangText = newValue == "Eng" ? "Lang." : "ભાષા";
         this.ExamsColumnText = newValue == "Eng" ? "Exams" : "પરીક્ષા";
         this.ChapterColumnText = newValue == "Eng" ? "Chapter" : "પ્રકરણ";
@@ -49,8 +51,6 @@ export class SharedService {
 
         this.SetAssessmentMode(this.IsAssessmentMode);
     }
-
-
 
     SetAssessmentMode(isAssessmentMode: boolean) {
         this.IsAssessmentMode = isAssessmentMode;
