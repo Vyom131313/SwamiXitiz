@@ -4,6 +4,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { MenuItem, QARecord, QA_VM } from './Models.model';
 import { SharedService } from './shared.service';
 import { MenuItemService } from './menuItem.service';
+import { NavbarLeftComponent } from './navbar-left.component';
 
 @Component({
     selector: 'detail-view',
@@ -26,7 +27,7 @@ export class DetailViewComponent implements OnChanges {
     qa_vm_Short_Note: Array<QARecord>;
     qa_vm_Swamini_Vaato: Array<QARecord>;
 
-    constructor(private menuItemService: MenuItemService, private sharedService: SharedService) { }
+    constructor(private menuItemService: MenuItemService, private navbarLeft: NavbarLeftComponent, private sharedService: SharedService) { }
 
     ngOnChanges(changes: SimpleChanges) {
         //console.log(changes);
@@ -52,4 +53,12 @@ export class DetailViewComponent implements OnChanges {
             }
         }
     }
+
+    //ChangeLanguage(lang: string, event: Event) {
+
+    //    if (this.sharedService.Lang.value == lang)
+    //        return;
+
+    //    this.sharedService.SetLanguage(lang);
+    //}
 }

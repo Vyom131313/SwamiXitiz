@@ -1,4 +1,4 @@
-﻿import {  NgModule, ElementRef, Renderer, ViewChild, Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+﻿import { NgModule, Injectable, ElementRef, Renderer, ViewChild, Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MenuItem } from './Models.model';
 import { MenuItemService } from './menuItem.service';
@@ -8,6 +8,8 @@ import { SharedService } from './shared.service';
     selector: 'navbar-left',
     templateUrl: '/app/navbar-left.template.html'
 })
+
+@Injectable()
 export class NavbarLeftComponent {
     @ViewChild('wrapper') wrapper:ElementRef;
     menus: Array<MenuItem>;
