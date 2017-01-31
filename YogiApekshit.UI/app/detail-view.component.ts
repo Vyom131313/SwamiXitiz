@@ -53,12 +53,4 @@ export class DetailViewComponent implements OnChanges {
             }
         }
     }
-
-    //ChangeLanguage(lang: string, event: Event) {
-
-    //    if (this.sharedService.Lang.value == lang)
-    //        return;
-
-    //    this.sharedService.SetLanguage(lang);
-    //}
 }

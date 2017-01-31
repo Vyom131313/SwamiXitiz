@@ -31,6 +31,7 @@ export class NavbarLeftComponent {
     onSelect(menu: MenuItem, event: any): void {
         event.stopPropagation();
         this.selectedMenu = menu;
+        //console.log('onSelect');
 
         // Collapse menubar
         this.renderer.setElementClass(this.wrapper.nativeElement, 'toggled', false);
@@ -45,10 +46,18 @@ export class NavbarLeftComponent {
         this.getMenus();
 
         if (this.selectedMenu != null && this.selectedMenu != undefined) {
-            this.selectedMenu.Lang = lang;
 
-            var mnu = this.selectedMenu;
-            this.selectedMenu = null;
+            let mnu= Object.assign({}, this.selectedMenu)
+            mnu.Lang = lang;
+
+            //console.log('ChangeLanguage');
+            //console.log('this.selectedMenu.Lang : ' + this.selectedMenu.Lang);
+            //console.log('mnu.Lang : ' + mnu.Lang);
+
+            //var mnu = this.selectedMenu;
+            //this.selectedMenu = null;
+
+            this.onSelect(mnu, event);
         }
     }
 

@@ -12,7 +12,7 @@ import { MenuItem } from './Models.model';
 @Injectable()
 export class MenuItemService {
 
-    public ServiceBaseUrl: string = "";
+    //public ServiceBaseUrl: string = "";
     //public ServiceBaseUrl: string = "http://localhost:9266";
     //public ServiceBaseUrl: string = "http://yogiapekshit.xitiz.net";
     
@@ -38,6 +38,9 @@ export class MenuItemService {
 
 
     getMenus() {
+
+        //console.log('getMenus');
+
         let params: URLSearchParams = new URLSearchParams();
         params.set('lang', this.sharedService.Lang.getValue());
 
@@ -47,6 +50,8 @@ export class MenuItemService {
     }
 
     getQA(bookId: number, chapterNumber: number, category: string) {
+
+        //console.log('getQA');
 
         let params: URLSearchParams = new URLSearchParams();
         params.set('lang', this.sharedService.Lang.getValue());
