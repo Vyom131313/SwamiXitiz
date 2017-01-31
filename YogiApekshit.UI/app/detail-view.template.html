@@ -19,52 +19,45 @@
     </table>-->
 </div>
 
-<h4 *ngIf="menu != null && menu != undefined && menu.Category =='All' " class='QAListTitle'>
+<h4 *ngIf="menu != null && menu != undefined" class='QAListTitle'>
     <img src="{{menu.IConUrl}}" width='40px' height='40px' style='padding:0px;' />
-    {{this.sharedService.ChapterColumnText}}
+    <span *ngIf="menu.Category =='All'">{{this.sharedService.ChapterColumnText}}</span>
     {{menu.Name}}
-
+    <br/>
     <div style="float:right;white-space:noWrap;font-size:13px;">
         <tr>
-            <td align='left'>
+            <td>
                 <button class="btn btn-xs {{this.sharedService.Lang.value==='Guj'?'btn-success':'btn-info'}}"
-                        style='width:110px' (click)="this.navbarLeft.ChangeLanguage('Guj', $event)">
+                        style='width:33px; margin-right:10px' (click)="this.navbarLeft.ChangeLanguage('Guj', $event)">
                     <img src="Images/india-icon.png" style='float:left;width:26px;padding-right:5px;' />
-                    <span style='vertical-align:middle;float:left'>ગુજરાતી</span>
                 </button>
 
                 <button class="btn btn-xs {{this.sharedService.Lang.value==='Eng'?'btn-success':'btn-info'}}"
-                        style='width:110px' (click)="this.navbarLeft.ChangeLanguage('Eng', $event)">
+                        style='width:33px;margin-right:10px' (click)="this.navbarLeft.ChangeLanguage('Eng', $event)">
                     <img src="Images/us-icon.png" style='float:left;width:26px;padding-right:5px;' />
-                    <span style='vertical-align:middle;float:left'>English</span>
                 </button>
             </td>
-        </tr>
-        <tr>
-            <td align='left' style="padding-right:10px">
+        
+            <td style="padding-right:10px">
                 <button class="btn btn-xs {{this.sharedService.IsAssessmentMode==false?'btn-success':'btn-info'}}"
-                        style="margin-top:5px;margin-bottom:5px;width:110px;" (click)="this.sharedService.SetAssessmentMode(false);">
+                        style="margin-top:5px;margin-bottom:5px;width:33px;margin-right:10px" (click)="this.sharedService.SetAssessmentMode(false);">
                     <img src="Images/preparation-icon.png" style='float:left;width:26px;padding-right:5px;' />
-                    <span style='vertical-align:middle;float:left'>{{this.sharedService.PreparationModeText}}</span>
                 </button>
                 <button class="btn btn-xs {{this.sharedService.IsAssessmentMode==true?'btn-success':'btn-info'}}"
-                        style="width:110px" (click)="this.sharedService.SetAssessmentMode(true);">
+                        style="width:33px;margin-right:10px" (click)="this.sharedService.SetAssessmentMode(true);">
                     <img src="Images/assessment-icon.png" style='float:left;width:26px;padding-right:5px;' />
-                    <span style='vertical-align:middle;float:left'>{{this.sharedService.AssessmentModeText}}</span>
                 </button>
             </td>
         </tr>
     </div>
-</h4>
-<h4 *ngIf="menu != null && menu != undefined && menu.Category !='All' " class='QAListTitle'>
-    <img src="{{menu.IConUrl}}" width='40px' height='40px' style='padding:0px;' />
-    {{menu.Name}}
+
+    
 </h4>
 
-<div style="margin-top:70px;" *ngIf="menu != null && menu != undefined && menu.Category !='All' ">
+<div style="margin-top:90px;" *ngIf="menu != null && menu != undefined && menu.Category !='All' ">
     <QAList [category]='menu.Category' [qa_vm]="qa_vm"></QAList>
 </div>
-<div style="margin-top:70px;" *ngIf="menu != null && menu != undefined && menu.Category =='All'">
+<div style="margin-top:90px;" *ngIf="menu != null && menu != undefined && menu.Category =='All'">
     <QAList [category]="'Who_Whom_When'" [qa_vm]="qa_vm_Who_Whom_When"></QAList>
     <QAList [category]="'One_Sentence'" [qa_vm]="qa_vm_One_Sentence"></QAList>
     <QAList [category]="'Fill_In_Blank'" [qa_vm]="qa_vm_Fill_In_Blank"></QAList>
