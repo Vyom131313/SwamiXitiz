@@ -12,7 +12,7 @@ import { MenuItem } from './Models.model';
 @Injectable()
 export class MenuItemService {
 
-    //public ServiceBaseUrl: string = "";
+    public ServiceBaseUrl: string = "";
     //public ServiceBaseUrl: string = "http://localhost:9266";
     //public ServiceBaseUrl: string = "http://yogiapekshit.xitiz.net";
     
