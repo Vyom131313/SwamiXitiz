@@ -7,10 +7,12 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 
 namespace EventAttendance.WebApi.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "X-Custom-Header")]
     public class EventsController : ApiController
     {
         private EventAttendanceContext db = new EventAttendanceContext();
@@ -29,6 +31,8 @@ namespace EventAttendance.WebApi.Controllers
         }
 
         // GET: api/Events/5
+        [Route("api/Events/GetById")]
+        [Route("api/Events/GetById/{id}")]
         [ResponseType(typeof(Event))]
         public async Task<IHttpActionResult> GetEvent(int id)
         {
@@ -77,18 +81,23 @@ namespace EventAttendance.WebApi.Controllers
         }
 
         // POST: api/Events
-        [ResponseType(typeof(Event))]
-        public async Task<IHttpActionResult> PostEvent(Event Event)
+        [Route("api/Events/PostData")]
+        [HttpPost]
+       // [ResponseType(typeof(Event))]
+        public HttpResponseMessage PostEvent(Event Event)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                //return BadRequest(ModelState);
+                return new HttpResponseMessage(HttpStatusCode.BadRequest);
             }
 
             db.Events.Add(Event);
-            await db.SaveChangesAsync();
+            db.SaveChangesAsync();
+            //await db.SaveChangesAsync();
+            //return CreatedAtRoute("DefaultApi", new { id = Event.Id }, Event);
 
-            return CreatedAtRoute("DefaultApi", new { id = Event.Id }, Event);
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
         // DELETE: api/Events/5

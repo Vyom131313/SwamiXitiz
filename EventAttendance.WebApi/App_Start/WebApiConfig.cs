@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace EventAttendance.WebApi
 {
@@ -10,6 +11,9 @@ namespace EventAttendance.WebApi
     {
         public static void Register(HttpConfiguration config)
         {
+            //var corsAttr = new EnableCorsAttribute("http://localhost:5556", "*", "*");
+            //config.EnableCors(corsAttr);
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
