@@ -7,6 +7,10 @@ import { EventsService } from './Events.service';
 
 export const appRoutes: Routes = [
     {
+        path: '',
+        component: HomeComponent
+    },
+    {
         path: 'home',
         component: HomeComponent
     },
@@ -18,11 +22,11 @@ export const appRoutes: Routes = [
         path: 'events',
         component: EventsListViewComponent
     },
-    {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
-    },
+    //{
+    //    path: '',
+    //    redirectTo: '/home',
+    //    pathMatch: 'full'
+    //},
     {
         path: '**',
         redirectTo: '/home',
