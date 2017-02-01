@@ -2,21 +2,20 @@ import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-//import { AppRoutingModule } from './app-routing.module';
 import { AppRoutes } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
 import { NavbarLeftComponent } from './navbar-left.component';
-import { HomeComponent } from './home.component';
 import { AboutComponent } from './about.component';
 
 // Modules
 import { EventsModule, EventsRouting } from "./Events/events.module";
+import { HomeModule } from "./Home/home.module";
 
 @NgModule({
-    imports: [BrowserModule, HttpModule, EventsModule, EventsRouting, AppRoutes],
-    declarations: [AppComponent, NavbarLeftComponent, HomeComponent, AboutComponent],
+    imports: [BrowserModule, HttpModule, HomeModule, EventsModule, EventsRouting, AppRoutes],
+    declarations: [AppComponent, NavbarLeftComponent, AboutComponent],
     bootstrap: [AppComponent],
     //providers: [EventsService]
 })

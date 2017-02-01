@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './Home/home.component';
 import { AboutComponent } from './about.component';
 import { EventsListViewComponent } from './Events/events-list-view.component';
 import { EventsService } from './Events/Events.service';
@@ -10,10 +10,10 @@ import { EventsService } from './Events/Events.service';
         path: '',
         component: HomeComponent
     },
-    {
-        path: 'home',
-        component: HomeComponent
-    },
+    //{
+    //    path: 'home',
+    //    component: HomeComponent
+    //},
     {
         path: 'about',
         component: AboutComponent
