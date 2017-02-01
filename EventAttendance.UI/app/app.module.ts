@@ -9,11 +9,11 @@ import { AppComponent } from './app.component';
 import { NavbarLeftComponent } from './navbar-left.component';
 import { HomeComponent } from './home.component';
 import { AboutComponent } from './about.component';
-import { EventFormViewComponent } from './event-form-view.component';
-import { EventsListViewComponent } from './events-list-view.component';
+import { EventFormViewComponent } from './Events/event-form-view.component';
+import { EventsListViewComponent } from './Events/events-list-view.component';
 
 // Services
-import { EventsService } from './Events.service';
+import { EventsService } from './Events/Events.service';
 
 @NgModule({
     imports: [BrowserModule, HttpModule, AppRoutingModule],

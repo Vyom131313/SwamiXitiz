@@ -2,12 +2,12 @@
 import { Headers, Http, Response } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { Event_VM } from './Models.model';
+import { Event_VM } from '../Models.model';
 import { EventsService } from './events.service';
 
 @Component({
     selector: 'events-list-view',
-    templateUrl: './app/events-list-view.template.html',
+    templateUrl: './app/Events/events-list-view.template.html',
     styleUrls: [
         'https://fonts.googleapis.com/icon?family=Material+Icons',
     ],

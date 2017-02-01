@@ -1,13 +1,13 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Event_VM } from './models.model';
+import { Event_VM } from '../models.model';
 import { EventsService } from './events.service';
 
 @Component({
     selector: 'event-form',
-    templateUrl: './app/event-form-view.component.html',
+    templateUrl: './app/Events/event-form-view.component.html',
     styleUrls: [
         'https://fonts.googleapis.com/icon?family=Material+Icons',
     ],

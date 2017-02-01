@@ -1,11 +1,10 @@
-﻿<h5>{{ title }}</h5>
-<div class="row">
-    <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+﻿<div class="row">
+    <form materialize class="col s12" >
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">account_circle</i>
                 <input id="name" type="text" class="validate"
-                       [(ngModel)]="event.name" formControlName="name"
+                       formControlName="name"
                        [class.invalid]="form.controls['name'].touched && !form.controls['name'].valid">
                 <label for="name"
                        [class.active]="event.name"

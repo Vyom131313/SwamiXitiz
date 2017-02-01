@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
-import { Event_VM } from './models.model';
+import { Event_VM } from '../models.model';
 
 @Injectable()
 export class EventsService {
