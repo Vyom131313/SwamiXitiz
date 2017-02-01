@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'navbar-left',
-    templateUrl: '/app/navbar-left.template.html'
+    templateUrl: '/app/navbar/navbar-left.template.html'
 })
 export class NavbarLeftComponent {
     @ViewChild('wrapper') wrapper:ElementRef;

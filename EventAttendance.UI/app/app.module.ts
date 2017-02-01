@@ -6,16 +6,17 @@ import { AppRoutes } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { NavbarLeftComponent } from './navbar-left.component';
+//import { NavbarLeftComponent } from './navbar-left.component';
 import { AboutComponent } from './about.component';
 
 // Modules
+import { NavbarLeftModule } from "./Navbar/navbar-left.module";
 import { EventsModule, EventsRouting } from "./Events/events.module";
 import { HomeModule } from "./Home/home.module";
 
 @NgModule({
-    imports: [BrowserModule, HttpModule, HomeModule, EventsModule, EventsRouting, AppRoutes],
-    declarations: [AppComponent, NavbarLeftComponent, AboutComponent],
+    imports: [BrowserModule, HttpModule, NavbarLeftModule, HomeModule, EventsModule, EventsRouting, AppRoutes],
+    declarations: [AppComponent, AboutComponent],
     bootstrap: [AppComponent],
     //providers: [EventsService]
 })

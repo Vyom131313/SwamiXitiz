@@ -3,8 +3,8 @@ import { EventsService } from './Events/Events.service';
 
 @Component({
     selector: 'my-app',
-    template: `<navbar-left></navbar-left>`,
-    providers: [EventsService]
+    templateUrl: './app/app.component.html',
+    providers: []
 
 })
 export class AppComponent {
