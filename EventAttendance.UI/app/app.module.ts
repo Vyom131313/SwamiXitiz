@@ -13,10 +13,11 @@ import { AboutComponent } from './about.component';
 import { NavbarLeftModule } from "./Navbar/navbar-left.module";
 import { EventsModule, EventsRouting } from "./Events/events.module";
 import { HomeModule } from "./Home/home.module";
+import { NotFoundComponent } from './NotFound/not-found.component';
 
 @NgModule({
     imports: [BrowserModule, HttpModule, NavbarLeftModule, HomeModule, EventsModule, EventsRouting, AppRoutes],
-    declarations: [AppComponent, AboutComponent],
+    declarations: [AppComponent, AboutComponent, NotFoundComponent],
     bootstrap: [AppComponent],
     //providers: [EventsService]
 })

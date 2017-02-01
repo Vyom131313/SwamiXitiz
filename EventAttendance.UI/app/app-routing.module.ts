@@ -3,31 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Home/home.component';
 import { AboutComponent } from './about.component';
 import { EventsListViewComponent } from './Events/events-list-view.component';
-import { EventsService } from './Events/Events.service';
+import { NotFoundComponent } from './NotFound/not-found.component';
 
  const appRoutes1: Routes = [
-    {
-        path: '',
-        component: HomeComponent
-    },
-    //{
-    //    path: 'home',
-    //    component: HomeComponent
-    //},
-    {
-        path: 'about',
-        component: AboutComponent
-    },
-    //{
-    //    path: '',
-    //    redirectTo: '/home',
-    //    pathMatch: 'full'
-    //},
-    {
-        path: '**',
-        redirectTo: '/home',
-        pathMatch: 'full'
-    }
+    { path: '', component: HomeComponent },
+    //{ path: 'home', component: HomeComponent },
+    //{ path: '', redirectTo: '/home', pathMatch: 'full'},
+
+    { path: 'about', component: AboutComponent },
+    { path: 'not-found', component: NotFoundComponent },
+
+    //{ path: '**', redirectTo: '/home', pathMatch: 'full' }
+    { path: '**', redirectTo: 'not-found' }
 ];
 
  export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(appRoutes1);
