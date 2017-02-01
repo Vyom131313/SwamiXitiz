@@ -1,21 +1,35 @@
-﻿<h4 class='QAListTitle' style="text-align:center;padding-top:10px;padding-bottom:10px;">
+﻿<h4 class='QAListTitle' style="text-align:left;padding-top:10px;padding-bottom:10px;">
     Events
-    <br />
+        <a routerLink="/events/new" style="float:right;margin-right:30px;color:white;font-weight:bold">
+            <i class="glyphicon glyphicon-plus">Add</i>
+        </a>
 </h4>
 
 <table *ngIf="events_vm_list != null && events_vm_list != undefined && events_vm_list.length > 0"
        class="table" style="background-color:#35acdf; margin-top:50px;">
     <thead>
         <tr>
-            <th width="30px;">Id</th>
+            <th width="30px;">Id</th>           
             <th>Event</th>
+            <th width="35px;"></th>
+            <th width="35px;"></th>
         </tr>
     </thead>
     <tbody style="font-weight:bold;font-size:10.5pt;">
         <tr *ngFor="let item of events_vm_list">
             <td style='white-space:nowrap;' align='center'>{{item.Id}}</td>
             <td>
-                <div [innerHTML]="item.Name"></div>
+                {{item.Name}}
+            </td>
+            <td>
+                <a [routerLink]="['/events', item.Id]" style="color:white;font-weight:bold">
+                    <i class="glyphicon glyphicon-pencil"> </i>
+                </a>
+            </td>
+            <td>
+                <a (click)="delete(item)" href="" style="color:white;font-weight:bold">
+                    <i class="glyphicon glyphicon-remove"></i>
+                </a>
             </td>
         </tr>
     </tbody>
