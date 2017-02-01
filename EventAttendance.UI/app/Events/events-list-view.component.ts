@@ -16,16 +16,10 @@ import { EventsService } from './events.service';
 
 export class EventsListViewComponent implements OnChanges {
     events_vm_list: Array<Event_VM>;
-    private http: Http;
-    private eventsService: EventsService;
 
-    constructor(private _http: Http, private _eventsService: EventsService) {
-        this.http = _http;
-        this.eventsService = _eventsService;
+    constructor(private http: Http, private eventsService: EventsService) {
 
-        this.eventsService.get(this.http, 'test').then(items => { this.events_vm_list = items; });
-
-       // alert(JSON.stringify(this.eventsService.getAll(this.http, 'test')));
+        eventsService.getItems(this.http, 'test').then(items => { this.events_vm_list = items; });
     }
 
     ngOnChanges(changes: SimpleChanges) {

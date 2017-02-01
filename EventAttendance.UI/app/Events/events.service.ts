@@ -4,35 +4,60 @@ import { URLSearchParams, QueryEncoder } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
 import 'rxjs/Rx';
+
 import { Event_VM } from '../models.model';
 
 @Injectable()
 export class EventsService {
 
     //public ServiceBaseUrl: string = "";
-    public ServiceBaseUrl: string = "http://localhost:23283/";
+    public ServiceBaseUrl: string = "http://localhost:23283/api/Events";
 
     //constructor(private http: Http) {
     constructor() {
     }
 
-    get(http: Http, filter: string) {
+    getItems(http: Http, filter: string) {
         let params: URLSearchParams = new URLSearchParams();
         params.set('filter', filter);
 
-        return http.get(this.ServiceBaseUrl + "/api/Events/get", { search: params })
+        return http.get(this.ServiceBaseUrl+"/Get", { search: params })
             .toPromise()
             .then((response) => response.json());
     }
 
-    //getById(id: number) {
+    getItem(http: Http, id: number) {
 
-    //    let params: URLSearchParams = new URLSearchParams();
-    //    params.set('id', id.toString());
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('id', id.toString());
 
-    //    return this.http.get(this.ServiceBaseUrl + "/api/Events/getById", { search: params })
-    //        .toPromise()
-    //        .then((response) => response.json());
-    //}
+        return http.get(this.ServiceBaseUrl, { search: params })
+            .toPromise()
+            .then((response) => response.json());
+    }
+
+    add(http: Http, event: Event_VM) {
+        return http.post(this.ServiceBaseUrl, JSON.stringify(event))
+            .toPromise()
+            .then((response) => response.json());
+    }
+
+
+    update(http: Http, event: Event_VM) {
+        return http.put(this.ServiceBaseUrl, JSON.stringify(event))
+            .toPromise()
+            .then((response) => response.json());
+    }
+
+    delete(http: Http, id: number) {
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('id', id.toString());
+
+        return http.delete(this.ServiceBaseUrl + "/api/Events/delete", { search: params })
+            .toPromise()
+            .then((response) => response.json());
+    }
 }
