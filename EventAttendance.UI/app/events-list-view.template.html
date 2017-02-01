@@ -1,21 +1,21 @@
 ﻿<h4 class='QAListTitle' style="text-align:left;padding-top:10px;padding-bottom:10px;">
     Events
-        <a routerLink="/events/new" style="float:right;margin-right:30px;color:white;font-weight:bold">
-            <i class="glyphicon glyphicon-plus">Add</i>
-        </a>
+    <a routerLink="/events/new" style="float:right;margin-right:30px;color:white;font-weight:bold">
+        <i class="glyphicon glyphicon-plus">Add</i>
+    </a>
 </h4>
 
 <table *ngIf="events_vm_list != null && events_vm_list != undefined && events_vm_list.length > 0"
        class="table" style="background-color:#35acdf; margin-top:50px;">
     <thead>
-        <tr>
-            <th width="30px;">Id</th>           
-            <th>Event</th>
+        <tr style="font-weight:bold;font-size:10.5pt;">
+            <th width="30px;">Id</th>
+            <th>Event Name</th>
             <th width="35px;"></th>
             <th width="35px;"></th>
         </tr>
     </thead>
-    <tbody style="font-weight:bold;font-size:10.5pt;">
+    <tbody style="font-weight:bold;font-size:10pt;color:black">
         <tr *ngFor="let item of events_vm_list">
             <td style='white-space:nowrap;' align='center'>{{item.Id}}</td>
             <td>
