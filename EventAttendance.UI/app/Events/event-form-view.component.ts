@@ -51,6 +51,6 @@ export class EventFormViewComponent implements OnInit {
             ? this.eventsService.update(this.http, event)
             : this.eventsService.add(this.http, event);
 
-        result.then(data => this.router.navigate(['events']));
+        result.subscribe(data => this.router.navigate(['events']));
     }
 }
