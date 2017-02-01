@@ -31,8 +31,6 @@ namespace EventAttendance.WebApi.Controllers
         }
 
         // GET: api/Events/5
-        [Route("api/Events/GetById")]
-        [Route("api/Events/GetById/{id}")]
         [ResponseType(typeof(Event))]
         public async Task<IHttpActionResult> GetEvent(int id)
         {
