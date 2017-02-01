@@ -9,18 +9,16 @@ import { AppComponent } from './app.component';
 import { NavbarLeftComponent } from './navbar-left.component';
 import { HomeComponent } from './home.component';
 import { AboutComponent } from './about.component';
-import { EventFormViewComponent } from './Events/event-form-view.component';
-import { EventsListViewComponent } from './Events/events-list-view.component';
 
-// Services
-import { EventsService } from './Events/Events.service';
+// Modules
+import { EventsModule, EventsRouting } from "./Events/events.module";
+
 
 @NgModule({
-    imports: [BrowserModule, HttpModule, AppRoutingModule],
-    declarations: [AppComponent, NavbarLeftComponent, HomeComponent, AboutComponent,
-                    EventsListViewComponent, EventFormViewComponent],
+    imports: [BrowserModule, HttpModule, AppRoutingModule, EventsModule, EventsRouting],
+    declarations: [AppComponent, NavbarLeftComponent, HomeComponent, AboutComponent],
     bootstrap: [AppComponent],
-    providers: [EventsService]
+    //providers: [EventsService]
 })
 export class AppModule {
     constructor(router: Router) {
