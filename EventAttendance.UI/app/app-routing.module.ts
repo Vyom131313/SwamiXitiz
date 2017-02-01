@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { AboutComponent } from './about.component';
 import { EventsListViewComponent } from './Events/events-list-view.component';
 import { EventsService } from './Events/Events.service';
 
-export const appRoutes: Routes = [
+ const appRoutes1: Routes = [
     {
         path: '',
         component: HomeComponent
@@ -17,10 +17,6 @@ export const appRoutes: Routes = [
     {
         path: 'about',
         component: AboutComponent
-    },
-    {
-        path: 'events',
-        component: EventsListViewComponent
     },
     //{
     //    path: '',
@@ -34,17 +30,4 @@ export const appRoutes: Routes = [
     }
 ];
 
-@NgModule({
-    imports: [
-        RouterModule.forRoot(
-            appRoutes,
-        )
-    ],
-    exports: [
-        RouterModule
-    ],
-    providers: [
-        //EventsService
-    ]
-})
-export class AppRoutingModule { }
+ export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(appRoutes1);

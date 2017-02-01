@@ -4,14 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 
-//import { AppRoutingModule } from './app-routing.module';
-
 // Components
 import { EventFormViewComponent } from './event-form-view.component';
 import { EventsListViewComponent } from './events-list-view.component';
 
 // Services
-import { EventsService } from './Events.service';
+import { EventsService } from './events.service';
 
 @NgModule({
     imports: [

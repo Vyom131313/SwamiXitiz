@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
+//import { AppRoutingModule } from './app-routing.module';
+import { AppRoutes } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -13,9 +14,8 @@ import { AboutComponent } from './about.component';
 // Modules
 import { EventsModule, EventsRouting } from "./Events/events.module";
 
-
 @NgModule({
-    imports: [BrowserModule, HttpModule, AppRoutingModule, EventsModule, EventsRouting],
+    imports: [BrowserModule, HttpModule, EventsModule, EventsRouting, AppRoutes],
     declarations: [AppComponent, NavbarLeftComponent, HomeComponent, AboutComponent],
     bootstrap: [AppComponent],
     //providers: [EventsService]
