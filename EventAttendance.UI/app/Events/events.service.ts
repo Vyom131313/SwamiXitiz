@@ -66,7 +66,7 @@ export class EventsService {
 
 
     update(http: Http, event: Event_VM) {
-        return http.put(this.ServiceBaseUrl, JSON.stringify(event))
+        return http.put(this.ServiceBaseUrl + "/" + event.Id, JSON.stringify(event))
             .map(res => res.json().data);
             //.toPromise()
             //.then((response) => response.json());
