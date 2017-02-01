@@ -1,13 +1,16 @@
-﻿<div class="row">
-    <form materialize class="col s12" >
+﻿<h5>{{ title }}</h5>
+
+<div class="row">
+    <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+        <input type="text" id="Id" [(ngModel)]="event.Id" formControlName="Id" />
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="name" type="text" class="validate"
-                       formControlName="name"
-                       [class.invalid]="form.controls['name'].touched && !form.controls['name'].valid">
-                <label for="name"
-                       [class.active]="event.name"
+                <input id="Name" type="text" class="validate"
+                       [(ngModel)]="event.Name" formControlName="Name"
+                       [class.invalid]="form.controls['Name'].touched && !form.controls['Name'].valid">
+                <label for="Name"
+                       [class.active]="event.Name"
                        data-error="Name is required and needs to contain at least 3 chars">
                     Name
                 </label>

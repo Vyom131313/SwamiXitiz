@@ -1,5 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
-import { Headers, Http, Response } from '@angular/http';
+import { Component, Inject } from '@angular/core';
+
+import { Headers, RequestOptions, Http, Response } from '@angular/http';
 import { URLSearchParams, QueryEncoder } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/toPromise';
@@ -40,9 +42,28 @@ export class EventsService {
     }
 
     add(http: Http, event: Event_VM) {
-        return http.post(this.ServiceBaseUrl, JSON.stringify(event))
-            .toPromise()
-            .then((response) => response.json());
+
+        //let requestoptions = new RequestOptions({
+        //    method: "POST",
+        //    url: this.ServiceBaseUrl,
+        //    headers: headers,
+        //    body: JSON.stringify(event)
+        //})
+
+        console.log(event);
+
+        let options = new RequestOptions({ method: "POST", headers: new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' })});
+
+        return http.post(this.ServiceBaseUrl+"/Post", event, options)
+                .toPromise()
+                .then((response) => response.json());
+
+            //.map(res => res.json().data)
+            //.catch(this.handleError)
+
+        //return http.post(this.ServiceBaseUrl, JSON.stringify(event))
+        //    .toPromise()
+        //    .then((response) => response.json());
     }
 
 
@@ -56,7 +77,7 @@ export class EventsService {
         let params: URLSearchParams = new URLSearchParams();
         params.set('id', id.toString());
 
-        return http.delete(this.ServiceBaseUrl + "/api/Events/delete", { search: params })
+        return http.delete(this.ServiceBaseUrl, { search: params })
             .toPromise()
             .then((response) => response.json());
     }

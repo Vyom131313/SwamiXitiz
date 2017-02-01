@@ -1,4 +1,5 @@
 ﻿import { Component, OnInit } from '@angular/core';
+import { Headers, Http, Response } from '@angular/http';
 import { FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -16,13 +17,14 @@ import { EventsService } from './events.service';
 
 export class EventFormViewComponent implements OnInit {
 
-    form: FormGroup;
-    title: string;
-    event: Event_VM = new Event_VM();
+    public form: FormGroup;
+    public title: string;
+    public event: Event_VM = new Event_VM();
 
-    constructor(formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private eventsService: EventsService) {
+    constructor(formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private http: Http, private eventsService: EventsService) {
         this.form = formBuilder.group({
-            name: ['', [
+            Id:[],
+            Name: ['', [
                 Validators.required,
                 Validators.minLength(3)
             ]]
@@ -31,34 +33,24 @@ export class EventFormViewComponent implements OnInit {
 
     ngOnInit() {
         var id = this.route.params.subscribe(params => {
-            var id = params['Id'];
-
-            this.title = id ? 'Edit User' : 'New User';
-
+            var id = params['id'];
+            this.title = id ? 'Edit Event' : 'New Event';
             if (!id)
                 return;
 
-            //this.eventsService.get(id)
-            //    .subscribe(
-            //    user => this.event = user,
-            //    response => {
-            //        if (response.status == 404) {
-            //            this.router.navigate(['NotFound']);
-            //        }
-            //    });
+            this.eventsService.getItem(this.http, id).then(item => this.event = item);
         });
     }
 
     save() {
-        var result,
-            event = this.form.value;
+        var event = this.form.value;
 
-        //if (event.Id) {
-        //    result = this.eventsService.updateUser(event);
-        //} else {
-        //    result = this.eventsService.addUser(event);
-        //}
+        //console.log(event);
 
-        //result.subscribe(data => this.router.navigate(['users']));
+        var result = (event.Id)
+            ? this.eventsService.update(this.http, event)
+            : this.eventsService.add(this.http, event);
+
+        result.then(data => this.router.navigate(['events']));
     }
 }

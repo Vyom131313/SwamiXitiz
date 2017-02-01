@@ -3,6 +3,7 @@
 export class Event_VM {
     Id: number;
     Name: string;
+    EventSchedules: Array<EventSchedule_VM>;
 }
 
 export class EventSchedule_VM {
