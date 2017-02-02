@@ -14,6 +14,8 @@ namespace EventAttendance.WebApi
             //var corsAttr = new EnableCorsAttribute("http://localhost:5556", "*", "*");
             //config.EnableCors(corsAttr);
 
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
@@ -23,7 +25,6 @@ namespace EventAttendance.WebApi
             );
 
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
-
         }
     }
 }

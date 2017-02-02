@@ -43,25 +43,10 @@ export class EventsService {
 
     add(http: Http, event: Event_VM) {
 
-        //let requestoptions = new RequestOptions({
-        //    method: "POST",
-        //    url: this.ServiceBaseUrl,
-        //    headers: headers,
-        //    body: JSON.stringify(event)
-        //})
-
         var data = JSON.stringify(event);
-        //let data = 'Name=' + event.Name;
-
-        //console.log(data);
-        //let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8;' });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-
-        let params: URLSearchParams = new URLSearchParams();
-        params.set('Event', data);
-
-        return http.get(this.ServiceBaseUrl + "/PostData", { search: params })
+        return http.post(this.ServiceBaseUrl + "/PostData", data, options)
             .map(res => res.json().data);
             //.catch(this.handleError)
 
@@ -72,7 +57,10 @@ export class EventsService {
 
 
     update(http: Http, event: Event_VM) {
-        return http.put(this.ServiceBaseUrl + "/" + event.Id, JSON.stringify(event))
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return http.put(this.ServiceBaseUrl + "/" + event.Id, JSON.stringify(event), options)
             .map(res => res.json().data);
             //.toPromise()
             //.then((response) => response.json());

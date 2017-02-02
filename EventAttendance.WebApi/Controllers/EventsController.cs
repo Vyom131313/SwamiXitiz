@@ -12,7 +12,6 @@ using System.Web.Http.Description;
 
 namespace EventAttendance.WebApi.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "X-Custom-Header")]
     public class EventsController : ApiController
     {
         private EventAttendanceContext db = new EventAttendanceContext();
@@ -79,7 +78,7 @@ namespace EventAttendance.WebApi.Controllers
         }
 
         // POST: api/Events
-        [HttpGet]
+        [HttpPost]
         [Route("api/Events/PostData")]
         [ResponseType(typeof(Event))]
         public async Task<IHttpActionResult> PostEvent(Event Event)
