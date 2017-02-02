@@ -43,35 +43,22 @@ export class EventsService {
 
     add(http: Http, event: Event_VM) {
 
-        var data = JSON.stringify(event);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return http.post(this.ServiceBaseUrl + "/PostData", data, options)
-            .map(res => res.json().data);
+        return http.post(this.ServiceBaseUrl, JSON.stringify(event), options).map(res => res);
             //.catch(this.handleError)
-
-        //return http.post(this.ServiceBaseUrl, JSON.stringify(event))
-        //    .toPromise()
-        //    .then((response) => response.json());
     }
 
-
     update(http: Http, event: Event_VM) {
-
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return http.put(this.ServiceBaseUrl + "/" + event.Id, JSON.stringify(event), options)
-            .map(res => res.json().data);
-            //.toPromise()
-            //.then((response) => response.json());
+        return http.put(this.ServiceBaseUrl + "/" + event.Id, JSON.stringify(event), options).map(res => res);
     }
 
     delete(http: Http, id: number) {
         let params: URLSearchParams = new URLSearchParams();
         params.set('id', id.toString());
 
-        return http.delete(this.ServiceBaseUrl, { search: params })
-            .toPromise()
-            .then((response) => response.json());
+        return http.delete(this.ServiceBaseUrl, { search: params }).map(res => res);
     }
 }
