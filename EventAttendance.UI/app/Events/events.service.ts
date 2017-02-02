@@ -51,11 +51,17 @@ export class EventsService {
         //})
 
         var data = JSON.stringify(event);
-        console.log(data);
+        //let data = 'Name=' + event.Name;
 
-        let options = new RequestOptions({ method:"POST", headers: new Headers({ 'Content-Type': 'application/json;' })});
+        //console.log(data);
+        //let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8;' });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
 
-        return http.post(this.ServiceBaseUrl + "/PostData", data, options)
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('Event', data);
+
+        return http.get(this.ServiceBaseUrl + "/PostData", { search: params })
             .map(res => res.json().data);
             //.catch(this.handleError)
 
