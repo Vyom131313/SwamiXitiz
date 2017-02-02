@@ -42,6 +42,7 @@ export class EventsService {
     }
 
     add(http: Http, event: Event_VM) {
+        event.Id = 0;
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
