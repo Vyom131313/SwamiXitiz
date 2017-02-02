@@ -1,8 +1,4 @@
-﻿* Events:
-	- ListView 
-	- Add Form
-	- Edit Form
-	- Delete
+﻿* Deployment
 * Event Schedule:
 	- ListView 
 	- Add Form
