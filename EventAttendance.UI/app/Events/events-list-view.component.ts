@@ -31,11 +31,9 @@ export class EventsListViewComponent implements OnChanges {
         this.eventsService.getItems(this.http, 'test').then(items => { this.events_vm_list = items; });
     }
 
-    delete(id: number) {
-        if (!id)
-            return;
+    delete(id: number, event: Event): void {
 
         var result = this.eventsService.delete(this.http, id);
-        result.subscribe(data => this.router.navigate(['events']);
+        result.subscribe(data => this.getItems());
     }
 }

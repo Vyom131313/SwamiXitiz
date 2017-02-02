@@ -27,9 +27,9 @@
                 </a>
             </td>
             <td>
-                <a (click)="delete(item.Id)" href="" style="color:white;font-weight:bold">
-                    <i class="glyphicon glyphicon-remove"></i>
-                </a>
+                <button type="button" class="btn btn-xs" style="font-weight:bold" (click)="delete(item.Id,  $event)">
+                    <span class="glyphicon glyphicon-remove"></span> Delete
+                </button>
             </td>
         </tr>
     </tbody>
