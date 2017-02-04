@@ -12,3 +12,13 @@ export class EventSchedule_VM {
     EventDate: string;
     IsFreezed: boolean;
 }
+
+
+export class Attendee_VM {
+    Id: number;
+    FirstName: string;
+    LastName: string;
+    Address: string;
+    ZoneName: boolean;
+    ZoneId: number;
+}

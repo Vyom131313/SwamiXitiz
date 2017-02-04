@@ -23,10 +23,16 @@ namespace EventAttendance.WebApi.Controllers
         {
             //return db.Attendees;
             var data = !string.IsNullOrEmpty(filter)
-                ? db.Attendees.Where(c => c.FirstName.Contains(filter) || c.LastName.Contains(filter))
-                : db.Attendees;
+                ? db.Attendees.Include(c => c.Zone).Where(c => c.FirstName.Contains(filter) || c.LastName.Contains(filter))
+                : db.Attendees.Include(c => c.Zone);
 
             return data;
+        }
+
+        [Route("api/Attendees/GetZones")]
+        public IQueryable<Zone> GetZones()
+        {
+            return db.Zones;
         }
 
         // GET: api/Attendees/5

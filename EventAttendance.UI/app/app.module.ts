@@ -6,17 +6,22 @@ import { AppRoutes } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
-//import { NavbarLeftComponent } from './navbar-left.component';
 import { AboutComponent } from './about.component';
 
 // Modules
 import { NavbarLeftModule } from "./Navbar/navbar-left.module";
 import { EventsModule, EventsRouting } from "./Events/events.module";
+import { AttendeesModule, AttendeesRouting } from "./Attendees/attendees.module";
+
 import { HomeModule } from "./Home/home.module";
 import { NotFoundComponent } from './NotFound/not-found.component';
 
 @NgModule({
-    imports: [BrowserModule, HttpModule, NavbarLeftModule, HomeModule, EventsModule, EventsRouting, AppRoutes],
+    imports: [BrowserModule, HttpModule,
+        NavbarLeftModule, HomeModule,
+        EventsModule, EventsRouting,
+        AttendeesModule, AttendeesRouting,
+        AppRoutes],
     declarations: [AppComponent, AboutComponent, NotFoundComponent],
     bootstrap: [AppComponent],
     //providers: [EventsService]

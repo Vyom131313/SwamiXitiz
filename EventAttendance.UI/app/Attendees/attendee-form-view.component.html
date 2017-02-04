@@ -1,0 +1,59 @@
+﻿
+<form materialize class="form-horizontal" style="margin-top:50px;" [formGroup]="form" (ngSubmit)="save()">
+    <fieldset>
+        <legend>{{ title }}</legend>
+
+        <div class="form-group">
+            <label class="control-label col-sm-1" for="Id">Id:</label>
+            <div class="col-sm-11">
+                <input type="text" class="form-control" id="Id"
+                       placeholder="Please enter Id"
+                       formControlName="Id"
+                       [(ngModel)]="attendee.Id" readonly />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-1" for="FirstName" [class.active]="attendee.FirstName" data-error="First Name is required and needs to contain at least 3 chars">First Name:</label>
+            <div class="col-sm-11">
+                <input type="text" class="form-control validate" id="FirstName" placeholder="Please enter Attendee First Name"
+                       style="border: 1px solid rgb(153, 202, 129);border-radius: .2em;box-shadow: 0 0 8px rgba(0,0,0,.08) inset;"
+                       formControlName="FirstName"
+                       [(ngModel)]="attendee.FirstName"
+                       [class.invalid]="form.controls['FirstName'].touched && !form.controls['FirstName'].valid">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-1" for="LastName" [class.active]="attendee.LastName" data-error="Last Name is required and needs to contain at least 3 chars">Last Name:</label>
+            <div class="col-sm-11">
+                <input type="text" class="form-control validate" id="LastName" placeholder="Please enter Attendee Last Name"
+                       style="border: 1px solid rgb(153, 202, 129);border-radius: .2em;box-shadow: 0 0 8px rgba(0,0,0,.08) inset;"
+                       formControlName="LastName"
+                       [(ngModel)]="attendee.LastName"
+                       [class.invalid]="form.controls['LastName'].touched && !form.controls['LastName'].valid">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-1" for="Address" [class.active]="attendee.Address">Address:</label>
+            <div class="col-sm-11">
+                <input type="text" class="form-control validate" id="Address" placeholder="Please enter Attendee Address"
+                       style="border: 1px solid rgb(153, 202, 129);border-radius: .2em;box-shadow: 0 0 8px rgba(0,0,0,.08) inset;"
+                       formControlName="Address"
+                       [(ngModel)]="attendee.Address"
+                       [class.invalid]="form.controls['Address'].touched && !form.controls['Address'].valid">
+            </div>
+        </div>
+
+
+        <div class="form-group col-sm-12" style="float:right">            
+            <button type="submit" class="col-sm-1 btn btn-default" style="float:right;" routerLink="/attendees">
+                Back
+            </button>
+            <button type="submit" class="col-sm-1 btn btn-default" style="float:right;margin-right:10px;"
+                    [disabled]="!form.valid">
+                Submit
+            </button>
+        </div>
+    </fieldset>
+</form>
