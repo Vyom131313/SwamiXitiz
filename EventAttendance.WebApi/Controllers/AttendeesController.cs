@@ -12,11 +12,21 @@ namespace EventAttendance.WebApi.Controllers
     public class AttendeesController : ApiController
     {
         private EventAttendanceContext db = new EventAttendanceContext();
+        public AttendeesController()
+        {
+            //db.Configuration.LazyLoadingEnabled = false;
+            db.Configuration.ProxyCreationEnabled = false;
+        }
 
         // GET: api/Attendees
-        public IQueryable<Attendee> GetAttendees()
+        public IQueryable<Attendee> GetAttendees(string filter)
         {
-            return db.Attendees;
+            //return db.Attendees;
+            var data = !string.IsNullOrEmpty(filter)
+                ? db.Attendees.Where(c => c.FirstName.Contains(filter) || c.LastName.Contains(filter))
+                : db.Attendees;
+
+            return data;
         }
 
         // GET: api/Attendees/5
