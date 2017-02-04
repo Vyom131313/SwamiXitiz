@@ -78,8 +78,6 @@ namespace EventAttendance.WebApi.Controllers
         }
 
         // POST: api/Events
-        [HttpPost]
-        [Route("api/Events/PostData")]
         [ResponseType(typeof(Event))]
         public async Task<IHttpActionResult> PostEvent(Event Event)
         {
@@ -93,27 +91,6 @@ namespace EventAttendance.WebApi.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = Event.Id }, Event);
         }
-
-
-        // // POST: api/Events
-        // [Route("api/Events/PostData")]
-        // [HttpPost]
-        //// [ResponseType(typeof(Event))]
-        // public HttpResponseMessage PostEvent(Event Event)
-        // {
-        //     if (!ModelState.IsValid)
-        //     {
-        //         //return BadRequest(ModelState);
-        //         return new HttpResponseMessage(HttpStatusCode.BadRequest);
-        //     }
-
-        //     db.Events.Add(Event);
-        //     db.SaveChangesAsync();
-        //     //await db.SaveChangesAsync();
-        //     //return CreatedAtRoute("DefaultApi", new { id = Event.Id }, Event);
-
-        //     return new HttpResponseMessage(HttpStatusCode.OK);
-        // }
 
         // DELETE: api/Events/5
         [ResponseType(typeof(Event))]
