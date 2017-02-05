@@ -23,7 +23,7 @@ namespace EventAttendance.WebApi.Controllers
         {
             //return db.Attendees;
             var data = !string.IsNullOrEmpty(filter)
-                ? db.Attendees.Include(c => c.Zone).Where(c => c.FirstName.Contains(filter) || c.LastName.Contains(filter))
+                ? db.Attendees.Include(c => c.Zone).Where(c => c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter))
                 : db.Attendees.Include(c => c.Zone);
 
             return data;
