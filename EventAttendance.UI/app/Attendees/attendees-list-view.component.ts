@@ -18,8 +18,10 @@ import { AttendeesService } from './attendees.service';
 
 export class AttendeesListViewComponent implements OnChanges {
     attendees_vm_list: Array<Attendee_VM>;
+    filter: string;
 
     constructor(private http: Http, private router: Router, private attendeesService: AttendeesService) {
+        this.filter = '';
         this.getItems();
     }
 
@@ -27,8 +29,13 @@ export class AttendeesListViewComponent implements OnChanges {
         //console.log(changes);
     }
 
+    onFilter(event: Event)
+    {
+        this.getItems();
+    }
+
     getItems() {
-        this.attendeesService.getItems(this.http, '').then(items => { this.attendees_vm_list = items; });
+        this.attendeesService.getItems(this.http, this.filter).then(items => { this.attendees_vm_list = items; });
     }
 
     //delete(id: number, event: Event): void {

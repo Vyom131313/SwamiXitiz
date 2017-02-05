@@ -12,7 +12,6 @@
             <th width="30px;">Id</th>
             <th>Event Name</th>
             <th width="35px;"></th>
-            <th width="35px;"></th>
         </tr>
     </thead>
     <tbody style="font-weight:bold;font-size:10pt;color:black">
@@ -22,7 +21,7 @@
                 {{item.Name}}
             </td>
             <td>
-                <a [routerLink]="['/events', item.Id]" style="color:white;font-weight:bold">
+                <a [routerLink]="['/events', item.Id]" style="color:white;font-weight:bold;white-space:nowrap">
                     <span class="glyphicon glyphicon-pencil"></span> Edit
                 </a>
             </td>
