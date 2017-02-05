@@ -82,21 +82,21 @@ namespace EventAttendance.WebApi.Controllers
             return CreatedAtRoute("DefaultApi", new { id = attendance.Id }, attendance);
         }
 
-        // DELETE: api/Attendances/5
-        [ResponseType(typeof(Attendance))]
-        public async Task<IHttpActionResult> DeleteAttendance(int id)
-        {
-            Attendance attendance = await db.Attendances.FindAsync(id);
-            if (attendance == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Attendances/5
+        //[ResponseType(typeof(Attendance))]
+        //public async Task<IHttpActionResult> DeleteAttendance(int id)
+        //{
+        //    Attendance attendance = await db.Attendances.FindAsync(id);
+        //    if (attendance == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.Attendances.Remove(attendance);
-            await db.SaveChangesAsync();
+        //    db.Attendances.Remove(attendance);
+        //    await db.SaveChangesAsync();
 
-            return Ok(attendance);
-        }
+        //    return Ok(attendance);
+        //}
 
         protected override void Dispose(bool disposing)
         {

@@ -35,13 +35,8 @@
             </td>
             <td>
                 <a [routerLink]="['/attendees', item.Id]" style="color:white;font-weight:bold">
-                    <i class="glyphicon glyphicon-pencil"> </i>
+                    <span class="glyphicon glyphicon-pencil"></span> Edit
                 </a>
-            </td>
-            <td>
-                <button type="button" class="btn btn-xs" style="font-weight:bold" (click)="delete(item.Id,  $event)">
-                    <span class="glyphicon glyphicon-remove"></span> Delete
-                </button>
             </td>
         </tr>
     </tbody>

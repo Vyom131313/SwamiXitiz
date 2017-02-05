@@ -31,9 +31,9 @@ export class AttendeesListViewComponent implements OnChanges {
         this.attendeesService.getItems(this.http, '').then(items => { this.attendees_vm_list = items; });
     }
 
-    delete(id: number, event: Event): void {
+    //delete(id: number, event: Event): void {
 
-        var result = this.attendeesService.delete(this.http, id);
-        result.subscribe(data => this.getItems());
-    }
+    //    var result = this.attendeesService.delete(this.http, id);
+    //    result.subscribe(data => this.getItems());
+    //}
 }

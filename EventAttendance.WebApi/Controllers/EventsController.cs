@@ -92,21 +92,21 @@ namespace EventAttendance.WebApi.Controllers
             return CreatedAtRoute("DefaultApi", new { id = Event.Id }, Event);
         }
 
-        // DELETE: api/Events/5
-        [ResponseType(typeof(Event))]
-        public async Task<IHttpActionResult> DeleteEvent(int id)
-        {
-            Event Event = await db.Events.FindAsync(id);
-            if (Event == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Events/5
+        //[ResponseType(typeof(Event))]
+        //public async Task<IHttpActionResult> DeleteEvent(int id)
+        //{
+        //    Event Event = await db.Events.FindAsync(id);
+        //    if (Event == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.Events.Remove(Event);
-            await db.SaveChangesAsync();
+        //    db.Events.Remove(Event);
+        //    await db.SaveChangesAsync();
 
-            return Ok(Event);
-        }
+        //    return Ok(Event);
+        //}
 
         protected override void Dispose(bool disposing)
         {
