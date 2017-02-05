@@ -4,12 +4,7 @@
 	- Add Form
 	- Edit Form
 	- Delete
-* Attendees:
-	- ListView 
-	- Add Form
-	- Edit Form
-	- Delete
-
+* Attendee: Zone DDL
 * Attendance:
 	- ListView 
 	- Take Attendnace for Schedule

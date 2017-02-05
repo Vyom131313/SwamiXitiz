@@ -1,0 +1,38 @@
+﻿<h4 class='QAListTitle' style="text-align:left;padding-top:10px;padding-bottom:10px;">
+    Events
+    <a routerLink="/eventschedules/new" style="float:right;margin-right:30px;color:white;font-weight:bold">
+        <i class="glyphicon glyphicon-plus">Add</i>
+    </a>
+</h4>
+
+<table *ngIf="eventschedules_vm_list != null && eventschedules_vm_list != undefined"
+       class="table" style="background-color:#35acdf; margin-top:50px;">
+    <thead>
+        <tr style="font-weight:bold;font-size:10.5pt;">
+            <th width="30px;">Id</th>
+            <th>Event</th>
+            <th>Schedule</th>
+            <th>Is Freezed?</th>
+            <th width="35px;"></th>
+        </tr>
+    </thead>
+    <tbody style="font-weight:bold;font-size:10pt;color:black">
+        <tr *ngFor="let item of eventschedules_vm_list">
+            <td style='white-space:nowrap;' align='center'>{{item.Id}}</td>
+            <td>
+                {{item.EventName}}
+            </td>
+            <td>
+                {{item.EventShortDate}}
+            </td>
+            <td>
+                {{item.IsFreezed}}
+            </td>
+            <td>
+                <a [routerLink]="['/eventschedules', item.Id]" style="color:white;font-weight:bold;white-space:nowrap">
+                    <span class="glyphicon glyphicon-pencil"></span> Edit
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

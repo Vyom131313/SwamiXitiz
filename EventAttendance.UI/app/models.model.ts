@@ -9,7 +9,9 @@ export class Event_VM {
 export class EventSchedule_VM {
     Id: number;
     EventId: number;
+    EventName: string;
     EventDate: string;
+    EventShortDate: string;
     IsFreezed: boolean;
 }
 
