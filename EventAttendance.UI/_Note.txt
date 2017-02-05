@@ -5,6 +5,7 @@
 	- Edit Form
 	- Delete
 * Attendee: Zone DDL
+* Hide ID textbox in add/edit form
 * Attendance:
 	- ListView 
 	- Take Attendnace for Schedule
@@ -17,6 +18,7 @@
 	- By Attendee
 	- Export to Excel
 
+* Data entry of existing attendance
 =========== Build Locally Steps =========== 
 * Open Command Prompt
 * CD <current folder location>

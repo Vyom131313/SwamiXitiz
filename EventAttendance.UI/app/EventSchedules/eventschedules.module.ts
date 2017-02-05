@@ -7,6 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 // Components
 import { EventScheduleFormViewComponent } from './eventschedule-form-view.component';
 import { EventSchedulesListViewComponent } from './eventschedules-list-view.component';
+import { EventsDdlComponent } from './events-ddl-view.component';
 
 // Services
 import { EventSchedulesService } from './eventschedules.service';
@@ -20,7 +21,7 @@ import { EventSchedulesService } from './eventschedules.service';
         HttpModule
     ],
     declarations: [
-        EventSchedulesListViewComponent, EventScheduleFormViewComponent
+        EventSchedulesListViewComponent, EventScheduleFormViewComponent, EventsDdlComponent
     ],
     exports: [
         EventSchedulesListViewComponent

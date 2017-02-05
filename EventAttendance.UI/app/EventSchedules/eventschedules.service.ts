@@ -17,6 +17,7 @@ export class EventSchedulesService {
 
     //public ServiceBaseUrl: string = "";
     public ServiceBaseUrl: string = "http://localhost:23283/api/EventSchedules";
+    public EventServiceBaseUrl: string = "http://localhost:23283/api/Events";
 
     //constructor(private http: Http) {
     constructor() {
@@ -24,6 +25,16 @@ export class EventSchedulesService {
 
     getItems(http: Http) {
         return http.get(this.ServiceBaseUrl)
+            .toPromise()
+            .then((response) => response.json());
+    }
+
+    getEventItems(http: Http) {
+        
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('filter', '');
+
+        return http.get(this.EventServiceBaseUrl + "/Get", { search: params })
             .toPromise()
             .then((response) => response.json());
     }
