@@ -16,9 +16,13 @@
 	- By Schedule
 	- By Event
 	- By Attendee
+	- Chart
+	- Bar
+	- Graph
 	- Export to Excel
 
 * Data entry of existing attendance
+* ICons
 =========== Build Locally Steps =========== 
 * Open Command Prompt
 * CD <current folder location>

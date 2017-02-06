@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, Renderer, OnInit, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import { FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -15,18 +15,28 @@ import { EventSchedulesService } from './eventschedules.service';
     providers: [EventSchedulesService]
 })
 
-export class EventScheduleFormViewComponent implements OnInit {
-
+export class EventScheduleFormViewComponent implements OnInit, AfterViewInit   {
+    //@ViewChild('EventDate') eventDate: ElementRef;
     public form: FormGroup;
     public title: string;
     public eventschedule: EventSchedule_VM = new EventSchedule_VM();
 
-    constructor(formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private http: Http, private eventschedulesService: EventSchedulesService) {
+    constructor(formBuilder: FormBuilder,
+        private router: Router,
+        private route: ActivatedRoute,
+        public elementRef: ElementRef,
+        public renderer: Renderer,
+        private http: Http, private eventschedulesService: EventSchedulesService) {
         this.form = formBuilder.group({
-            Id:[],
-            Name: ['', [
-                Validators.required,
-                Validators.minLength(3)
+            Id: [],
+            EventId: ['', [
+                //Validators.required,
+            ]],
+            EventDate: ['', [
+                //Validators.required,
+            ]],
+            IsFreezed: ['', [
+                //Validators.required,
             ]]
         });
     }
@@ -34,12 +44,20 @@ export class EventScheduleFormViewComponent implements OnInit {
     ngOnInit() {
         var id = this.route.params.subscribe(params => {
             var id = params['id'];
-            this.title = id ? 'Edit EventSchedule' : 'New EventSchedule';
+            this.title = id ? 'Edit Event Schedule' : 'New Event Schedule';
             if (!id)
                 return;
 
             this.eventschedulesService.getItem(this.http, id).then(item => this.eventschedule = item);
         });
+    }
+
+    ngAfterViewInit() {
+        //this.eventDate.nativeElement.datepicker({
+        //    //... your datepicker attributes
+        //}).change(function () {
+        //   // that.dataModel.send_date = $('#send_date').val();
+        //});
     }
 
     save() {

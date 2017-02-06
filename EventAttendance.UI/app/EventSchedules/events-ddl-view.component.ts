@@ -9,8 +9,8 @@ import { EventSchedulesService } from './eventschedules.service';
 
 @Component({
     selector: 'events-ddl',
-    template: `<select [(ngModel)]="selectedItemId" class="form-control" >
-                  <option *ngFor="let item of eventsDdlList" value= "{{item.Id}}" [selected]="selectedItemId == item.Id">
+    template: `<select [(ngModel)]="selectedEventId" class="form-control input-sm" >
+                  <option *ngFor="let item of eventsDdlList" value= "{{item.Id}}" [selected]="selectedEventId == item.Id">
                     {{item.Name}}
                   </option>
                 </select>`,
@@ -21,7 +21,7 @@ import { EventSchedulesService } from './eventschedules.service';
 })
 
 export class EventsDdlComponent implements OnChanges {
-    @Input() selectedItemId: number;
+    @Input() selectedEventId: number;
     eventsDdlList: Array<Event_VM>;
 
     constructor(private http: Http, private router: Router, private eventschedulesService: EventSchedulesService) {
@@ -34,7 +34,5 @@ export class EventsDdlComponent implements OnChanges {
 
     getEventItems() {
         this.eventschedulesService.getEventItems(this.http).then(items => { this.eventsDdlList = items; });
-
-        alert(this.selectedItemId);
     }
 }
