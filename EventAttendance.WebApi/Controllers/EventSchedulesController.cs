@@ -1,4 +1,5 @@
 ﻿using EventAttendance.WebApi.Models;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -20,7 +21,10 @@ namespace EventAttendance.WebApi.Controllers
 
         public IQueryable<EventSchedule> GetEventSchedules()
         {
-            return db.EventSchedules.Include(c => c.Event);
+            var data= db.EventSchedules.Include(c => c.Event);
+            //data.ToList().ForEach(c => { c.EventShortDate = c.GetEventShortDateAsString(); });
+
+            return data;
         }
 
         // GET: api/EventSchedules/5
@@ -32,6 +36,8 @@ namespace EventAttendance.WebApi.Controllers
             {
                 return NotFound();
             }
+
+            //EventSchedule.EventShortDate = EventSchedule.GetEventShortDateAsString();
 
             return Ok(EventSchedule);
         }
@@ -79,6 +85,8 @@ namespace EventAttendance.WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            EventSchedule.EventDate = DateTime.Parse(EventSchedule.EventShortDate);
 
             db.EventSchedules.Add(EventSchedule);
             await db.SaveChangesAsync();
