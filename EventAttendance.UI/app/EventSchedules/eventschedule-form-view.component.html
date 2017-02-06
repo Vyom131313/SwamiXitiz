@@ -15,22 +15,22 @@
         <div class="form-group">
             <label class="control-label col-sm-1" for="EventId" [class.active]="eventschedule.EventId" data-error="Event is required">Event:</label>
             <div class="col-sm-11">
-                <events-ddl [selectedEventId]="eventschedule.EventId">Loading....</events-ddl>
+                <events-ddl [selectedEventId]="eventschedule.EventId" (select)="onEventChange($event)">Loading....</events-ddl>
             </div>
         </div>
         <div class="form-group">
             <!-- Date input -->
-            <label class="control-label col-sm-1" for="EventDate">Date:</label>
+            <label class="control-label col-sm-1" for="EventDate">Date:{{eventschedule.EventDate }}</label>
             <div class="col-sm-11">
                 <input type="date" class="form-control input-sm date-picker" placeholder="MM/DD/YYY"
-                       id="EventDate" name="EventDate" formControlName="EventDate" [(ngModel)]="eventschedule.EventDate" />
+                       id="EventDate" name="EventDate" formControlName="EventDate" [value]="eventschedule.EventDate | date:'yyyy-MM-dd'" />
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-sm-1" for="Id">Is Freezed?:</label>
-            <div class="col-sm-11">
-                <input type="checkbox" class="form-control input-sm" style="float:left" id="IsFreezed"
+            <div class="col-sm-1">
+                <input type="checkbox"  id="IsFreezed"
                        formControlName="IsFreezed"
                        [(ngModel)]="eventschedule.IsFreezed" />
             </div>

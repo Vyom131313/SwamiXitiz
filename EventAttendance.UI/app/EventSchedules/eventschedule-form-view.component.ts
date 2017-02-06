@@ -1,4 +1,4 @@
-﻿import { Component, Renderer, OnInit, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
+﻿import { Component, Renderer, OnInit } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import { FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -15,8 +15,7 @@ import { EventSchedulesService } from './eventschedules.service';
     providers: [EventSchedulesService]
 })
 
-export class EventScheduleFormViewComponent implements OnInit, AfterViewInit   {
-    //@ViewChild('EventDate') eventDate: ElementRef;
+export class EventScheduleFormViewComponent implements OnInit   {
     public form: FormGroup;
     public title: string;
     public eventschedule: EventSchedule_VM = new EventSchedule_VM();
@@ -24,16 +23,14 @@ export class EventScheduleFormViewComponent implements OnInit, AfterViewInit   {
     constructor(formBuilder: FormBuilder,
         private router: Router,
         private route: ActivatedRoute,
-        public elementRef: ElementRef,
-        public renderer: Renderer,
         private http: Http, private eventschedulesService: EventSchedulesService) {
         this.form = formBuilder.group({
             Id: [],
             EventId: ['', [
-                //Validators.required,
+                Validators.required,
             ]],
             EventDate: ['', [
-                //Validators.required,
+                Validators.required,
             ]],
             IsFreezed: ['', [
                 //Validators.required,
@@ -51,23 +48,20 @@ export class EventScheduleFormViewComponent implements OnInit, AfterViewInit   {
             this.eventschedulesService.getItem(this.http, id).then(item => this.eventschedule = item);
         });
     }
-
-    ngAfterViewInit() {
-        //this.eventDate.nativeElement.datepicker({
-        //    //... your datepicker attributes
-        //}).change(function () {
-        //   // that.dataModel.send_date = $('#send_date').val();
-        //});
+    
+    onEventChange(id: number) {
+        this.eventschedule.EventId = id;
     }
 
     save() {
-        var eventschedule = this.form.value;
+        var data = this.form.value;
+        data.EventId = this.eventschedule.EventId;
 
-        //console.log(eventschedule);
+        console.log(data);
 
-        var result = (eventschedule.Id)
-            ? this.eventschedulesService.update(this.http, eventschedule)
-            : this.eventschedulesService.add(this.http, eventschedule);
+        var result = (data.Id)
+            ? this.eventschedulesService.update(this.http, data)
+            : this.eventschedulesService.add(this.http, data);
 
         result.subscribe(data => this.router.navigate(['eventschedules']));
     }
