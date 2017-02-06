@@ -9,14 +9,12 @@
        class="table" style="background-color:#35acdf; margin-top:50px;">
     <thead>
         <tr style="font-weight:bold;font-size:10.5pt;">
-            <th width="30px;">Id</th>
             <th>Event Name</th>
             <th width="35px;"></th>
         </tr>
     </thead>
     <tbody style="font-weight:bold;font-size:10pt;color:black">
         <tr *ngFor="let item of events_vm_list">
-            <td style='white-space:nowrap;' align='center'>{{item.Id}}</td>
             <td>
                 {{item.Name}}
             </td>
