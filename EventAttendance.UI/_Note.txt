@@ -1,11 +1,5 @@
-﻿* Deployment
-* Event Schedule:
-	- ListView 
-	- Add Form
-	- Edit Form
-	- Delete
-* Attendee: Zone DDL
-* Hide ID textbox in add/edit form
+﻿* Hide ID textbox in add/edit form
+
 * Attendance:
 	- ListView 
 	- Take Attendnace for Schedule
@@ -21,6 +15,8 @@
 	- Graph
 	- Export to Excel
 
+* Validation (form.valid)
+* Deployment
 * Data entry of existing attendance
 * ICons
 =========== Build Locally Steps =========== 
