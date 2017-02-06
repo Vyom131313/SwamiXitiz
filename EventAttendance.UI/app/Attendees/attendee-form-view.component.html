@@ -33,7 +33,12 @@
                        [class.invalid]="form.controls['LastName'].touched && !form.controls['LastName'].valid">
             </div>
         </div>
-
+        <div class="form-group">
+            <label class="control-label col-sm-1" for="ZoneId" [class.active]="attendee.ZoneId" data-error="Zone is required">Zone:</label>
+            <div class="col-sm-11">
+                <zones-ddl [selectedZonetId]="attendee.ZoneId" (select)="onZoneChange($event)">Loading....</zones-ddl>
+            </div>
+        </div>
         <div class="form-group">
             <label class="control-label col-sm-1" for="Address" [class.active]="attendee.Address">Address:</label>
             <div class="col-sm-11">

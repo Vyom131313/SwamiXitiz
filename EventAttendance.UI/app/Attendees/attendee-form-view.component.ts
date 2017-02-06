@@ -33,6 +33,7 @@ export class AttendeeFormViewComponent implements OnInit {
                 Validators.minLength(3)
             ]],
             Address: [],
+            ZoneId: [],
         });
     }
 
@@ -47,14 +48,19 @@ export class AttendeeFormViewComponent implements OnInit {
         });
     }
 
+    onZoneChange(id: number) {
+        this.attendee.ZoneId = id;
+    }
+
     save() {
-        var attendee = this.form.value;
+        var data = this.form.value;
+        data.ZoneId = this.attendee.ZoneId;
 
         //console.log(attendee);
 
-        var result = (attendee.Id)
-            ? this.attendeesService.update(this.http, attendee)
-            : this.attendeesService.add(this.http, attendee);
+        var result = (data.Id)
+            ? this.attendeesService.update(this.http, data)
+            : this.attendeesService.add(this.http, data);
 
         result.subscribe(data => this.router.navigate(['attendees']));
     }

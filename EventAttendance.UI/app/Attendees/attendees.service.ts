@@ -31,6 +31,13 @@ export class AttendeesService {
             .then((response) => response.json());
     }
 
+    getZoneItems(http: Http) {
+
+        return http.get(this.ServiceBaseUrl + "/GetZones")
+            .toPromise()
+            .then((response) => response.json());
+    }
+
     getItem(http: Http, id: number) {
 
         let params: URLSearchParams = new URLSearchParams();

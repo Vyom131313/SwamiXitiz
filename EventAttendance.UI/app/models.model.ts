@@ -24,3 +24,8 @@ export class Attendee_VM {
     ZoneName: boolean;
     ZoneId: number;
 }
+
+export class Zone_VM {
+    Id: number;
+    Name: string;
+}

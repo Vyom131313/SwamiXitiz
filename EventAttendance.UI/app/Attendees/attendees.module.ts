@@ -7,6 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 // Components
 import { AttendeeFormViewComponent } from './attendee-form-view.component';
 import { AttendeesListViewComponent } from './attendees-list-view.component';
+import { ZonesDdlComponent } from './zones-ddl-view.component';
 
 // Services
 import { AttendeesService } from './attendees.service';
@@ -20,7 +21,7 @@ import { AttendeesService } from './attendees.service';
         HttpModule
     ],
     declarations: [
-        AttendeesListViewComponent, AttendeeFormViewComponent
+        AttendeesListViewComponent, AttendeeFormViewComponent, ZonesDdlComponent
     ],
     exports: [
         AttendeesListViewComponent
