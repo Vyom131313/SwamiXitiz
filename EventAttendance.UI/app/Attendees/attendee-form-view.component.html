@@ -3,15 +3,11 @@
     <fieldset>
         <legend>{{ title }}</legend>
 
-        <div class="form-group">
-            <label class="control-label col-sm-1" for="Id">Id:</label>
-            <div class="col-sm-11">
-                <input type="text" class="form-control" id="Id"
-                       placeholder="Please enter Id"
-                       formControlName="Id"
-                       [(ngModel)]="attendee.Id" readonly />
-            </div>
-        </div>
+        <input type="hidden" class="form-control" id="Id"
+               placeholder="Please enter Id"
+               formControlName="Id"
+               [(ngModel)]="attendee.Id" readonly />
+
         <div class="form-group">
             <label class="control-label col-sm-1" for="FirstName" [class.active]="attendee.FirstName" data-error="First Name is required and needs to contain at least 3 chars">First Name:</label>
             <div class="col-sm-11">

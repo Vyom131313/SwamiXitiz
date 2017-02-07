@@ -1,6 +1,4 @@
-﻿* Hide ID textbox in add/edit form
-
-* Attendance:
+﻿* Attendance:
 	- ListView 
 	- Take Attendnace for Schedule
 	- Edit Form
