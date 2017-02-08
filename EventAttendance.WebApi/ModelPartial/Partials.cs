@@ -47,5 +47,11 @@ namespace EventAttendance.WebApi.Models
         {
             get { return this.EventSchedule != null ? this.EventSchedule.EventShortDate : string.Empty; }
         }
+
+        [NotMapped]
+        public virtual bool IsKaryakar
+        {
+            get { return this.Attendee != null ? this.Attendee.IsKaryakar: false; }
+        }
     }
 }

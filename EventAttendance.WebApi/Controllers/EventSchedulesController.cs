@@ -21,9 +21,15 @@ namespace EventAttendance.WebApi.Controllers
 
         public IQueryable<EventSchedule> GetEventSchedules()
         {
-            var data= db.EventSchedules.Include(c => c.Event);
-            //data.ToList().ForEach(c => { c.EventShortDate = c.GetEventShortDateAsString(); });
+            var data = db.EventSchedules.Include(c => c.Event);
+            return data;
+        }
 
+        [Route("api/EventSchedules/GetUnfreezedEventSchedules")]
+        public IQueryable<EventSchedule> GetUnfreezedEventSchedules()
+        {
+            var data = db.EventSchedules.Include(c => c.Event)
+                            .Where(c => !c.IsFreezed && c.Event.Name.Equals("Ravi Sabha", StringComparison.InvariantCultureIgnoreCase));
             return data;
         }
 
@@ -36,8 +42,6 @@ namespace EventAttendance.WebApi.Controllers
             {
                 return NotFound();
             }
-
-            //EventSchedule.EventShortDate = EventSchedule.GetEventShortDateAsString();
 
             return Ok(EventSchedule);
         }
