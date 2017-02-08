@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components
 import { AttendancesListViewComponent } from './attendances-list-view.component';
-//import { ZonesDdlComponent } from './zones-ddl-view.component';
+import { EventSchedulesDdlComponent } from './event-schedules-ddl-view.component';
 
 // Services
 import { AttendancesService } from './attendances.service';
@@ -20,7 +20,7 @@ import { AttendancesService } from './attendances.service';
         HttpModule
     ],
     declarations: [
-        AttendancesListViewComponent, //ZonesDdlComponent
+        AttendancesListViewComponent, EventSchedulesDdlComponent
     ],
     exports: [
         AttendancesListViewComponent

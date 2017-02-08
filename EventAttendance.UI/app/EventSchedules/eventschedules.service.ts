@@ -29,6 +29,12 @@ export class EventSchedulesService {
             .then((response) => response.json());
     }
 
+    getUnfreezedItems(http: Http) {
+        return http.get(this.ServiceBaseUrl +"/GetUnfreezedEventSchedules")
+            .toPromise()
+            .then((response) => response.json());
+    }
+
     getEventItems(http: Http) {
         
         let params: URLSearchParams = new URLSearchParams();

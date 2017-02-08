@@ -20,6 +20,7 @@ import { AttendancesService } from './attendances.service';
 export class AttendancesListViewComponent implements OnChanges {
     attendances_vm_list: Array<Attendance_VM>;
     filter: string;
+    selectedScheduleId: number;
 
     constructor(private http: Http, private router: Router, private attendancesService: AttendancesService) {
         this.filter = '';
@@ -30,13 +31,20 @@ export class AttendancesListViewComponent implements OnChanges {
         //console.log(changes);
     }
 
+
+    onScheduleChange(id: number) {
+        this.selectedScheduleId = id;
+        this.getItems();
+    }
+
     onFilter(event: Event)
     {
         this.getItems();
     }
 
     getItems() {
-        this.attendancesService.getItems(this.http, this.filter).then(items => { this.attendances_vm_list = items; });
+        this.attendancesService.getItems(this.http, this.filter)
+            .then(items => { this.attendances_vm_list = items; });
     }
 
     //delete(id: number, event: Event): void {
