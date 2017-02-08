@@ -12,6 +12,7 @@ import { AttendancesService } from './attendances.service';
     templateUrl: './app/Attendances/attendances-list-view.template.html',
     styleUrls: [
         'https://fonts.googleapis.com/icon?family=Material+Icons',
+        //'../../node_modules/bootstrap/dist/css/bootstrap.min.css'
     ],
     providers: [AttendancesService]
 })

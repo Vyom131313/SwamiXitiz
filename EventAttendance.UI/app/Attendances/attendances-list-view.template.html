@@ -35,7 +35,10 @@
                 {{item.IsKaryakar}}
             </td>
             <td>
-                In
+                <a *ngIf="item.IsAttended != true" href="#" class="btn btn-info btn-sm" style="background-color:green">
+                    <span class="glyphicon glyphicon-time"></span> In
+                </a>
+                <span *ngIf="item.IsAttended == true">{{item.AttendanceTime}}</span>
             </td>
         </tr>
     </tbody>
