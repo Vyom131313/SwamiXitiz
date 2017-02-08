@@ -25,25 +25,25 @@ namespace EventAttendance.WebApi.Models
     public partial class Attendance
     {
         [NotMapped]
-        public string AttendeeFullName
+        public virtual string AttendeeFullName
         {
             get { return this.Attendee != null ? this.Attendee.FullName : string.Empty; }
         }
 
         [NotMapped]
-        public string ZoneName
+        public virtual string ZoneName
         {
             get { return this.Attendee != null ? this.Attendee.ZoneName : string.Empty; }
         }
 
         [NotMapped]
-        public string Address
+        public virtual string Address
         {
             get { return this.Attendee != null ? this.Attendee.Address : string.Empty; }
         }
 
         [NotMapped]
-        public string EventShortDate
+        public virtual string EventShortDate
         {
             get { return this.EventSchedule != null ? this.EventSchedule.EventShortDate : string.Empty; }
         }

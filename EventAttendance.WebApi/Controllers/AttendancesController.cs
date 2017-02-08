@@ -17,22 +17,23 @@ namespace EventAttendance.WebApi.Controllers
         // GET: api/Attendances
         public IQueryable<Attendance> GetAttendances()
         {
-            var query = from attendee in db.Attendees
-                        join attendance in db.Attendances on attendee.Id equals attendance.AttendeeId into gj
-                        from x in gj.DefaultIfEmpty()
-                        select new Attendance
+            var query = (from attendee in db.Attendees
+                         join attendance in db.Attendances on attendee.Id equals attendance.AttendeeId into gj
+                         from x in gj.DefaultIfEmpty()
+                         select new { attendee = attendee, attendance = x }).ToList().
+                        Select(c => new Attendance
                         {
-                            AttendeeId = attendee.Id,
-                            Attendee = attendee,
+                            AttendeeId = c.attendee.Id,
+                            Attendee = c.attendee,
 
-                            Id = x != null ? x.Id : 0,
-                            EventScheduleId = x != null ? x.EventScheduleId : 0,
-                            EventSchedule = x != null ? x.EventSchedule : null,
-                            IsAttended = x != null ? x.IsAttended : default(bool),
-                            AttendanceTime = x != null ? x.AttendanceTime : default(DateTime),
-                        };
+                            Id = c.attendance != null ? c.attendance.Id : 0,
+                            EventScheduleId = c.attendance != null ? c.attendance.EventScheduleId : 0,
+                            EventSchedule = c.attendance != null ? c.attendance.EventSchedule : null,
+                            IsAttended = c.attendance != null ? c.attendance.IsAttended : default(bool),
+                            AttendanceTime = c.attendance != null ? c.attendance.AttendanceTime : default(DateTime),
+                        }).ToList();
 
-            return query;
+            return query.AsQueryable<Attendance>();
         }
 
         // GET: api/Attendances/5
