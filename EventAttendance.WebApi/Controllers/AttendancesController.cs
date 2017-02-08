@@ -1,4 +1,5 @@
 ﻿using EventAttendance.WebApi.Models;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -16,7 +17,22 @@ namespace EventAttendance.WebApi.Controllers
         // GET: api/Attendances
         public IQueryable<Attendance> GetAttendances()
         {
-            return db.Attendances;
+            var query = from attendee in db.Attendees
+                        join attendance in db.Attendances on attendee.Id equals attendance.AttendeeId into gj
+                        from x in gj.DefaultIfEmpty()
+                        select new Attendance
+                        {
+                            AttendeeId = attendee.Id,
+                            Attendee = attendee,
+
+                            Id = x != null ? x.Id : 0,
+                            EventScheduleId = x != null ? x.EventScheduleId : 0,
+                            EventSchedule = x != null ? x.EventSchedule : null,
+                            IsAttended = x != null ? x.IsAttended : default(bool),
+                            AttendanceTime = x != null ? x.AttendanceTime : default(DateTime),
+                        };
+
+            return query;
         }
 
         // GET: api/Attendances/5
