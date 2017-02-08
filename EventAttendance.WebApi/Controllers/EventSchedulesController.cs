@@ -29,7 +29,8 @@ namespace EventAttendance.WebApi.Controllers
         public IQueryable<EventSchedule> GetUnfreezedEventSchedules()
         {
             var data = db.EventSchedules.Include(c => c.Event)
-                            .Where(c => !c.IsFreezed && c.Event.Name.Equals("Ravi Sabha", StringComparison.InvariantCultureIgnoreCase));
+                            .Where(c => !c.IsFreezed && c.Event.Name.Equals("Ravi Sabha", StringComparison.InvariantCultureIgnoreCase))
+                            .OrderByDescending(c => c.EventDate);
             return data;
         }
 

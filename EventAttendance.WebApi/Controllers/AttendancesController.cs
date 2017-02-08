@@ -1,5 +1,6 @@
 ﻿using EventAttendance.WebApi.Models;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -14,11 +15,18 @@ namespace EventAttendance.WebApi.Controllers
     {
         private EventAttendanceContext db = new EventAttendanceContext();
 
+
         // GET: api/Attendances
-        public IQueryable<Attendance> GetAttendances()
+        [Route("api/Attendances")]
+        [Route("api/Attendances/{eventScheduleId}")]
+        [Route("api/Attendances/{eventScheduleId}/{filter}")]
+        public IQueryable<Attendance> GetAttendances(int eventScheduleId, string filter = "")
         {
-            var query = (from attendee in db.Attendees
-                         join attendance in db.Attendances on attendee.Id equals attendance.AttendeeId into gj
+            if (eventScheduleId == 0)
+                return new List<Attendance>().AsQueryable();
+
+            var query = (from attendee in db.Attendees.Where(c => string.IsNullOrEmpty(filter) || c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter))
+                         join attendance in db.Attendances.Where(c => c.EventScheduleId == eventScheduleId) on attendee.Id equals attendance.AttendeeId into gj
                          from x in gj.DefaultIfEmpty()
                          select new { attendee = attendee, attendance = x }).ToList().
                         Select(c => new Attendance
@@ -31,7 +39,7 @@ namespace EventAttendance.WebApi.Controllers
                             EventSchedule = c.attendance != null ? c.attendance.EventSchedule : null,
                             IsAttended = c.attendance != null ? c.attendance.IsAttended : default(bool),
                             AttendanceTime = c.attendance != null ? c.attendance.AttendanceTime : default(DateTime),
-                        }).ToList();
+                        }).OrderBy(c => c.IsAttended).ThenBy(c => c.AttendeeFullName).ToList();
 
             return query.AsQueryable<Attendance>();
         }

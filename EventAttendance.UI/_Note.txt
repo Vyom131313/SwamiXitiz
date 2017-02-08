@@ -3,6 +3,7 @@
 	- Take Attendnace for Schedule
 	- Edit Form
 	- Delete
+	- Button width
 
 * Reports:
 	- By Schedule
@@ -14,6 +15,7 @@
 	- Export to Excel
 
 * Validation (form.valid)
+* Wait Indicator
 * Deployment
 * Data entry of existing attendance
 * ICons
