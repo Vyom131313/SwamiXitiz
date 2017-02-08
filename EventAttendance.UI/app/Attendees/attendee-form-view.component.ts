@@ -34,6 +34,7 @@ export class AttendeeFormViewComponent implements OnInit {
             ]],
             Address: [],
             ZoneId: [],
+            IsKaryakar:[],
         });
     }
 

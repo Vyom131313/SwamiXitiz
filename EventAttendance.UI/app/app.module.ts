@@ -12,8 +12,8 @@ import { AboutComponent } from './about.component';
 import { NavbarLeftModule } from "./Navbar/navbar-left.module";
 import { EventsModule, EventsRouting } from "./Events/events.module";
 import { EventSchedulesModule, EventSchedulesRouting } from "./EventSchedules/eventschedules.module";
-
 import { AttendeesModule, AttendeesRouting } from "./Attendees/attendees.module";
+import { AttendancesModule, AttendancesRouting } from "./Attendances/attendances.module";
 
 import { HomeModule } from "./Home/home.module";
 import { NotFoundComponent } from './NotFound/not-found.component';
@@ -24,6 +24,7 @@ import { NotFoundComponent } from './NotFound/not-found.component';
         EventsModule, EventsRouting,
         EventSchedulesModule, EventSchedulesRouting,
         AttendeesModule, AttendeesRouting,
+        AttendancesModule, AttendancesRouting,
         AppRoutes],
     declarations: [AppComponent, AboutComponent, NotFoundComponent],
     bootstrap: [AppComponent],

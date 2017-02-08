@@ -46,6 +46,16 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label class="control-label col-sm-1" for="Id">Is Karyakar?:</label>
+            <div class="col-sm-1">
+                <input type="checkbox" id="IsKaryakar"
+                       formControlName="IsKaryakar"
+                       [(ngModel)]="attendee.IsKaryakar" />
+            </div>
+        </div>
+
+
         <div class="form-group col-sm-12" style="float:right">            
             <button type="submit" class="col-sm-1 btn btn-default btn-sm" style="float:right;" routerLink="/attendees">
                 Back

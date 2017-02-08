@@ -15,7 +15,6 @@ export class EventSchedule_VM {
     IsFreezed: boolean;
 }
 
-
 export class Attendee_VM {
     Id: number;
     FirstName: string;
@@ -23,6 +22,21 @@ export class Attendee_VM {
     Address: string;
     ZoneName: boolean;
     ZoneId: number;
+    IsKaryakar: boolean;
+}
+
+export class Attendance_VM {
+    Id: number;
+    EventScheduleId: number;
+    AttendeeId: number;
+    IsAttended: boolean;
+    AttendanceTime: string;
+
+    AttendeeFullName: string;
+    ZoneName: string;
+    Address: string;
+    IsKaryakar: boolean;
+    EventShortDate: string;
 }
 
 export class Zone_VM {

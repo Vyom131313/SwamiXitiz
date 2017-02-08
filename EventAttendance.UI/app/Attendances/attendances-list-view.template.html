@@ -1,11 +1,8 @@
 ﻿<h4 class='QAListTitle' style="text-align:left;padding-top:10px;padding-bottom:10px;">
-    Attendees
-    <a routerLink="/attendees/new" style="float:right;margin-right:30px;color:white;font-weight:bold">
-        <i class="glyphicon glyphicon-plus">Add</i>
-    </a>
+    Attendances
 </h4>
 
-<table *ngIf="attendees_vm_list != null && attendees_vm_list != undefined"
+<table *ngIf="attendances_vm_list != null && attendances_vm_list != undefined"
        class="table" style="background-color:#35acdf; margin-top:50px;">
 
     <thead>
@@ -16,21 +13,17 @@
         </tr>
 
         <tr style="font-weight:bold;font-size:10.5pt;">
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
             <th>Zone</th>
             <th>Address</th>
-            <th>IsKaryakar ?</th>
+            <th>Is Karyakar ?</th>
             <th width="35px;"></th>
         </tr>
     </thead>
     <tbody style="font-weight:bold;font-size:10pt;color:black">
-        <tr *ngFor="let item of attendees_vm_list">
+        <tr *ngFor="let item of attendances_vm_list">
             <td>
-                {{item.FirstName}}
-            </td>
-            <td>
-                {{item.LastName}}
+                {{item.AttendeeFullName}}
             </td>
             <td>
                 {{item.ZoneName}}
@@ -42,9 +35,7 @@
                 {{item.IsKaryakar}}
             </td>
             <td>
-                <a [routerLink]="['/attendees', item.Id]" style="color:white;font-weight:bold;white-space:nowrap">
-                    <span class="glyphicon glyphicon-pencil"></span> Edit
-                </a>
+                In
             </td>
         </tr>
     </tbody>
