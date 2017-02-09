@@ -25,7 +25,7 @@
             <th>Zone</th>
             <th>Address</th>
             <th>Is Karyakar ?</th>
-            <th width="35px;"></th>
+            <th width="50px;"></th>
         </tr>
     </thead>
     <tbody style="font-weight:bold;font-size:10pt;color:black">
@@ -42,14 +42,14 @@
             <td>
                 {{item.IsKaryakar}}
             </td>
-            <td>
+            <td style="white-space:nowrap">
                 <button *ngIf="item.IsAttended != true" (click)="OnTakeAttendance(item, $event)" class="btn btn-info btn-sm" style="background-color:green">
                     <span class="glyphicon glyphicon-time"></span> In
                 </button>
                 <!--<a *ngIf="item.IsAttended != true" href="#" (click)="OnTakeAttendance(item, $event)" class="btn btn-info btn-sm" style="background-color:green">
                     <span class="glyphicon glyphicon-time"></span> In
                 </a>-->
-                <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly | date: 'HH:mm'}} </span>
+                <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
             </td>
         </tr>
     </tbody>
