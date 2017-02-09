@@ -15,11 +15,7 @@ namespace EventAttendance.WebApi.Controllers
     {
         private EventAttendanceContext db = new EventAttendanceContext();
 
-
         // GET: api/Attendances
-        [Route("api/Attendances")]
-        [Route("api/Attendances/{eventScheduleId}")]
-        [Route("api/Attendances/{eventScheduleId}/{filter}")]
         public IQueryable<Attendance> GetAttendances(int eventScheduleId, string filter = "")
         {
             if (eventScheduleId == 0)
@@ -59,7 +55,7 @@ namespace EventAttendance.WebApi.Controllers
 
         // PUT: api/Attendances/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutAttendance(int id, Attendance attendance)
+        public async Task<IHttpActionResult> PostAttendance(int id, Attendance attendance)
         {
             if (!ModelState.IsValid)
             {
@@ -92,19 +88,39 @@ namespace EventAttendance.WebApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Attendances
-        [ResponseType(typeof(Attendance))]
-        public async Task<IHttpActionResult> PostAttendance(Attendance attendance)
+        // PUT: api/Attendances/5
+        [ResponseType(typeof(void))]
+        public async Task<IHttpActionResult> PutAttendance(int id, Attendance attendance)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Attendances.Add(attendance);
-            await db.SaveChangesAsync();
+            if (id != attendance.Id)
+            {
+                return BadRequest();
+            }
 
-            return CreatedAtRoute("DefaultApi", new { id = attendance.Id }, attendance);
+            db.Entry(attendance).State = EntityState.Modified;
+
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!AttendanceExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         //// DELETE: api/Attendances/5

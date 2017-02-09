@@ -1,9 +1,7 @@
 ﻿* Attendance:
-	- ListView 
 	- Take Attendnace for Schedule
-	- Edit Form
-	- Delete
 	- Button width
+	- on load set the date default selected and populate the data
 
 * Reports:
 	- By Schedule

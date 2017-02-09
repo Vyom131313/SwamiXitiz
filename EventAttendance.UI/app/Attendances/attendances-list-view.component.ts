@@ -49,6 +49,11 @@ export class AttendancesListViewComponent implements OnChanges {
         event.stopPropagation();
         //alert(JSON.stringify(currentItem));
 
+        //var result = this.attendancesService.add(this.http, this.selectedScheduleId, currentItem);
+        var result = this.attendancesService.add(this.http, this.selectedScheduleId, currentItem);
+
+        result.subscribe(data => this.getItems());
+
 
     }
 }
