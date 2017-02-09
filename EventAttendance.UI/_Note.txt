@@ -1,6 +1,7 @@
 ﻿* Attendance:
+	- save with local time
+	- display only time
 	- Button width
-	- on load set the date default selected and populate the data
 	- avoid build_prod
 
 * Reports:

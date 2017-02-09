@@ -47,13 +47,9 @@ export class AttendancesListViewComponent implements OnChanges {
 
     OnTakeAttendance(currentItem: Attendance_VM, event:any ) {
         event.stopPropagation();
-        //alert(JSON.stringify(currentItem));
 
-        //var result = this.attendancesService.add(this.http, this.selectedScheduleId, currentItem);
         var result = this.attendancesService.add(this.http, this.selectedScheduleId, currentItem);
-
+        this.filter = ""; 
         result.subscribe(data => this.getItems());
-
-
     }
 }

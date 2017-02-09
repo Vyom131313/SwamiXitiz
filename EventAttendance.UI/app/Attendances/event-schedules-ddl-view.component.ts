@@ -40,6 +40,12 @@ export class EventSchedulesDdlComponent implements OnChanges {
     }
 
     getItems() {
-        this.eventschedulesService.getUnfreezedItems(this.http).then(items => { this.schedulesDdlList = items; });
+        this.eventschedulesService.getUnfreezedItems(this.http).then(items =>
+        {
+            this.schedulesDdlList = items;
+
+            // get the 1st item selected
+            this.onChange(items[0].Id);
+        });
     }
 }
