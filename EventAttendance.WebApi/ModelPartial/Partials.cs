@@ -53,5 +53,12 @@ namespace EventAttendance.WebApi.Models
         {
             get { return this.Attendee != null ? this.Attendee.IsKaryakar: false; }
         }
+
+        [NotMapped]
+        public virtual string AttendanceTimeOnly
+        {
+            get { return this.AttendanceTime != null ? this.AttendanceTime.ToString("hh:mm tt") : string.Empty; }
+        }
+        
     }
 }

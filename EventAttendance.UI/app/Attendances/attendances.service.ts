@@ -52,7 +52,7 @@ export class AttendancesService {
     add(http: Http, eventScheduleId: number, attendance: Attendance_VM) {
         attendance.Id = 0;
         attendance.EventScheduleId = eventScheduleId;
-        attendance.AttendanceTime = new Date();
+        attendance.AttendanceTime = new Date(this.parseDateToStringWithFormat(new Date()));
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
@@ -71,5 +71,20 @@ export class AttendancesService {
         params.set('id', id.toString());
 
         return http.delete(this.ServiceBaseUrl, { search: params }).map(res => res);
+    }
+
+    private parseDateToStringWithFormat(date: Date): string {
+        let result: string;
+        let dd = date.getDate().toString();
+        let mm = (date.getMonth() + 1).toString();
+        let hh = date.getHours().toString();
+        let min = date.getMinutes().toString();
+        dd = dd.length === 2 ? dd : "0" + dd;
+        mm = mm.length === 2 ? mm : "0" + mm;
+        hh = hh.length === 2 ? hh : "0" + hh;
+        min = min.length === 2 ? min : "0" + min;
+        result = [date.getFullYear(), '-', mm, '-', dd, 'T', hh, ':', min].join('');
+
+        return result;
     }
 }

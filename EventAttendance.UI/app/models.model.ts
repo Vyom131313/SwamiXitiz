@@ -31,12 +31,13 @@ export class Attendance_VM {
     AttendeeId: number;
     IsAttended: boolean;
     AttendanceTime: Date;
-
+    
     AttendeeFullName: string;
     ZoneName: string;
     Address: string;
     IsKaryakar: boolean;
     EventShortDate: string;
+    AttendanceTimeOnly: string;
 }
 
 export class Zone_VM {

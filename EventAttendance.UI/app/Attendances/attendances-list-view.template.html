@@ -49,7 +49,7 @@
                 <!--<a *ngIf="item.IsAttended != true" href="#" (click)="OnTakeAttendance(item, $event)" class="btn btn-info btn-sm" style="background-color:green">
                     <span class="glyphicon glyphicon-time"></span> In
                 </a>-->
-                <span *ngIf="item.IsAttended == true">{{item.AttendanceTime}}</span>
+                <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly | date: 'HH:mm'}} </span>
             </td>
         </tr>
     </tbody>
