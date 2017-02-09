@@ -1,7 +1,7 @@
 ﻿* Attendance:
-	- Take Attendnace for Schedule
 	- Button width
 	- on load set the date default selected and populate the data
+	- avoid build_prod
 
 * Reports:
 	- By Schedule

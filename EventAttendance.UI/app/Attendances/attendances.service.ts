@@ -51,23 +51,19 @@ export class AttendancesService {
 
     add(http: Http, eventScheduleId: number, attendance: Attendance_VM) {
         attendance.Id = 0;
+        attendance.EventScheduleId = eventScheduleId;
+        attendance.AttendanceTime = new Date();
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        let vm = new Attendance_VM();
-        vm.EventScheduleId = eventScheduleId;
-        vm.AttendeeId = attendance.AttendeeId;
-        vm.AttendanceTime = (new Date()).toString()
-
-        return http.post(this.ServiceBaseUrl + "/" + eventScheduleId, JSON.stringify(vm), options).map(res => res);
+        return http.post(this.ServiceBaseUrl + "/" + eventScheduleId, JSON.stringify(attendance), options).map(res => res);
     }
 
     update(http: Http, attendance: Attendance_VM) {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         return http.put(this.ServiceBaseUrl + "/" + attendance.Id, JSON.stringify(attendance), options).map(res => res);
-
     }
 
     delete(http: Http, id: number) {

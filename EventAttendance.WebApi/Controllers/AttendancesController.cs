@@ -57,32 +57,35 @@ namespace EventAttendance.WebApi.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PostAttendance(int id, Attendance attendance)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != attendance.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(attendance).State = EntityState.Modified;
-
             try
             {
-                await db.SaveChangesAsync();
+                if (db.Attendances
+                    .Count(c => c.EventScheduleId == attendance.EventScheduleId && c.AttendeeId == attendance.AttendeeId) == 0)
+                {
+                    db.Attendances.Add(new Attendance
+                    {
+                        EventScheduleId = attendance.EventScheduleId,
+                        AttendeeId = attendance.AttendeeId,
+                        AttendanceTime = attendance.AttendanceTime,
+                        IsAttended = true,
+                        CreatedOn = DateTime.Now,
+                        ModifiedOn = DateTime.Now
+                    });
+
+                    //db.SaveChanges();
+                    await db.SaveChangesAsync();
+                }
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AttendanceExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                //if (!AttendanceExists(id))
+                //{
+                //    return NotFound();
+                //}
+                //else
+                //{
+                //    throw;
+                //}
             }
 
             return StatusCode(HttpStatusCode.NoContent);

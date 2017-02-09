@@ -30,7 +30,7 @@ export class Attendance_VM {
     EventScheduleId: number;
     AttendeeId: number;
     IsAttended: boolean;
-    AttendanceTime: string;
+    AttendanceTime: Date;
 
     AttendeeFullName: string;
     ZoneName: string;
