@@ -22,29 +22,41 @@
             </a>
         </li>
 
-        <li class="dropdown open" attr.data-target="#attendanceAndReportsMenus">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
-                Attendance & Reports <span class="caret"></span>
+        <li class="dropdown-menu" role="menu" routerLink="/attendances">
+            <a href="#" title="Attendance">
+                <span class="glyphicon glyphicon-time"></span> Attendance
+            </a>
+        </li>
+
+        <li class="dropdown" >
+            <hr>
+        </li>
+
+        <li class="dropdown" attr.data-target="#reportsMenus">
+           
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"  aria-expanded="false">
+                <span class="glyphicon glyphicon-th"></span> Reports <span class="caret"></span>
             </a>
 
-            <ul class="dropdown-menu" role="menu" id="attendanceAndReportsMenus">
+            <ul class="dropdown-menu" role="menu" id="reportsMenus">
+                <li>
+                    <a href="#" title="Reports" >
+                        &nbsp;&nbsp;<span class="glyphicon glyphicon-time"></span> By Sabha
+                    </a>
+                </li>
 
-                <li routerLink="/attendances">
-                    <a href="#" title="Ravi Sabha">
-                        <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Ravi Sabha
-                    </a>
-                </li>
-                <li (click)="onSelect('REPORTS', $event)">
+                <li>
                     <a href="#" title="Reports">
-                        <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Reports
+                        &nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span> By Attendee
                     </a>
                 </li>
+
             </ul>
         </li>
 
         <li class="dropdown" attr.data-target="#adminChildMenus">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                Admin <span class="caret"></span>
+                <span class="glyphicon glyphicon-user"></span> Admin <span class="caret"></span>
             </a>
 
             <ul class="dropdown-menu" role="menu" id="adminChildMenus">
