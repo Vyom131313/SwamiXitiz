@@ -24,16 +24,16 @@
             <th>Name</th>
             <th>Zone</th>
             <th>Address</th>
-            <th>Is Karyakar ?</th>
+            <th>Karyakar</th>
             <th width="50px;"></th>
         </tr>
     </thead>
     <tbody style="font-weight:bold;font-size:10pt;color:black">
         <tr *ngFor="let item of attendances_vm_list">
-            <td>
+            <td style="white-space:nowrap">
                 {{item.AttendeeFullName}}
             </td>
-            <td>
+            <td style="white-space:nowrap">
                 {{item.ZoneName}}
             </td>
             <td>

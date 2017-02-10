@@ -1,6 +1,4 @@
 ﻿* Attendance:
-	- save with local time
-	- display only time
 	- Button width
 	- avoid build_prod
 

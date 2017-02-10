@@ -15,42 +15,56 @@
             </a>
             <br />
         </li>
+
         <li class="dropdown-menu" role="menu" routerLink="">
             <a href="#" title="Home">
-                <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Home
+                Home
             </a>
         </li>
 
-        <li class="dropdown-menu" role="menu" routerLink="about">
-            <a href="#" title="About">
-                <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>About
+        <li class="dropdown open" attr.data-target="#attendanceAndReportsMenus">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                Attendance & Reports <span class="caret"></span>
             </a>
+
+            <ul class="dropdown-menu" role="menu" id="attendanceAndReportsMenus">
+
+                <li routerLink="/attendances">
+                    <a href="#" title="Ravi Sabha">
+                        <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Ravi Sabha
+                    </a>
+                </li>
+                <li (click)="onSelect('REPORTS', $event)">
+                    <a href="#" title="Reports">
+                        <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Reports
+                    </a>
+                </li>
+            </ul>
         </li>
 
-        <li class="dropdown-menu" role="menu" routerLink="/events">
-            <a href="#" title="Events">
-                <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Events
+        <li class="dropdown" attr.data-target="#adminChildMenus">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                Admin <span class="caret"></span>
             </a>
-        </li>
-        <li class="dropdown-menu" role="menu" routerLink="/eventschedules">
-            <a href="#" title="Event Schedules">
-                <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Event Schedules
-            </a>
-        </li>
-        <li class="dropdown-menu" role="menu" routerLink="/attendees">
-            <a href="#" title="Attendees">
-                <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Attendees
-            </a>
-        </li>
-        <li class="dropdown-menu" role="menu"  routerLink="/attendances">
-            <a href="#" title="Attendance">
-                <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Attendance
-            </a>
-        </li>
-        <li class="dropdown-menu" role="menu" (click)="onSelect('REPORTS', $event)">
-            <a href="#" title="Reports">
-                <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Reports
-            </a>
+
+            <ul class="dropdown-menu" role="menu" id="adminChildMenus">
+
+                <li routerLink="/events">
+                    <a href="#" title="Events">
+                        <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Events
+                    </a>
+                </li>
+                <li routerLink="/eventschedules">
+                    <a href="#" title="Event Schedules">
+                        <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Event Schedules
+                    </a>
+                </li>
+                <li routerLink="/attendees">
+                    <a href="#" title="Attendees">
+                        <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Attendees
+                    </a>
+                </li>
+            </ul>
         </li>
     </ul>
 </nav>
