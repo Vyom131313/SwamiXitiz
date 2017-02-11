@@ -25,7 +25,7 @@
     <thead>
         <tr>
             <th width="30px;" style="white-space:nowrap;" colspan="3">
-                <a class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodyAbsent" aria-expanded="true"></a>
+                <a href="#tbodyAbsent" class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodyAbsent" aria-expanded="true"></a>
                 <span>Absent</span>
             </th>
             <th style="width:100px;white-space:nowrap">
@@ -40,7 +40,7 @@
             <th>Karyakar</th>
         </tr>
     </thead>
-    <tbody id="tbodyAbsent" class="collapse in" style="font-weight:bold;font-size:10pt;color:black">
+    <tbody id="tbodyAbsent" class="collapse in" aria-expanded="true" style="font-weight:bold;font-size:10pt;color:black">
         <tr *ngFor="let item of attendances_absent_vm_list">
             <td style="white-space:nowrap">
                 {{item.AttendeeFullName}}
@@ -63,7 +63,7 @@
     <thead>
         <tr>
             <th width="30px;" style="white-space:nowrap;" colspan="4">
-                <a class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot1" aria-expanded="true"></a>
+                <a  href="#tbodySlot1"  class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot1" aria-expanded="true"></a>
                 <span>Slot : 4:00 PM or before</span>
             </th>
             <th style="width:100px;white-space:nowrap">
@@ -79,7 +79,7 @@
             <th width="50px;"></th>
         </tr>
     </thead>
-    <tbody id="tbodySlot1" class="collapse in" style="font-weight:bold;font-size:10pt;color:black">
+    <tbody id="tbodySlot1" class="collapse in" aria-expanded="true" style="font-weight:bold;font-size:10pt;color:black">
         <tr *ngFor="let item of attendances_slot_1_vm_list">
             <td style="white-space:nowrap">
                 {{item.AttendeeFullName}}
@@ -95,27 +95,8 @@
             </td>
             <td style="white-space:nowrap">
                 <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
+                
             </td>
         </tr>
     </tbody>
 </table>
-<script>
-    $('.btn-toggle').click(function () {
-        $(this).find('.btn').toggleClass('active');
-
-        if ($(this).find('.btn-primary').size() > 0) {
-            $(this).find('.btn').toggleClass('btn-primary');
-        }
-        if ($(this).find('.btn-danger').size() > 0) {
-            $(this).find('.btn').toggleClass('btn-danger');
-        }
-        if ($(this).find('.btn-success').size() > 0) {
-            $(this).find('.btn').toggleClass('btn-success');
-        }
-        if ($(this).find('.btn-info').size() > 0) {
-            $(this).find('.btn').toggleClass('btn-info');
-        }
-
-        $(this).find('.btn').toggleClass('btn-default');
-    });
-</script>

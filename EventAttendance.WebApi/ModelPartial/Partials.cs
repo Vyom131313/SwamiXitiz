@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EventAttendance.WebApi.Models
@@ -51,7 +50,7 @@ namespace EventAttendance.WebApi.Models
         [NotMapped]
         public virtual bool IsKaryakar
         {
-            get { return this.Attendee != null ? this.Attendee.IsKaryakar: false; }
+            get { return this.Attendee != null ? this.Attendee.IsKaryakar : false; }
         }
 
         [NotMapped]
@@ -59,6 +58,29 @@ namespace EventAttendance.WebApi.Models
         {
             get { return this.AttendanceTime != null ? this.AttendanceTime.ToString("hh:mm tt") : string.Empty; }
         }
-        
+
+    }
+
+    public partial class Attendance_VM
+    {
+        public int Id { get; set; }
+        public int EventScheduleId { get; set; }
+        public int AttendeeId { get; set; }
+        public bool IsAttended { get; set; }
+        public DateTime AttendanceTime { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public DateTime ModifiedOn { get; set; }
+
+        public virtual string AttendeeFullName { get; set; }
+
+        public virtual string ZoneName { get; set; }
+
+        public virtual string Address { get; set; }
+
+        public virtual string EventShortDate { get; set; }
+
+        public virtual bool IsKaryakar { get; set; }
+
+        public virtual string AttendanceTimeOnly { get; set; }
     }
 }

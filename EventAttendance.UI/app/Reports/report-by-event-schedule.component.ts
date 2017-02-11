@@ -56,9 +56,16 @@ export class ReportByEventScheduleComponent implements OnChanges {
 
         this.attendancesService.getItems(this.http, this.selectedScheduleId, this.filter)
             .then(items => {
-
+                
                 this.attendances_vm_list = items;
-                this.attendances_slot_1_vm_list = this.attendances_vm_list;
+                var dtSlot1 = new Date();
+
+                if (this.attendances_vm_list != undefined && this.attendances_vm_list != null && this.attendances_vm_list.length > 0) {
+                    dtSlot1 = new Date(this.attendances_vm_list[0].EventShortDate);
+                    dtSlot1.setHours(16, 0, 0, 0);
+                }
+
+                this.attendances_slot_1_vm_list = this.attendances_vm_list.filter(c => c.IsAttended && c.AttendanceTime <= dtSlot1);
                 this.attendances_absent_vm_list = this.attendances_vm_list.filter(c => !c.IsAttended);
 
                 //alert(this.attendances_vm_list.length + "-" + this.attendances_slot_1_vm_list.length + "-" + this.attendances_absent_vm_list.length);
