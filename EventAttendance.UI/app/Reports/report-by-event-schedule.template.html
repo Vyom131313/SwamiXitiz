@@ -5,7 +5,7 @@
             <label class="control-label" style="font-size:18px;">Report by Sabha: </label>
         </div>
 
-        <div class="col-sm-2" >
+        <div class="col-sm-2">
             <event-schedules-ddl (select)="onScheduleChange($event)">Loading....</event-schedules-ddl>
         </div>
         <div class="col-sm-1" style="padding-left:0px;">
@@ -16,17 +16,15 @@
     </div>
 </h4>
 
-<table *ngIf="attendances_absent_vm_list != null && attendances_absent_vm_list != undefined"
-       class="table" style="background-color: rgb(224, 93, 111); margin-top:50px;">
-    <thead>
-        <!--<tr style="font-weight:bold;font-size:10.5pt;">
-            <th colspan="6">
-                <input type="text" class="form-control input-sm" placeholder="Please enter filter value" [(ngModel)]="filter" (keyup.enter)="onFilter($event)" />
-            </th>
-        </tr>-->
+<div style="font-weight:bold;font-size:10.5pt; margin-top:50px;">
+    <input type="text" class="form-control input-sm" style="color:black; " placeholder="Please enter filter value" [(ngModel)]="filter" (keyup.enter)="onFilter($event)" />
+</div>
 
+<table *ngIf="attendances_absent_vm_list != null && attendances_absent_vm_list != undefined"
+       class="table" style="background-color: rgb(224, 93, 111); margin-top:10px;">
+    <thead>
         <tr>
-            <th width="30px; white-space:nowrap; " colspan="3">
+            <th width="30px;" style="white-space:nowrap;" colspan="3">
                 <a class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodyAbsent" aria-expanded="true"></a>
                 <span>Absent</span>
             </th>
@@ -43,7 +41,7 @@
         </tr>
     </thead>
     <tbody id="tbodyAbsent" class="collapse in" style="font-weight:bold;font-size:10pt;color:black">
-        <tr *ngFor="let item of attendances_absent_vm_list"  >
+        <tr *ngFor="let item of attendances_absent_vm_list">
             <td style="white-space:nowrap">
                 {{item.AttendeeFullName}}
             </td>
@@ -61,10 +59,10 @@
 </table>
 
 <table *ngIf="attendances_slot_1_vm_list != null && attendances_slot_1_vm_list != undefined"
-       class="table" style="background-color:#35acdf; margin-top:50px;">
+       class="table" style="background-color:#35acdf; margin-top:20px;">
     <thead>
         <tr>
-            <th width="30px; white-space:nowrap; " colspan="4">
+            <th width="30px;" style="white-space:nowrap;" colspan="4">
                 <a class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot1" aria-expanded="true"></a>
                 <span>Slot : 4:00 PM or before</span>
             </th>
@@ -81,7 +79,7 @@
             <th width="50px;"></th>
         </tr>
     </thead>
-    <tbody id="tbodySlot1"  class="collapse in" style="font-weight:bold;font-size:10pt;color:black">
+    <tbody id="tbodySlot1" class="collapse in" style="font-weight:bold;font-size:10pt;color:black">
         <tr *ngFor="let item of attendances_slot_1_vm_list">
             <td style="white-space:nowrap">
                 {{item.AttendeeFullName}}
@@ -101,3 +99,23 @@
         </tr>
     </tbody>
 </table>
+<script>
+    $('.btn-toggle').click(function () {
+        $(this).find('.btn').toggleClass('active');
+
+        if ($(this).find('.btn-primary').size() > 0) {
+            $(this).find('.btn').toggleClass('btn-primary');
+        }
+        if ($(this).find('.btn-danger').size() > 0) {
+            $(this).find('.btn').toggleClass('btn-danger');
+        }
+        if ($(this).find('.btn-success').size() > 0) {
+            $(this).find('.btn').toggleClass('btn-success');
+        }
+        if ($(this).find('.btn-info').size() > 0) {
+            $(this).find('.btn').toggleClass('btn-info');
+        }
+
+        $(this).find('.btn').toggleClass('btn-default');
+    });
+</script>
