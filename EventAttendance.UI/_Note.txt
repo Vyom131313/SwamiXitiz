@@ -16,6 +16,7 @@
 * Deployment
 * Data entry of existing attendance
 
+* Refresh page issue on any url other than Home
 * Wait Indicator
 * ICons
 * avoid build_prod

@@ -9,7 +9,7 @@
             <event-schedules-ddl (select)="onScheduleChange($event)">Loading....</event-schedules-ddl>
         </div>
         <div class="col-sm-2">
-            <button (click)="OnRefresh($event)" class="btn btn-primary btn-sm">
+            <button (click)="onRefreshGetAllItems($event)" class="btn btn-primary btn-sm">
                 <span class="glyphicon glyphicon-refresh"></span> Refresh
             </button>
         </div>
@@ -34,7 +34,7 @@
         </tr>
     </thead>
     <tbody style="font-weight:bold;font-size:10pt;color:black">
-        <tr *ngFor="let item of attendances_vm_list" [ngClass]="{'my-class': IsAttended==false }">
+        <tr *ngFor="let item of attendances_vm_list" class="{{item.IsAttended===true?'fade':''}}" >
             <td style="white-space:nowrap">
                 {{item.AttendeeFullName}}
             </td>
