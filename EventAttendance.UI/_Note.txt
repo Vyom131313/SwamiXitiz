@@ -1,21 +1,26 @@
 ﻿* Attendance:
-	- Button width
-	- avoid build_prod
+	* On attendance if there is a filter then clear it and  reload data,
+	* Provide refresh button, 
+	* Fade away row on attendance,
 
 * Reports:
 	- By Schedule
-	- By Event
+		- 3 slots
 	- By Attendee
 	- Chart
 	- Bar
 	- Graph
 	- Export to Excel
 
-* Validation (form.valid)
-* Wait Indicator
+
 * Deployment
 * Data entry of existing attendance
+
+* Wait Indicator
 * ICons
+* avoid build_prod
+* Validation (form.valid)
+
 =========== Build Locally Steps =========== 
 * Open Command Prompt
 * CD <current folder location>

@@ -1,12 +1,17 @@
 ﻿<h4 class='QAListTitle' style="text-align:left;padding-top:10px;padding-bottom:5px;white-space:nowrap">
 
-    <div class="row" >
+    <div class="row">
         <div class="col-sm-1" style="margin-right:30px;vertical-align:middle">
             <label class="control-label" style="font-size:18px;">Attendances: </label>
         </div>
 
         <div class="col-sm-2">
             <event-schedules-ddl (select)="onScheduleChange($event)">Loading....</event-schedules-ddl>
+        </div>
+        <div class="col-sm-2">
+            <button (click)="OnRefresh($event)" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-refresh"></span> Refresh
+            </button>
         </div>
     </div>
 </h4>
@@ -29,7 +34,7 @@
         </tr>
     </thead>
     <tbody style="font-weight:bold;font-size:10pt;color:black">
-        <tr *ngFor="let item of attendances_vm_list">
+        <tr *ngFor="let item of attendances_vm_list" [ngClass]="{'my-class': IsAttended==false }">
             <td style="white-space:nowrap">
                 {{item.AttendeeFullName}}
             </td>
@@ -43,12 +48,10 @@
                 {{item.IsKaryakar}}
             </td>
             <td style="white-space:nowrap">
-                <button *ngIf="item.IsAttended != true" (click)="OnTakeAttendance(item, $event)" class="btn btn-info btn-sm" style="background-color:green">
+                <button *ngIf="item.IsAttended != true" (click)="OnTakeAttendance(item, $event)" class="btn btn-success btn-sm" >
                     <span class="glyphicon glyphicon-time"></span> In
                 </button>
-                <!--<a *ngIf="item.IsAttended != true" href="#" (click)="OnTakeAttendance(item, $event)" class="btn btn-info btn-sm" style="background-color:green">
-                    <span class="glyphicon glyphicon-time"></span> In
-                </a>-->
+              
                 <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
             </td>
         </tr>

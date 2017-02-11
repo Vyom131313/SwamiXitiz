@@ -2,6 +2,7 @@
 import { Headers, Http, Response } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { trigger, state, animate, transition, style } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Attendance_VM } from '../Models.model';
@@ -13,6 +14,13 @@ import { AttendancesService } from './attendances.service';
     styleUrls: [
         'https://fonts.googleapis.com/icon?family=Material+Icons',
         //'../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+    ],
+    animations: [
+        trigger('IsAttended', [
+            state('false', style({opacity: 1})),
+            state('true', style({opacity: 0})),
+            transition('* => *', animate('.5s'))
+        ])
     ],
     providers: [AttendancesService]
 })
@@ -40,16 +48,26 @@ export class AttendancesListViewComponent implements OnChanges {
         this.getItems();
     }
 
+    onRefresh(event: Event) {
+        this.filter = "";
+        this.getItems();
+    }
+
     getItems() {
         this.attendancesService.getItems(this.http, this.selectedScheduleId, this.filter)
             .then(items => { this.attendances_vm_list = items; });
     }
 
-    OnTakeAttendance(currentItem: Attendance_VM, event:any ) {
+    OnTakeAttendance(currentItem: Attendance_VM, event: any) {
+        currentItem.IsAttended = true;
         event.stopPropagation();
 
         var result = this.attendancesService.add(this.http, this.selectedScheduleId, currentItem);
-        this.filter = ""; 
-        result.subscribe(data => this.getItems());
+
+        // On time if there is a filter then clear it and  reload data,
+        if (this.filter.length > 0) {
+            this.filter = "";
+            result.subscribe(data => this.getItems());
+        }
     }
 }
