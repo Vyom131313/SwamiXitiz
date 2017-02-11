@@ -27,7 +27,7 @@ export class ReportsService {
         params.set('eventScheduleId', eventScheduleId.toString());
         params.set('filter', filter);
 
-        return http.get(this.ServiceBaseUrl, { search: params })
+        return http.get(this.ServiceBaseUrl +"/GetByEventSchedule", { search: params })
             .toPromise()
             .then((response) => response.json());
     }
