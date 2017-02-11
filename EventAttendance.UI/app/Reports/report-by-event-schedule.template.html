@@ -1,7 +1,7 @@
 ﻿<h4 class='QAListTitle' style="text-align:left;padding-top:10px;padding-bottom:5px;white-space:nowrap">
 
     <div class="row">
-        <div class="col-sm-1" style="margin-right:55px;margin-top:3px;">
+        <div class="col-sm-1" style="margin-right:55px;margin-top:4px;">
             <label class="control-label" style="font-size:18px;">Report by Sabha: </label>
         </div>
 
@@ -16,12 +16,22 @@
     </div>
 </h4>
 
-<table *ngIf="attendances_vm_list != null && attendances_vm_list != undefined"
-       class="table" style="background-color:#35acdf; margin-top:50px;">
+<table *ngIf="attendances_absent_vm_list != null && attendances_absent_vm_list != undefined"
+       class="table" style="background-color: rgb(224, 93, 111); margin-top:50px;">
     <thead>
-        <tr style="font-weight:bold;font-size:10.5pt;">
+        <!--<tr style="font-weight:bold;font-size:10.5pt;">
             <th colspan="6">
                 <input type="text" class="form-control input-sm" placeholder="Please enter filter value" [(ngModel)]="filter" (keyup.enter)="onFilter($event)" />
+            </th>
+        </tr>-->
+
+        <tr>
+            <th width="30px; white-space:nowrap; " colspan="3">
+                <a class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodyAbsent" aria-expanded="true"></a>
+                <span>Absent</span>
+            </th>
+            <th style="width:100px;white-space:nowrap">
+                Count#{{attendances_absent_vm_list.length}}
             </th>
         </tr>
 
@@ -32,8 +42,8 @@
             <th>Karyakar</th>
         </tr>
     </thead>
-    <tbody style="font-weight:bold;font-size:10pt;color:black">
-        <tr *ngFor="let item of attendances_vm_list"  >
+    <tbody id="tbodyAbsent" class="collapse in" style="font-weight:bold;font-size:10pt;color:black">
+        <tr *ngFor="let item of attendances_absent_vm_list"  >
             <td style="white-space:nowrap">
                 {{item.AttendeeFullName}}
             </td>
@@ -45,6 +55,48 @@
             </td>
             <td>
                 {{item.IsKaryakar}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table *ngIf="attendances_slot_1_vm_list != null && attendances_slot_1_vm_list != undefined"
+       class="table" style="background-color:#35acdf; margin-top:50px;">
+    <thead>
+        <tr>
+            <th width="30px; white-space:nowrap; " colspan="4">
+                <a class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot1" aria-expanded="true"></a>
+                <span>Slot : 4:00 PM or before</span>
+            </th>
+            <th style="width:100px;white-space:nowrap">
+                Count#{{attendances_slot_1_vm_list.length}}
+            </th>
+        </tr>
+
+        <tr style="font-weight:bold;font-size:10.5pt;">
+            <th>Name</th>
+            <th>Zone</th>
+            <th>Address</th>
+            <th>Karyakar</th>
+            <th width="50px;"></th>
+        </tr>
+    </thead>
+    <tbody id="tbodySlot1"  class="collapse in" style="font-weight:bold;font-size:10pt;color:black">
+        <tr *ngFor="let item of attendances_slot_1_vm_list">
+            <td style="white-space:nowrap">
+                {{item.AttendeeFullName}}
+            </td>
+            <td style="white-space:nowrap">
+                {{item.ZoneName}}
+            </td>
+            <td>
+                {{item.Address}}
+            </td>
+            <td>
+                {{item.IsKaryakar}}
+            </td>
+            <td style="white-space:nowrap">
+                <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
             </td>
         </tr>
     </tbody>

@@ -19,6 +19,11 @@ import { ReportsService } from './reports.service';
 
 export class ReportByEventScheduleComponent implements OnChanges {
     attendances_vm_list: Array<Attendance_VM>;
+    attendances_absent_vm_list: Array<Attendance_VM>;
+    attendances_slot_1_vm_list: Array<Attendance_VM>;
+    attendances_slot_2_vm_list: Array<Attendance_VM>;
+    attendances_slot_3_vm_list: Array<Attendance_VM>;
+
     filter: string;
     selectedScheduleId: number = 0;
 
@@ -46,10 +51,17 @@ export class ReportByEventScheduleComponent implements OnChanges {
     }
 
     getItems() {
-
         this.attendances_vm_list = new Array<Attendance_VM>();
+        this.attendances_absent_vm_list = new Array<Attendance_VM>();
 
         this.attendancesService.getItems(this.http, this.selectedScheduleId, this.filter)
-            .then(items => { this.attendances_vm_list = items; });
+            .then(items => {
+
+                this.attendances_vm_list = items;
+                this.attendances_slot_1_vm_list = this.attendances_vm_list;
+                this.attendances_absent_vm_list = this.attendances_vm_list.filter(c => !c.IsAttended);
+
+                //alert(this.attendances_vm_list.length + "-" + this.attendances_slot_1_vm_list.length + "-" + this.attendances_absent_vm_list.length);
+            });
     }
 }
