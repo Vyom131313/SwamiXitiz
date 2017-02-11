@@ -1,7 +1,5 @@
 ﻿* Attendance:
-	* On attendance if there is a filter then clear it and  reload data,
-	* Provide refresh button, 
-	* Fade away row on attendance,
+	* On attendance time is not dispaying correctly
 
 * Reports:
 	- By Schedule
