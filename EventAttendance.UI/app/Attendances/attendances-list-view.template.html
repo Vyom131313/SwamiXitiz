@@ -1,14 +1,14 @@
 ﻿<h4 class='QAListTitle' style="text-align:left;padding-top:10px;padding-bottom:5px;white-space:nowrap">
 
     <div class="row">
-        <div class="col-sm-1" style="margin-right:30px;vertical-align:middle">
+        <div class="col-sm-1" style="margin-right:30px;margin-top:3px;">
             <label class="control-label" style="font-size:18px;">Attendances: </label>
         </div>
 
         <div class="col-sm-2">
             <event-schedules-ddl (select)="onScheduleChange($event)">Loading....</event-schedules-ddl>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2" style="padding-left:0px;">
             <button (click)="onRefreshGetAllItems($event)" class="btn btn-primary btn-sm">
                 <span class="glyphicon glyphicon-refresh"></span> Refresh
             </button>

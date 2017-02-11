@@ -54,6 +54,9 @@ export class AttendancesListViewComponent implements OnChanges {
     }
 
     getItems() {
+
+        this.attendances_vm_list = new Array<Attendance_VM>();
+
         this.attendancesService.getItems(this.http, this.selectedScheduleId, this.filter)
             .then(items => { this.attendances_vm_list = items; });
     }

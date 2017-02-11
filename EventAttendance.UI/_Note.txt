@@ -5,11 +5,11 @@
 	- By Schedule
 		- 3 slots
 	- By Attendee
-	- Chart
-	- Bar
-	- Graph
+		- Select Attendee from drop down and click Show button
+		- Tabular format
+		- Chart report
+		- Bar report
 	- Export to Excel
-
 
 * Deployment
 * Data entry of existing attendance

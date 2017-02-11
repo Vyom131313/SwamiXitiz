@@ -1,7 +1,0 @@
-﻿
-* CRUD: Attendee screens
-* CRUD: Attendance Screens
-* Reports
-* Export to Excel
-* Put all attendee data
-* Publish

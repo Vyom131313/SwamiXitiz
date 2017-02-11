@@ -13,7 +13,9 @@ namespace EventAttendance.WebApi.Controllers
     {
         private EventAttendanceContext db = new EventAttendanceContext();
 
-        [HttpGet]
+        //[HttpGet]
+        [Route("api/Reports/GetByEventSchedule")]
+        [Route("api/Reports/GetByEventSchedule/{eventScheduleId}")]
         [Route("api/Reports/GetByEventSchedule/{eventScheduleId}/{filter}")]
         public IQueryable<Attendance> GetByEventSchedule(int eventScheduleId, string filter = "")
         {
@@ -46,7 +48,7 @@ namespace EventAttendance.WebApi.Controllers
             if (attendeeId == 0)
                 return new List<Attendance>().AsQueryable();
 
-            var data= db.Attendances.Include(c => c.Attendee).Where(c => c.AttendeeId == attendeeId).ToList()
+            var data = db.Attendances.Include(c => c.Attendee).Where(c => c.AttendeeId == attendeeId).ToList()
                     .Select(c => new Attendance
                     {
                         AttendeeId = c.Attendee.Id,
