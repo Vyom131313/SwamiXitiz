@@ -58,6 +58,42 @@ namespace EventAttendance.WebApi.Models
         {
             get { return this.AttendanceTime != null ? this.AttendanceTime.ToString("hh:mm tt") : string.Empty; }
         }
+    }
+
+    public partial class Zone_VM
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
+    public partial class Event_VM
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
+    public partial class EventSchedule_VM
+    {
+        public int Id { get; set; }
+        public int EventId { get; set; }
+        public DateTime EventDate { get; set; }
+        public bool IsFreezed { get; set; }
+
+        public virtual string EventName { get; set; }
+        public virtual string EventShortDate { get; set; }
+    }
+
+    public partial class Attendee_VM
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Address { get; set; }
+        public Nullable<int> ZoneId { get; set; }
+        public bool IsKaryakar { get; set; }
+
+        public virtual string ZoneName { get; set; }
+        public virtual string FullName { get; set; }
 
     }
 
@@ -82,5 +118,7 @@ namespace EventAttendance.WebApi.Models
         public virtual bool IsKaryakar { get; set; }
 
         public virtual string AttendanceTimeOnly { get; set; }
+
+        public string Slot { get; set; }
     }
 }

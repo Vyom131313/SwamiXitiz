@@ -23,6 +23,7 @@ export class ReportByEventScheduleComponent implements OnChanges {
     attendances_slot_1_vm_list: Array<Attendance_VM>;
     attendances_slot_2_vm_list: Array<Attendance_VM>;
     attendances_slot_3_vm_list: Array<Attendance_VM>;
+    attendances_slot_4_vm_list: Array<Attendance_VM>;
 
     filter: string;
     selectedScheduleId: number = 0;
@@ -58,14 +59,11 @@ export class ReportByEventScheduleComponent implements OnChanges {
             .then(items => {
                 
                 this.attendances_vm_list = items;
-                var dtSlot1 = new Date();
 
-                if (this.attendances_vm_list != undefined && this.attendances_vm_list != null && this.attendances_vm_list.length > 0) {
-                    dtSlot1 = new Date(this.attendances_vm_list[0].EventShortDate);
-                    dtSlot1.setHours(16, 0, 0, 0);
-                }
-
-                this.attendances_slot_1_vm_list = this.attendances_vm_list.filter(c => c.IsAttended && c.AttendanceTime <= dtSlot1);
+                this.attendances_slot_1_vm_list = this.attendances_vm_list.filter(c => c.IsAttended && c.Slot == 'Slot-1');
+                this.attendances_slot_2_vm_list = this.attendances_vm_list.filter(c => c.IsAttended && c.Slot == 'Slot-2');
+                this.attendances_slot_3_vm_list = this.attendances_vm_list.filter(c => c.IsAttended && c.Slot == 'Slot-3');
+                this.attendances_slot_4_vm_list = this.attendances_vm_list.filter(c => c.IsAttended && c.Slot == 'Slot-4');
                 this.attendances_absent_vm_list = this.attendances_vm_list.filter(c => !c.IsAttended);
 
                 //alert(this.attendances_vm_list.length + "-" + this.attendances_slot_1_vm_list.length + "-" + this.attendances_absent_vm_list.length);

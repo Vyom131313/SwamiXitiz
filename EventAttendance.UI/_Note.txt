@@ -1,5 +1,4 @@
 ﻿* Attendance:
-	* On attendance time is not dispaying correctly
 	* Male/Female
 
 * Reports:

@@ -31,7 +31,8 @@ export class Attendance_VM {
     AttendeeId: number;
     IsAttended: boolean;
     AttendanceTime: Date;
-    
+    Slot: string;
+
     AttendeeFullName: string;
     ZoneName: string;
     Address: string;

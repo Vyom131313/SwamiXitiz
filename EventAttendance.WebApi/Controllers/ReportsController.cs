@@ -23,6 +23,14 @@ namespace EventAttendance.WebApi.Controllers
                 return new List<Attendance_VM>().AsQueryable();
 
             var eventSchedule = db.EventSchedules.FirstOrDefault(c => c.Id == eventScheduleId);
+            var slot1 = new DateTime(eventSchedule.EventDate.Year, eventSchedule.EventDate.Month, eventSchedule.EventDate.Day,
+                            16, 00, 00);
+
+            var slot2 = new DateTime(eventSchedule.EventDate.Year, eventSchedule.EventDate.Month, eventSchedule.EventDate.Day,
+                            16, 15, 00);
+
+            var slot3 = new DateTime(eventSchedule.EventDate.Year, eventSchedule.EventDate.Month, eventSchedule.EventDate.Day,
+                            16, 30, 00);
 
             var query = (from attendee in db.Attendees.Include(c => c.Zone).Where(c => string.IsNullOrEmpty(filter) || c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter))
                          join attendance in db.Attendances.Where(c => c.EventScheduleId == eventScheduleId) on attendee.Id equals attendance.AttendeeId into gj
@@ -46,9 +54,28 @@ namespace EventAttendance.WebApi.Controllers
                             AttendanceTimeOnly = c.attendance != null ? c.attendance.AttendanceTimeOnly : string.Empty,
                             IsAttended = c.attendance != null ? c.attendance.IsAttended : default(bool),
                             AttendanceTime = c.attendance != null ? c.attendance.AttendanceTime : default(DateTime),
+
+                            Slot = c.attendance != null
+                                    ? GetSlot(c.attendance.AttendanceTime, slot1, slot2, slot3)
+                                    : string.Empty,
+
                         }).OrderBy(c => c.IsAttended).ThenBy(c => c.AttendeeFullName).ToList();
 
             return query.AsQueryable<Attendance_VM>();
+        }
+
+        private string GetSlot(DateTime dt, DateTime slot1, DateTime slot2, DateTime slot3)
+        {
+            var slot = string.Empty;
+            if (dt <= slot1)
+                slot = "Slot-1";
+            else if (dt <= slot2)
+                slot = "Slot-2";
+            else if (dt <= slot3)
+                slot = "Slot-3";
+            else if (dt > slot3)
+                slot = "Slot-4";
+            return slot;
         }
 
         [HttpGet]
