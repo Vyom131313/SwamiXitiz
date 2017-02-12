@@ -69,8 +69,15 @@ export class AttendancesListViewComponent implements OnChanges {
 
         // On time if there is a filter then clear it and  reload data,
         //if (this.filter.length > 0) {
-            this.filter = "";
-            result.subscribe(data => this.getItems());
-        //}
+        this.filter = "";
+        result.subscribe(data => {
+
+            var index = this.attendances_vm_list.indexOf(currentItem, 0);
+            if (index > -1) {
+                this.attendances_vm_list.splice(index, 1);
+            }
+
+            //this.getItems()
+        });
     }
 }
