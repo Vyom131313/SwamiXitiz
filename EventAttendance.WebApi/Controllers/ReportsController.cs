@@ -56,7 +56,7 @@ namespace EventAttendance.WebApi.Controllers
                             AttendanceTime = c.attendance != null ? c.attendance.AttendanceTime : default(DateTime),
 
                             Slot = c.attendance != null
-                                    ? GetSlot(c.attendance.AttendanceTime, slot1, slot2, slot3)
+                                    ? GetSlotTextForSlotDate(c.attendance.AttendanceTime, slot1, slot2, slot3)
                                     : string.Empty,
 
                         }).OrderBy(c => c.IsAttended).ThenBy(c => c.AttendeeFullName).ToList();
@@ -64,7 +64,43 @@ namespace EventAttendance.WebApi.Controllers
             return query.AsQueryable<Attendance_VM>();
         }
 
-        private string GetSlot(DateTime dt, DateTime slot1, DateTime slot2, DateTime slot3)
+        [HttpGet]
+        [Route("api/Reports/GetByAttendee/{attendeeId}")]
+        public IQueryable<Attendance_VM> GetByAttendee(int attendeeId)
+        {
+            if (attendeeId == 0)
+                return new List<Attendance_VM>().AsQueryable();
+
+            var query = db.Attendances.Include(c => c.Attendee).Include(c => c.EventSchedule).Include(c => c.EventSchedule.Event).Include(c => c.Attendee.Zone)
+                         .Where(c => c.AttendeeId == attendeeId)
+                         .ToList();
+
+            var query2 = query.Select(c => new Attendance_VM
+            {
+                EventScheduleId = c.EventScheduleId,
+                EventShortDate = c.EventShortDate,
+
+                AttendeeId = c.Attendee.Id,
+                AttendeeFullName = c.Attendee.FullName,
+                ZoneName = c.Attendee.ZoneName,
+                IsKaryakar = c.Attendee.IsKaryakar,
+                Address = c.Attendee.Address,
+
+                Id = c.Id,
+                AttendanceTimeOnly = c.AttendanceTimeOnly,
+                IsAttended = c.IsAttended,
+                AttendanceTime = c.AttendanceTime,
+
+                Slot = GetSlotTextForSlotDate(c.AttendanceTime, GetSlotDateTimeForSlotText(c.AttendanceTime, "Slot-1"),
+                                                                GetSlotDateTimeForSlotText(c.AttendanceTime, "Slot-2"),
+                                                                GetSlotDateTimeForSlotText(c.AttendanceTime, "Slot-3")),
+
+            }).OrderBy(c => c.IsAttended).ThenBy(c => c.AttendeeFullName).ToList();
+
+            return query2.AsQueryable<Attendance_VM>();
+        }
+
+        private string GetSlotTextForSlotDate(DateTime dt, DateTime slot1, DateTime slot2, DateTime slot3)
         {
             var slot = string.Empty;
             if (dt <= slot1)
@@ -78,29 +114,24 @@ namespace EventAttendance.WebApi.Controllers
             return slot;
         }
 
-        [HttpGet]
-        [Route("api/Reports/GetByAttendee/{attendeeId}")]
-        public IQueryable<Attendance> GetByAttendee(int attendeeId)
+        private DateTime GetSlotDateTimeForSlotText(DateTime dt, string slotText)
         {
-            if (attendeeId == 0)
-                return new List<Attendance>().AsQueryable();
+            switch (slotText)
+            {
+                case "Slot-1":
+                    dt = new DateTime(dt.Year, dt.Month, dt.Day, 16, 00, 00);
+                    break;
+                case "Slot-2":
+                    dt = new DateTime(dt.Year, dt.Month, dt.Day, 16, 15, 00);
+                    break;
+                case "Slot-3":
+                    dt = new DateTime(dt.Year, dt.Month, dt.Day, 16, 30, 00);
+                    break;
+                case "Slot-4":
+                    break;
+            }
 
-            var data = db.Attendances.Include(c => c.Attendee).Where(c => c.AttendeeId == attendeeId).ToList()
-                    .Select(c => new Attendance
-                    {
-                        AttendeeId = c.Attendee.Id,
-                        Attendee = c.Attendee,
-
-                        Id = c.Id,
-                        EventScheduleId = c.EventScheduleId,
-                        EventSchedule = c.EventSchedule,
-                        IsAttended = c.IsAttended,
-                        AttendanceTime = c.AttendanceTime,
-                    })
-                    .OrderBy(c => c.IsAttended).ThenBy(c => c.AttendeeFullName)
-                    .ToList().AsQueryable<Attendance>();
-
-            return data;
+            return dt;
         }
 
         protected override void Dispose(bool disposing)
