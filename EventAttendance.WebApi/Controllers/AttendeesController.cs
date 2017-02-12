@@ -19,24 +19,34 @@ namespace EventAttendance.WebApi.Controllers
         }
 
         // GET: api/Attendees
-        public IQueryable<Attendee> GetAttendees(string filter)
+        public IQueryable<Attendee_VM> GetAttendees(string filter)
         {
             //return db.Attendees;
             var data = !string.IsNullOrEmpty(filter)
-                ? db.Attendees.Include(c => c.Zone).Where(c => c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter))
-                : db.Attendees.Include(c => c.Zone);
+                ? db.Attendees.Include(c => c.Zone).Where(c => c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter)).ToList()
+                : db.Attendees.Include(c => c.Zone).ToList();
 
-            return data;
+            return data.Select(c => new Attendee_VM
+            {
+                Id = c.Id,
+                FirstName = c.FirstName,
+                LastName = c.LastName,
+                Address = c.Address,
+                ZoneId = c.ZoneId,
+                //ZoneName = c.ZoneName,
+                IsKaryakar = c.IsKaryakar,
+                FullName = c.FullName,
+            }).AsQueryable();
         }
 
         [Route("api/Attendees/GetZones")]
-        public IQueryable<Zone> GetZones()
+        public IQueryable<Zone_VM> GetZones()
         {
-            return db.Zones;
+            return db.Zones.Select(c => new Zone_VM { Id = c.Id, Name = c.Name });
         }
 
         // GET: api/Attendees/5
-        [ResponseType(typeof(Attendee))]
+        [ResponseType(typeof(Attendee_VM))]
         public async Task<IHttpActionResult> GetAttendee(int id)
         {
             Attendee attendee = await db.Attendees.FindAsync(id);
@@ -45,7 +55,19 @@ namespace EventAttendance.WebApi.Controllers
                 return NotFound();
             }
 
-            return Ok(attendee);
+            var attendeeVM = new Attendee_VM
+            {
+                Id = attendee.Id,
+                Address = attendee.Address,
+                FirstName = attendee.FirstName,
+                LastName = attendee.LastName,
+                FullName = attendee.FullName,
+                IsKaryakar = attendee.IsKaryakar,
+                ZoneId = attendee.ZoneId,
+                ZoneName = attendee.ZoneName,
+            };
+
+            return Ok(attendeeVM);
         }
 
         // PUT: api/Attendees/5

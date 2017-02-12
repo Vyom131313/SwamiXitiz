@@ -16,28 +16,37 @@ namespace EventAttendance.WebApi.Controllers
         private EventAttendanceContext db = new EventAttendanceContext();
 
         // GET: api/Attendances
-        public IQueryable<Attendance> GetAttendances(int eventScheduleId, string filter = "")
+        public IQueryable<Attendance_VM> GetAttendances(int eventScheduleId, string filter = "")
         {
             if (eventScheduleId == 0)
-                return new List<Attendance>().AsQueryable();
+                return new List<Attendance_VM>().AsQueryable();
+
+            var eventSchedule = db.EventSchedules.FirstOrDefault(c => c.Id == eventScheduleId);
 
             var query = (from attendee in db.Attendees.Where(c => string.IsNullOrEmpty(filter) || c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter))
                          join attendance in db.Attendances.Where(c => c.EventScheduleId == eventScheduleId) on attendee.Id equals attendance.AttendeeId into gj
                          from x in gj.DefaultIfEmpty()
                          select new { attendee = attendee, attendance = x }).ToList().
-                        Select(c => new Attendance
+                        Select(c => new Attendance_VM
                         {
+                            //EventSchedule = c.attendance != null ? c.attendance.EventSchedule : eventSchedule,
+                            EventScheduleId = c.attendance != null ? c.attendance.EventScheduleId : 0,
+                            EventShortDate = eventSchedule.EventShortDate,
+
+                            ////Attendee = c.attendee,
                             AttendeeId = c.attendee.Id,
-                            Attendee = c.attendee,
+                            AttendeeFullName = c.attendee.FullName,
+                            ZoneName = c.attendee.ZoneName,
+                            //IsKaryakar = c.attendee.IsKaryakar,
+                            Address = c.attendee.Address,
 
                             Id = c.attendance != null ? c.attendance.Id : 0,
-                            EventScheduleId = c.attendance != null ? c.attendance.EventScheduleId : 0,
-                            EventSchedule = c.attendance != null ? c.attendance.EventSchedule : null,
+                            AttendanceTimeOnly = c.attendance != null ? c.attendance.AttendanceTimeOnly : string.Empty,
                             IsAttended = c.attendance != null ? c.attendance.IsAttended : default(bool),
                             AttendanceTime = c.attendance != null ? c.attendance.AttendanceTime : default(DateTime),
                         }).OrderBy(c => c.IsAttended).ThenBy(c => c.AttendeeFullName).ToList();
 
-            return query.AsQueryable<Attendance>();
+            return query.AsQueryable<Attendance_VM>();
         }
 
         // GET: api/Attendances/5

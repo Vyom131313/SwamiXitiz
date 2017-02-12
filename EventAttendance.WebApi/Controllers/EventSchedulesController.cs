@@ -19,23 +19,40 @@ namespace EventAttendance.WebApi.Controllers
             db.Configuration.ProxyCreationEnabled = false;
         }
 
-        public IQueryable<EventSchedule> GetEventSchedules()
+        public IQueryable<EventSchedule_VM> GetEventSchedules()
         {
-            var data = db.EventSchedules.Include(c => c.Event);
-            return data;
+            var data = db.EventSchedules.Include(c => c.Event).ToList();
+            return data.Select(c => new EventSchedule_VM
+            {
+                Id = c.Id,
+                EventId = c.EventId,
+                EventName = c.EventName,
+                EventDate = c.EventDate,
+                EventShortDate = c.EventShortDate,
+                IsFreezed = c.IsFreezed
+            }).AsQueryable();
         }
 
         [Route("api/EventSchedules/GetUnfreezedEventSchedules")]
-        public IQueryable<EventSchedule> GetUnfreezedEventSchedules()
+        public IQueryable<EventSchedule_VM> GetUnfreezedEventSchedules()
         {
             var data = db.EventSchedules.Include(c => c.Event)
                             .Where(c => !c.IsFreezed && c.Event.Name.Equals("Ravi Sabha", StringComparison.InvariantCultureIgnoreCase))
-                            .OrderByDescending(c => c.EventDate);
-            return data;
+                            .OrderByDescending(c => c.EventDate).ToList();
+
+            return data.Select(c => new EventSchedule_VM
+            {
+                Id = c.Id,
+                EventId = c.EventId,
+                EventDate = c.EventDate,
+                EventName = c.EventName,
+                EventShortDate = c.EventShortDate,
+                IsFreezed = c.IsFreezed
+            }).AsQueryable();
         }
 
         // GET: api/EventSchedules/5
-        [ResponseType(typeof(EventSchedule))]
+        [ResponseType(typeof(EventSchedule_VM))]
         public async Task<IHttpActionResult> GetEventSchedule(int id)
         {
             EventSchedule EventSchedule = await db.EventSchedules.FindAsync(id);

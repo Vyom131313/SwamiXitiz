@@ -24,13 +24,13 @@ namespace EventAttendance.WebApi.Controllers
         [HttpGet]
         [Route("api/Events/Get")]
         [Route("api/Events/Get/{filter}")]
-        public IQueryable<Event> GetEvents(string filter = "")
+        public IQueryable<Event_VM> GetEvents(string filter = "")
         {
-            return db.Events;
+            return db.Events.Select(c => new Event_VM { Id = c.Id, Name = c.Name });
         }
 
         // GET: api/Events/5
-        [ResponseType(typeof(Event))]
+        [ResponseType(typeof(Event_VM))]
         public async Task<IHttpActionResult> GetEvent(int id)
         {
             Event Event = await db.Events.FindAsync(id);
@@ -39,7 +39,9 @@ namespace EventAttendance.WebApi.Controllers
                 return NotFound();
             }
 
-            return Ok(Event);
+            var eventVM = new Event_VM { Id = Event.Id, Name = Event.Name };
+
+            return Ok(eventVM);
         }
 
         // PUT: api/Events/5
