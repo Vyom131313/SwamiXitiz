@@ -15,13 +15,13 @@ import { AttendancesService } from './attendances.service';
         'https://fonts.googleapis.com/icon?family=Material+Icons',
         //'../../node_modules/bootstrap/dist/css/bootstrap.min.css'
     ],
-    animations: [
-        trigger('IsAttended', [
-            state('false', style({opacity: 1})),
-            state('true', style({opacity: 0})),
-            transition('* => *', animate('.5s'))
-        ])
-    ],
+    //animations: [
+    //    trigger('IsAttended', [
+    //        state('false', style({opacity: 1})),
+    //        state('true', style({opacity: 0})),
+    //        transition('* => *', animate('.5s'))
+    //    ])
+    //],
     providers: [AttendancesService]
 })
 
@@ -68,9 +68,9 @@ export class AttendancesListViewComponent implements OnChanges {
         var result = this.attendancesService.add(this.http, this.selectedScheduleId, currentItem);
 
         // On time if there is a filter then clear it and  reload data,
-        if (this.filter.length > 0) {
+        //if (this.filter.length > 0) {
             this.filter = "";
             result.subscribe(data => this.getItems());
-        }
+        //}
     }
 }
