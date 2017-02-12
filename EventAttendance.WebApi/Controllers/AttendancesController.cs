@@ -64,7 +64,7 @@ namespace EventAttendance.WebApi.Controllers
 
         // PUT: api/Attendances/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PostAttendance(int id, Attendance attendance)
+        public async Task<IHttpActionResult> PostAttendance(int id, Attendance_VM attendance)
         {
             try
             {
