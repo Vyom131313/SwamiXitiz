@@ -35,6 +35,12 @@ export class EventSchedulesService {
             .then((response) => response.json());
     }
 
+    getRaviSabhaAllEventSchedules(http: Http) {
+        return http.get(this.ServiceBaseUrl + "/GetRaviSabhaAllEventSchedules")
+            .toPromise()
+            .then((response) => response.json());
+    }
+
     getEventItems(http: Http) {
         
         let params: URLSearchParams = new URLSearchParams();

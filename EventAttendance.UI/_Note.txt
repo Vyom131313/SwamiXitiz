@@ -1,9 +1,10 @@
-﻿* Attendance:
-	* Male/Female
+﻿* Male/Female
+* Only Karyakar ?
+* User must know persons by his/her name
+* Allow to add person runtime
+* Authentication
 
 * Reports:
-	- By Schedule
-		- 3 slots
 	- By Attendee
 		- Select Attendee from drop down and click Show button
 		- Tabular format
@@ -11,8 +12,11 @@
 		- Bar report
 	- Export to Excel
 
+* fontawesome icons
+* WebApi Url in config file
 * Deployment
 * Data entry of existing attendance
+* Dashboard
 
 * Refresh page issue on any url other than Home
 * Wait Indicator

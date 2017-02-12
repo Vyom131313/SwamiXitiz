@@ -51,6 +51,24 @@ namespace EventAttendance.WebApi.Controllers
             }).AsQueryable();
         }
 
+        [Route("api/EventSchedules/GetRaviSabhaAllEventSchedules")]
+        public IQueryable<EventSchedule_VM> GetRaviSabhaAllEventSchedules()
+        {
+            var data = db.EventSchedules.Include(c => c.Event)
+                            .Where(c => c.Event.Name.Equals("Ravi Sabha", StringComparison.InvariantCultureIgnoreCase))
+                            .OrderByDescending(c => c.EventDate).ToList();
+
+            return data.Select(c => new EventSchedule_VM
+            {
+                Id = c.Id,
+                EventId = c.EventId,
+                EventDate = c.EventDate,
+                EventName = c.EventName,
+                EventShortDate = c.EventShortDate,
+                IsFreezed = c.IsFreezed
+            }).AsQueryable();
+        }
+
         // GET: api/EventSchedules/5
         [ResponseType(typeof(EventSchedule_VM))]
         public async Task<IHttpActionResult> GetEventSchedule(int id)

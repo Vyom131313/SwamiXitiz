@@ -40,7 +40,7 @@ export class EventSchedulesDdlComponent implements OnChanges {
     }
 
     getItems() {
-        this.eventschedulesService.getUnfreezedItems(this.http).then(items =>
+        this.eventschedulesService.getRaviSabhaAllEventSchedules(this.http).then(items =>
         {
             this.schedulesDdlList = items;
 
