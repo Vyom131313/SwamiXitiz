@@ -20,6 +20,7 @@ export class Attendee_VM {
     FirstName: string;
     LastName: string;
     Address: string;
+    Gender: string;
     ZoneName: boolean;
     ZoneId: number;
     IsKaryakar: boolean;
@@ -36,6 +37,7 @@ export class Attendance_VM {
     AttendeeFullName: string;
     ZoneName: string;
     Address: string;
+    Gender: string;
     IsKaryakar: boolean;
     EventShortDate: string;
     AttendanceTimeOnly: string;
