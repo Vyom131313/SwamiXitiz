@@ -38,6 +38,7 @@ namespace EventAttendance.WebApi.Controllers
                             ////Attendee = c.attendee,
                             AttendeeId = c.attendee.Id,
                             AttendeeFullName = c.attendee.FullName,
+                            Gender = c.attendee.Gender,
                             ZoneName = c.attendee.ZoneName,
                             //IsKaryakar = c.attendee.IsKaryakar,
                             Address = c.attendee.Address,
