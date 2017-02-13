@@ -31,4 +31,13 @@ export class ReportsService {
             .toPromise()
             .then((response) => response.json());
     }
+
+    getByAttendee(http: Http, attendeeId: number) {
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('attendeeId', attendeeId.toString());
+
+        return http.get(this.ServiceBaseUrl +"/GetByAttendee", { search: params })
+            .toPromise()
+            .then((response) => response.json());
+    }
 }

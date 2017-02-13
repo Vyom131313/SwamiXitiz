@@ -65,6 +65,7 @@ namespace EventAttendance.WebApi.Controllers
         }
 
         [HttpGet]
+        [Route("api/Reports/GetByAttendee")]
         [Route("api/Reports/GetByAttendee/{attendeeId}")]
         public IQueryable<Attendance_VM> GetByAttendee(int attendeeId)
         {
