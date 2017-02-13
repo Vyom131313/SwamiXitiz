@@ -29,6 +29,7 @@ export class AttendancesListViewComponent implements OnChanges {
     attendances_vm_list: Array<Attendance_VM>;
     filter: string;
     selectedScheduleId: number = 0;
+    selectedGender: string = 'M';
 
     constructor(private http: Http, private router: Router, private attendancesService: AttendancesService) {
         this.filter = '';
@@ -44,6 +45,15 @@ export class AttendancesListViewComponent implements OnChanges {
         this.getItems();
     }
 
+    onGenderSelect(gender: string, event: any) {
+        if (this.selectedGender != gender) {
+            this.selectedGender = gender;
+            event.stopPropagation();
+
+            this.getItems();
+        }
+    }
+
     onFilter(event: Event) {
         this.getItems();
     }
@@ -57,7 +67,7 @@ export class AttendancesListViewComponent implements OnChanges {
 
         this.attendances_vm_list = new Array<Attendance_VM>();
 
-        this.attendancesService.getItems(this.http, this.selectedScheduleId, this.filter)
+        this.attendancesService.getItems(this.http, this.selectedScheduleId, this.selectedGender, this.filter)
             .then(items => { this.attendances_vm_list = items; });
     }
 

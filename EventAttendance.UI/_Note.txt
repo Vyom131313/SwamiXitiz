@@ -1,11 +1,4 @@
-﻿* Reports: (1)
-	- By Attendee
-		- Chart report
-		- Bar report
-	- Export to Excel
-
-* Import female data (0.5)
-* Provide option Male/Female  (0.5)
+﻿* Provide option Male/Female  (0.5)
 * Allow to add person runtime (0.5)
 * Separate page for Reports (0.5)
 * Separate page for Admin (0.5)

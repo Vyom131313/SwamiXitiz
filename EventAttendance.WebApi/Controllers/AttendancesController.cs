@@ -16,14 +16,16 @@ namespace EventAttendance.WebApi.Controllers
         private EventAttendanceContext db = new EventAttendanceContext();
 
         // GET: api/Attendances
-        public IQueryable<Attendance_VM> GetAttendances(int eventScheduleId, string filter = "")
+        public IQueryable<Attendance_VM> GetAttendances(int eventScheduleId, string gender = "", string filter = "")
         {
             if (eventScheduleId == 0)
                 return new List<Attendance_VM>().AsQueryable();
 
             var eventSchedule = db.EventSchedules.FirstOrDefault(c => c.Id == eventScheduleId);
 
-            var query = (from attendee in db.Attendees.Where(c => string.IsNullOrEmpty(filter) || c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter))
+            var query = (from attendee in db.Attendees
+                            .Where(c => string.IsNullOrEmpty(filter) || c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter))
+                            .Where(c => string.IsNullOrEmpty(gender) || c.Gender.Equals(gender))
                          join attendance in db.Attendances.Where(c => c.EventScheduleId == eventScheduleId) on attendee.Id equals attendance.AttendeeId into gj
                          from x in gj.DefaultIfEmpty()
                          select new { attendee = attendee, attendance = x }).ToList().

@@ -8,8 +8,15 @@
         <div class="col-sm-2">
             <event-schedules-ddl (select)="onScheduleChange($event)">Loading....</event-schedules-ddl>
         </div>
-        <div class="col-sm-2" style="padding-left:0px;">
-            <button (click)="onRefreshGetAllItems($event)" class="btn btn-primary btn-sm">
+        <div class="col-sm-1" style="padding-left:0px;">
+            <button (click)="onGenderSelect('M', $event)" class="btn btn-primary btn-sm" [style.background-color]="selectedGender=='M' ? '#16a085': ''">
+                <span class="fa fa-male"></span> M
+            </button>
+            <button (click)="onGenderSelect('F',$event)" class="btn btn-primary btn-sm" [style.background-color]="selectedGender=='F' ? '#16a085': ''">
+                <span class="fa fa-female"></span> F
+            </button>
+        
+            <button (click)="onRefreshGetAllItems($event)" class="btn btn-primary btn-sm" style="margin-left:5px;">
                 <span class="glyphicon glyphicon-refresh"></span> Refresh
             </button>
         </div>

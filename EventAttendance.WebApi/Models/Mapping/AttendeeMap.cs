@@ -19,6 +19,10 @@ namespace EventAttendance.WebApi.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
+            this.Property(t => t.Gender)
+                .IsRequired()
+                .HasMaxLength(1);
+
             this.Property(t => t.Address)
                 .HasMaxLength(500);
 
@@ -27,6 +31,7 @@ namespace EventAttendance.WebApi.Models.Mapping
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.FirstName).HasColumnName("FirstName");
             this.Property(t => t.LastName).HasColumnName("LastName");
+            this.Property(t => t.Gender).HasColumnName("Gender");
             this.Property(t => t.Address).HasColumnName("Address");
             this.Property(t => t.ZoneId).HasColumnName("ZoneId");
             this.Property(t => t.IsKaryakar).HasColumnName("IsKaryakar");

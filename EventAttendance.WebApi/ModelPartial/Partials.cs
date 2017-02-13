@@ -89,6 +89,7 @@ namespace EventAttendance.WebApi.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
+        public string Gender { get; set; }
         public Nullable<int> ZoneId { get; set; }
         public bool IsKaryakar { get; set; }
 
@@ -110,6 +111,8 @@ namespace EventAttendance.WebApi.Models
         public virtual string AttendeeFullName { get; set; }
 
         public virtual string ZoneName { get; set; }
+
+        public virtual string Gender { get; set; }
 
         public virtual string Address { get; set; }
 

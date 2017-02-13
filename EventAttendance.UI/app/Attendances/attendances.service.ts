@@ -22,9 +22,10 @@ export class AttendancesService {
     constructor() {
     }
 
-    getItems(http: Http, eventScheduleId: number, filter: string) {
+    getItems(http: Http, eventScheduleId: number, selectedGender: string, filter: string) {
         let params: URLSearchParams = new URLSearchParams();
         params.set('eventScheduleId', eventScheduleId.toString());
+        params.set('gender', selectedGender);
         params.set('filter', filter);
 
         return http.get(this.ServiceBaseUrl, { search: params })
