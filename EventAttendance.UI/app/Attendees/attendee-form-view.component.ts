@@ -2,6 +2,7 @@
 import { Headers, Http, Response } from '@angular/http';
 import { FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { Attendee_VM } from '../models.model';
 import { AttendeesService } from './attendees.service';
@@ -21,9 +22,9 @@ export class AttendeeFormViewComponent implements OnInit {
     public title: string;
     public attendee: Attendee_VM = new Attendee_VM();
 
-    constructor(formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private http: Http, private attendeesService: AttendeesService) {
+    constructor(formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private location: Location, private http: Http, private attendeesService: AttendeesService) {
         this.form = formBuilder.group({
-            Id:[],
+            Id: [],
             FirstName: ['', [
                 Validators.required,
                 Validators.minLength(3)
@@ -32,9 +33,13 @@ export class AttendeeFormViewComponent implements OnInit {
                 Validators.required,
                 Validators.minLength(3)
             ]],
+            Gender: ['', [
+                Validators.required,
+                Validators.minLength(1)
+            ]],
             Address: [],
             ZoneId: [],
-            IsKaryakar:[],
+            IsKaryakar: [],
         });
     }
 
@@ -53,6 +58,10 @@ export class AttendeeFormViewComponent implements OnInit {
         this.attendee.ZoneId = id;
     }
 
+    onBack(event: any) {
+        this.location.back();
+    }
+
     save() {
         var data = this.form.value;
         data.ZoneId = this.attendee.ZoneId;
@@ -63,6 +72,9 @@ export class AttendeeFormViewComponent implements OnInit {
             ? this.attendeesService.update(this.http, data)
             : this.attendeesService.add(this.http, data);
 
-        result.subscribe(data => this.router.navigate(['attendees']));
+        result.subscribe(data =>
+            //this.router.navigate(['attendees'])
+            this.location.back()
+        );
     }
 }

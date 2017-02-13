@@ -29,6 +29,21 @@
                        [class.invalid]="form.controls['LastName'].touched && !form.controls['LastName'].valid">
             </div>
         </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-sm-1" for="Gender" [class.active]="attendee.Gender" data-error="Gender is required">Gender:</label>
+            <div class="col-sm-11">
+                <select class="form-control input-sm validate" id="Gender"
+                        formControlName="Gender"
+                        [(ngModel)]="attendee.Gender"
+                        [class.invalid]="form.controls['Gender'].touched && !form.controls['Gender'].valid">
+                    <option>M</option>
+                    <option>F</option>
+                </select>
+            </div>
+        </div>
+
         <div class="form-group">
             <label class="control-label col-sm-1" for="ZoneId" [class.active]="attendee.ZoneId" data-error="Zone is required">Zone:</label>
             <div class="col-sm-11">
@@ -56,8 +71,8 @@
         </div>
 
 
-        <div class="form-group col-sm-12" style="float:right">            
-            <button type="submit" class="col-sm-1 btn btn-default btn-sm" style="float:right;" routerLink="/attendees">
+        <div class="form-group col-sm-12" style="float:right">
+            <button type="submit" class="col-sm-1 btn btn-default btn-sm" style="float:right;" (click)="onBack($event)">
                 Back
             </button>
             <button type="submit" class="col-sm-1 btn btn-default btn-sm" style="float:right;margin-right:10px;"
