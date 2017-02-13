@@ -19,10 +19,11 @@
        class="table" style="background-color:#16a085; margin-top:50px;">
     <thead>
         <tr>
-            <th width="30px;" style="white-space:nowrap;" colspan="4">
-            </th>
-            <th style="width:100px;white-space:nowrap">
-                Count#{{attendances_vm_list.length}}
+            <th width="30px;" style="white-space:nowrap;" colspan="6">
+                <span>Slot-1 (4:00 PM) # {{slot1Count}} times</span>
+                <span style="margin-left:20px;background-color:#35acdf;">Slot-2 (4:15 PM) # {{slot2Count}} times</span>
+                <span style="margin-left:20px;background-color:#116f7d;">Slot-3 (4:30 PM) # {{slot3Count}} times</span>
+                <span style="margin-left:20px;background-color:#f0ad4e;">Slot-4 (after 4:30 PM) # {{slot4Count}} times</span>
             </th>
         </tr>
 
@@ -31,11 +32,12 @@
             <th>Zone</th>
             <th>Address</th>
             <th>Karyakar</th>
+            <th>Slot</th>
             <th width="50px;"></th>
         </tr>
     </thead>
     <tbody style="font-weight:bold;font-size:10pt;color:black">
-        <tr *ngFor="let item of attendances_vm_list">
+        <tr *ngFor="let item of attendances_vm_list" [style.background-color]="getStyleBySlot(item.Slot)">
             <td style="white-space:nowrap">
                 {{item.AttendeeFullName}}
             </td>
@@ -47,6 +49,9 @@
             </td>
             <td>
                 {{item.IsKaryakar}}
+            </td>
+            <td>
+                {{item.Slot}}
             </td>
             <td style="white-space:nowrap">
                 <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
