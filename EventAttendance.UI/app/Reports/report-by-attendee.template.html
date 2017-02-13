@@ -21,9 +21,9 @@
         <tr>
             <th width="30px;" style="white-space:nowrap;" colspan="6">
                 <span>Slot-1 (4:00 PM) # {{slot1Count}} times</span>
-                <span style="margin-left:20px;background-color:#35acdf;">Slot-2 (4:15 PM) # {{slot2Count}} times</span>
-                <span style="margin-left:20px;background-color:#116f7d;">Slot-3 (4:30 PM) # {{slot3Count}} times</span>
-                <span style="margin-left:20px;background-color:#f0ad4e;">Slot-4 (after 4:30 PM) # {{slot4Count}} times</span>
+                <span style="margin-left:20px;" [style.background-color]="getStyleBySlot('Slot-2')">Slot-2 (4:15 PM) # {{slot2Count}} times</span>
+                <span style="margin-left:20px;" [style.background-color]="getStyleBySlot('Slot-3')">Slot-3 (4:30 PM) # {{slot3Count}} times</span>
+                <span style="margin-left:20px;" [style.background-color]="getStyleBySlot('Slot-4')">Slot-4 (after 4:30 PM) # {{slot4Count}} times</span>
             </th>
         </tr>
 
