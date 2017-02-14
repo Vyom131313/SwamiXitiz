@@ -33,7 +33,7 @@ namespace EventAttendance.WebApi.Controllers
         [ResponseType(typeof(Event_VM))]
         public async Task<IHttpActionResult> GetEvent(int id)
         {
-            Event Event = await db.Events.FindAsync(id);
+            Att_Event Event = await db.Events.FindAsync(id);
             if (Event == null)
             {
                 return NotFound();
@@ -46,7 +46,7 @@ namespace EventAttendance.WebApi.Controllers
 
         // PUT: api/Events/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutEvent(int id, Event Event)
+        public async Task<IHttpActionResult> PutEvent(int id, Att_Event Event)
         {
             if (!ModelState.IsValid)
             {
@@ -80,8 +80,8 @@ namespace EventAttendance.WebApi.Controllers
         }
 
         // POST: api/Events
-        [ResponseType(typeof(Event))]
-        public async Task<IHttpActionResult> PostEvent(Event Event)
+        [ResponseType(typeof(Att_Event))]
+        public async Task<IHttpActionResult> PostEvent(Att_Event Event)
         {
             if (!ModelState.IsValid)
             {

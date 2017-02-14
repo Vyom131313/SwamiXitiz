@@ -7,11 +7,11 @@ namespace EventAttendance.WebApi.Models
     {
         public Zone()
         {
-            this.Attendees = new List<Attendee>();
+            this.Attendees = new List<Att_Attendee>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<Attendee> Attendees { get; set; }
+        public virtual ICollection<Att_Attendee> Attendees { get; set; }
     }
 }

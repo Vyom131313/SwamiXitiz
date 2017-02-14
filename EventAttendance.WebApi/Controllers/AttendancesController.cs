@@ -53,10 +53,10 @@ namespace EventAttendance.WebApi.Controllers
         }
 
         // GET: api/Attendances/5
-        [ResponseType(typeof(Attendance))]
+        [ResponseType(typeof(Att_Attendance))]
         public async Task<IHttpActionResult> GetAttendance(int id)
         {
-            Attendance attendance = await db.Attendances.FindAsync(id);
+            Att_Attendance attendance = await db.Attendances.FindAsync(id);
             if (attendance == null)
             {
                 return NotFound();
@@ -74,7 +74,7 @@ namespace EventAttendance.WebApi.Controllers
                 if (db.Attendances
                     .Count(c => c.EventScheduleId == attendance.EventScheduleId && c.AttendeeId == attendance.AttendeeId) == 0)
                 {
-                    db.Attendances.Add(new Attendance
+                    db.Attendances.Add(new Att_Attendance
                     {
                         EventScheduleId = attendance.EventScheduleId,
                         AttendeeId = attendance.AttendeeId,
@@ -105,7 +105,7 @@ namespace EventAttendance.WebApi.Controllers
 
         // PUT: api/Attendances/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutAttendance(int id, Attendance attendance)
+        public async Task<IHttpActionResult> PutAttendance(int id, Att_Attendance attendance)
         {
             if (!ModelState.IsValid)
             {

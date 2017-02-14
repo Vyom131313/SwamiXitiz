@@ -51,7 +51,7 @@ namespace EventAttendance.WebApi.Controllers
         [ResponseType(typeof(Attendee_VM))]
         public async Task<IHttpActionResult> GetAttendee(int id)
         {
-            Attendee attendee = await db.Attendees.FindAsync(id);
+            Att_Attendee attendee = await db.Attendees.FindAsync(id);
             if (attendee == null)
             {
                 return NotFound();
@@ -75,7 +75,7 @@ namespace EventAttendance.WebApi.Controllers
 
         // PUT: api/Attendees/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutAttendee(int id, Attendee attendee)
+        public async Task<IHttpActionResult> PutAttendee(int id, Att_Attendee attendee)
         {
             if (!ModelState.IsValid)
             {
@@ -109,8 +109,8 @@ namespace EventAttendance.WebApi.Controllers
         }
 
         // POST: api/Attendees
-        [ResponseType(typeof(Attendee))]
-        public async Task<IHttpActionResult> PostAttendee(Attendee attendee)
+        [ResponseType(typeof(Att_Attendee))]
+        public async Task<IHttpActionResult> PostAttendee(Att_Attendee attendee)
         {
             if (!ModelState.IsValid)
             {

@@ -133,18 +133,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ModelPartial\Partials.cs" />
-    <Compile Include="Models\Attendance.cs" />
-    <Compile Include="Models\Attendee.cs" />
-    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Att_Attendance.cs" />
+    <Compile Include="Models\Att_Attendee.cs" />
+    <Compile Include="Models\Att_Event.cs" />
     <Compile Include="Models\EventAttendanceContext.cs" />
-    <Compile Include="Models\EventSchedule.cs" />
-    <Compile Include="Models\Karyakar.cs" />
-    <Compile Include="Models\Mapping\AttendanceMap.cs" />
-    <Compile Include="Models\Mapping\AttendeeMap.cs" />
-    <Compile Include="Models\Mapping\EventMap.cs" />
-    <Compile Include="Models\Mapping\EventScheduleMap.cs" />
-    <Compile Include="Models\Mapping\KaryakarMap.cs" />
-    <Compile Include="Models\Mapping\ZoneMap.cs" />
+    <Compile Include="Models\Att_EventSchedule.cs" />
+    <Compile Include="Models\Mapping\Att_AttendanceMap.cs" />
+    <Compile Include="Models\Mapping\Att_AttendeeMap.cs" />
+    <Compile Include="Models\Mapping\Att_EventMap.cs" />
+    <Compile Include="Models\Mapping\Att_EventScheduleMap.cs" />
+    <Compile Include="Models\Mapping\Att_ZoneMap.cs" />
     <Compile Include="Models\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

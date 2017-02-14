@@ -16,19 +16,19 @@ namespace EventAttendance.WebApi.Models
         {
         }
 
-        public DbSet<Attendance> Attendances { get; set; }
-        public DbSet<Attendee> Attendees { get; set; }
-        public DbSet<Event> Events { get; set; }
-        public DbSet<EventSchedule> EventSchedules { get; set; }
+        public DbSet<Att_Attendance> Attendances { get; set; }
+        public DbSet<Att_Attendee> Attendees { get; set; }
+        public DbSet<Att_Event> Events { get; set; }
+        public DbSet<Att_EventSchedule> EventSchedules { get; set; }
         public DbSet<Zone> Zones { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new AttendanceMap());
-            modelBuilder.Configurations.Add(new AttendeeMap());
-            modelBuilder.Configurations.Add(new EventMap());
-            modelBuilder.Configurations.Add(new EventScheduleMap());
-            modelBuilder.Configurations.Add(new ZoneMap());
+            modelBuilder.Configurations.Add(new Att_AttendanceMap());
+            modelBuilder.Configurations.Add(new Att_AttendeeMap());
+            modelBuilder.Configurations.Add(new Att_EventMap());
+            modelBuilder.Configurations.Add(new Att_EventScheduleMap());
+            modelBuilder.Configurations.Add(new Att_ZoneMap());
         }
     }
 }

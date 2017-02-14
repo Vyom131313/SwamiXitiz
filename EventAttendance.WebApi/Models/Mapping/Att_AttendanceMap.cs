@@ -3,16 +3,16 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace EventAttendance.WebApi.Models.Mapping
 {
-    public class AttendanceMap : EntityTypeConfiguration<Attendance>
+    public class Att_AttendanceMap : EntityTypeConfiguration<Att_Attendance>
     {
-        public AttendanceMap()
+        public Att_AttendanceMap()
         {
             // Primary Key
             this.HasKey(t => t.Id);
 
             // Properties
             // Table & Column Mappings
-            this.ToTable("Attendance");
+            this.ToTable("Att_Attendance");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.EventScheduleId).HasColumnName("EventScheduleId");
             this.Property(t => t.AttendeeId).HasColumnName("AttendeeId");

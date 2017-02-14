@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 namespace EventAttendance.WebApi.Models
 {
-    public partial class Event
+    public partial class Att_Event
     {
-        public Event()
+        public Att_Event()
         {
-            this.EventSchedules = new List<EventSchedule>();
+            this.EventSchedules = new List<Att_EventSchedule>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<EventSchedule> EventSchedules { get; set; }
+        public virtual ICollection<Att_EventSchedule> EventSchedules { get; set; }
     }
 }

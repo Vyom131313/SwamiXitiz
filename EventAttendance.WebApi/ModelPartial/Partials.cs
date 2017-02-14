@@ -3,13 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EventAttendance.WebApi.Models
 {
-    public partial class Attendee
+    public partial class Att_Attendee
     {
         public virtual string ZoneName { get { return this.Zone != null ? this.Zone.Name : string.Empty; } }
         public virtual string FullName { get { return string.Format("{0} {1}", this.FirstName, this.LastName); } }
     }
 
-    public partial class EventSchedule
+    public partial class Att_EventSchedule
     {
         public virtual string EventName { get { return this.Event != null ? this.Event.Name : string.Empty; } }
 
@@ -21,7 +21,7 @@ namespace EventAttendance.WebApi.Models
         }
     }
 
-    public partial class Attendance
+    public partial class Att_Attendance
     {
         [NotMapped]
         public virtual string AttendeeFullName

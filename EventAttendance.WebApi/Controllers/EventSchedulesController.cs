@@ -73,7 +73,7 @@ namespace EventAttendance.WebApi.Controllers
         [ResponseType(typeof(EventSchedule_VM))]
         public async Task<IHttpActionResult> GetEventSchedule(int id)
         {
-            EventSchedule EventSchedule = await db.EventSchedules.FindAsync(id);
+            Att_EventSchedule EventSchedule = await db.EventSchedules.FindAsync(id);
             if (EventSchedule == null)
             {
                 return NotFound();
@@ -84,7 +84,7 @@ namespace EventAttendance.WebApi.Controllers
 
         // PUT: api/EventSchedules/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutEvent(int id, EventSchedule EventSchedule)
+        public async Task<IHttpActionResult> PutEvent(int id, Att_EventSchedule EventSchedule)
         {
             if (!ModelState.IsValid)
             {
@@ -118,8 +118,8 @@ namespace EventAttendance.WebApi.Controllers
         }
 
         // POST: api/EventSchedules
-        [ResponseType(typeof(EventSchedule))]
-        public async Task<IHttpActionResult> PostEvent(EventSchedule EventSchedule)
+        [ResponseType(typeof(Att_EventSchedule))]
+        public async Task<IHttpActionResult> PostEvent(Att_EventSchedule EventSchedule)
         {
             if (!ModelState.IsValid)
             {
