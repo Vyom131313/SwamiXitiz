@@ -40,7 +40,7 @@ namespace EventAttendance.WebApi.Controllers
                             AttendeeFullName = c.attendee.FullName,
                             Gender = c.attendee.Gender,
                             ZoneName = c.attendee.ZoneName,
-                            //IsKaryakar = c.attendee.IsKaryakar,
+                            IsKaryakar = c.attendee.IsKaryakar,
                             Address = c.attendee.Address,
 
                             Id = c.attendance != null ? c.attendance.Id : 0,
