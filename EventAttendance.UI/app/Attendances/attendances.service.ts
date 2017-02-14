@@ -11,15 +11,15 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/Rx';
 
 import { Attendance_VM } from '../models.model';
+import { SharedService } from '../shared.service';
 
 @Injectable()
 export class AttendancesService {
 
-    //public ServiceBaseUrl: string = "";
-    public ServiceBaseUrl: string = "http://localhost:23283/api/Attendances";
+    private ServiceBaseUrl: string = "";
 
-    //constructor(private http: Http) {
-    constructor() {
+    constructor(private sharedService: SharedService) {
+        this.ServiceBaseUrl = this.sharedService.WebApiBaseUrl + "/Attendances";
     }
 
     getItems(http: Http, eventScheduleId: number, selectedGender: string, filter: string) {

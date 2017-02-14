@@ -11,16 +11,17 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/Rx';
 
 import { EventSchedule_VM } from '../models.model';
+import { SharedService } from '../shared.service';
 
 @Injectable()
 export class EventSchedulesService {
 
-    //public ServiceBaseUrl: string = "";
-    public ServiceBaseUrl: string = "http://localhost:23283/api/EventSchedules";
-    public EventServiceBaseUrl: string = "http://localhost:23283/api/Events";
+    public ServiceBaseUrl: string = "";
+    public EventServiceBaseUrl: string = "";
 
-    //constructor(private http: Http) {
-    constructor() {
+    constructor(private sharedService: SharedService) {
+        this.ServiceBaseUrl = this.sharedService.WebApiBaseUrl + "/EventSchedules";
+        this.EventServiceBaseUrl = this.sharedService.WebApiBaseUrl + "/Events";
     }
 
     getItems(http: Http) {

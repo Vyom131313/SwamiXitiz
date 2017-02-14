@@ -20,6 +20,8 @@ import { LoginModule, LoginRouting } from "./Login/login.module";
 import { HomeModule } from "./Home/home.module";
 import { NotFoundComponent } from './NotFound/not-found.component';
 
+import { SharedService } from './shared.service';
+
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AuthGuard } from './Login/authGuard.component';
 
@@ -35,7 +37,7 @@ import { AuthGuard } from './Login/authGuard.component';
         AppRoutes],
     declarations: [AppComponent, AboutComponent, NotFoundComponent ],
     bootstrap: [AppComponent],
-    providers: [AuthGuard, AUTH_PROVIDERS]
+    providers: [SharedService, AuthGuard, AUTH_PROVIDERS]
 })
 export class AppModule {
     constructor(router: Router) {
