@@ -13,6 +13,11 @@
 * Wait Indicator
 * avoid build_prod
 * Validation (form.valid)
+
+=========== Installed Packages ============
+* npm install angular2-jwt
+
+
 =========== Build Locally Steps =========== 
 * Open Command Prompt
 * CD <current folder location>

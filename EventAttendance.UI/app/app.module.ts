@@ -15,9 +15,13 @@ import { EventSchedulesModule, EventSchedulesRouting } from "./EventSchedules/ev
 import { AttendeesModule, AttendeesRouting } from "./Attendees/attendees.module";
 import { AttendancesModule, AttendancesRouting } from "./Attendances/attendances.module";
 import { ReportsModule, ReportsRouting } from "./Reports/reports.module";
+import { LoginModule, LoginRouting } from "./Login/login.module";
 
 import { HomeModule } from "./Home/home.module";
 import { NotFoundComponent } from './NotFound/not-found.component';
+
+import { AUTH_PROVIDERS } from 'angular2-jwt';
+import { AuthGuard } from './Login/authGuard.component';
 
 @NgModule({
     imports: [BrowserModule, HttpModule,
@@ -27,10 +31,11 @@ import { NotFoundComponent } from './NotFound/not-found.component';
         AttendeesModule, AttendeesRouting,
         AttendancesModule, AttendancesRouting,
         ReportsModule, ReportsRouting,
+        LoginModule, LoginRouting,
         AppRoutes],
     declarations: [AppComponent, AboutComponent, NotFoundComponent ],
     bootstrap: [AppComponent],
-    //providers: [EventsService]
+    providers: [AuthGuard, AUTH_PROVIDERS]
 })
 export class AppModule {
     constructor(router: Router) {

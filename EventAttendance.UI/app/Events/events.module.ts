@@ -11,6 +11,8 @@ import { EventsListViewComponent } from './events-list-view.component';
 // Services
 import { EventsService } from './events.service';
 
+import { AuthGuard } from '../Login/authGuard.component';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -32,7 +34,7 @@ import { EventsService } from './events.service';
 export class EventsModule { }
 
 const eventsRoutes: Routes = [
-    { path: 'events', component: EventsListViewComponent, pathMatch: 'full' },
+    { path: 'events', component: EventsListViewComponent, pathMatch: 'full' },//, canActivate: [AuthGuard] },
     { path: 'events/new', component: EventFormViewComponent },
     { path: 'events/:id', component: EventFormViewComponent }
 ];
