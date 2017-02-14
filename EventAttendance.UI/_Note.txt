@@ -1,14 +1,7 @@
-﻿
-* Separate page for Reports (0.5)
-* Separate page for Admin (0.5)
-* WebApi Url in config file (0.5)
-* Deployment (1.0)
-
+﻿* Fontawesome icons
 * Data entry of existing attendance
-* Fontawesome icons
-* Dashboard
 
-* Authentication
+* Authentication for Admin menus
 * Refresh page issue on any url other than Home
 * Wait Indicator
 * avoid build_prod
