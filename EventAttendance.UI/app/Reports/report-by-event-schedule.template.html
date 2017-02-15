@@ -32,34 +32,33 @@
             </tr>
 
             <tr style="font-weight:bold;font-size:10.5pt;">
-                <th>Name</th>
-                <th>Zone</th>
-                <th>Address</th>
-                <th>Gender</th>
-                <th>Karyakar</th>
-                <th width="50px;"></th>
+                <th  width="10px;"></th>
+                <th>Name & Address</th>
+                <th>G</th>
+                <th width="50px;">Time</th>
             </tr>
         </thead>
         <tbody id="tbodySlot1" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
             <tr *ngFor="let item of attendances_slot_1_vm_list">
-                <td style="white-space:nowrap">
-                    {{item.AttendeeFullName}}
-                </td>
-                <td style="white-space:nowrap">
-                    {{item.ZoneName}}
+                <td style="width:10px;">
+                    <span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>
                 </td>
                 <td>
-                    {{item.Address}}
+                    <div class="form-group" style="margin-bottom:0px;">
+                        <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-map"></span> {{item.ZoneName}}
+                        </div>
+                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-home"></span> {{item.Address}}
+                        </div>
+                    </div>
                 </td>
                 <td>
                     {{item.Gender}}
                 </td>
-                <td>
-                    {{item.IsKaryakar}}
-                </td>
                 <td style="white-space:nowrap">
                     <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
-
                 </td>
             </tr>
         </tbody>
@@ -76,30 +75,30 @@
             </tr>
 
             <tr style="font-weight:bold;font-size:10.5pt;">
-                <th>Name</th>
-                <th>Zone</th>
-                <th>Address</th>
-                <th>Gender</th>
-                <th>Karyakar</th>
+                <th width="10px;"></th>
+                <th>Name & Address</th>
+                <th>G</th>
                 <th width="50px;"></th>
             </tr>
         </thead>
         <tbody id="tbodySlot2" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
             <tr *ngFor="let item of attendances_slot_2_vm_list">
-                <td style="white-space:nowrap">
-                    {{item.AttendeeFullName}}
-                </td>
-                <td style="white-space:nowrap">
-                    {{item.ZoneName}}
+                <td style="width:10px;">
+                    <span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>
                 </td>
                 <td>
-                    {{item.Address}}
+                    <div class="form-group" style="margin-bottom:0px;">
+                        <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-map"></span> {{item.ZoneName}}
+                        </div>
+                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-home"></span> {{item.Address}}
+                        </div>
+                    </div>
                 </td>
                 <td>
                     {{item.Gender}}
-                </td>
-                <td>
-                    {{item.IsKaryakar}}
                 </td>
                 <td style="white-space:nowrap">
                     <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
@@ -119,30 +118,30 @@
             </tr>
 
             <tr style="font-weight:bold;font-size:10.5pt;">
-                <th>Name</th>
-                <th>Zone</th>
-                <th>Address</th>
-                <th>Gender</th>
-                <th>Karyakar</th>
+                <th width="10px;"></th>
+                <th>Name & Address</th>
+                <th>G</th>
                 <th width="50px;"></th>
             </tr>
         </thead>
         <tbody id="tbodySlot3" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
             <tr *ngFor="let item of attendances_slot_3_vm_list">
-                <td style="white-space:nowrap">
-                    {{item.AttendeeFullName}}
-                </td>
-                <td style="white-space:nowrap">
-                    {{item.ZoneName}}
+                <td style="width:10px;">
+                    <span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>
                 </td>
                 <td>
-                    {{item.Address}}
+                    <div class="form-group" style="margin-bottom:0px;">
+                        <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-map"></span> {{item.ZoneName}}
+                        </div>
+                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-home"></span> {{item.Address}}
+                        </div>
+                    </div>
                 </td>
                 <td>
                     {{item.Gender}}
-                </td>
-                <td>
-                    {{item.IsKaryakar}}
                 </td>
                 <td style="white-space:nowrap">
                     <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
@@ -155,37 +154,37 @@
            class="table" style="background-color:#f0ad4e;">
         <thead>
             <tr>
-                <th width="30px;" style="white-space:nowrap;" colspan="6">
+                <th width="30px;" style="white-space:nowrap;" colspan="4">
                     <a href="#tbodySlot4" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot4" aria-expanded="false"></a>
                     <span>Slot-4 : 4:30 PM after </span> <span style="color:black"> Count#{{attendances_slot_4_vm_list.length}}</span>
                 </th>
             </tr>
 
             <tr style="font-weight:bold;font-size:10.5pt;">
-                <th>Name</th>
-                <th>Zone</th>
-                <th>Address</th>
-                <th>Gender</th>
-                <th>Karyakar</th>
-                <th width="50px;"></th>
+                <th width="10px;"></th>
+                <th>Name & Address</th>
+                <th>G</th>
+                <th width="50px;">Time</th>
             </tr>
         </thead>
         <tbody id="tbodySlot4" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
             <tr *ngFor="let item of attendances_slot_4_vm_list">
-                <td style="white-space:nowrap">
-                    {{item.AttendeeFullName}}
-                </td>
-                <td style="white-space:nowrap">
-                    {{item.ZoneName}}
+                <td style="width:10px;">
+                    <span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>
                 </td>
                 <td>
-                    {{item.Address}}
+                    <div class="form-group" style="margin-bottom:0px;">
+                        <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-map"></span> {{item.ZoneName}}
+                        </div>
+                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-home"></span> {{item.Address}}
+                        </div>
+                    </div>
                 </td>
                 <td>
                     {{item.Gender}}
-                </td>
-                <td>
-                    {{item.IsKaryakar}}
                 </td>
                 <td style="white-space:nowrap">
                     <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
@@ -198,37 +197,37 @@
            class="table" style="background-color: #d9534f;">
         <thead>
             <tr>
-                <th width="30px;" style="white-space:nowrap;" colspan="6">
+                <th width="30px;" style="white-space:nowrap;" colspan="4">
                     <a href="#tbodyAbsent" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodyAbsent" aria-expanded="false"></a>
                     <span>Slot : Absent  </span><span style="color:black">Count#{{attendances_absent_vm_list.length}}</span>
                 </th>
             </tr>
 
             <tr style="font-weight:bold;font-size:10.5pt;">
-                <th>Name</th>
-                <th>Zone</th>
-                <th>Address</th>
-                <th>Gender</th>
-                <th>Karyakar</th>
-                <th width="50px;"></th>
+                <th width="10px;"></th>
+                <th>Name & Address</th>
+                <th>G</th>
+                <th width="50px;">Time</th>
             </tr>
         </thead>
         <tbody id="tbodyAbsent" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
             <tr *ngFor="let item of attendances_absent_vm_list">
-                <td style="white-space:nowrap">
-                    {{item.AttendeeFullName}}
-                </td>
-                <td style="white-space:nowrap">
-                    {{item.ZoneName}}
+                <td style="width:10px;">
+                    <span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>
                 </td>
                 <td>
-                    {{item.Address}}
+                    <div class="form-group" style="margin-bottom:0px;">
+                        <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-map"></span> {{item.ZoneName}}
+                        </div>
+                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-home"></span> {{item.Address}}
+                        </div>
+                    </div>
                 </td>
                 <td>
                     {{item.Gender}}
-                </td>
-                <td>
-                    {{item.IsKaryakar}}
                 </td>
                 <td style="white-space:nowrap">
                     <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>

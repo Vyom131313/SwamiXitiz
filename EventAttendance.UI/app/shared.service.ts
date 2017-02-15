@@ -9,8 +9,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class SharedService {
 
-    //public WebApiBaseUrl: string = "http://localhost:23283/api";
-    public WebApiBaseUrl: string = "http://attendance.xitiz.net/api";
+    public WebApiBaseUrl: string = "http://localhost:23283/api";
+    //public WebApiBaseUrl: string = "http://attendance.xitiz.net/api";
 
     constructor() {
         //this.Lang = 'Eng';
