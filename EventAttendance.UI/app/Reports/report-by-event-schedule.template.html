@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="col-sm-1" style="margin-right:55px;margin-top:4px;">
-            <label class="control-label" style="font-size:18px;">Report by Sabha: </label>
+            <label class="control-label" style="font-weight:bold;font-size:10.5pt;">Report by Sabha: </label>
         </div>
 
         <div class="col-sm-2">
@@ -10,13 +10,15 @@
         </div>
         <div class="col-sm-1" style="padding-left:0px;">
             <button (click)="onRefreshGetAllItems($event)" class="btn btn-primary btn-sm">
-                <span class="glyphicon glyphicon-refresh"></span> Refresh
+                <span class="glyphicon glyphicon-refresh"></span> 
             </button>
         </div>
     </div>
 
     <div class="row" style="margin-top:10px;margin-bottom:5px;margin-right:5px;font-weight:bold;font-size:10.5pt;">
-        <input type="text" class="form-control input-sm" style="color:black; " placeholder="Please enter filter value" [(ngModel)]="filter" (keyup.enter)="onFilter($event)" />
+        <div class="col-sm-10">
+            <input type="text" class="form-control input-sm" style="color:black; " placeholder="Please enter filter value" [(ngModel)]="filter" (keyup.enter)="onFilter($event)" />
+        </div>
     </div>
 </h4>
 
@@ -25,7 +27,7 @@
            class="table" style="background-color:#16a085;">
         <thead>
             <tr>
-                <th width="30px;" style="white-space:nowrap;" colspan="6">
+                <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot1" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot1" aria-expanded="false"></a>
                     <span>Slot-1 : 4:00 PM or before </span><span style="color:black">Count#{{attendances_slot_1_vm_list.length}}</span>
                 </th>
@@ -34,7 +36,6 @@
             <tr style="font-weight:bold;font-size:10.5pt;">
                 <th  width="10px;"></th>
                 <th>Name & Address</th>
-                <th>G</th>
                 <th width="50px;">Time</th>
             </tr>
         </thead>
@@ -54,9 +55,7 @@
                         </div>
                     </div>
                 </td>
-                <td>
-                    {{item.Gender}}
-                </td>
+                
                 <td style="white-space:nowrap">
                     <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
                 </td>
@@ -68,7 +67,7 @@
            class="table" style="background-color:#35acdf;">
         <thead>
             <tr>
-                <th width="30px;" style="white-space:nowrap;" colspan="6">
+                <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot2" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot2" aria-expanded="false"></a>
                     <span>Slot-2 : 4:00 PM to 4:15 PM  </span><span style="color:black">Count#{{attendances_slot_2_vm_list.length}}</span>
                 </th>
@@ -77,7 +76,6 @@
             <tr style="font-weight:bold;font-size:10.5pt;">
                 <th width="10px;"></th>
                 <th>Name & Address</th>
-                <th>G</th>
                 <th width="50px;"></th>
             </tr>
         </thead>
@@ -97,9 +95,7 @@
                         </div>
                     </div>
                 </td>
-                <td>
-                    {{item.Gender}}
-                </td>
+             
                 <td style="white-space:nowrap">
                     <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
                 </td>
@@ -111,7 +107,7 @@
            class="table" style="background-color:#116f7d;">
         <thead>
             <tr>
-                <th width="30px;" style="white-space:nowrap;" colspan="6">
+                <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot3" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot3" aria-expanded="false"></a>
                     <span>Slot-3 : 4:15 PM to 4:30 PM </span><span style="color:black">Count#{{attendances_slot_3_vm_list.length}}</span>
                 </th>
@@ -120,7 +116,6 @@
             <tr style="font-weight:bold;font-size:10.5pt;">
                 <th width="10px;"></th>
                 <th>Name & Address</th>
-                <th>G</th>
                 <th width="50px;"></th>
             </tr>
         </thead>
@@ -140,9 +135,7 @@
                         </div>
                     </div>
                 </td>
-                <td>
-                    {{item.Gender}}
-                </td>
+              
                 <td style="white-space:nowrap">
                     <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
                 </td>
@@ -154,7 +147,7 @@
            class="table" style="background-color:#f0ad4e;">
         <thead>
             <tr>
-                <th width="30px;" style="white-space:nowrap;" colspan="4">
+                <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot4" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot4" aria-expanded="false"></a>
                     <span>Slot-4 : 4:30 PM after </span> <span style="color:black"> Count#{{attendances_slot_4_vm_list.length}}</span>
                 </th>
@@ -163,7 +156,6 @@
             <tr style="font-weight:bold;font-size:10.5pt;">
                 <th width="10px;"></th>
                 <th>Name & Address</th>
-                <th>G</th>
                 <th width="50px;">Time</th>
             </tr>
         </thead>
@@ -183,9 +175,7 @@
                         </div>
                     </div>
                 </td>
-                <td>
-                    {{item.Gender}}
-                </td>
+               
                 <td style="white-space:nowrap">
                     <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
                 </td>
@@ -197,7 +187,7 @@
            class="table" style="background-color: #d9534f;">
         <thead>
             <tr>
-                <th width="30px;" style="white-space:nowrap;" colspan="4">
+                <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodyAbsent" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodyAbsent" aria-expanded="false"></a>
                     <span>Slot : Absent  </span><span style="color:black">Count#{{attendances_absent_vm_list.length}}</span>
                 </th>
@@ -206,7 +196,6 @@
             <tr style="font-weight:bold;font-size:10.5pt;">
                 <th width="10px;"></th>
                 <th>Name & Address</th>
-                <th>G</th>
                 <th width="50px;">Time</th>
             </tr>
         </thead>
@@ -226,9 +215,7 @@
                         </div>
                     </div>
                 </td>
-                <td>
-                    {{item.Gender}}
-                </td>
+            
                 <td style="white-space:nowrap">
                     <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
                 </td>
