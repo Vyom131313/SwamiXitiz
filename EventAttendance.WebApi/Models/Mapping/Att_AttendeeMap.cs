@@ -42,7 +42,7 @@ namespace EventAttendance.WebApi.Models.Mapping
                 .WithMany(t => t.Attendees)
                 .HasForeignKey(d => d.ZoneId);
 
-            this.HasOptional(t => t.City)
+            this.HasRequired(t => t.City)
                 .WithMany(t => t.Attendees)
                 .HasForeignKey(d => d.CityId);
         }

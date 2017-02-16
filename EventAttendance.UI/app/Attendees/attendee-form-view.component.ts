@@ -39,6 +39,7 @@ export class AttendeeFormViewComponent implements OnInit {
             ]],
             Address: [],
             ZoneId: [],
+            CityId: [],
             IsKaryakar: [],
         });
     }
@@ -58,6 +59,10 @@ export class AttendeeFormViewComponent implements OnInit {
         this.attendee.ZoneId = id;
     }
 
+    onCityChange(id: number) {
+        this.attendee.CityId = id;
+    }
+
     onBack(event: any) {
         this.location.back();
     }
@@ -65,6 +70,7 @@ export class AttendeeFormViewComponent implements OnInit {
     save() {
         var data = this.form.value;
         data.ZoneId = this.attendee.ZoneId;
+        data.CityId = this.attendee.CityId;
 
         //console.log(attendee);
 

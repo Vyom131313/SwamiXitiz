@@ -50,6 +50,12 @@ namespace EventAttendance.WebApi.Controllers
             return db.Zones.Select(c => new Zone_VM { Id = c.Id, Name = c.Name });
         }
 
+        [Route("api/Attendees/GetCities")]
+        public IQueryable<City_VM> GetCities()
+        {
+            return db.Cities.Select(c => new City_VM { Id = c.Id, Name = c.Name });
+        }
+
         // GET: api/Attendees/5
         [ResponseType(typeof(Attendee_VM))]
         public async Task<IHttpActionResult> GetAttendee(int id)

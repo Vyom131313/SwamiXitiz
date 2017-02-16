@@ -44,12 +44,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="control-label col-sm-1" for="ZoneId" [class.active]="attendee.ZoneId" data-error="Zone is required">Zone:</label>
-            <div class="col-sm-11">
-                <zones-ddl [selectedZonetId]="attendee.ZoneId" (select)="onZoneChange($event)">Loading....</zones-ddl>
-            </div>
-        </div>
+
         <div class="form-group">
             <label class="control-label col-sm-1" for="Address" [class.active]="attendee.Address">Address:</label>
             <div class="col-sm-11">
@@ -62,6 +57,21 @@
         </div>
 
         <div class="form-group">
+            <label class="control-label col-sm-1" for="CityId" [class.active]="attendee.CityId" data-error="City is required">City:</label>
+            <div class="col-sm-11">
+                <cities-ddl [selectedCityId]="attendee.CityId" (select)="onCityChange($event)">Loading....</cities-ddl>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-1" for="ZoneId" [class.active]="attendee.ZoneId" data-error="Zone is required">Zone:</label>
+            <div class="col-sm-11">
+                <zones-ddl [selectedZonetId]="attendee.ZoneId" (select)="onZoneChange($event)">Loading....</zones-ddl>
+            </div>
+        </div>
+
+
+        <div class="form-group">
             <label class="control-label col-sm-1" for="Id">Is Karyakar?:</label>
             <div class="col-sm-1">
                 <input type="checkbox" id="IsKaryakar"
@@ -72,7 +82,7 @@
 
 
         <div class="form-group col-sm-12" style="float:right">
-            <button type="submit" class="col-sm-1 btn btn-default btn-sm" style="float:right;" (click)="onBack($event)">
+            <button class="col-sm-1 btn btn-default btn-sm" style="float:right;" (click)="onBack($event)">
                 Back
             </button>
             <button type="submit" class="col-sm-1 btn btn-default btn-sm" style="float:right;margin-right:10px;"

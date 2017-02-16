@@ -38,6 +38,13 @@ export class AttendeesService {
             .then((response) => response.json());
     }
 
+    getCityItems(http: Http) {
+
+        return http.get(this.ServiceBaseUrl + "/GetCities")
+            .toPromise()
+            .then((response) => response.json());
+    }
+
     getItem(http: Http, id: number) {
 
         let params: URLSearchParams = new URLSearchParams();

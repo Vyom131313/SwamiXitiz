@@ -48,6 +48,12 @@ namespace EventAttendance.WebApi.Models
         public string Name { get; set; }
     }
 
+    public partial class City_VM
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
     public partial class Event_VM
     {
         public int Id { get; set; }

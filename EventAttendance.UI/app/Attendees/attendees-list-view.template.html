@@ -16,14 +16,14 @@
         </tr>
 
         <tr style="font-weight:bold;font-size:10.5pt;">
-            <th></th>
+            <th style="width:15px;"></th>
             <th>Name & Address</th>
             <th width="35px;"></th>
         </tr>
     </thead>
     <tbody style="font-weight:bold;font-size:10pt;color:black">
         <tr *ngFor="let item of attendees_vm_list">
-            <td style="width:10px;">
+            <td style="width:15px;">
                 <span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>
             </td>
             <td>

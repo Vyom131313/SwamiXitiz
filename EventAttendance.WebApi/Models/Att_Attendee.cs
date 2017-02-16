@@ -16,7 +16,7 @@ namespace EventAttendance.WebApi.Models
         public string LastName { get; set; }
         public string Address { get; set; }
         public Nullable<int> ZoneId { get; set; }
-        public Nullable<int> CityId { get; set; }
+        public int CityId { get; set; }
         public bool IsKaryakar { get; set; }
         public virtual ICollection<Att_Attendance> Attendances { get; set; }
         public virtual Att_Zone Zone { get; set; }

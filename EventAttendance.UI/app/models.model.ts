@@ -50,3 +50,8 @@ export class Zone_VM {
     Id: number;
     Name: string;
 }
+
+export class City_VM {
+    Id: number;
+    Name: string;
+}
