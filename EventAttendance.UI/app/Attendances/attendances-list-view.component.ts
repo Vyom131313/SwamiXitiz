@@ -30,6 +30,8 @@ export class AttendancesListViewComponent implements OnChanges {
     filter: string;
     selectedScheduleId: number = 0;
     selectedGender: string = 'M';
+    totalKaryakarCount: number = 0;
+    pendingKaryakarCount: number = 0;
 
     constructor(private http: Http, private router: Router, private attendancesService: AttendancesService) {
         this.filter = '';
@@ -68,7 +70,12 @@ export class AttendancesListViewComponent implements OnChanges {
         this.attendances_vm_list = new Array<Attendance_VM>();
 
         this.attendancesService.getItems(this.http, this.selectedScheduleId, this.selectedGender, this.filter)
-            .then(items => { this.attendances_vm_list = items; });
+            .then(items => {
+                this.attendances_vm_list = items;
+
+                this.totalKaryakarCount = this.attendances_vm_list.filter(c => c.IsKaryakar).length;
+                this.pendingKaryakarCount = this.attendances_vm_list.filter(c => c.IsKaryakar && !c.IsAttended).length;
+            });
     }
 
     OnTakeAttendance(currentItem: Attendance_VM, event: any) {
