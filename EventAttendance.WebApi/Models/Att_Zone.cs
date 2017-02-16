@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace EventAttendance.WebApi.Models
 {
-    public partial class Zone
+    public partial class Att_Zone
     {
-        public Zone()
+        public Att_Zone()
         {
             this.Attendees = new List<Att_Attendee>();
         }

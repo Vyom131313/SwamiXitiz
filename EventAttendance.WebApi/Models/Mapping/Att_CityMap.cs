@@ -3,9 +3,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace EventAttendance.WebApi.Models.Mapping
 {
-    public class Att_ZoneMap : EntityTypeConfiguration<Att_Zone>
+    public class Att_CityMap : EntityTypeConfiguration<Att_City>
     {
-        public Att_ZoneMap()
+        public Att_CityMap()
         {
             // Primary Key
             this.HasKey(t => t.Id);
@@ -16,7 +16,7 @@ namespace EventAttendance.WebApi.Models.Mapping
                 .HasMaxLength(50);
 
             // Table & Column Mappings
-            this.ToTable("Att_Zone");
+            this.ToTable("Att_City");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.Name).HasColumnName("Name");
         }

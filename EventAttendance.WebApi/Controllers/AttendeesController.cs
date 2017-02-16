@@ -23,8 +23,8 @@ namespace EventAttendance.WebApi.Controllers
         {
             //return db.Attendees;
             var data = !string.IsNullOrEmpty(filter)
-                ? db.Attendees.Include(c => c.Zone).Where(c => c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter)).ToList()
-                : db.Attendees.Include(c => c.Zone).ToList();
+                ? db.Attendees.Include(c => c.Zone).Include(c => c.City).Where(c => c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter)).ToList()
+                : db.Attendees.Include(c => c.Zone).Include(c => c.City).ToList();
 
             return data.Select(c => new Attendee_VM
             {
@@ -34,9 +34,12 @@ namespace EventAttendance.WebApi.Controllers
                 Gender = c.Gender,
                 Address = c.Address,
                 ZoneId = c.ZoneId,
+                CityId = c.CityId,
+
                 //ZoneName = c.ZoneName,
                 IsKaryakar = c.IsKaryakar,
                 FullName = c.FullName,
+                CityName = c.City.Name,
                 ZoneName = c.ZoneName,
             }).AsQueryable();
         }
@@ -66,6 +69,8 @@ namespace EventAttendance.WebApi.Controllers
                 Gender = attendee.Gender,
                 FullName = attendee.FullName,
                 IsKaryakar = attendee.IsKaryakar,
+                CityId = attendee.CityId,
+                CityName = attendee.CityName,
                 ZoneId = attendee.ZoneId,
                 ZoneName = attendee.ZoneName,
             };

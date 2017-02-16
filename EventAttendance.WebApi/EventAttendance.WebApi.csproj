@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\EventAttendance_Data.sql" />
+    <Content Include="App_Data\Other.sql" />
     <Content Include="Global.asax" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
@@ -137,14 +138,16 @@
     <Compile Include="Models\Att_Attendance.cs" />
     <Compile Include="Models\Att_Attendee.cs" />
     <Compile Include="Models\Att_Event.cs" />
+    <Compile Include="Models\Att_City.cs" />
     <Compile Include="Models\EventAttendanceContext.cs" />
     <Compile Include="Models\Att_EventSchedule.cs" />
     <Compile Include="Models\Mapping\Att_AttendanceMap.cs" />
     <Compile Include="Models\Mapping\Att_AttendeeMap.cs" />
     <Compile Include="Models\Mapping\Att_EventMap.cs" />
     <Compile Include="Models\Mapping\Att_EventScheduleMap.cs" />
+    <Compile Include="Models\Mapping\Att_CityMap.cs" />
     <Compile Include="Models\Mapping\Att_ZoneMap.cs" />
-    <Compile Include="Models\Zone.cs" />
+    <Compile Include="Models\Att_Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -7,6 +7,12 @@ namespace EventAttendance.WebApi.Models
     {
         public virtual string ZoneName { get { return this.Zone != null ? this.Zone.Name : string.Empty; } }
         public virtual string FullName { get { return string.Format("{0} {1}", this.FirstName, this.LastName); } }
+
+        [NotMapped]
+        public virtual string CityName
+        {
+            get { return this.City != null ? this.City.Name : string.Empty; }
+        }
     }
 
     public partial class Att_EventSchedule
@@ -24,33 +30,9 @@ namespace EventAttendance.WebApi.Models
     public partial class Att_Attendance
     {
         [NotMapped]
-        public virtual string AttendeeFullName
-        {
-            get { return this.Attendee != null ? this.Attendee.FullName : string.Empty; }
-        }
-
-        [NotMapped]
-        public virtual string ZoneName
-        {
-            get { return this.Attendee != null ? this.Attendee.ZoneName : string.Empty; }
-        }
-
-        [NotMapped]
-        public virtual string Address
-        {
-            get { return this.Attendee != null ? this.Attendee.Address : string.Empty; }
-        }
-
-        [NotMapped]
         public virtual string EventShortDate
         {
             get { return this.EventSchedule != null ? this.EventSchedule.EventShortDate : string.Empty; }
-        }
-
-        [NotMapped]
-        public virtual bool IsKaryakar
-        {
-            get { return this.Attendee != null ? this.Attendee.IsKaryakar : false; }
         }
 
         [NotMapped]
@@ -91,11 +73,13 @@ namespace EventAttendance.WebApi.Models
         public string Address { get; set; }
         public string Gender { get; set; }
         public Nullable<int> ZoneId { get; set; }
+        public Nullable<int> CityId { get; set; }
+
         public bool IsKaryakar { get; set; }
 
+        public virtual string CityName { get; set; }
         public virtual string ZoneName { get; set; }
         public virtual string FullName { get; set; }
-
     }
 
     public partial class Attendance_VM
@@ -109,6 +93,8 @@ namespace EventAttendance.WebApi.Models
         public DateTime ModifiedOn { get; set; }
 
         public virtual string AttendeeFullName { get; set; }
+
+        public virtual string CityName { get; set; }
 
         public virtual string ZoneName { get; set; }
 

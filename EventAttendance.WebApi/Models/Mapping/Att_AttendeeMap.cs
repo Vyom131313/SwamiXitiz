@@ -34,6 +34,7 @@ namespace EventAttendance.WebApi.Models.Mapping
             this.Property(t => t.Gender).HasColumnName("Gender");
             this.Property(t => t.Address).HasColumnName("Address");
             this.Property(t => t.ZoneId).HasColumnName("ZoneId");
+            this.Property(t => t.CityId).HasColumnName("CityId");
             this.Property(t => t.IsKaryakar).HasColumnName("IsKaryakar");
 
             // Relationships
@@ -41,6 +42,9 @@ namespace EventAttendance.WebApi.Models.Mapping
                 .WithMany(t => t.Attendees)
                 .HasForeignKey(d => d.ZoneId);
 
+            this.HasOptional(t => t.City)
+                .WithMany(t => t.Attendees)
+                .HasForeignKey(d => d.CityId);
         }
     }
 }

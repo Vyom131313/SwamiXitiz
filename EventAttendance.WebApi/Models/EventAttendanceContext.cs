@@ -20,7 +20,7 @@ namespace EventAttendance.WebApi.Models
         public DbSet<Att_Attendee> Attendees { get; set; }
         public DbSet<Att_Event> Events { get; set; }
         public DbSet<Att_EventSchedule> EventSchedules { get; set; }
-        public DbSet<Zone> Zones { get; set; }
+        public DbSet<Att_Zone> Zones { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
