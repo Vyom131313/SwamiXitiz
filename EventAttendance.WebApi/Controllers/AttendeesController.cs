@@ -39,7 +39,7 @@ namespace EventAttendance.WebApi.Controllers
                 //ZoneName = c.ZoneName,
                 IsKaryakar = c.IsKaryakar,
                 FullName = c.FullName,
-                CityName = c.City.Name,
+                CityName = c.CityName,
                 ZoneName = c.ZoneName,
             }).AsQueryable();
         }
