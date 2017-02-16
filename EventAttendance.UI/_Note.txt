@@ -1,6 +1,7 @@
 ﻿* Display Pending Karyakar count
 * Correct Karyakar Marking
 * Refresh page issue on any url other than Home
+* Back up data from Server
 * Data entry of existing attendance
 	02/05/2017
 
