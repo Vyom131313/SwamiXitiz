@@ -74,7 +74,7 @@ export class AttendancesListViewComponent implements OnChanges {
                 this.attendances_vm_list = items;
 
                 this.totalKaryakarCount = this.attendances_vm_list.filter(c => c.IsKaryakar).length;
-                this.pendingKaryakarCount = this.attendances_vm_list.filter(c => c.IsKaryakar && !c.IsAttended).length;
+                this.pendingKaryakarCount = this.attendances_vm_list.filter(c => c.IsKaryakar && c.IsAttended).length;
             });
     }
 
