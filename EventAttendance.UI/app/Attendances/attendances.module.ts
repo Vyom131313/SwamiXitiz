@@ -11,6 +11,10 @@ import { EventSchedulesDdlComponent } from './event-schedules-ddl-view.component
 // Services
 import { AttendancesService } from './attendances.service';
 
+// Directives
+import { FocusDirective } from './attendances-list-view.component';
+
+
 @NgModule({
     imports: [
         CommonModule,
@@ -20,7 +24,7 @@ import { AttendancesService } from './attendances.service';
         HttpModule
     ],
     declarations: [
-        AttendancesListViewComponent, EventSchedulesDdlComponent
+        AttendancesListViewComponent, EventSchedulesDdlComponent, FocusDirective
     ],
     exports: [
         AttendancesListViewComponent

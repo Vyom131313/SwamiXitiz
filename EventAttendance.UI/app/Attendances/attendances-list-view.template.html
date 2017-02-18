@@ -32,7 +32,7 @@
                 </tr>
                 <tr style="font-size:10.5pt;">
                     <td colspan="3">                        
-                        <input type="text" class="form-control input-sm" placeholder="Please enter filter value" [(ngModel)]="filter" (keyup.enter)="onFilter($event)" />
+                        <input type="text" class="form-control input-sm" placeholder="Please enter filter value" [focus]="IsFitlerTextboxFocused" [(ngModel)]="filter" (keyup.enter)="onFilter($event)" />
                     </td>
                     <td colspan="2" style="padding-left:5px;padding-right:10px;">
                         <span style="font-weight:bold">{{pendingKaryakarCount}}</span>/<span style="font-weight:bold;color:black">{{totalKaryakarCount}} </span>
@@ -51,7 +51,9 @@
     <thead>
         <tr style="font-weight:bold;font-size:10.5pt;">
             <th style="width:15px;"></th>
-            <th>Name & Address</th>
+            <th>Name & Address 
+                <span *ngIf="filter!=''" style="font-style:italic;color:black">(Filter: {{filter}})</span>
+            </th>
             <th width="50px;"></th>
         </tr>
     </thead>
@@ -72,7 +74,7 @@
                 </div>
             </td>
             <td style="white-space:nowrap;padding:4px;">
-                <button *ngIf="item.IsAttended != true" (click)="OnTakeAttendance(item, $event)" class="btn btn-success btn-sm">
+                <button *ngIf="item.IsAttended != true" (click)="OnTakeAttendance($event, item)" class="btn btn-success btn-sm">
                     <span class="glyphicon glyphicon-time"></span> In
                 </button>
 

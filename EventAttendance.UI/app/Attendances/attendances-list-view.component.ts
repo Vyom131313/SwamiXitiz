@@ -1,12 +1,31 @@
 ﻿import { NgModule } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Directive, Input, ElementRef, Renderer, Injectable, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { trigger, state, animate, transition, style } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Attendance_VM } from '../Models.model';
 import { AttendancesService } from './attendances.service';
+
+
+@Directive({
+    selector: '[focus]'
+})
+
+export class FocusDirective {
+    @Input() focus: boolean;
+
+    //constructor( @Inject(ElementRef) private element: ElementRef) { }
+
+    constructor(private _el: ElementRef, private renderer: Renderer) {
+        this.renderer.invokeElementMethod(this._el.nativeElement, 'focus');
+    }
+
+    //protected ngOnChanges() {
+    //    this.element.nativeElement.focus();
+    //}
+}
 
 @Component({
     selector: 'attendances-list-view',
@@ -22,7 +41,8 @@ import { AttendancesService } from './attendances.service';
     //        transition('* => *', animate('.5s'))
     //    ])
     //],
-    providers: [AttendancesService]
+    providers: [AttendancesService],
+    //directives: [FocusDirective]
 })
 
 export class AttendancesListViewComponent implements OnChanges {
@@ -32,6 +52,7 @@ export class AttendancesListViewComponent implements OnChanges {
     selectedGender: string = 'M';
     totalKaryakarCount: number = 0;
     pendingKaryakarCount: number = 0;
+    IsFitlerTextboxFocused: boolean = true;
 
     constructor(private http: Http, private router: Router, private attendancesService: AttendancesService) {
         this.filter = '';
@@ -78,22 +99,32 @@ export class AttendancesListViewComponent implements OnChanges {
             });
     }
 
-    OnTakeAttendance(currentItem: Attendance_VM, event: any) {
+    OnTakeAttendance(event: any, currentItem: Attendance_VM) {
         currentItem.IsAttended = true;
         event.stopPropagation();
 
+
+
+        // Call Service
         var result = this.attendancesService.add(this.http, this.selectedScheduleId, currentItem);
 
         // On time if there is a filter then clear it and  reload data,
         //if (this.filter.length > 0) {
+
         this.filter = "";
+
+        // Set focus to Filter textbox
+        this.IsFitlerTextboxFocused = true;
+
         result.subscribe(data => {
 
-            var index = this.attendances_vm_list.indexOf(currentItem, 0);
-            if (index > -1) {
-                this.attendances_vm_list.splice(index, 1);
-            }
+            //// Remove the record from UI
+            //var index = this.attendances_vm_list.indexOf(currentItem, 0);
+            //if (index > -1) {
+            //    this.attendances_vm_list.splice(index, 1);
+            //}
 
+            //// Refresh Data
             //this.getItems()
         });
     }
