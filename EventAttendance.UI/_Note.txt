@@ -1,14 +1,13 @@
-﻿* Update Time
-* Correct Karyakar Marking
-* Refresh page issue on any url other than Home
+﻿* Check Female  records for Gender
+* Incluude Middle Name
+* Update Time
+* Deploy
+
 * Back up data from Server
+* Refresh page issue on any url other than Home
+
+* Correct Karyakar Marking
 * Data entry of existing attendance
-
-	11/27/2016
-	11/20/2016
-	10/09/2016
-	10/02/2016
-
 	02/05/2017
 	01/01/2017
 	01/08/2017
