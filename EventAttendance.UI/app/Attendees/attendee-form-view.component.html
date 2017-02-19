@@ -20,12 +20,13 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-1" for="MiddleName" [class.active]="attendee.MiddleName" data-error="Middle Name needs to contain at least 3 chars">Middle Name:</label>
+            <label class="control-label col-sm-1" for="MiddleName" [class.active]="attendee.MiddleName" data-error="Middle Name needs to contain at least 3 chars" style="white-space:nowrap">Middle Name:</label>
             <div class="col-sm-11">
                 <input type="text" class="form-control input-sm validate" id="MiddleName" placeholder="Please enter Attendee Middle Name"
                        style="border: 1px solid rgb(153, 202, 129);border-radius: .2em;box-shadow: 0 0 8px rgba(0,0,0,.08) inset;"
                        formControlName="MiddleName"
                        [(ngModel)]="attendee.MiddleName"
+                       [class.invalid]="form.controls['MiddleName'].touched && !form.controls['MiddleName'].valid"
                        >
             </div>
         </div>
@@ -40,8 +41,7 @@
                        [class.invalid]="form.controls['LastName'].touched && !form.controls['LastName'].valid">
             </div>
         </div>
-
-
+        
         <div class="form-group">
             <label class="control-label col-sm-1" for="Gender" [class.active]="attendee.Gender" data-error="Gender is required">Gender:</label>
             <div class="col-sm-11">
@@ -54,8 +54,7 @@
                 </select>
             </div>
         </div>
-
-
+        
         <div class="form-group">
             <label class="control-label col-sm-1" for="Address" [class.active]="attendee.Address">Address:</label>
             <div class="col-sm-11">
