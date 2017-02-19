@@ -24,6 +24,11 @@ export class ReportByAttendeeComponent implements OnChanges {
     slot2Count: number = 0;
     slot3Count: number = 0;
     slot4Count: number = 0;
+    isKaryakar: boolean = false;
+    gender: string = 'M';
+    attendeeFullName: string = '';
+    address: string = '';
+    cityName: string = '';
 
     constructor(private http: Http, private router: Router, private attendancesService: ReportsService) {
         this.getItems();
@@ -44,6 +49,12 @@ export class ReportByAttendeeComponent implements OnChanges {
     getItems() {
         this.attendances_vm_list = new Array<Attendance_VM>();
 
+        this.isKaryakar = false;
+        this.gender = 'M';
+        this.attendeeFullName = '';
+        this.address = '';
+        this.cityName = '';
+
         this.attendancesService.getByAttendee(this.http, this.selectedAttendeeId)
             .then(items => {
                 this.attendances_vm_list = items;
@@ -51,6 +62,15 @@ export class ReportByAttendeeComponent implements OnChanges {
                 this.slot2Count = this.attendances_vm_list.filter(c => c.IsAttended && c.Slot == 'Slot-2').length;
                 this.slot3Count = this.attendances_vm_list.filter(c => c.IsAttended && c.Slot == 'Slot-3').length;
                 this.slot4Count = this.attendances_vm_list.filter(c => c.IsAttended && c.Slot == 'Slot-4').length;
+
+                if (this.attendances_vm_list.length>0){
+                    this.isKaryakar = this.attendances_vm_list[0].IsKaryakar ;
+                    this.gender = this.attendances_vm_list[0].Gender;
+                    this.attendeeFullName = this.attendances_vm_list[0].AttendeeFullName ;
+                    this.address = this.attendances_vm_list[0].Address;
+                    this.cityName = this.attendances_vm_list[0].CityName ;
+                }
+
             });
     }
 

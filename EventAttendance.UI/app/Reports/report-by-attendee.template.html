@@ -1,11 +1,12 @@
-﻿<h4 class='QAListTitle' style="text-align:left;padding-top:10px;padding-bottom:5px;white-space:nowrap">
+﻿<h4 class='QAListTitle' style="text-align:left;padding-top:10px;padding-bottom:5px;white-space:nowrap;z-index:900">
     <div class="row">
         <div class="col-sm-11">
             <table>
                 <tr>
                     <td>
-                        <label class="control-label" style="font-weight:bold;font-size:10.5pt;">Report by Attendee: </label>
+                        <label class="control-label" style="font-weight:bold;font-size:10.5pt;">Attendee: </label>
                     </td>
+
                     <td style="padding-left:5px;">
                         <attendees-ddl (select)="onAttendeeChange($event)">Loading....</attendees-ddl>
                     </td>
@@ -33,33 +34,16 @@
         </tr>
 
         <tr style="font-weight:bold;font-size:10.5pt;">
-            <th width="10px;"></th>
-            <th>Name & Address</th>
-            <th>Slot</th>
-            <th width="50px;"></th>
+            <th><i *ngIf="isKaryakar==true" class="fa fa-user-circle-o"></i> <i [ngClass]="{'fa-male': gender=='M', 'fa-female': gender=='F'}" class="fa"></i> {{attendeeFullName}} ({{address}}, {{cityName}}) </th>
         </tr>
     </thead>
     <tbody style="font-weight:bold;font-size:10pt;color:black">
         <tr *ngFor="let item of attendances_vm_list" [style.background-color]="getStyleBySlot(item.Slot)">
-            <td style="width:10px;">
-                <span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>
-            </td>
-            <td>
-                <div class="form-group" style="margin-bottom:0px;">
-                    <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
-                    <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
-                        <span class="fa fa-map"></span> {{item.CityName}}
-                    </div>
-                    <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
-                        <span class="fa fa-home"></span> {{item.Address}}
-                    </div>
-                </div>
-            </td>
-            <td>
-                {{item.Slot}}
-            </td>
             <td style="white-space:nowrap">
-                <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
+                <span style="margin-left:5px;"><i class="fa fa-calendar"></i> {{item.EventShortDate}} {{item.Slot}}</span>
+                <span style="margin-left:5px;"><i class="fa fa-sign-in"></i> {{item.Slot}}</span>
+
+                <span *ngIf="item.IsAttended == true" style="margin-left:5px;"><i class="glyphicon glyphicon-time"></i> {{item.AttendanceTimeOnly}} </span>
             </td>
         </tr>
     </tbody>
