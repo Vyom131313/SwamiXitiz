@@ -17,4 +17,4 @@ import { NotFoundComponent } from './NotFound/not-found.component';
     { path: '**', redirectTo: 'not-found' }
 ];
 
- export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(appRoutes1);
+ export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(appRoutes1, { useHash: true });

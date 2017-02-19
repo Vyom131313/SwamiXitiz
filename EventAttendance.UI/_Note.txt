@@ -1,5 +1,4 @@
 ﻿* Back up data from Server
-* Refresh page issue on any url other than Home
 
 * Correct Karyakar Marking / Update Middle Name / Data for January
 
@@ -15,6 +14,9 @@
 * Wait Indicator
 * avoid build_prod
 * Validation (form.valid)
+
+================ Examples =================
+* https://angular.io/resources/live-examples/router/ts/eplnkr.html
 
 =========== Installed Packages ============
 * npm install angular2-jwt
