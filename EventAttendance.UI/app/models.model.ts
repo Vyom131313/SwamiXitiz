@@ -18,6 +18,7 @@ export class EventSchedule_VM {
 export class Attendee_VM {
     Id: number;
     FirstName: string;
+    MiddleName: string;
     LastName: string;
     Address: string;
     Gender: string;

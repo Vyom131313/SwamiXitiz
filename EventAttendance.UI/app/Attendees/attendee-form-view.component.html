@@ -20,6 +20,17 @@
         </div>
 
         <div class="form-group">
+            <label class="control-label col-sm-1" for="MiddleName" [class.active]="attendee.MiddleName" data-error="Middle Name needs to contain at least 3 chars">Middle Name:</label>
+            <div class="col-sm-11">
+                <input type="text" class="form-control input-sm validate" id="MiddleName" placeholder="Please enter Attendee Middle Name"
+                       style="border: 1px solid rgb(153, 202, 129);border-radius: .2em;box-shadow: 0 0 8px rgba(0,0,0,.08) inset;"
+                       formControlName="MiddleName"
+                       [(ngModel)]="attendee.MiddleName"
+                       >
+            </div>
+        </div>
+
+        <div class="form-group">
             <label class="control-label col-sm-1" for="LastName" [class.active]="attendee.LastName" data-error="Last Name is required and needs to contain at least 3 chars">Last Name:</label>
             <div class="col-sm-11">
                 <input type="text" class="form-control input-sm validate" id="LastName" placeholder="Please enter Attendee Last Name"
@@ -79,7 +90,6 @@
                        [(ngModel)]="attendee.IsKaryakar" />
             </div>
         </div>
-
 
         <div class="form-group col-sm-12" style="float:right">
             <button class="col-sm-1 btn btn-default btn-sm" style="float:right;" (click)="onBack($event)">

@@ -15,6 +15,10 @@ namespace EventAttendance.WebApi.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
+
+            this.Property(t => t.MiddleName)
+                .HasMaxLength(50);
+
             this.Property(t => t.LastName)
                 .IsRequired()
                 .HasMaxLength(50);
@@ -30,6 +34,7 @@ namespace EventAttendance.WebApi.Models.Mapping
             this.ToTable("Att_Attendee");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.FirstName).HasColumnName("FirstName");
+            this.Property(t => t.MiddleName).HasColumnName("MiddleName");
             this.Property(t => t.LastName).HasColumnName("LastName");
             this.Property(t => t.Gender).HasColumnName("Gender");
             this.Property(t => t.Address).HasColumnName("Address");

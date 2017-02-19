@@ -30,6 +30,7 @@ namespace EventAttendance.WebApi.Controllers
             {
                 Id = c.Id,
                 FirstName = c.FirstName,
+                MiddleName = c.MiddleName,
                 LastName = c.LastName,
                 Gender = c.Gender,
                 Address = c.Address,
@@ -71,6 +72,7 @@ namespace EventAttendance.WebApi.Controllers
                 Id = attendee.Id,
                 Address = attendee.Address,
                 FirstName = attendee.FirstName,
+                MiddleName = attendee.MiddleName,
                 LastName = attendee.LastName,
                 Gender = attendee.Gender,
                 FullName = attendee.FullName,

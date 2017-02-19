@@ -29,7 +29,9 @@ export class AttendeeFormViewComponent implements OnInit {
                 Validators.required,
                 Validators.minLength(3)
             ]],
-            LastName: ['', [
+            MiddleName: ['', [
+                Validators.minLength(3)
+            ]],LastName: ['', [
                 Validators.required,
                 Validators.minLength(3)
             ]],

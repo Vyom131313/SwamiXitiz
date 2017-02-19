@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EventAttendance.WebApi.Models
@@ -6,7 +7,16 @@ namespace EventAttendance.WebApi.Models
     public partial class Att_Attendee
     {
         public virtual string ZoneName { get { return this.Zone != null ? this.Zone.Name : string.Empty; } }
-        public virtual string FullName { get { return string.Format("{0} {1}", this.FirstName, this.LastName); } }
+        public virtual string FullName
+        {
+            get
+            {
+                return string.Format("{0} {1} {2}",
+                    this.FirstName,
+                    !string.IsNullOrEmpty(this.MiddleName) ? this.MiddleName.Trim().FirstOrDefault().ToString() : string.Empty,
+                    this.LastName);
+            }
+        }
 
         [NotMapped]
         public virtual string CityName
@@ -75,6 +85,7 @@ namespace EventAttendance.WebApi.Models
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
+        public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
         public string Gender { get; set; }

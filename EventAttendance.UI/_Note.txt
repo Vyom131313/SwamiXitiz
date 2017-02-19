@@ -1,12 +1,11 @@
-﻿* Check Female  records for Gender
-* Incluude Middle Name
-* Update Time
+﻿* Update Time
 * Deploy
 
 * Back up data from Server
 * Refresh page issue on any url other than Home
 
-* Correct Karyakar Marking
+* Correct Karyakar Marking / Update Middle Name / Data for January
+
 * Data entry of existing attendance
 	02/05/2017
 	01/01/2017
