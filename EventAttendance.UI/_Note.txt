@@ -1,7 +1,4 @@
-﻿* Update Time
-* Deploy
-
-* Back up data from Server
+﻿* Back up data from Server
 * Refresh page issue on any url other than Home
 
 * Correct Karyakar Marking / Update Middle Name / Data for January
