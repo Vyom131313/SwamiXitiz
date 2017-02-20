@@ -1,6 +1,6 @@
 ﻿using EventAttendance.WebApi.Models;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+using System;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -12,6 +12,7 @@ namespace EventAttendance.WebApi.Controllers
     public class AttendeesController : ApiController
     {
         private EventAttendanceContext db = new EventAttendanceContext();
+
         public AttendeesController()
         {
             //db.Configuration.LazyLoadingEnabled = false;
@@ -21,67 +22,93 @@ namespace EventAttendance.WebApi.Controllers
         // GET: api/Attendees
         public IQueryable<Attendee_VM> GetAttendees(string filter)
         {
-            //return db.Attendees;
-            var data = !string.IsNullOrEmpty(filter)
-                ? db.Attendees.Include(c => c.Zone).Include(c => c.City).Where(c => c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter)).ToList()
-                : db.Attendees.Include(c => c.Zone).Include(c => c.City).ToList();
+            var paramFilter = new SqlParameter { ParameterName = "filter", Value = DBNull.Value };
 
-            return data.Select(c => new Attendee_VM
+            if (!string.IsNullOrEmpty(filter))
             {
-                Id = c.Id,
-                FirstName = c.FirstName,
-                MiddleName = c.MiddleName,
-                LastName = c.LastName,
-                Gender = c.Gender,
-                Address = c.Address,
-                ZoneId = c.ZoneId,
-                CityId = c.CityId,
+                paramFilter.Value = filter;
+            }
 
-                //ZoneName = c.ZoneName,
-                IsKaryakar = c.IsKaryakar,
-                FullName = c.FullName,
-                CityName = c.CityName,
-                ZoneName = c.ZoneName,
-            }).AsQueryable();
+            var data = db.Database
+               .SqlQuery<Attendee_VM>("EXEC dbo.Att_GetAttendees @filter", paramFilter)
+               .ToList();
+
+            return data.AsQueryable();
+
+            ////return db.Attendees;
+            //var data = !string.IsNullOrEmpty(filter)
+            //    ? db.Attendees.Include(c => c.Zone).Include(c => c.City).Where(c => c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter)).ToList()
+            //    : db.Attendees.Include(c => c.Zone).Include(c => c.City).ToList();
+
+            //return data.Select(c => new Attendee_VM
+            //{
+            //    Id = c.Id,
+            //    FirstName = c.FirstName,
+            //    MiddleName = c.MiddleName,
+            //    LastName = c.LastName,
+            //    Gender = c.Gender,
+            //    Address = c.Address,
+            //    ZoneId = c.ZoneId,
+            //    CityId = c.CityId,
+
+            //    //ZoneName = c.ZoneName,
+            //    IsKaryakar = c.IsKaryakar,
+            //    FullName = c.FullName,
+            //    CityName = c.CityName,
+            //    ZoneName = c.ZoneName,
+            //}).AsQueryable();
         }
 
         [Route("api/Attendees/GetZones")]
         public IQueryable<Zone_VM> GetZones()
         {
-            return db.Zones.Select(c => new Zone_VM { Id = c.Id, Name = c.Name });
+            // return db.Zones.Select(c => new Zone_VM { Id = c.Id, Name = c.Name });
+
+            var data = db.Database.SqlQuery<Zone_VM>("EXEC dbo.Att_GetZones").ToList();
+
+            return data.AsQueryable();
         }
 
         [Route("api/Attendees/GetCities")]
         public IQueryable<City_VM> GetCities()
         {
-            return db.Cities.Select(c => new City_VM { Id = c.Id, Name = c.Name });
+            //return db.Cities.Select(c => new City_VM { Id = c.Id, Name = c.Name });
+
+            var data = db.Database.SqlQuery<City_VM>("EXEC dbo.Att_GetCities").ToList();
+            return data.AsQueryable();
         }
 
         // GET: api/Attendees/5
         [ResponseType(typeof(Attendee_VM))]
         public async Task<IHttpActionResult> GetAttendee(int id)
         {
-            Att_Attendee attendee = await db.Attendees.FindAsync(id);
-            if (attendee == null)
+            //Att_Attendee attendee = await db.Attendees.FindAsync(id);
+            //var attendeeVM = new Attendee_VM
+            //{
+            //    Id = attendee.Id,
+            //    Address = attendee.Address,
+            //    FirstName = attendee.FirstName,
+            //    MiddleName = attendee.MiddleName,
+            //    LastName = attendee.LastName,
+            //    Gender = attendee.Gender,
+            //    FullName = attendee.FullName,
+            //    IsKaryakar = attendee.IsKaryakar,
+            //    CityId = attendee.CityId,
+            //    CityName = attendee.CityName,
+            //    ZoneId = attendee.ZoneId,
+            //    ZoneName = attendee.ZoneName,
+            //};
+
+            var paramId = new SqlParameter { ParameterName = "Id", Value = id };
+
+            var attendeeVM = db.Database
+               .SqlQuery<Attendee_VM>("EXEC dbo.Att_GetAttendeeById @Id", paramId)
+               .FirstOrDefault();
+
+            if (attendeeVM == null)
             {
                 return NotFound();
             }
-
-            var attendeeVM = new Attendee_VM
-            {
-                Id = attendee.Id,
-                Address = attendee.Address,
-                FirstName = attendee.FirstName,
-                MiddleName = attendee.MiddleName,
-                LastName = attendee.LastName,
-                Gender = attendee.Gender,
-                FullName = attendee.FullName,
-                IsKaryakar = attendee.IsKaryakar,
-                CityId = attendee.CityId,
-                CityName = attendee.CityName,
-                ZoneId = attendee.ZoneId,
-                ZoneName = attendee.ZoneName,
-            };
 
             return Ok(attendeeVM);
         }
@@ -100,23 +127,44 @@ namespace EventAttendance.WebApi.Controllers
                 return BadRequest();
             }
 
-            db.Entry(attendee).State = EntityState.Modified;
 
             try
             {
-                await db.SaveChangesAsync();
+                await db.Database
+                    .ExecuteSqlCommandAsync("EXEC dbo.Att_SaveAttendee @Id, @FirstName, @MiddleName, @LastName, @Gender, @Address, @ZoneId, @CityId, @IsKaryakar",
+                        new SqlParameter { ParameterName = "Id", Value = attendee.Id },
+                        new SqlParameter { ParameterName = "FirstName", Value = attendee.FirstName },
+                        new SqlParameter { ParameterName = "MiddleName", Value = attendee.MiddleName },
+                        new SqlParameter { ParameterName = "LastName", Value = attendee.LastName },
+                        new SqlParameter { ParameterName = "Gender", Value = attendee.Gender },
+                        new SqlParameter { ParameterName = "Address", Value = attendee.Address },
+                        new SqlParameter { ParameterName = "ZoneId", Value = attendee.ZoneId },
+                        new SqlParameter { ParameterName = "CityId", Value = attendee.CityId },
+                        new SqlParameter { ParameterName = "IsKaryakar", Value = attendee.IsKaryakar }
+                    );
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception ex)
             {
-                if (!AttendeeExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
+
+            //db.Entry(attendee).State = EntityState.Modified;
+
+            //try
+            //{
+            //    await db.SaveChangesAsync();
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    if (!AttendeeExists(id))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
 
             return StatusCode(HttpStatusCode.NoContent);
         }
@@ -130,8 +178,28 @@ namespace EventAttendance.WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Attendees.Add(attendee);
-            await db.SaveChangesAsync();
+            //db.Attendees.Add(attendee);
+            //await db.SaveChangesAsync();
+
+            try
+            {
+               await db.Database
+                   .ExecuteSqlCommandAsync("EXEC dbo.Att_SaveAttendee @Id, @FirstName, @MiddleName, @LastName, @Gender, @Address, @ZoneId, @CityId, @IsKaryakar",
+                       new SqlParameter { ParameterName = "Id", Value = attendee.Id },
+                       new SqlParameter { ParameterName = "FirstName", Value = attendee.FirstName },
+                       new SqlParameter { ParameterName = "MiddleName", Value = attendee.MiddleName },
+                       new SqlParameter { ParameterName = "LastName", Value = attendee.LastName },
+                       new SqlParameter { ParameterName = "Gender", Value = attendee.Gender },
+                       new SqlParameter { ParameterName = "Address", Value = attendee.Address },
+                       new SqlParameter { ParameterName = "ZoneId", Value = attendee.ZoneId },
+                       new SqlParameter { ParameterName = "CityId", Value = attendee.CityId },
+                       new SqlParameter { ParameterName = "IsKaryakar", Value = attendee.IsKaryakar }
+                   );
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
 
             return CreatedAtRoute("DefaultApi", new { id = attendee.Id }, attendee);
         }
