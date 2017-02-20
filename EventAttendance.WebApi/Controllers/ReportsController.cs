@@ -87,34 +87,43 @@ namespace EventAttendance.WebApi.Controllers
             if (attendeeId == 0)
                 return new List<Attendance_VM>().AsQueryable();
 
-            var query = db.Attendances.Include(c => c.Attendee).Include(c => c.EventSchedule).Include(c => c.EventSchedule.Event).Include(c => c.Attendee.Zone)
-                         .Where(c => c.AttendeeId == attendeeId)
-                         .ToList();
+            var paramAttendeeId = new SqlParameter { ParameterName = "AttendeeId", Value = attendeeId };
+            
+             var data = db.Database.SqlQuery<Attendance_VM>("EXEC dbo.Att_GetReportByAttendee @AttendeeId", paramAttendeeId).ToList();
 
-            var query2 = query.Select(c => new Attendance_VM
-            {
-                EventScheduleId = c.EventScheduleId,
-                EventShortDate = c.EventShortDate,
+            return data.AsQueryable();
 
-                AttendeeId = c.Attendee.Id,
-                AttendeeFullName = c.Attendee.FullName,
-                ZoneName = c.Attendee.ZoneName,
-                Gender = c.Attendee.Gender,
-                IsKaryakar = c.Attendee.IsKaryakar,
-                Address = c.Attendee.Address,
+            //var query = db.Attendances.Include(c => c.Attendee)
+            //             .Include(c => c.EventSchedule)
+            //             .Include(c => c.EventSchedule.Event)
+            //             .Include(c => c.Attendee.Zone)
+            //             .Where(c => c.AttendeeId == attendeeId)
+            //             .ToList();
 
-                Id = c.Id,
-                AttendanceTimeOnly = c.AttendanceTimeOnly,
-                IsAttended = c.IsAttended,
-                AttendanceTime = c.AttendanceTime,
+            //var query2 = query.Select(c => new Attendance_VM
+            //{
+            //    EventScheduleId = c.EventScheduleId,
+            //    EventShortDate = c.EventShortDate,
 
-                Slot = GetSlotTextForSlotDate(c.AttendanceTime, GetSlotDateTimeForSlotText(c.AttendanceTime, "Slot-1"),
-                                                                GetSlotDateTimeForSlotText(c.AttendanceTime, "Slot-2"),
-                                                                GetSlotDateTimeForSlotText(c.AttendanceTime, "Slot-3")),
+            //    AttendeeId = c.Attendee.Id,
+            //    AttendeeFullName = c.Attendee.FullName,
+            //    ZoneName = c.Attendee.ZoneName,
+            //    Gender = c.Attendee.Gender,
+            //    IsKaryakar = c.Attendee.IsKaryakar,
+            //    Address = c.Attendee.Address,
 
-            }).OrderBy(c => c.IsAttended).ThenBy(c => c.AttendeeFullName).ToList();
+            //    Id = c.Id,
+            //    AttendanceTimeOnly = c.AttendanceTimeOnly,
+            //    IsAttended = c.IsAttended,
+            //    AttendanceTime = c.AttendanceTime,
 
-            return query2.AsQueryable<Attendance_VM>();
+            //    Slot = GetSlotTextForSlotDate(c.AttendanceTime, GetSlotDateTimeForSlotText(c.AttendanceTime, "Slot-1"),
+            //                                                    GetSlotDateTimeForSlotText(c.AttendanceTime, "Slot-2"),
+            //                                                    GetSlotDateTimeForSlotText(c.AttendanceTime, "Slot-3")),
+
+            //}).OrderBy(c => c.IsAttended).ThenBy(c => c.AttendeeFullName).ToList();
+
+            //return query2.AsQueryable<Attendance_VM>();
         }
 
         private string GetSlotTextForSlotDate(DateTime dt, DateTime slot1, DateTime slot2, DateTime slot3)
