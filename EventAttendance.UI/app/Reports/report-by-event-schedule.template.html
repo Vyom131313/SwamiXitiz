@@ -14,9 +14,6 @@
                         <button (click)="onRefreshGetAllItems($event)" class="btn btn-primary btn-sm">
                             <span class="glyphicon glyphicon-refresh"></span>
                         </button>
-                        <!--<button class="btn btn-primary btn-sm" id="reportBySabhaPdf" onclick="JavaScript:OnReportBySabhaPdf()">
-                            <i class="fa fa-file-pdf-o fa-3"></i>
-                        </button>-->
                     </td>
                 </tr>
                 <tr style="height:5px;">
@@ -32,14 +29,17 @@
     </div>
 </h4>
 
-<div style="margin-top:100px;" id="divReportBySabha">
+<div style="margin-top:100px;" id="tblReportBySabhaAll">
     <table *ngIf="attendances_slot_1_vm_list != null && attendances_slot_1_vm_list != undefined && attendances_slot_1_vm_list.length > 0"
-           class="table" style="background-color:#16a085;">
+           class="table" style="background-color:#16a085;" id="tblSlot_1">
         <thead>
             <tr>
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot1" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot1" aria-expanded="false"></a>
                     <span>Slot-1 : 4:00 PM or before </span><span style="color:black">Count#{{attendances_slot_1_vm_list.length}}</span>
+                    <button class="btn btn-primary btn-sm" onclick="JavaScript: OnReportBySabhaPdf('#tblSlot_1')">
+                        <i class="fa fa-file-pdf-o fa-3"></i>
+                    </button>
                 </th>
             </tr>
 
@@ -74,12 +74,15 @@
     </table>
 
     <table *ngIf="attendances_slot_2_vm_list != null && attendances_slot_2_vm_list != undefined && attendances_slot_2_vm_list.length > 0"
-           class="table" style="background-color:#35acdf;">
+           class="table" style="background-color:#35acdf;" id="tblSlot_2">
         <thead>
             <tr>
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot2" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot2" aria-expanded="false"></a>
                     <span>Slot-2 : 4:00 PM to 4:15 PM  </span><span style="color:black">Count#{{attendances_slot_2_vm_list.length}}</span>
+                    <button class="btn btn-primary btn-sm" onclick="JavaScript: OnReportBySabhaPdf('#tblSlot_2')">
+                        <i class="fa fa-file-pdf-o fa-3"></i>
+                    </button>
                 </th>
             </tr>
 
@@ -114,12 +117,15 @@
     </table>
 
     <table *ngIf="attendances_slot_3_vm_list != null && attendances_slot_3_vm_list != undefined && attendances_slot_3_vm_list.length > 0"
-           class="table" style="background-color:#116f7d;">
+           class="table" style="background-color:#116f7d;" id="tblSlot_3">
         <thead>
             <tr>
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot3" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot3" aria-expanded="false"></a>
                     <span>Slot-3 : 4:15 PM to 4:30 PM </span><span style="color:black">Count#{{attendances_slot_3_vm_list.length}}</span>
+                    <button class="btn btn-primary btn-sm" onclick="JavaScript: OnReportBySabhaPdf('#tblSlot_3')">
+                        <i class="fa fa-file-pdf-o fa-3"></i>
+                    </button>
                 </th>
             </tr>
 
@@ -154,12 +160,15 @@
     </table>
 
     <table *ngIf="attendances_slot_4_vm_list != null && attendances_slot_4_vm_list != undefined && attendances_slot_4_vm_list.length > 0"
-           class="table" style="background-color:#f0ad4e;">
+           class="table" style="background-color:#f0ad4e;" id="tblSlot_4">
         <thead>
             <tr>
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot4" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot4" aria-expanded="false"></a>
                     <span>Slot-4 : 4:30 PM after </span> <span style="color:black"> Count#{{attendances_slot_4_vm_list.length}}</span>
+                    <button class="btn btn-primary btn-sm" onclick="JavaScript: OnReportBySabhaPdf('#tblSlot_4')">
+                        <i class="fa fa-file-pdf-o fa-3"></i>
+                    </button>
                 </th>
             </tr>
 
@@ -194,12 +203,15 @@
     </table>
 
     <table *ngIf="attendances_absent_vm_list != null && attendances_absent_vm_list != undefined && attendances_absent_vm_list.length > 0"
-           class="table" style="background-color: #d9534f;">
+           class="table" style="background-color: #d9534f;" id="tblSlot_Absent">
         <thead>
             <tr>
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodyAbsent" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodyAbsent" aria-expanded="false"></a>
                     <span>Slot : Absent  </span><span style="color:black">Count#{{attendances_absent_vm_list.length}}</span>
+                    <button class="btn btn-primary btn-sm" onclick="JavaScript: OnReportBySabhaPdf('#tblSlot_Absent')">
+                        <i class="fa fa-file-pdf-o fa-3"></i>
+                    </button>
                 </th>
             </tr>
 

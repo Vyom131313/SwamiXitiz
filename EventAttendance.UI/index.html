@@ -22,14 +22,36 @@
     <!-- Scripts -->
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/jspdf.debug.js"></script>
 
     <script language="JavaScript">
+        function OnReportBySabhaPdf(id) {
+            var pdf = new jsPDF('p', 'pt', 'letter');
+            pdf.addHTML($(id).html(), function () {
+                pdf.save(id + '.pdf');
+            });
 
+            //var pdf = new jsPDF('p', 'pt', 'letter')
+            //    , source = $('#tblReportBySabha').html()
+            //    , specialElementHandlers = {
+            //        '#bypassme': function (element, renderer) {
+            //            return true
+            //        }
+            //    }
 
-        $(document).ready(function () {
-
-        });
+            //margins = { top: 60, bottom: 60, left: 40, width: 522 };
+            //pdf.fromHTML(source, margins.left, margins.top,
+            //    {
+            //        'width': margins.width,
+            //        'elementHandlers': specialElementHandlers
+            //    },
+            //    function (dispose) {
+            //        pdf.save('download_pdf.pdf');
+            //    },
+            //    margins
+            //    )
+        }
     </script>
-
 </body>
 </html>
