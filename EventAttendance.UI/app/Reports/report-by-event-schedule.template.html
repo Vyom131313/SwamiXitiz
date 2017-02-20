@@ -42,14 +42,14 @@
                     <span>Slot-1 : 4:00 PM or before </span><span style="color:black">Count#{{attendances_slot_1_vm_list.length}}</span>
                 </th>
             </tr>
-
-            <tr style="font-weight:bold;font-size:10.5pt;">
+        </thead>
+        <tbody id="tbodySlot1" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
+            <tr style="font-weight:bold;font-size:10.5pt;color:white">
                 <th width="10px;"></th>
                 <th>Name & Address</th>
                 <th width="50px;">Time</th>
             </tr>
-        </thead>
-        <tbody id="tbodySlot1" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
+
             <tr *ngFor="let item of attendances_slot_1_vm_list">
                 <td style="width:10px;">
                     <span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>
@@ -82,14 +82,14 @@
                     <span>Slot-2 : 4:00 PM to 4:15 PM  </span><span style="color:black">Count#{{attendances_slot_2_vm_list.length}}</span>
                 </th>
             </tr>
-
-            <tr style="font-weight:bold;font-size:10.5pt;">
-                <th width="10px;"></th>
-                <th>Name & Address</th>
-                <th width="50px;"></th>
-            </tr>
         </thead>
         <tbody id="tbodySlot2" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
+            <tr style="font-weight:bold;font-size:10.5pt;color:white">
+                <th width="10px;"></th>
+                <th>Name & Address</th>
+                <th width="50px;">Time</th>
+            </tr>
+
             <tr *ngFor="let item of attendances_slot_2_vm_list">
                 <td style="width:10px;">
                     <span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>
@@ -126,7 +126,7 @@
             <tr style="font-weight:bold;font-size:10.5pt;">
                 <th width="10px;"></th>
                 <th>Name & Address</th>
-                <th width="50px;"></th>
+                <th width="50px;">Time</th>
             </tr>
         </thead>
         <tbody id="tbodySlot3" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
@@ -162,14 +162,14 @@
                     <span>Slot-4 : 4:30 PM after </span> <span style="color:black"> Count#{{attendances_slot_4_vm_list.length}}</span>
                 </th>
             </tr>
-
-            <tr style="font-weight:bold;font-size:10.5pt;">
+        </thead>
+        <tbody id="tbodySlot4" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
+            <tr style="font-weight:bold;font-size:10.5pt;color:white">
                 <th width="10px;"></th>
                 <th>Name & Address</th>
                 <th width="50px;">Time</th>
             </tr>
-        </thead>
-        <tbody id="tbodySlot4" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
+
             <tr *ngFor="let item of attendances_slot_4_vm_list">
                 <td style="width:10px;">
                     <span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>

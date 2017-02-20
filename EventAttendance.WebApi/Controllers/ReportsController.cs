@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using System.Data.Entity;
+using System.Data.SqlClient;
 
 namespace EventAttendance.WebApi.Controllers
 {
@@ -22,48 +23,60 @@ namespace EventAttendance.WebApi.Controllers
             if (eventScheduleId == 0)
                 return new List<Attendance_VM>().AsQueryable();
 
-            var eventSchedule = db.EventSchedules.FirstOrDefault(c => c.Id == eventScheduleId);
-            var slot1 = new DateTime(eventSchedule.EventDate.Year, eventSchedule.EventDate.Month, eventSchedule.EventDate.Day,
-                            16, 00, 00);
+            var paramEventScheduleId = new SqlParameter { ParameterName = "EventScheduleId", Value = eventScheduleId };
 
-            var slot2 = new DateTime(eventSchedule.EventDate.Year, eventSchedule.EventDate.Month, eventSchedule.EventDate.Day,
-                            16, 15, 00);
+            var paramFilter = new SqlParameter { ParameterName = "filter", Value = DBNull.Value };
+            if (!string.IsNullOrEmpty(filter))
+            {
+                paramFilter.Value = filter;
+            }
 
-            var slot3 = new DateTime(eventSchedule.EventDate.Year, eventSchedule.EventDate.Month, eventSchedule.EventDate.Day,
-                            16, 30, 00);
+            var data = db.Database.SqlQuery<Attendance_VM>("EXEC dbo.Att_GetReportByEventSchedule @EventScheduleId, @filter", paramEventScheduleId, paramFilter).ToList();
 
-            var query = (from attendee in db.Attendees.Include(c => c.Zone).Where(c => string.IsNullOrEmpty(filter) || c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter))
-                         join attendance in db.Attendances.Where(c => c.EventScheduleId == eventScheduleId) on attendee.Id equals attendance.AttendeeId into gj
-                         from x in gj.DefaultIfEmpty()
-                         select new { attendee = attendee, attendance = x }).ToList().
-                        Select(c => new Attendance_VM
-                        {
+            return data.AsQueryable();
 
-                            //EventSchedule = c.attendance != null ? c.attendance.EventSchedule : eventSchedule,
-                            EventScheduleId = c.attendance != null ? c.attendance.EventScheduleId : 0,
-                            EventShortDate = eventSchedule.EventShortDate,
+            //var eventSchedule = db.EventSchedules.FirstOrDefault(c => c.Id == eventScheduleId);
+            //var slot1 = new DateTime(eventSchedule.EventDate.Year, eventSchedule.EventDate.Month, eventSchedule.EventDate.Day,
+            //                16, 00, 00);
 
-                            ////Attendee = c.attendee,
-                            AttendeeId = c.attendee.Id,
-                            AttendeeFullName = c.attendee.FullName,
-                            Gender = c.attendee.Gender,
-                            CityName = c.attendee.CityName,
-                            ZoneName = c.attendee.ZoneName,
-                            IsKaryakar = c.attendee.IsKaryakar,
-                            Address = c.attendee.Address,
+            //var slot2 = new DateTime(eventSchedule.EventDate.Year, eventSchedule.EventDate.Month, eventSchedule.EventDate.Day,
+            //                16, 15, 00);
 
-                            Id = c.attendance != null ? c.attendance.Id : 0,
-                            AttendanceTimeOnly = c.attendance != null ? c.attendance.AttendanceTimeOnly : string.Empty,
-                            IsAttended = c.attendance != null ? c.attendance.IsAttended : default(bool),
-                            AttendanceTime = c.attendance != null ? c.attendance.AttendanceTime : default(DateTime),
+            //var slot3 = new DateTime(eventSchedule.EventDate.Year, eventSchedule.EventDate.Month, eventSchedule.EventDate.Day,
+            //                16, 30, 00);
 
-                            Slot = c.attendance != null
-                                    ? GetSlotTextForSlotDate(c.attendance.AttendanceTime, slot1, slot2, slot3)
-                                    : string.Empty,
+            //var query = (from attendee in db.Attendees.Include(c => c.Zone).Where(c => string.IsNullOrEmpty(filter) || c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter))
+            //             join attendance in db.Attendances.Where(c => c.EventScheduleId == eventScheduleId) on attendee.Id equals attendance.AttendeeId into gj
+            //             from x in gj.DefaultIfEmpty()
+            //             select new { attendee = attendee, attendance = x }).ToList().
+            //            Select(c => new Attendance_VM
+            //            {
 
-                        }).OrderBy(c => c.IsAttended).ThenBy(c => c.AttendeeFullName).ToList();
+            //                //EventSchedule = c.attendance != null ? c.attendance.EventSchedule : eventSchedule,
+            //                EventScheduleId = c.attendance != null ? c.attendance.EventScheduleId : 0,
+            //                EventShortDate = eventSchedule.EventShortDate,
 
-            return query.AsQueryable<Attendance_VM>();
+            //                ////Attendee = c.attendee,
+            //                AttendeeId = c.attendee.Id,
+            //                AttendeeFullName = c.attendee.FullName,
+            //                Gender = c.attendee.Gender,
+            //                CityName = c.attendee.CityName,
+            //                ZoneName = c.attendee.ZoneName,
+            //                IsKaryakar = c.attendee.IsKaryakar,
+            //                Address = c.attendee.Address,
+
+            //                Id = c.attendance != null ? c.attendance.Id : 0,
+            //                AttendanceTimeOnly = c.attendance != null ? c.attendance.AttendanceTimeOnly : string.Empty,
+            //                IsAttended = c.attendance != null ? c.attendance.IsAttended : default(bool),
+            //                AttendanceTime = c.attendance != null ? c.attendance.AttendanceTime : default(DateTime),
+
+            //                Slot = c.attendance != null
+            //                        ? GetSlotTextForSlotDate(c.attendance.AttendanceTime, slot1, slot2, slot3)
+            //                        : string.Empty,
+
+            //            }).OrderBy(c => c.IsAttended).ThenBy(c => c.AttendeeFullName).ToList();
+
+            //return query.AsQueryable<Attendance_VM>();
         }
 
         [HttpGet]
