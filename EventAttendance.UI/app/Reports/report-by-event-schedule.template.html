@@ -14,6 +14,9 @@
                         <button (click)="onRefreshGetAllItems($event)" class="btn btn-primary btn-sm">
                             <span class="glyphicon glyphicon-refresh"></span>
                         </button>
+                        <button class="btn btn-primary btn-sm" onclick="JavaScript: OnReportBySabhaPdf($('#ddlEventSchedules option:selected').text())">
+                            <i class="fa fa-file-pdf-o fa-3"></i>
+                        </button>
                     </td>
                 </tr>
                 <tr style="height:5px;">
@@ -37,9 +40,6 @@
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot1" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot1" aria-expanded="false"></a>
                     <span>Slot-1 : 4:00 PM or before </span><span style="color:black">Count#{{attendances_slot_1_vm_list.length}}</span>
-                    <button class="btn btn-primary btn-sm" onclick="JavaScript: OnReportBySabhaPdf('tblSlot_1')">
-                        <i class="fa fa-file-pdf-o fa-3"></i>
-                    </button>
                 </th>
             </tr>
 
@@ -80,9 +80,6 @@
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot2" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot2" aria-expanded="false"></a>
                     <span>Slot-2 : 4:00 PM to 4:15 PM  </span><span style="color:black">Count#{{attendances_slot_2_vm_list.length}}</span>
-                    <button class="btn btn-primary btn-sm" onclick="JavaScript: OnReportBySabhaPdf('tblSlot_2')">
-                        <i class="fa fa-file-pdf-o fa-3"></i>
-                    </button>
                 </th>
             </tr>
 
@@ -123,9 +120,6 @@
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot3" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot3" aria-expanded="false"></a>
                     <span>Slot-3 : 4:15 PM to 4:30 PM </span><span style="color:black">Count#{{attendances_slot_3_vm_list.length}}</span>
-                    <button class="btn btn-primary btn-sm" onclick="JavaScript: OnReportBySabhaPdf('tblSlot_3')">
-                        <i class="fa fa-file-pdf-o fa-3"></i>
-                    </button>
                 </th>
             </tr>
 
@@ -166,9 +160,6 @@
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot4" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot4" aria-expanded="false"></a>
                     <span>Slot-4 : 4:30 PM after </span> <span style="color:black"> Count#{{attendances_slot_4_vm_list.length}}</span>
-                    <button class="btn btn-primary btn-sm" onclick="JavaScript: OnReportBySabhaPdf('tblSlot_4')">
-                        <i class="fa fa-file-pdf-o fa-3"></i>
-                    </button>
                 </th>
             </tr>
 

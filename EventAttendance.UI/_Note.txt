@@ -1,10 +1,8 @@
 ﻿* Performance 
-	- Filter on Clientside
 	- SP
 	- On Submit check for duplicate
 
-* Hide abscent
-* Export to excel
+* Send pdf to HP
 * Back up data from Server
 
 * Correct Karyakar Marking / Update Middle Name / Data for January

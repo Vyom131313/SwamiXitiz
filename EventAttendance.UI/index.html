@@ -27,7 +27,7 @@
 
     <script language="JavaScript">
 
-        function OnReportBySabhaPdf(id) {
+        function OnReportBySabhaPdf(date) {
 
             var htmlToExport = document.getElementById('tblReportBySabhaAll');
 
@@ -53,7 +53,7 @@
                         onePageCanvas.setAttribute('width', 900);
                         onePageCanvas.setAttribute('height', 980);
                         var ctx = onePageCanvas.getContext('2d');
-                        // details on this usage of this function: 
+                        // details on this usage of this function:
                         // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Using_images#Slicing
                         ctx.drawImage(srcImg, sX, sY, sWidth, sHeight, dX, dY, dWidth, dHeight);
 
@@ -75,7 +75,7 @@
 
                     }
                     //! after the for loop is finished running, we save the pdf.
-                    pdf.save('Test.pdf');
+                    pdf.save('ReportBySabha_' + $.trim(date) + '.pdf');
                 }
             });
         }
