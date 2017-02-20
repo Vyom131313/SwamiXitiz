@@ -46,6 +46,7 @@ export class FocusDirective {
 })
 
 export class AttendancesListViewComponent implements OnChanges {
+    master_list: Array<Attendance_VM>;
     attendances_vm_list: Array<Attendance_VM>;
     filter: string;
     selectedScheduleId: number = 0;
@@ -78,7 +79,8 @@ export class AttendancesListViewComponent implements OnChanges {
     }
 
     onFilter(event: Event) {
-        this.getItems();
+        //this.getItems();
+        this.applyFilter();
     }
 
     onRefreshGetAllItems(event: Event) {
@@ -92,11 +94,21 @@ export class AttendancesListViewComponent implements OnChanges {
 
         this.attendancesService.getItems(this.http, this.selectedScheduleId, this.selectedGender, this.filter)
             .then(items => {
-                this.attendances_vm_list = items;
-
-                this.totalKaryakarCount = this.attendances_vm_list.filter(c => c.IsKaryakar).length;
-                this.pendingKaryakarCount = this.attendances_vm_list.filter(c => c.IsKaryakar && c.IsAttended).length;
+                this.master_list = items;
+                this.applyFilter();
             });
+    }
+
+    applyFilter() {
+        if (this.filter.length > 0) {
+            this.attendances_vm_list = this.master_list.filter(c => c.FirstName.toLowerCase().startsWith(this.filter.toLowerCase()) || c.LastName.toLowerCase().startsWith(this.filter.toLowerCase()));
+        }
+        else {
+            this.attendances_vm_list = this.master_list;
+        }
+
+        this.totalKaryakarCount = this.attendances_vm_list.filter(c => c.IsKaryakar).length;
+        this.pendingKaryakarCount = this.attendances_vm_list.filter(c => c.IsKaryakar && c.IsAttended).length;
     }
 
     OnTakeAttendance(event: any, currentItem: Attendance_VM) {

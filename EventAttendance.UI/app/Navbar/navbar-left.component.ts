@@ -7,18 +7,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class NavbarLeftComponent {
     @ViewChild('wrapper') wrapper:ElementRef;
-    selectedMenu: string;
+    //selectedMenu: string;
 
     constructor(public elementRef: ElementRef, public renderer: Renderer) { }
 
     ngOnInit(): void {
-    }
-    
-    onSelect(menu: string, event: any): void {
-        event.stopPropagation();
-        this.selectedMenu = menu;
-
-        // Collapse menubar
-        this.renderer.setElementClass(this.wrapper.nativeElement, 'toggled', false);
     }
 }

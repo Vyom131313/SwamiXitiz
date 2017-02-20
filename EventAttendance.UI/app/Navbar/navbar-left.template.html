@@ -18,13 +18,13 @@
         </li>
 
         <li class="dropdown-menu" role="menu" routerLink="">
-            <a href="#" title="Home">
+            <a href="#" title="Home" onclick="$('#wrapper').toggleClass('toggled')">
                 Home
             </a>
         </li>
 
         <li class="dropdown-menu" role="menu" routerLink="/attendances">
-            <a href="#" title="Attendance">
+            <a href="#" title="Attendance" onclick="$('#wrapper').toggleClass('toggled')">
                 <span class="glyphicon glyphicon-time"></span> Attendance
             </a>
         </li>
@@ -41,13 +41,13 @@
 
             <ul class="dropdown-menu" role="menu" id="reportsMenus">
                 <li routerLink="/reportBySchedule">
-                    <a href="#" title="Reports" >
+                    <a href="#" title="Reports by Sabha" onclick="$('#wrapper').toggleClass('toggled')">
                         &nbsp;&nbsp;<span class="glyphicon glyphicon-time"></span> By Sabha
                     </a>
                 </li>
 
                 <li routerLink="/reportByAttendee">
-                    <a href="#" title="Reports">
+                    <a href="#" title="Reports by Attendee" onclick="$('#wrapper').toggleClass('toggled')">
                         &nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span> By Attendee
                     </a>
                 </li>
@@ -62,17 +62,17 @@
             <ul class="dropdown-menu" role="menu" id="adminChildMenus">
 
                 <li routerLink="/events">
-                    <a href="#" title="Events">
+                    <a href="#" title="Events" onclick="$('#wrapper').toggleClass('toggled')">
                         <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Events
                     </a>
                 </li>
                 <li routerLink="/eventschedules">
-                    <a href="#" title="Event Schedules">
+                    <a href="#" title="Event Schedules" onclick="$('#wrapper').toggleClass('toggled')">
                         <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Event Schedules
                     </a>
                 </li>
                 <li routerLink="/attendees">
-                    <a href="#" title="Attendees">
+                    <a href="#" title="Attendees" onclick="$('#wrapper').toggleClass('toggled')">
                         <i class="material-icons" style="font-size:14px;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;">add</i>Attendees
                     </a>
                 </li>

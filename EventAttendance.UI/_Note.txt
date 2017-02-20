@@ -1,7 +1,13 @@
-﻿* Back up data from Server
+﻿* Performance 
+	- Filter on Clientside
+	- SP
+	- On Submit check for duplicate
+
+* Hide abscent
+* Export to excel
+* Back up data from Server
 
 * Correct Karyakar Marking / Update Middle Name / Data for January
-
 * Data entry of existing attendance
 	02/05/2017
 	01/01/2017

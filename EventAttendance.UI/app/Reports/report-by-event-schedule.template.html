@@ -14,6 +14,9 @@
                         <button (click)="onRefreshGetAllItems($event)" class="btn btn-primary btn-sm">
                             <span class="glyphicon glyphicon-refresh"></span>
                         </button>
+                        <!--<button class="btn btn-primary btn-sm" id="reportBySabhaPdf" onclick="JavaScript:OnReportBySabhaPdf()">
+                            <i class="fa fa-file-pdf-o fa-3"></i>
+                        </button>-->
                     </td>
                 </tr>
                 <tr style="height:5px;">
@@ -29,7 +32,7 @@
     </div>
 </h4>
 
-<div style="margin-top:100px;">
+<div style="margin-top:100px;" id="divReportBySabha">
     <table *ngIf="attendances_slot_1_vm_list != null && attendances_slot_1_vm_list != undefined && attendances_slot_1_vm_list.length > 0"
            class="table" style="background-color:#16a085;">
         <thead>

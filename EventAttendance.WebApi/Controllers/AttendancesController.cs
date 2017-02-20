@@ -37,6 +37,11 @@ namespace EventAttendance.WebApi.Controllers
 
                             ////Attendee = c.attendee,
                             AttendeeId = c.attendee.Id,
+
+                            FirstName = c.attendee.FirstName,
+                            MiddleName = c.attendee.MiddleName,
+                            LastName = c.attendee.LastName,
+
                             AttendeeFullName = c.attendee.FullName,
                             Gender = c.attendee.Gender,
                             CityName = c.attendee.CityName,

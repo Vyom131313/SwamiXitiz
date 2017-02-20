@@ -37,6 +37,9 @@ export class Attendance_VM {
     AttendanceTime: Date;
     Slot: string;
 
+    FirstName: string;
+    MiddleName: string;
+    LastName: string;
     AttendeeFullName: string;
     ZoneName: string;
     CityName: string;
