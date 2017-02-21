@@ -1,10 +1,8 @@
-﻿* Back up data from Server
-* Improve Pdf
-
-* Correct Karyakar Marking
-
+﻿* Improve Pdf
 * Wait Indicator
 * avoid build_prod
+
+* Correct Karyakar Marking
 * Authentication for Admin menus
 * Validation (form.valid)
 ================ Examples =================
