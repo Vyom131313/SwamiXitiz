@@ -21,20 +21,24 @@
                         </button>
                     </td>
                     <td style="padding-left:5px;">
-                        <button (click)="onRefreshGetAllItems($event)" class="btn btn-primary btn-sm" >
+                        <button (click)="onRefreshGetAllItems($event)" class="btn btn-primary btn-sm">
                             <span class="glyphicon glyphicon-refresh"></span>
                         </button>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="5" style="height:5px">
-                    </td>
+                    <td colspan="5" style="height:5px"></td>
                 </tr>
                 <tr style="font-size:10.5pt;">
-                    <td colspan="3">                        
+                    <td colspan="4">
                         <input type="text" class="form-control input-sm" placeholder="Please enter filter value" [focus]="IsFitlerTextboxFocused" [(ngModel)]="filter" (keyup)="onFilter($event)" />
                     </td>
-                    <td colspan="2" style="padding-left:5px;padding-right:10px;">
+                    <td colspan="1" style="padding-left:5px;padding-right:10px;">
+                        <button class="btn btn-primary btn-sm" (click)="onClearFilter($event)">
+                            <i class="fa da-clear"></i>Clear
+                        </button>
+                    </td>
+                    <td colspan="1" style="padding-left:5px;padding-right:10px;">
                         <span style="font-weight:bold">{{pendingKaryakarCount}}</span>/<span style="font-weight:bold;color:black">{{totalKaryakarCount}} </span>
                         <!--<button routerLink="/attendees/new" class="btn btn-primary btn-sm">
                             <i class="glyphicon glyphicon-plus">Add</i>
@@ -51,7 +55,8 @@
     <thead>
         <tr style="font-weight:bold;font-size:10.5pt;">
             <th style="width:15px;"></th>
-            <th>Name & Address 
+            <th>
+                Name & Address
                 <span *ngIf="filter!=''" style="font-style:italic;color:black">(Filter: {{filter}})</span>
             </th>
             <th width="50px;"></th>
@@ -63,7 +68,7 @@
                 <span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>
             </td>
             <td>
-                <div class="form-group" style="margin-bottom:0px;" >
+                <div class="form-group" style="margin-bottom:0px;">
                     <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
                     <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
                         <span class="fa fa-map"></span> {{item.CityName}}

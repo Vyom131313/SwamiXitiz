@@ -83,6 +83,11 @@ export class AttendancesListViewComponent implements OnChanges {
         this.applyFilter();
     }
 
+    onClearFilter(event: Event) {
+        this.filter = '';
+        this.applyFilter();
+    }
+
     onRefreshGetAllItems(event: Event) {
         this.filter = "";
         this.getItems();
