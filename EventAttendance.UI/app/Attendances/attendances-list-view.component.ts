@@ -1,30 +1,28 @@
 ﻿import { NgModule } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { Component, Directive, Input, ElementRef, Renderer, Injectable, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Directive, Input, EventEmitter, ElementRef, Renderer, Injectable, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { trigger, state, animate, transition, style } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Attendance_VM } from '../Models.model';
 import { AttendancesService } from './attendances.service';
 
-
 @Directive({
     selector: '[focus]'
 })
 
 export class FocusDirective {
-    @Input() focus: boolean;
+    @Input('focus') focusEvent: EventEmitter<boolean>;
 
-    //constructor( @Inject(ElementRef) private element: ElementRef) { }
-
-    constructor(private _el: ElementRef, private renderer: Renderer) {
-        this.renderer.invokeElementMethod(this._el.nativeElement, 'focus');
+    constructor(private element: ElementRef, private renderer: Renderer) {
     }
 
-    //protected ngOnChanges() {
-    //    this.element.nativeElement.focus();
-    //}
+    ngOnInit() {
+        this.focusEvent.subscribe(event => {
+            this.renderer.invokeElementMethod(this.element.nativeElement, 'focus', []);
+        });
+    }
 }
 
 @Component({
@@ -53,7 +51,8 @@ export class AttendancesListViewComponent implements OnChanges {
     selectedGender: string = 'M';
     totalKaryakarCount: number = 0;
     pendingKaryakarCount: number = 0;
-    IsFitlerTextboxFocused: boolean = true;
+
+    public myFocusTriggeringEventEmitter = new EventEmitter<boolean>();
 
     constructor(private http: Http, private router: Router, private attendancesService: AttendancesService) {
         this.filter = '';
@@ -114,13 +113,13 @@ export class AttendancesListViewComponent implements OnChanges {
 
         this.totalKaryakarCount = this.attendances_vm_list.filter(c => c.IsKaryakar).length;
         this.pendingKaryakarCount = this.attendances_vm_list.filter(c => c.IsKaryakar && c.IsAttended).length;
+
+        this.myFocusTriggeringEventEmitter.emit(true);
     }
 
     OnTakeAttendance(event: any, currentItem: Attendance_VM) {
         currentItem.IsAttended = true;
         event.stopPropagation();
-
-
 
         // Call Service
         var result = this.attendancesService.add(this.http, this.selectedScheduleId, currentItem);
@@ -131,7 +130,7 @@ export class AttendancesListViewComponent implements OnChanges {
         this.filter = "";
 
         // Set focus to Filter textbox
-        this.IsFitlerTextboxFocused = true;
+        this.myFocusTriggeringEventEmitter.emit(true);
 
         result.subscribe(data => {
 

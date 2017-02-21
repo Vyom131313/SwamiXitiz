@@ -1,4 +1,4 @@
-﻿
+﻿* Read from config/json
 * Improve Pdf
 * Wait Indicator
 * avoid build_prod

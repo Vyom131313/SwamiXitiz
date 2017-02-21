@@ -31,7 +31,7 @@
                 </tr>
                 <tr style="font-size:10.5pt;">
                     <td colspan="2">
-                        <input type="text" class="form-control input-sm" placeholder="Please enter filter value" [focus]="IsFitlerTextboxFocused" [(ngModel)]="filter" (keyup)="onFilter($event)" />
+                        <input type="text" class="form-control input-sm" placeholder="Please enter filter value" [focus]="myFocusTriggeringEventEmitter" [(ngModel)]="filter" (keyup)="onFilter($event)" />
                     </td>
                     <td colspan="3" style="padding-left:5px;padding-right:10px;">
                         <button class="btn btn-primary btn-sm" (click)="onClearFilter($event)">
