@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -21,41 +22,59 @@ namespace EventAttendance.WebApi.Controllers
             if (eventScheduleId == 0)
                 return new List<Attendance_VM>().AsQueryable();
 
-            var eventSchedule = db.EventSchedules.FirstOrDefault(c => c.Id == eventScheduleId);
+            var paramEventScheduleId = new SqlParameter { ParameterName = "EventScheduleId", Value = eventScheduleId };
 
-            var query = (from attendee in db.Attendees
-                            .Where(c => string.IsNullOrEmpty(filter) || c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter))
-                            .Where(c => string.IsNullOrEmpty(gender) || c.Gender.Equals(gender))
-                         join attendance in db.Attendances.Where(c => c.EventScheduleId == eventScheduleId) on attendee.Id equals attendance.AttendeeId into gj
-                         from x in gj.DefaultIfEmpty()
-                         select new { attendee = attendee, attendance = x }).ToList().
-                        Select(c => new Attendance_VM
-                        {
-                            //EventSchedule = c.attendance != null ? c.attendance.EventSchedule : eventSchedule,
-                            EventScheduleId = c.attendance != null ? c.attendance.EventScheduleId : 0,
-                            EventShortDate = eventSchedule.EventShortDate,
+            var paramGender = new SqlParameter { ParameterName = "Gender", Value = DBNull.Value };
+            if (!string.IsNullOrEmpty(gender))
+            {
+                paramGender.Value = gender;
+            }
 
-                            ////Attendee = c.attendee,
-                            AttendeeId = c.attendee.Id,
+            var paramFilter = new SqlParameter { ParameterName = "filter", Value = DBNull.Value };
+            if (!string.IsNullOrEmpty(filter))
+            {
+                paramFilter.Value = filter;
+            }
 
-                            FirstName = c.attendee.FirstName,
-                            MiddleName = c.attendee.MiddleName,
-                            LastName = c.attendee.LastName,
+            var data = db.Database.SqlQuery<Attendance_VM>("EXEC dbo.Att_GetAttendancesByEventSchedule @EventScheduleId, @Gender, @filter", paramEventScheduleId, paramGender, paramFilter).ToList();
 
-                            AttendeeFullName = c.attendee.FullName,
-                            Gender = c.attendee.Gender,
-                            CityName = c.attendee.CityName,
-                            ZoneName = c.attendee.ZoneName,
-                            IsKaryakar = c.attendee.IsKaryakar,
-                            Address = c.attendee.Address,
+            return data.AsQueryable();
 
-                            Id = c.attendance != null ? c.attendance.Id : 0,
-                            AttendanceTimeOnly = c.attendance != null ? c.attendance.AttendanceTimeOnly : string.Empty,
-                            IsAttended = c.attendance != null ? c.attendance.IsAttended : default(bool),
-                            AttendanceTime = c.attendance != null ? c.attendance.AttendanceTime : default(DateTime),
-                        }).OrderBy(c => c.IsAttended).ThenBy(c => c.AttendeeFullName).ToList();
+            //var eventSchedule = db.EventSchedules.FirstOrDefault(c => c.Id == eventScheduleId);
 
-            return query.AsQueryable<Attendance_VM>();
+            //var query = (from attendee in db.Attendees
+            //                .Where(c => string.IsNullOrEmpty(filter) || c.FirstName.StartsWith(filter) || c.LastName.StartsWith(filter))
+            //                .Where(c => string.IsNullOrEmpty(gender) || c.Gender.Equals(gender))
+            //             join attendance in db.Attendances.Where(c => c.EventScheduleId == eventScheduleId) on attendee.Id equals attendance.AttendeeId into gj
+            //             from x in gj.DefaultIfEmpty()
+            //             select new { attendee = attendee, attendance = x }).ToList().
+            //            Select(c => new Attendance_VM
+            //            {
+            //                //EventSchedule = c.attendance != null ? c.attendance.EventSchedule : eventSchedule,
+            //                EventScheduleId = c.attendance != null ? c.attendance.EventScheduleId : 0,
+            //                EventShortDate = eventSchedule.EventShortDate,
+
+            //                ////Attendee = c.attendee,
+            //                AttendeeId = c.attendee.Id,
+
+            //                FirstName = c.attendee.FirstName,
+            //                MiddleName = c.attendee.MiddleName,
+            //                LastName = c.attendee.LastName,
+
+            //                AttendeeFullName = c.attendee.FullName,
+            //                Gender = c.attendee.Gender,
+            //                CityName = c.attendee.CityName,
+            //                ZoneName = c.attendee.ZoneName,
+            //                IsKaryakar = c.attendee.IsKaryakar,
+            //                Address = c.attendee.Address,
+
+            //                Id = c.attendance != null ? c.attendance.Id : 0,
+            //                AttendanceTimeOnly = c.attendance != null ? c.attendance.AttendanceTimeOnly : string.Empty,
+            //                IsAttended = c.attendance != null ? c.attendance.IsAttended : default(bool),
+            //                AttendanceTime = c.attendance != null ? c.attendance.AttendanceTime : default(DateTime),
+            //            }).OrderBy(c => c.IsAttended).ThenBy(c => c.AttendeeFullName).ToList();
+
+            //return query.AsQueryable<Attendance_VM>();
         }
 
         // GET: api/Attendances/5
@@ -77,34 +96,38 @@ namespace EventAttendance.WebApi.Controllers
         {
             try
             {
-                if (db.Attendances
-                    .Count(c => c.EventScheduleId == attendance.EventScheduleId && c.AttendeeId == attendance.AttendeeId) == 0)
-                {
-                    db.Attendances.Add(new Att_Attendance
-                    {
-                        EventScheduleId = attendance.EventScheduleId,
-                        AttendeeId = attendance.AttendeeId,
-                        AttendanceTime = attendance.AttendanceTime,
-                        IsAttended = true,
-                        CreatedOn = DateTime.Now,
-                        ModifiedOn = DateTime.Now
-                    });
-
-                    //db.SaveChanges();
-                    await db.SaveChangesAsync();
-                }
+                await db.Database
+                    .ExecuteSqlCommandAsync("EXEC dbo.Att_SaveAttendance @EventScheduleId, @AttendeeId, @AttendanceTime, @IsAttended",
+                        new SqlParameter { ParameterName = "EventScheduleId", Value = attendance.EventScheduleId },
+                        new SqlParameter { ParameterName = "AttendeeId", Value = attendance.AttendeeId },
+                        new SqlParameter { ParameterName = "AttendanceTime", Value = attendance.AttendanceTime },
+                        new SqlParameter { ParameterName = "IsAttended", Value = true }
+                    );
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception ex)
             {
-                //if (!AttendanceExists(id))
-                //{
-                //    return NotFound();
-                //}
-                //else
-                //{
-                //    throw;
-                //}
+                throw;
             }
+
+            //    if (db.Attendances
+            //        .Count(c => c.EventScheduleId == attendance.EventScheduleId && c.AttendeeId == attendance.AttendeeId) == 0)
+            //    {
+            //        db.Attendances.Add(new Att_Attendance
+            //        {
+            //            EventScheduleId = attendance.EventScheduleId,
+            //            AttendeeId = attendance.AttendeeId,
+            //            AttendanceTime = attendance.AttendanceTime,
+            //            IsAttended = true,
+            //            CreatedOn = DateTime.Now,
+            //            ModifiedOn = DateTime.Now
+            //        });
+
+            //        await db.SaveChangesAsync();
+            //    }
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //}
 
             return StatusCode(HttpStatusCode.NoContent);
         }

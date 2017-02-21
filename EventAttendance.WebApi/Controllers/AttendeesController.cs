@@ -127,7 +127,6 @@ namespace EventAttendance.WebApi.Controllers
                 return BadRequest();
             }
 
-
             try
             {
                 await db.Database
