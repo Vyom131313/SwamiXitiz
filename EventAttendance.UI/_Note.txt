@@ -1,6 +1,4 @@
-﻿* ES save issue
-* Deployment
-* Back up data from Server
+﻿* Back up data from Server
 * Improve Pdf
 
 * Correct Karyakar Marking

@@ -55,6 +55,9 @@ export class EventScheduleFormViewComponent implements OnInit   {
         var data = this.form.value;
         data.EventId = this.eventschedule.EventId;
 
+        if (data.EventShortDate == null)
+            data.EventShortDate = this.eventschedule.EventShortDate;
+
         console.log(data);
 
         var result = (data.Id)
