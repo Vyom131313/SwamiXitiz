@@ -15,7 +15,7 @@ import { EventSchedulesService } from './eventschedules.service';
     providers: [EventSchedulesService]
 })
 
-export class EventScheduleFormViewComponent implements OnInit   {
+export class EventScheduleFormViewComponent implements OnInit {
     public form: FormGroup;
     public title: string;
     public eventschedule: EventSchedule_VM = new EventSchedule_VM();
@@ -46,7 +46,7 @@ export class EventScheduleFormViewComponent implements OnInit   {
             this.eventschedulesService.getItem(this.http, id).then(item => this.eventschedule = item);
         });
     }
-    
+
     onEventChange(id: number) {
         this.eventschedule.EventId = id;
     }
@@ -60,7 +60,7 @@ export class EventScheduleFormViewComponent implements OnInit   {
 
         console.log(data);
 
-        var result = (data.Id)
+        var result = (data.Id && data.Id > 0)
             ? this.eventschedulesService.update(this.http, data)
             : this.eventschedulesService.add(this.http, data);
 

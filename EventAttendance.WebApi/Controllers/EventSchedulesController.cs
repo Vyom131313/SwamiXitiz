@@ -84,7 +84,8 @@ namespace EventAttendance.WebApi.Controllers
 
         // PUT: api/EventSchedules/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutEvent(int id, Att_EventSchedule EventSchedule)
+        [HttpPut]
+        public async Task<IHttpActionResult> PutEventSchedule(int id, Att_EventSchedule EventSchedule)
         {
             if (!ModelState.IsValid)
             {
@@ -119,7 +120,8 @@ namespace EventAttendance.WebApi.Controllers
 
         // POST: api/EventSchedules
         [ResponseType(typeof(Att_EventSchedule))]
-        public async Task<IHttpActionResult> PostEvent(Att_EventSchedule EventSchedule)
+        [HttpPost]
+        public async Task<IHttpActionResult> PostEventSchedule(Att_EventSchedule EventSchedule)
         {
             if (!ModelState.IsValid)
             {
