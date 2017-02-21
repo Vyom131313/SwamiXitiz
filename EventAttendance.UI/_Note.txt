@@ -1,8 +1,10 @@
-﻿* Improve Pdf
+﻿
+* Improve Pdf
 * Wait Indicator
 * avoid build_prod
 
 * Correct Karyakar Marking
+
 * Authentication for Admin menus
 * Validation (form.valid)
 ================ Examples =================

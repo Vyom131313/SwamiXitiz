@@ -24,7 +24,10 @@
     <tbody style="font-weight:bold;font-size:10pt;color:black">
         <tr *ngFor="let item of attendees_vm_list">
             <td style="width:15px;">
-                <span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>
+                <div *ngIf="item.IsKaryakar==true" class="karyakarCircle">
+                    K
+                </div>
+                <!--<span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>-->
             </td>
             <td>
                 <div class="form-group" style="margin-bottom:0px;">
