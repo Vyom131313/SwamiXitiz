@@ -1,9 +1,16 @@
-﻿
+﻿- Add/Edit/Validate Page, 
+- separate module
+- navbar: display all category
+- detail view filter	   : Book --> Chapter 
+- detail view grid columns : Id, Que Guj, Que Eng,  IsGujValid    Save
+								 Ans Guj, Ans Eng,  IsEngValid
+								 Comments
+- Order by IsGujValid, IsEngValid
+----------------------------------
 - TFS Account, Move code there,  
-- Add/Edit/Validate Page, 
 - Logo/Header/Footer
 - Theme changes
-- Database migrat
+- Database migrate
 ----------------------------------
 - QA: Pre Test
 - Menu: Keep selected  (1)
