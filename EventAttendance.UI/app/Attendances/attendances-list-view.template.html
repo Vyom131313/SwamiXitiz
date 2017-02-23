@@ -47,7 +47,11 @@
     </div>
 </h4>
 
-<table class="table" style="background-color:#35acdf; margin-top:100px;">
+<div *ngIf="loading == true" style="margin-top:90px;">
+    <loading-indicator></loading-indicator>
+</div>
+
+<table class="table" style="background-color:#35acdf; margin-top:90px;">
     <thead>
         <tr style="font-weight:bold;font-size:10.5pt;">
             <th style="width:15px;"></th>
@@ -87,7 +91,3 @@
         </tr>
     </tbody>
 </table>
-
-<div *ngIf="loading==true">
-    <loading-indicator></loading-indicator>
-</div>
