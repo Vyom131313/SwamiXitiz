@@ -17,6 +17,7 @@ import { AttendancesModule, AttendancesRouting } from "./Attendances/attendances
 import { ReportsModule, ReportsRouting } from "./Reports/reports.module";
 import { LoginModule, LoginRouting } from "./Login/login.module";
 
+import { SharedModule } from "./_Shared/shared.module";
 import { HomeModule } from "./Home/home.module";
 import { NotFoundComponent } from './NotFound/not-found.component';
 
@@ -34,8 +35,9 @@ import { AuthGuard } from './Login/authGuard.component';
         AttendancesModule, AttendancesRouting,
         ReportsModule, ReportsRouting,
         LoginModule, LoginRouting,
+        SharedModule,
         AppRoutes],
-    declarations: [AppComponent, AboutComponent, NotFoundComponent ],
+    declarations: [AppComponent, AboutComponent, NotFoundComponent],
     bootstrap: [AppComponent],
     providers: [SharedService, AuthGuard, AUTH_PROVIDERS]
 })

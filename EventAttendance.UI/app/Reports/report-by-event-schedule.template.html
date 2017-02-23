@@ -32,6 +32,10 @@
     </div>
 </h4>
 
+<div *ngIf="loading == true" style="margin-top:90px;">
+    <loading-indicator></loading-indicator>
+</div>
+
 <div style="margin-top:100px;" id="tblReportBySabhaAll">
     <table *ngIf="attendances_slot_1_vm_list != null && attendances_slot_1_vm_list != undefined && attendances_slot_1_vm_list.length > 0"
            class="table" style="background-color:#16a085;" id="tblSlot_1">

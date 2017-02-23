@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
+import { SharedModule } from "../_Shared/shared.module";
 
 // Components
 import { ReportByEventScheduleComponent } from './report-by-event-schedule.component';
@@ -20,7 +21,8 @@ import { ReportsService } from './reports.service';
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
-        HttpModule
+        HttpModule,
+        SharedModule
     ],
     declarations: [
         ReportByEventScheduleComponent, EventSchedulesDdlComponent, ReportByAttendeeComponent, AttendeesDdlComponent

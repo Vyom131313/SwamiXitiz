@@ -4,11 +4,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 
+import { SharedModule } from "../_Shared/shared.module";
+
 // Components
 import { AttendancesListViewComponent } from './attendances-list-view.component';
 import { EventSchedulesDdlComponent } from './event-schedules-ddl-view.component';
 
-import { LoadingIndicator } from '../_Shared/loading-indicator.component';
+//import { LoadingIndicator } from '../_Shared/loading-indicator.component';
 
 // Services
 import { AttendancesService } from './attendances.service';
@@ -22,13 +24,14 @@ import { FocusDirective } from './attendances-list-view.component';
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
-        HttpModule
+        HttpModule,
+        SharedModule
     ],
     declarations: [
-        AttendancesListViewComponent, EventSchedulesDdlComponent, FocusDirective, LoadingIndicator
+        AttendancesListViewComponent, EventSchedulesDdlComponent, FocusDirective
     ],
     exports: [
-        AttendancesListViewComponent, LoadingIndicator
+        AttendancesListViewComponent, 
     ],
     providers: [
         AttendancesService
