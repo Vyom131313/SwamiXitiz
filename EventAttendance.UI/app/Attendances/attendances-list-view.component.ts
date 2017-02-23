@@ -5,7 +5,7 @@ import { Component, Directive, Input, EventEmitter, ElementRef, Renderer, Inject
 import { trigger, state, animate, transition, style } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { LoadingIndicator, LoadingPage } from './loading-indicator.component';
+import { LoadingIndicator, LoadingPage } from '../_Shared/loading-indicator.component';
 
 import { Attendance_VM } from '../Models.model';
 import { AttendancesService } from './attendances.service';

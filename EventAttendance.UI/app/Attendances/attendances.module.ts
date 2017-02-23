@@ -8,7 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AttendancesListViewComponent } from './attendances-list-view.component';
 import { EventSchedulesDdlComponent } from './event-schedules-ddl-view.component';
 
-import { LoadingIndicator } from './loading-indicator.component';
+import { LoadingIndicator } from '../_Shared/loading-indicator.component';
 
 // Services
 import { AttendancesService } from './attendances.service';
