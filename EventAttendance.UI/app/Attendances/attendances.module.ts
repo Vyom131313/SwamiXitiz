@@ -8,14 +8,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { AttendancesListViewComponent } from './attendances-list-view.component';
 import { EventSchedulesDdlComponent } from './event-schedules-ddl-view.component';
 
-import { LoadingIndicator } from './attendances-list-view.component';
+import { LoadingIndicator } from './loading-indicator.component';
 
 // Services
 import { AttendancesService } from './attendances.service';
 
 // Directives
 import { FocusDirective } from './attendances-list-view.component';
-
 
 @NgModule({
     imports: [
