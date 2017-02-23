@@ -12,7 +12,9 @@ export class SharedService {
     //public WebApiBaseUrl: string = "http://localhost:23283/api";
     public WebApiBaseUrl: string = "http://attendance.xitiz.net/api";
 
-    constructor() {
-        //this.Lang = 'Eng';
+    constructor(private http: Http) {
+        if (/localhost/.test(document.location.host)) {
+            this.WebApiBaseUrl = "http://localhost:23283/api";
+        }
     }
 }
