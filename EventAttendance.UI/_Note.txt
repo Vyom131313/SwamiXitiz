@@ -1,18 +1,17 @@
-﻿* Read from config/json
-* Improve Pdf
-* Wait Indicator
+﻿* Wait Indicator
 * avoid build_prod
 
 * Correct Karyakar Marking
 
 * Authentication for Admin menus
 * Validation (form.valid)
+* Improve Pdf
 ================ Examples =================
 * https://angular.io/resources/live-examples/router/ts/eplnkr.html
 
 =========== Installed Packages ============
 * npm install angular2-jwt
-
+* npm install --save angular2-busy
 
 =========== Build Locally Steps =========== 
 * Open Command Prompt

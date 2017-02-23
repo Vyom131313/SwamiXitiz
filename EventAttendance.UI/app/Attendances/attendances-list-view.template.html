@@ -48,6 +48,10 @@
     </div>
 </h4>
 
+<div *ngIf="loading==true">
+    <loading-indicator></loading-indicator>
+</div>
+
 <table *ngIf="attendances_vm_list != null && attendances_vm_list != undefined"
        class="table" style="background-color:#35acdf; margin-top:100px;">
     <thead>
