@@ -25,7 +25,7 @@
       "core-js"
     ]
   },
-  "compileOnSave": false,
+  "compileOnSave": true,
   "files": [
     "app/main.ts"
   ]

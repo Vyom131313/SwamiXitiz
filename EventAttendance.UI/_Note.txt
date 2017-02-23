@@ -1,9 +1,8 @@
-﻿* avoid build_prod
+﻿* Authentication for Admin menus
 * Slow rendering UI issue
 
 * Correct Karyakar Marking
 
-* Authentication for Admin menus
 * Validation (form.valid)
 * Improve Pdf
 ================ Examples =================
