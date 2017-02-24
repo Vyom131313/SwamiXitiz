@@ -12,13 +12,17 @@ import { MenuItem } from './Models.model';
 @Injectable()
 export class MenuItemService {
 
-    public ServiceBaseUrl: string = "";
+    //public ServiceBaseUrl: string = "";
     //public ServiceBaseUrl: string = "http://localhost:9266";
-    //public ServiceBaseUrl: string = "http://yogiapekshit.xitiz.net";
+    public ServiceBaseUrl: string = "http://yogiapekshit.xitiz.net";
     
     constructor(private http: Http, private sharedService: SharedService)
     {
       //  this.sharedService.Lang.subscribe(value => { alert(''); this.getMenus(); });
+
+        if (/localhost/.test(document.location.host)) {
+            this.ServiceBaseUrl = "http://localhost:9266";
+        }
     }
 
     // getMenus(): Observable<MenuItem[]> {
