@@ -9,8 +9,9 @@ import { EventSchedulesService } from '../EventSchedules/eventschedules.service'
 
 @Component({
     selector: 'event-schedules-ddl',
-    template: `<select [(ngModel)]="selectedScheduleId" (change)="onChange($event.target.value)" class="form-control input-sm" style='padding:1px;width:80px;'>
-                  <option *ngFor="let item of schedulesDdlList" value= "{{item.Id}}" [selected]="selectedScheduleId == item.Id">
+    template: `<select [(ngModel)]="selectedScheduleId" (change)="onChange($event.target.value)" class="form-control input-sm" style='padding:1px;width:100px'>
+                  <option value="" disabled selected>--- Sabha Date ---</option>
+                  <option *ngFor="let item of schedulesDdlList" value="{{item.Id}}" [selected]="selectedScheduleId == item.Id">
                     {{item.EventShortDate}}
                   </option>
                 </select>`,

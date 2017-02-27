@@ -1,4 +1,8 @@
-﻿* Authentication for Admin menus
+﻿hide admin menus, Report Summary
+* Send report, 
+* Remove Kids name
+
+* Authentication for Admin menus
 * Slow rendering UI issue
 
 * Correct Karyakar Marking
