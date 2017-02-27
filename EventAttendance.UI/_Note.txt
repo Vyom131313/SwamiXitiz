@@ -1,12 +1,9 @@
-﻿hide admin menus, Report Summary
-* Send report, 
-* Remove Kids name
+﻿* Remove Kids name
+* Correct Karyakar Marking
+* Department
 
 * Authentication for Admin menus
 * Slow rendering UI issue
-
-* Correct Karyakar Marking
-
 * Validation (form.valid)
 * Improve Pdf
 ================ Examples =================
