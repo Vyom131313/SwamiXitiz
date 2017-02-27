@@ -21,7 +21,7 @@ namespace EventAttendance.WebApi.Controllers
 
         public IQueryable<EventSchedule_VM> GetEventSchedules()
         {
-            var data = db.EventSchedules.Include(c => c.Event).ToList();
+            var data = db.EventSchedules.Include(c => c.Event).OrderByDescending(c => c.EventDate).ToList();
             return data.Select(c => new EventSchedule_VM
             {
                 Id = c.Id,
