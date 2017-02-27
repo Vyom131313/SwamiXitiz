@@ -23,7 +23,7 @@
     <table class="table" style="background-color:black" id="tblSummary">
         <thead>
             <tr>
-                <th style="white-space:nowrap;">
+                <th style="white-space:nowrap;" colspan="2"> 
                     <a href="#tbodySummary" class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySummary" aria-expanded="true"></a>
                     <span>Summary</span>
                 </th>
@@ -32,23 +32,27 @@
         <tbody id="tbodySummary" aria-expanded="true" style="font-weight:bold;font-size:9pt;color:white">
             <tr *ngIf="attendances_slot_1_vm_list != null && attendances_slot_1_vm_list != undefined && attendances_slot_1_vm_list.length > 0">
                 <td>
-                    <span>Slot-1 : 4:00 PM or before </span><span style="color:black">Count#{{attendances_slot_1_vm_list.length}}</span>
+                    <span>Slot-1 : 4:00 PM or before </span>
                 </td>
+                <td>Count#{{attendances_slot_1_vm_list.length}}</td>
             </tr>
             <tr *ngIf="attendances_slot_2_vm_list != null && attendances_slot_2_vm_list != undefined && attendances_slot_2_vm_list.length > 0">
                 <td>
-                    <span>Slot-2 : 4:00 PM to 4:15 PM  </span><span style="color:black">Count#{{attendances_slot_2_vm_list.length}}</span>
+                    <span>Slot-2 : 4:00 PM to 4:15 PM  </span>
                 </td>
+                <td>Count#{{attendances_slot_2_vm_list.length}}</td>
             </tr>
             <tr *ngIf="attendances_slot_3_vm_list != null && attendances_slot_3_vm_list != undefined && attendances_slot_3_vm_list.length > 0">
                 <td>
-                    <span>Slot-3 : 4:15 PM to 4:30 PM </span><span style="color:black">Count#{{attendances_slot_3_vm_list.length}}</span>
+                    <span>Slot-3 : 4:15 PM to 4:30 PM </span>
                 </td>
+                <td>Count#{{attendances_slot_3_vm_list.length}}</td>
             </tr>
             <tr *ngIf="attendances_slot_4_vm_list != null && attendances_slot_4_vm_list != undefined && attendances_slot_4_vm_list.length > 0">
                 <td>
-                    <span>Slot-4 : 4:30 PM after </span> <span style="color:black"> Count#{{attendances_slot_4_vm_list.length}}</span>
+                    <span>Slot-4 : 4:30 PM after </span>  
                 </td>
+                <td>Count#{{attendances_slot_4_vm_list.length}}</td>
             </tr>
         </tbody>
     </table>
