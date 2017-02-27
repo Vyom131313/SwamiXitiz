@@ -17,7 +17,7 @@
     <hr style="height:5px;margin:0px;padding:0px;border-color:transparent" />
 
     <div class="control-group" style="font-size:10.5pt;">
-        <input type="text" class="form-control input-sm" style="float:left;width:150px;" placeholder="Enter filter value" [focus]="myFocusTriggeringEventEmitter" [(ngModel)]="filter" (keyup)="onFilter($event)" />
+        <input type="text" class="form-control input-sm" style="float:left" placeholder="Enter filter value" [focus]="myFocusTriggeringEventEmitter" [(ngModel)]="filter" (keyup)="onFilter($event)" />
         <button class="btn btn-primary btn-sm" (click)="onClearFilter($event)" style="margin-left:5px">
             <i class="fa fa-trash-o" style="font-size:16px"></i> Clear
         </button>
