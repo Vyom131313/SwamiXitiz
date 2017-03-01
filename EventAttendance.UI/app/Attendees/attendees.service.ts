@@ -31,6 +31,15 @@ export class AttendeesService {
             .then((response) => response.json());
     }
 
+    GetAttendeesActive(http: Http, filter: string) {
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('filter', filter);
+
+        return http.get(this.ServiceBaseUrl +"/GetAttendeesActive", { search: params })
+            .toPromise()
+            .then((response) => response.json());
+    }
+
     getZoneItems(http: Http) {
 
         return http.get(this.ServiceBaseUrl + "/GetZones")

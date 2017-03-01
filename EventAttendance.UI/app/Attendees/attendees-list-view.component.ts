@@ -3,6 +3,7 @@ import { Headers, Http, Response } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+//import { LoadingIndicator, LoadingPage } from '../_Shared/loading-indicator.component';
 
 import { Attendee_VM } from '../Models.model';
 import { AttendeesService } from './attendees.service';
@@ -18,6 +19,7 @@ import { AttendeesService } from './attendees.service';
 
 export class AttendeesListViewComponent implements OnChanges {
     attendees_vm_list: Array<Attendee_VM>;
+    master_list: Array<Attendee_VM>;
     filter: string;
 
     constructor(private http: Http, private router: Router, private attendeesService: AttendeesService) {
@@ -35,12 +37,18 @@ export class AttendeesListViewComponent implements OnChanges {
     }
 
     getItems() {
-        this.attendeesService.getItems(this.http, this.filter).then(items => { this.attendees_vm_list = items; });
+        //this.standby();
+        this.attendeesService.getItems(this.http, this.filter).then(items => { this.master_list = items; this.applyFilter();});
     }
 
-    //delete(id: number, event: Event): void {
+    applyFilter() {
+        if (this.filter.length > 0) {
+            this.attendees_vm_list = this.master_list.filter(c => c.FirstName.toLowerCase().startsWith(this.filter.toLowerCase()) || c.LastName.toLowerCase().startsWith(this.filter.toLowerCase()));
+        }
+        else {
+            this.attendees_vm_list = this.master_list;
+        }
 
-    //    var result = this.attendeesService.delete(this.http, id);
-    //    result.subscribe(data => this.getItems());
-    //}
+        //this.ready();
+    }
 }

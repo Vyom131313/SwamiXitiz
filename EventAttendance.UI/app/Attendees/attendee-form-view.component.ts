@@ -42,6 +42,7 @@ export class AttendeeFormViewComponent implements OnInit {
             ZoneId: [],
             CityId: [],
             IsKaryakar: [],
+            IsDeleted: [],
         });
     }
 

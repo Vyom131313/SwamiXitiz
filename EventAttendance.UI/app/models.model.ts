@@ -27,6 +27,7 @@ export class Attendee_VM {
     ZoneName: string;
     ZoneId: number;
     IsKaryakar: boolean;
+    IsDeleted: boolean;
 }
 
 export class Attendance_VM {

@@ -1,5 +1,4 @@
-﻿* Remove Kids name
-* Correct Karyakar Marking
+﻿* Delete marking / Correct Karyakar Marking
 * Department
 
 * Authentication for Admin menus

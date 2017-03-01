@@ -40,7 +40,7 @@ export class AttendeesDdlComponent implements OnChanges {
     }
 
     getItems() {
-        this.attendeesService.getItems(this.http, "").then(items => {
+        this.attendeesService.GetAttendeesActive(this.http, "").then(items => {
             this.attendeesDdlList = items;
         });
     }
