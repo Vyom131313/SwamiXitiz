@@ -11,10 +11,7 @@ import { AppComponent } from './app.component';
 import { AdminModule, AdminModuleRouting } from "./AdminModule/admin.module";
 import { EndUserModule, EndUserModuleRouting } from "./EndUserModule/enduser.module";
 
-//import { SharedModule } from "./_Shared/shared.module";
 //import { NotFoundComponent } from './NotFound/not-found.component';
-
-import { SharedService } from './shared.service';
 
 @NgModule({
     imports: [BrowserModule, HttpModule,
@@ -23,7 +20,6 @@ import { SharedService } from './shared.service';
         AppRoutes],
     declarations: [AppComponent],
     bootstrap: [AppComponent],
-    providers: [SharedService]
 })
 export class AppModule {
     constructor(router: Router) {
@@ -52,6 +48,5 @@ import { MenuItemService } from './menuItem.service';
   providers: [SharedService, MenuItemService]
 })
 export class AppModule { }
-
 
 */
