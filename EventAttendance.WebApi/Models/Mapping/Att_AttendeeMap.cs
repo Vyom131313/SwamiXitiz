@@ -41,6 +41,7 @@ namespace EventAttendance.WebApi.Models.Mapping
             this.Property(t => t.ZoneId).HasColumnName("ZoneId");
             this.Property(t => t.CityId).HasColumnName("CityId");
             this.Property(t => t.IsKaryakar).HasColumnName("IsKaryakar");
+            this.Property(t => t.IsDeleted).HasColumnName("IsDeleted");
 
             // Relationships
             this.HasOptional(t => t.Zone)

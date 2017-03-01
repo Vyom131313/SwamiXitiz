@@ -19,6 +19,8 @@ namespace EventAttendance.WebApi.Models
         public Nullable<int> ZoneId { get; set; }
         public int CityId { get; set; }
         public bool IsKaryakar { get; set; }
+        public bool IsDeleted { get; set; }
+
         public virtual ICollection<Att_Attendance> Attendances { get; set; }
         public virtual Att_Zone Zone { get; set; }
         public virtual Att_City City { get; set; }

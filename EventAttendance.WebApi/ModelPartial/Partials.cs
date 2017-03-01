@@ -93,6 +93,7 @@ namespace EventAttendance.WebApi.Models
         public Nullable<int> CityId { get; set; }
 
         public bool IsKaryakar { get; set; }
+        public bool IsDeleted { get; set; }
 
         public virtual string CityName { get; set; }
         public virtual string ZoneName { get; set; }
