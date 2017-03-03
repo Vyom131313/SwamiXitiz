@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components
 import { AdminComponent } from './admin.component';
+import { NavbarLeftComponent } from './navbar-left.component';
+
 
 @NgModule({
     imports: [
@@ -13,11 +15,11 @@ import { AdminComponent } from './admin.component';
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
-        HttpModule
+        HttpModule,        
     ],
-    declarations: [AdminComponent],
+    declarations: [AdminComponent, NavbarLeftComponent],
     exports: [
-        AdminComponent
+        AdminComponent, NavbarLeftComponent
     ],
     providers: []
 })
