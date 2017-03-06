@@ -28,7 +28,7 @@ namespace EventAttendance.WebApi.Models
     public partial class Att_EventSchedule
     {
         public virtual string EventName { get { return this.Event != null ? this.Event.Name : string.Empty; } }
-
+        
         [NotMapped]
         public virtual string EventShortDate
         {
@@ -76,6 +76,7 @@ namespace EventAttendance.WebApi.Models
         public int EventId { get; set; }
         public DateTime EventDate { get; set; }
         public bool IsFreezed { get; set; }
+        public string Notes { get; set; }
 
         public virtual string EventName { get; set; }
         public virtual string EventShortDate { get; set; }

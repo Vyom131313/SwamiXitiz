@@ -14,6 +14,7 @@ namespace EventAttendance.WebApi.Models
         public int EventId { get; set; }
         public System.DateTime EventDate { get; set; }
         public bool IsFreezed { get; set; }
+        public string Notes { get; set; }
         public virtual ICollection<Att_Attendance> Attendances { get; set; }
         public virtual Att_Event Event { get; set; }
     }

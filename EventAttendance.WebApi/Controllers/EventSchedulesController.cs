@@ -29,7 +29,8 @@ namespace EventAttendance.WebApi.Controllers
                 EventName = c.EventName,
                 EventDate = c.EventDate,
                 EventShortDate = c.EventShortDate,
-                IsFreezed = c.IsFreezed
+                IsFreezed = c.IsFreezed,
+                Notes = c.Notes
             }).AsQueryable();
         }
 
@@ -47,7 +48,8 @@ namespace EventAttendance.WebApi.Controllers
                 EventDate = c.EventDate,
                 EventName = c.EventName,
                 EventShortDate = c.EventShortDate,
-                IsFreezed = c.IsFreezed
+                IsFreezed = c.IsFreezed,
+                Notes = c.Notes
             }).AsQueryable();
         }
 
@@ -65,7 +67,8 @@ namespace EventAttendance.WebApi.Controllers
                 EventDate = c.EventDate,
                 EventName = c.EventName,
                 EventShortDate = c.EventShortDate,
-                IsFreezed = c.IsFreezed
+                IsFreezed = c.IsFreezed,
+                Notes = c.Notes
             }).AsQueryable();
         }
 

@@ -17,6 +17,7 @@ namespace EventAttendance.WebApi.Models.Mapping
             this.Property(t => t.EventId).HasColumnName("EventId");
             this.Property(t => t.EventDate).HasColumnName("EventDate");
             this.Property(t => t.IsFreezed).HasColumnName("IsFreezed");
+            this.Property(t => t.Notes).HasColumnName("Notes");
 
             // Relationships
             this.HasRequired(t => t.Event)
