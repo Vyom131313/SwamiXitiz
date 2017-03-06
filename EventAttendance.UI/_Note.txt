@@ -1,4 +1,4 @@
-﻿* Note column/New slot/trim/report/Backup (1.5), 
+﻿* New slot/report/Backup (1.5), 
 
 * Delete kids&Yuvak&Yuvati (1)
 * Update Iskaryakar from Structure

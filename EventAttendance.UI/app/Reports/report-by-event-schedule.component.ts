@@ -25,6 +25,8 @@ export class ReportByEventScheduleComponent extends LoadingPage implements OnCha
     attendances_slot_2_vm_list: Array<Attendance_VM>;
     attendances_slot_3_vm_list: Array<Attendance_VM>;
     attendances_slot_4_vm_list: Array<Attendance_VM>;
+    attendances_slot_5_vm_list: Array<Attendance_VM>;
+    attendances_slot_6_vm_list: Array<Attendance_VM>;
 
     filter: string;
     selectedScheduleId: number = 0;
@@ -69,6 +71,9 @@ export class ReportByEventScheduleComponent extends LoadingPage implements OnCha
                 this.attendances_slot_2_vm_list = this.attendances_vm_list.filter(c => c.IsAttended && c.Slot == 'Slot-2');
                 this.attendances_slot_3_vm_list = this.attendances_vm_list.filter(c => c.IsAttended && c.Slot == 'Slot-3');
                 this.attendances_slot_4_vm_list = this.attendances_vm_list.filter(c => c.IsAttended && c.Slot == 'Slot-4');
+                this.attendances_slot_5_vm_list = this.attendances_vm_list.filter(c => c.IsAttended && c.Slot == 'Slot-5');
+                this.attendances_slot_6_vm_list = this.attendances_vm_list.filter(c => c.IsAttended && c.Slot == 'Slot-6');
+
                 this.attendances_absent_vm_list = this.attendances_vm_list.filter(c => !c.IsAttended);
 
                 this.ready();
