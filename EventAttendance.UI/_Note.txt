@@ -1,11 +1,8 @@
-﻿* New slot/report/Backup (1.5), 
-
-* Delete kids&Yuvak&Yuvati (1)
-* Update Iskaryakar from Structure
+﻿* Delete kids&Yuvak&Yuvati (1)
+* Update Iskaryakar from Structure (1)
 * Search for ReportByAttendee(1)
-* Send email to Vimalbhai
-* Send email to Hirenbhai with Karyakar list
 * Department Field (2)
+* Send email to Vimalbhai
 
 * Authentication for Admin menus
 * Slow rendering UI issue
