@@ -1,5 +1,11 @@
-﻿* Delete marking / Correct Karyakar Marking
-* Department
+﻿* Note column/New slot/trim/report/Backup (1.5), 
+
+* Delete kids&Yuvak&Yuvati (1)
+* Update Iskaryakar from Structure
+* Search for ReportByAttendee(1)
+* Send email to Vimalbhai
+* Send email to Hirenbhai with Karyakar list
+* Department Field (2)
 
 * Authentication for Admin menus
 * Slow rendering UI issue

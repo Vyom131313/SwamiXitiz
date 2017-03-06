@@ -30,6 +30,7 @@ export class EventScheduleFormViewComponent implements OnInit {
                 Validators.required,
             ]],
             EventShortDate: [],
+            Notes: [],
             IsFreezed: ['', [
                 //Validators.required,
             ]]

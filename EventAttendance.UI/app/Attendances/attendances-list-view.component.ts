@@ -110,6 +110,8 @@ export class AttendancesListViewComponent extends LoadingPage implements OnChang
     }
 
     applyFilter() {
+        this.filter = this.filter.trim();
+
         if (this.filter.length > 0) {
             this.attendances_vm_list = this.master_list.filter(c => c.FirstName.toLowerCase().startsWith(this.filter.toLowerCase()) || c.LastName.toLowerCase().startsWith(this.filter.toLowerCase()));
         }

@@ -13,6 +13,7 @@ export class EventSchedule_VM {
     EventDate: string;
     EventShortDate: string;
     IsFreezed: boolean;
+    Notes: string;
 }
 
 export class Attendee_VM {
