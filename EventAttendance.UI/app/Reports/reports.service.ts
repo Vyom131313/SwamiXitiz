@@ -40,4 +40,14 @@ export class ReportsService {
             .toPromise()
             .then((response) => response.json());
     }
+
+    getEventScheduleInfo(http: Http, id: number) {
+
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('id', id.toString());
+
+        return http.get(this.sharedService.WebApiBaseUrl + "/EventSchedules", { search: params })
+            .toPromise()
+            .then((response) => response.json());
+    }
 }

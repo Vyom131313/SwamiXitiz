@@ -23,18 +23,18 @@
     <table class="table" style="background-color:black" id="tblSummary">
         <thead>
             <tr>
-                <th style="white-space:nowrap;" colspan="2"> 
+                <th style="white-space:nowrap;" colspan="2">
                     <a href="#tbodySummary" class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySummary" aria-expanded="true"></a>
                     <span>Summary</span>
                 </th>
-            </tr>           
+            </tr>
         </thead>
         <tbody id="tbodySummary" aria-expanded="true" style="font-weight:bold;font-size:9pt;color:white">
-            <!--<tr style="text-decoration:underline;font-size:9.5pt">
+            <tr *ngIf="notes != null && notes.length>0">
                 <td colspan="2">
-                    Note:
+                    <span style="text-decoration:underline;font-size:9.5pt">* Note:</span>  {{notes}}
                 </td>
-            </tr>-->
+            </tr>
             <tr style="text-decoration:underline;font-size:9.5pt">
                 <td>
                     Slot
@@ -45,40 +45,40 @@
                 <td>
                     <span>Slot-1 : 4:00 PM or before </span>
                 </td>
-                <td>{{attendances_slot_1_vm_list.length}} ({{(attendances_slot_1_vm_list.length/attendances_vm_list.length).toFixed(2) | percent}})</td>
+                <td>{{slot1_cnt_perc}}</td>
             </tr>
             <tr *ngIf="attendances_slot_2_vm_list != null && attendances_slot_2_vm_list != undefined && attendances_slot_2_vm_list.length > 0">
                 <td>
                     <span>Slot-2 : 4:00 PM to 4:15 PM  </span>
                 </td>
-                <td>{{attendances_slot_2_vm_list.length}} ({{(attendances_slot_2_vm_list.length/attendances_vm_list.length).toFixed(2) | percent}})</td>
+                <td>{{slot2_cnt_perc}}</td>
             </tr>
             <tr *ngIf="attendances_slot_3_vm_list != null && attendances_slot_3_vm_list != undefined && attendances_slot_3_vm_list.length > 0">
                 <td>
                     <span>Slot-3 : 4:15 PM to 4:30 PM </span>
                 </td>
-                <td>{{attendances_slot_3_vm_list.length}} ({{(attendances_slot_3_vm_list.length/attendances_vm_list.length).toFixed(2) | percent}})</td>
+                <td>{{slot3_cnt_perc}}</td>
             </tr>
-            
+
             <tr *ngIf="attendances_slot_4_vm_list != null && attendances_slot_4_vm_list != undefined && attendances_slot_4_vm_list.length > 0">
                 <td>
                     <span>Slot-4 : 4:30 PM to 5:00 PM </span>
                 </td>
-                <td>{{attendances_slot_4_vm_list.length}} ({{(attendances_slot_4_vm_list.length/attendances_vm_list.length).toFixed(2) | percent}})</td>
+                <td>{{slot4_cnt_perc}}</td>
             </tr>
-            
+
             <tr *ngIf="attendances_slot_5_vm_list != null && attendances_slot_5_vm_list != undefined && attendances_slot_5_vm_list.length > 0">
                 <td>
-                    <span>Slot-5 : 5:00 PM to 5:30 PM </span>  
+                    <span>Slot-5 : 5:00 PM to 5:30 PM </span>
                 </td>
-                <td>{{attendances_slot_5_vm_list.length}} ({{(attendances_slot_4_vm_list.length/attendances_vm_list.length).toFixed(2) | percent}})</td>
+                <td>{{slot5_cnt_perc}}</td>
             </tr>
 
             <tr *ngIf="attendances_slot_6_vm_list != null && attendances_slot_6_vm_list != undefined && attendances_slot_6_vm_list.length > 0">
                 <td>
                     <span>Slot-6 : 5:30 PM After </span>
                 </td>
-                <td>{{attendances_slot_6_vm_list.length}} ({{(attendances_slot_4_vm_list.length/attendances_vm_list.length).toFixed(2) | percent}})</td>
+                <td>{{slot6_cnt_perc}}</td>
             </tr>
         </tbody>
     </table>
@@ -177,7 +177,7 @@
                     <a href="#tbodySlot3" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot3" aria-expanded="false"></a>
                     <span>Slot-3 : 4:15 PM to 4:30 PM </span><span style="color:black">Count#{{attendances_slot_3_vm_list.length}}</span>
                 </th>
-            </tr>          
+            </tr>
         </thead>
         <tbody id="tbodySlot3" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
             <tr style="font-weight:bold;font-size:10.5pt;color:white">
