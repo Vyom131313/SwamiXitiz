@@ -39,46 +39,46 @@
                 <td>
                     Slot
                 </td>
-                <td>Count#</td>
+                <td>Count# ( Total: {{attendances_vm_list.length}} )</td>
             </tr>
             <tr *ngIf="attendances_slot_1_vm_list != null && attendances_slot_1_vm_list != undefined && attendances_slot_1_vm_list.length > 0">
                 <td>
                     <span>Slot-1 : 4:00 PM or before </span>
                 </td>
-                <td>{{attendances_slot_1_vm_list.length}}</td>
+                <td>{{attendances_slot_1_vm_list.length}} ({{(attendances_slot_1_vm_list.length/attendances_vm_list.length).toFixed(2) | percent}})</td>
             </tr>
             <tr *ngIf="attendances_slot_2_vm_list != null && attendances_slot_2_vm_list != undefined && attendances_slot_2_vm_list.length > 0">
                 <td>
                     <span>Slot-2 : 4:00 PM to 4:15 PM  </span>
                 </td>
-                <td>{{attendances_slot_2_vm_list.length}}</td>
+                <td>{{attendances_slot_2_vm_list.length}} ({{(attendances_slot_2_vm_list.length/attendances_vm_list.length).toFixed(2) | percent}})</td>
             </tr>
             <tr *ngIf="attendances_slot_3_vm_list != null && attendances_slot_3_vm_list != undefined && attendances_slot_3_vm_list.length > 0">
                 <td>
                     <span>Slot-3 : 4:15 PM to 4:30 PM </span>
                 </td>
-                <td>{{attendances_slot_3_vm_list.length}}</td>
+                <td>{{attendances_slot_3_vm_list.length}} ({{(attendances_slot_3_vm_list.length/attendances_vm_list.length).toFixed(2) | percent}})</td>
             </tr>
             
             <tr *ngIf="attendances_slot_4_vm_list != null && attendances_slot_4_vm_list != undefined && attendances_slot_4_vm_list.length > 0">
                 <td>
                     <span>Slot-4 : 4:30 PM to 5:00 PM </span>
                 </td>
-                <td>{{attendances_slot_4_vm_list.length}}</td>
+                <td>{{attendances_slot_4_vm_list.length}} ({{(attendances_slot_4_vm_list.length/attendances_vm_list.length).toFixed(2) | percent}})</td>
             </tr>
             
             <tr *ngIf="attendances_slot_5_vm_list != null && attendances_slot_5_vm_list != undefined && attendances_slot_5_vm_list.length > 0">
                 <td>
                     <span>Slot-5 : 5:00 PM to 5:30 PM </span>  
                 </td>
-                <td>{{attendances_slot_5_vm_list.length}}</td>
+                <td>{{attendances_slot_5_vm_list.length}} ({{(attendances_slot_4_vm_list.length/attendances_vm_list.length).toFixed(2) | percent}})</td>
             </tr>
 
             <tr *ngIf="attendances_slot_6_vm_list != null && attendances_slot_6_vm_list != undefined && attendances_slot_6_vm_list.length > 0">
                 <td>
                     <span>Slot-6 : 5:30 PM After </span>
                 </td>
-                <td>{{attendances_slot_6_vm_list.length}}</td>
+                <td>{{attendances_slot_6_vm_list.length}} ({{(attendances_slot_4_vm_list.length/attendances_vm_list.length).toFixed(2) | percent}})</td>
             </tr>
         </tbody>
     </table>
@@ -305,7 +305,7 @@
                 </th>
             </tr>
         </thead>
-        <tbody id="tbodySlot4" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
+        <tbody id="tbodySlot6" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
             <tr style="font-weight:bold;font-size:10.5pt;color:white">
                 <th width="10px;"></th>
                 <th>Name & Address</th>

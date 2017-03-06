@@ -27,7 +27,7 @@ export class ReportByEventScheduleComponent extends LoadingPage implements OnCha
     attendances_slot_4_vm_list: Array<Attendance_VM>;
     attendances_slot_5_vm_list: Array<Attendance_VM>;
     attendances_slot_6_vm_list: Array<Attendance_VM>;
-
+    
     filter: string;
     selectedScheduleId: number = 0;
 
