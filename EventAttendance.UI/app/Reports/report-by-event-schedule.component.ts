@@ -35,7 +35,7 @@ export class ReportByEventScheduleComponent extends LoadingPage implements OnCha
     slot5_cnt_perc: string;
     slot6_cnt_perc: string;
 
-
+    eventShortDate: string;
     filter: string;
     notes: string;
     selectedScheduleId: number = 0;
@@ -54,7 +54,8 @@ export class ReportByEventScheduleComponent extends LoadingPage implements OnCha
     onScheduleChange(id: number) {
         this.selectedScheduleId = id;
 
-        this.reportsService.getEventScheduleInfo(this.http, id).then(item => this.notes = item.Notes);
+        this.reportsService.getEventScheduleInfo(this.http, id)
+            .then(item => { this.notes = item.Notes; this.eventShortDate = item.EventShortDate; });
 
         this.getItems();
     }
