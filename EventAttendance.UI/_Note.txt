@@ -1,6 +1,8 @@
 ﻿* Delete kids&Yuvak&Yuvati (1)
 * Update Iskaryakar from Structure (1)
 * New Fields: ImsId, Department Field (2)
+* Help Page
+
 * Search for ReportByAttendee(1)
 * Send email to Vimalbhai
 
