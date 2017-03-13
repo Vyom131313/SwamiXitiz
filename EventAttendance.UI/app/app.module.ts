@@ -19,6 +19,7 @@ import { LoginModule, LoginRouting } from "./Login/login.module";
 
 import { SharedModule } from "./_Shared/shared.module";
 import { HomeModule } from "./Home/home.module";
+import { HelpModule } from "./Help/help.module";
 import { NotFoundComponent } from './NotFound/not-found.component';
 
 import { SharedService } from './shared.service';
@@ -28,7 +29,7 @@ import { AuthGuard } from './Login/authGuard.component';
 
 @NgModule({
     imports: [BrowserModule, HttpModule,
-        NavbarLeftModule, HomeModule,
+        NavbarLeftModule, HomeModule, HelpModule,
         EventsModule, EventsRouting,
         EventSchedulesModule, EventSchedulesRouting,
         AttendeesModule, AttendeesRouting,
