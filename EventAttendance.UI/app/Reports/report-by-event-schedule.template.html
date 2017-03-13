@@ -29,10 +29,11 @@
             </tr>
         </thead>
     </table>
+
     <table class="table" style="background-color:black" id="tblSummary">
         <thead>
             <tr>
-                <th style="white-space:nowrap;" colspan="2">
+                <th style="white-space:nowrap;" colspan="4">
                     <a href="#tbodySummary" class="btn btnTableCollapse" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySummary" aria-expanded="true"></a>
                     <span>Attendance Summary</span>
                 </th>
@@ -40,7 +41,7 @@
         </thead>
         <tbody id="tbodySummary" aria-expanded="true" style="font-weight:bold;font-size:9pt;color:white">
             <tr *ngIf="notes != null && notes.length>0">
-                <td colspan="2">
+                <td colspan="4">
                     <span style="text-decoration:underline;font-size:9.5pt">* Note:</span>  {{notes}}
                 </td>
             </tr>
@@ -48,57 +49,73 @@
                 <td>
                     Slot
                 </td>
-                <td>Count# ( Total: {{attendances_vm_list.length}} )</td>
+                <td><span class="fa fa-male"></span> Male # ( Total: {{attendances_m_vm_list.length}} )</td>
+                <td><span class="fa fa-female"></span> Female # ( Total: {{attendances_f_vm_list.length}} )</td>
+                <td>Count # ( Total: {{attendances_vm_list.length}} )</td>
             </tr>
-            <tr *ngIf="attendances_slot_1_vm_list != null && attendances_slot_1_vm_list != undefined && attendances_slot_1_vm_list.length > 0">
+
+            <tr *ngIf="attendances_m_slot_1_vm_list != null && attendances_m_slot_1_vm_list != undefined && attendances_m_slot_1_vm_list.length > 0">
                 <td>
                     <span>Slot-1 : 4:00 PM or before </span>
                 </td>
-                <td>{{slot1_cnt_perc}}</td>
+                <td>{{attendances_m_slot_1_vm_list.length }}   ({{(attendances_m_slot_1_vm_list.length / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
+                <td>{{attendances_f_slot_1_vm_list.length }}   ({{(attendances_f_slot_1_vm_list.length / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
+                <td>{{attendances_m_slot_1_vm_list.length + attendances_f_slot_1_vm_list.length }}   ({{((attendances_m_slot_1_vm_list.length + attendances_f_slot_1_vm_list.length) / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
             </tr>
-            <tr *ngIf="attendances_slot_2_vm_list != null && attendances_slot_2_vm_list != undefined && attendances_slot_2_vm_list.length > 0">
+            <tr *ngIf="attendances_m_slot_2_vm_list != null && attendances_m_slot_2_vm_list != undefined && attendances_m_slot_2_vm_list.length > 0">
                 <td>
                     <span>Slot-2 : 4:00 PM to 4:15 PM  </span>
                 </td>
-                <td>{{slot2_cnt_perc}}</td>
+                <td>{{attendances_m_slot_2_vm_list.length.toString() }}   ({{(this.attendances_m_slot_2_vm_list.length / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
+                <td>{{attendances_f_slot_2_vm_list.length.toString() }}   ({{(this.attendances_f_slot_2_vm_list.length / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
+                <td>{{attendances_m_slot_2_vm_list.length + attendances_f_slot_2_vm_list.length }}   ({{((attendances_m_slot_2_vm_list.length + attendances_f_slot_2_vm_list.length) / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
             </tr>
-            <tr *ngIf="attendances_slot_3_vm_list != null && attendances_slot_3_vm_list != undefined && attendances_slot_3_vm_list.length > 0">
+            <tr *ngIf="attendances_m_slot_3_vm_list != null && attendances_m_slot_3_vm_list != undefined && attendances_m_slot_3_vm_list.length > 0">
                 <td>
                     <span>Slot-3 : 4:15 PM to 4:30 PM </span>
                 </td>
-                <td>{{slot3_cnt_perc}}</td>
+                <td>{{attendances_m_slot_3_vm_list.length.toString() }}   ({{(this.attendances_m_slot_3_vm_list.length / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
+                <td>{{attendances_f_slot_3_vm_list.length.toString() }}   ({{(this.attendances_f_slot_3_vm_list.length / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
+                <td>{{attendances_m_slot_3_vm_list.length + attendances_f_slot_3_vm_list.length }}   ({{((attendances_m_slot_3_vm_list.length + attendances_f_slot_3_vm_list.length) / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
             </tr>
 
-            <tr *ngIf="attendances_slot_4_vm_list != null && attendances_slot_4_vm_list != undefined && attendances_slot_4_vm_list.length > 0">
+            <tr *ngIf="attendances_m_slot_4_vm_list != null && attendances_m_slot_4_vm_list != undefined && attendances_m_slot_4_vm_list.length > 0">
                 <td>
                     <span>Slot-4 : 4:30 PM to 5:00 PM </span>
                 </td>
-                <td>{{slot4_cnt_perc}}</td>
+                <td>{{attendances_m_slot_4_vm_list.length.toString() }}   ({{(this.attendances_m_slot_4_vm_list.length / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
+                <td>{{attendances_f_slot_4_vm_list.length.toString() }}   ({{(this.attendances_f_slot_4_vm_list.length / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
+                <td>{{attendances_m_slot_4_vm_list.length + attendances_f_slot_4_vm_list.length }}   ({{((attendances_m_slot_4_vm_list.length + attendances_f_slot_4_vm_list.length) / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
             </tr>
 
-            <tr *ngIf="attendances_slot_5_vm_list != null && attendances_slot_5_vm_list != undefined && attendances_slot_5_vm_list.length > 0">
+            <tr *ngIf="attendances_m_slot_5_vm_list != null && attendances_m_slot_5_vm_list != undefined && attendances_m_slot_5_vm_list.length > 0">
                 <td>
                     <span>Slot-5 : 5:00 PM to 5:30 PM </span>
                 </td>
-                <td>{{slot5_cnt_perc}}</td>
+                <td>{{attendances_m_slot_5_vm_list.length.toString() }}   ({{(this.attendances_m_slot_5_vm_list.length / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
+                <td>{{attendances_f_slot_5_vm_list.length.toString() }}   ({{(this.attendances_f_slot_5_vm_list.length / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
+                <td>{{attendances_m_slot_5_vm_list.length + attendances_f_slot_5_vm_list.length }}   ({{((attendances_m_slot_5_vm_list.length + attendances_f_slot_5_vm_list.length) / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
+
             </tr>
 
-            <tr *ngIf="attendances_slot_6_vm_list != null && attendances_slot_6_vm_list != undefined && attendances_slot_6_vm_list.length > 0">
+            <tr *ngIf="attendances_m_slot_6_vm_list != null && attendances_m_slot_6_vm_list != undefined && attendances_m_slot_6_vm_list.length > 0">
                 <td>
                     <span>Slot-6 : 5:30 PM After </span>
                 </td>
-                <td>{{slot6_cnt_perc}}</td>
+                <td>{{attendances_m_slot_6_vm_list.length.toString() }}   ({{(this.attendances_m_slot_6_vm_list.length / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
+                <td>{{attendances_f_slot_6_vm_list.length.toString() }}   ({{(this.attendances_f_slot_6_vm_list.length / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
+                <td>{{attendances_m_slot_6_vm_list.length + attendances_f_slot_6_vm_list.length }}   ({{((attendances_m_slot_6_vm_list.length + attendances_f_slot_6_vm_list.length) / this.attendances_vm_list.length * 100).toFixed(2)}} %)</td>
             </tr>
         </tbody>
     </table>
 
-    <table *ngIf="attendances_slot_1_vm_list != null && attendances_slot_1_vm_list != undefined && attendances_slot_1_vm_list.length > 0"
+    <table *ngIf="attendances_m_slot_1_vm_list != null && attendances_m_slot_1_vm_list != undefined && attendances_m_slot_1_vm_list.length > 0"
            class="table" style="background-color:#16a085;" id="tblSlot_1">
         <thead>
             <tr>
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot1" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot1" aria-expanded="false"></a>
-                    <span>Slot-1 : 4:00 PM or before </span><span style="color:black">Count#{{attendances_slot_1_vm_list.length}}</span>
+                    <span>Male Slot-1 : 4:00 PM or before </span><span style="color:black">Count#{{attendances_m_slot_1_vm_list.length}}</span>
                 </th>
             </tr>
         </thead>
@@ -109,7 +126,7 @@
                 <th width="50px;">Time</th>
             </tr>
 
-            <tr *ngFor="let item of attendances_slot_1_vm_list">
+            <tr *ngFor="let item of attendances_m_slot_1_vm_list">
                 <td style="width:10px;">
                     <div *ngIf="item.IsKaryakar==true" class="karyakarCircle">
                         K
@@ -135,13 +152,13 @@
         </tbody>
     </table>
 
-    <table *ngIf="attendances_slot_2_vm_list != null && attendances_slot_2_vm_list != undefined && attendances_slot_2_vm_list.length > 0"
+    <table *ngIf="attendances_m_slot_2_vm_list != null && attendances_m_slot_2_vm_list != undefined && attendances_m_slot_2_vm_list.length > 0"
            class="table" style="background-color:#428bca;" id="tblSlot_2">
         <thead>
             <tr>
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot2" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot2" aria-expanded="false"></a>
-                    <span>Slot-2 : 4:00 PM to 4:15 PM  </span><span style="color:black">Count#{{attendances_slot_2_vm_list.length}}</span>
+                    <span>Male Slot-2 : 4:00 PM to 4:15 PM  </span><span style="color:black">Count#{{attendances_m_slot_2_vm_list.length}}</span>
                 </th>
             </tr>
         </thead>
@@ -152,7 +169,7 @@
                 <th width="50px;">Time</th>
             </tr>
 
-            <tr *ngFor="let item of attendances_slot_2_vm_list">
+            <tr *ngFor="let item of attendances_m_slot_2_vm_list">
                 <td style="width:10px;">
                     <div *ngIf="item.IsKaryakar==true" class="karyakarCircle">
                         K
@@ -178,13 +195,13 @@
         </tbody>
     </table>
 
-    <table *ngIf="attendances_slot_3_vm_list != null && attendances_slot_3_vm_list != undefined && attendances_slot_3_vm_list.length > 0"
+    <table *ngIf="attendances_m_slot_3_vm_list != null && attendances_m_slot_3_vm_list != undefined && attendances_m_slot_3_vm_list.length > 0"
            class="table" style="background-color:#116f7d;" id="tblSlot_3">
         <thead>
             <tr>
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot3" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot3" aria-expanded="false"></a>
-                    <span>Slot-3 : 4:15 PM to 4:30 PM </span><span style="color:black">Count#{{attendances_slot_3_vm_list.length}}</span>
+                    <span>Male Slot-3 : 4:15 PM to 4:30 PM </span><span style="color:black">Count#{{attendances_m_slot_3_vm_list.length}}</span>
                 </th>
             </tr>
         </thead>
@@ -194,7 +211,7 @@
                 <th>Name & Address</th>
                 <th width="50px;">Time</th>
             </tr>
-            <tr *ngFor="let item of attendances_slot_3_vm_list">
+            <tr *ngFor="let item of attendances_m_slot_3_vm_list">
                 <td style="width:10px;">
                     <div *ngIf="item.IsKaryakar==true" class="karyakarCircle">
                         K
@@ -220,13 +237,13 @@
         </tbody>
     </table>
 
-    <table *ngIf="attendances_slot_4_vm_list != null && attendances_slot_4_vm_list != undefined && attendances_slot_4_vm_list.length > 0"
+    <table *ngIf="attendances_m_slot_4_vm_list != null && attendances_m_slot_4_vm_list != undefined && attendances_m_slot_4_vm_list.length > 0"
            class="table" style="background-color:#35acdf" id="tblslot_4">
         <thead>
             <tr>
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot4" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot4" aria-expanded="false"></a>
-                    <span>Slot-4 : 4:30 PM to 5:00 PM </span><span style="color:black">Count#{{attendances_slot_4_vm_list.length}}</span>
+                    <span>Male Slot-4 : 4:30 PM to 5:00 PM </span><span style="color:black">Count#{{attendances_m_slot_4_vm_list.length}}</span>
                 </th>
             </tr>
         </thead>
@@ -236,7 +253,7 @@
                 <th>Name & Address</th>
                 <th width="50px;">Time</th>
             </tr>
-            <tr *ngFor="let item of attendances_slot_4_vm_list">
+            <tr *ngFor="let item of attendances_m_slot_4_vm_list">
                 <td style="width:10px;">
                     <div *ngIf="item.IsKaryakar==true" class="karyakarCircle">
                         K
@@ -262,13 +279,13 @@
         </tbody>
     </table>
 
-    <table *ngIf="attendances_slot_5_vm_list != null && attendances_slot_5_vm_list != undefined && attendances_slot_5_vm_list.length > 0"
+    <table *ngIf="attendances_m_slot_5_vm_list != null && attendances_m_slot_5_vm_list != undefined && attendances_m_slot_5_vm_list.length > 0"
            class="table" style="background-color:#f0ad4e;" id="tblslot_5">
         <thead>
             <tr>
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot5" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot5" aria-expanded="false"></a>
-                    <span>Slot-5 : 5:00 PM to 5:30 PM </span><span style="color:black">Count#{{attendances_slot_5_vm_list.length}}</span>
+                    <span>Male Slot-5 : 5:00 PM to 5:30 PM </span><span style="color:black">Count#{{attendances_m_slot_5_vm_list.length}}</span>
                 </th>
             </tr>
         </thead>
@@ -278,7 +295,7 @@
                 <th>Name & Address</th>
                 <th width="50px;">Time</th>
             </tr>
-            <tr *ngFor="let item of attendances_slot_5_vm_list">
+            <tr *ngFor="let item of attendances_m_slot_5_vm_list">
                 <td style="width:10px;">
                     <div *ngIf="item.IsKaryakar==true" class="karyakarCircle">
                         K
@@ -304,13 +321,13 @@
         </tbody>
     </table>
 
-    <table *ngIf="attendances_slot_6_vm_list != null && attendances_slot_6_vm_list != undefined && attendances_slot_6_vm_list.length > 0"
+    <table *ngIf="attendances_m_slot_6_vm_list != null && attendances_m_slot_6_vm_list != undefined && attendances_m_slot_6_vm_list.length > 0"
            class="table" style="background-color:#d9534f" id="tblslot_6">
         <thead>
             <tr>
                 <th width="30px;" style="white-space:nowrap;" colspan="3">
                     <a href="#tbodySlot6" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot6" aria-expanded="false"></a>
-                    <span>Slot-5 : 5:30 PM after </span> <span style="color:black"> Count#{{attendances_slot_6_vm_list.length}}</span>
+                    <span>Male Slot-6 : 5:30 PM after </span> <span style="color:black"> Count#{{attendances_m_slot_6_vm_list.length}}</span>
                 </th>
             </tr>
         </thead>
@@ -321,7 +338,264 @@
                 <th width="50px;">Time</th>
             </tr>
 
-            <tr *ngFor="let item of attendances_slot_6_vm_list">
+            <tr *ngFor="let item of attendances_m_slot_6_vm_list">
+                <td style="width:10px;">
+                    <div *ngIf="item.IsKaryakar==true" class="karyakarCircle">
+                        K
+                    </div>
+                    <!--<span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>-->
+                </td>
+                <td>
+                    <div class="form-group" style="margin-bottom:0px;">
+                        <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-map"></span> {{item.CityName}}
+                        </div>
+                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-home"></span> {{item.Address}}
+                        </div>
+                    </div>
+                </td>
+
+                <td style="white-space:nowrap">
+                    <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr style="height:10px;margin-bottom:10px;margin-top:0px;background-color:black" />
+
+    <table *ngIf="attendances_f_slot_1_vm_list != null && attendances_f_slot_1_vm_list != undefined && attendances_f_slot_1_vm_list.length > 0"
+           class="table" style="background-color:#16a085;" id="tblSlot_f_1">
+        <thead>
+            <tr>
+                <th width="30px;" style="white-space:nowrap;" colspan="3">
+                    <a href="#tbodySlot_f_1" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot_f_1" aria-expanded="false"></a>
+                    <span>Female Slot-1 : 4:00 PM or before </span><span style="color:black">Count#{{attendances_f_slot_1_vm_list.length}}</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tbodySlot_f_1" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
+            <tr style="font-weight:bold;font-size:10.5pt;color:white">
+                <th width="10px;"></th>
+                <th>Name & Address</th>
+                <th width="50px;">Time</th>
+            </tr>
+
+            <tr *ngFor="let item of attendances_f_slot_1_vm_list">
+                <td style="width:10px;">
+                    <div *ngIf="item.IsKaryakar==true" class="karyakarCircle">
+                        K
+                    </div>
+                    <!--<span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>-->
+                </td>
+                <td>
+                    <div class="form-group" style="margin-bottom:0px;">
+                        <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-map"></span> {{item.CityName}}
+                        </div>
+                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-home"></span> {{item.Address}}
+                        </div>
+                    </div>
+                </td>
+
+                <td style="white-space:nowrap">
+                    <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table *ngIf="attendances_f_slot_2_vm_list != null && attendances_f_slot_2_vm_list != undefined && attendances_f_slot_2_vm_list.length > 0"
+           class="table" style="background-color:#428bca;" id="tblSlot_f_2">
+        <thead>
+            <tr>
+                <th width="30px;" style="white-space:nowrap;" colspan="3">
+                    <a href="#tbodySlot_f_2" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot_f_2" aria-expanded="false"></a>
+                    <span>Female Slot-2 : 4:00 PM to 4:15 PM  </span><span style="color:black">Count#{{attendances_f_slot_2_vm_list.length}}</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tbodySlot_f_2" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
+            <tr style="font-weight:bold;font-size:10.5pt;color:white">
+                <th width="10px;"></th>
+                <th>Name & Address</th>
+                <th width="50px;">Time</th>
+            </tr>
+
+            <tr *ngFor="let item of attendances_f_slot_2_vm_list">
+                <td style="width:10px;">
+                    <div *ngIf="item.IsKaryakar==true" class="karyakarCircle">
+                        K
+                    </div>
+                    <!--<span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>-->
+                </td>
+                <td>
+                    <div class="form-group" style="margin-bottom:0px;">
+                        <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-map"></span> {{item.CityName}}
+                        </div>
+                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-home"></span> {{item.Address}}
+                        </div>
+                    </div>
+                </td>
+
+                <td style="white-space:nowrap">
+                    <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table *ngIf="attendances_f_slot_3_vm_list != null && attendances_f_slot_3_vm_list != undefined && attendances_f_slot_3_vm_list.length > 0"
+           class="table" style="background-color:#116f7d;" id="tblSlot_f_3">
+        <thead>
+            <tr>
+                <th width="30px;" style="white-space:nowrap;" colspan="3">
+                    <a href="#tbodySlot_f_3" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot_f_3" aria-expanded="false"></a>
+                    <span>Female Slot-3 : 4:15 PM to 4:30 PM </span><span style="color:black">Count#{{attendances_f_slot_3_vm_list.length}}</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tbodySlot_f_3" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
+            <tr style="font-weight:bold;font-size:10.5pt;color:white">
+                <th width="10px;"></th>
+                <th>Name & Address</th>
+                <th width="50px;">Time</th>
+            </tr>
+            <tr *ngFor="let item of attendances_f_slot_3_vm_list">
+                <td style="width:10px;">
+                    <div *ngIf="item.IsKaryakar==true" class="karyakarCircle">
+                        K
+                    </div>
+                    <!--<span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>-->
+                </td>
+                <td>
+                    <div class="form-group" style="margin-bottom:0px;">
+                        <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-map"></span> {{item.CityName}}
+                        </div>
+                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-home"></span> {{item.Address}}
+                        </div>
+                    </div>
+                </td>
+
+                <td style="white-space:nowrap">
+                    <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table *ngIf="attendances_f_slot_4_vm_list != null && attendances_f_slot_4_vm_list != undefined && attendances_f_slot_4_vm_list.length > 0"
+           class="table" style="background-color:#35acdf" id="tblslot_f_4">
+        <thead>
+            <tr>
+                <th width="30px;" style="white-space:nowrap;" colspan="3">
+                    <a href="#tbodySlot_f_4" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot_f_4" aria-expanded="false"></a>
+                    <span>Female Slot-4 : 4:30 PM to 5:00 PM </span><span style="color:black">Count#{{attendances_f_slot_4_vm_list.length}}</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tbodySlot_f_4" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
+            <tr style="font-weight:bold;font-size:10.5pt;color:white">
+                <th width="10px;"></th>
+                <th>Name & Address</th>
+                <th width="50px;">Time</th>
+            </tr>
+            <tr *ngFor="let item of attendances_f_slot_4_vm_list">
+                <td style="width:10px;">
+                    <div *ngIf="item.IsKaryakar==true" class="karyakarCircle">
+                        K
+                    </div>
+                    <!--<span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>-->
+                </td>
+                <td>
+                    <div class="form-group" style="margin-bottom:0px;">
+                        <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-map"></span> {{item.CityName}}
+                        </div>
+                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-home"></span> {{item.Address}}
+                        </div>
+                    </div>
+                </td>
+
+                <td style="white-space:nowrap">
+                    <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table *ngIf="attendances_f_slot_5_vm_list != null && attendances_f_slot_5_vm_list != undefined && attendances_f_slot_5_vm_list.length > 0"
+           class="table" style="background-color:#f0ad4e;" id="tblslot_f_5">
+        <thead>
+            <tr>
+                <th width="30px;" style="white-space:nowrap;" colspan="3">
+                    <a href="#tbodySlot_f_5" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot_f_5" aria-expanded="false"></a>
+                    <span>Female Slot-5 : 5:00 PM to 5:30 PM </span><span style="color:black">Count#{{attendances_f_slot_5_vm_list.length}}</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tbodySlot_f_5" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
+            <tr style="font-weight:bold;font-size:10.5pt;color:white">
+                <th width="10px;"></th>
+                <th>Name & Address</th>
+                <th width="50px;">Time</th>
+            </tr>
+            <tr *ngFor="let item of attendances_f_slot_5_vm_list">
+                <td style="width:10px;">
+                    <div *ngIf="item.IsKaryakar==true" class="karyakarCircle">
+                        K
+                    </div>
+                    <!--<span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>-->
+                </td>
+                <td>
+                    <div class="form-group" style="margin-bottom:0px;">
+                        <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-map"></span> {{item.CityName}}
+                        </div>
+                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                            <span class="fa fa-home"></span> {{item.Address}}
+                        </div>
+                    </div>
+                </td>
+
+                <td style="white-space:nowrap">
+                    <span *ngIf="item.IsAttended == true">{{item.AttendanceTimeOnly}} </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table *ngIf="attendances_f_slot_6_vm_list != null && attendances_f_slot_6_vm_list != undefined && attendances_f_slot_6_vm_list.length > 0"
+           class="table" style="background-color:#d9534f" id="tblslot_f_6">
+        <thead>
+            <tr>
+                <th width="30px;" style="white-space:nowrap;" colspan="3">
+                    <a href="#tbodySlot_f_6" class="btn btnTableCollapse collapsed" style="padding:0px" data-toggle="collapse" attr.data-target="#tbodySlot_f_6" aria-expanded="false"></a>
+                    <span>Female Slot-6 : 5:30 PM after </span> <span style="color:black"> Count#{{attendances_f_slot_6_vm_list.length}}</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tbodySlot_f_6" class="collapse" aria-expanded="false" style="font-weight:bold;font-size:10pt;color:black">
+            <tr style="font-weight:bold;font-size:10.5pt;color:white">
+                <th width="10px;"></th>
+                <th>Name & Address</th>
+                <th width="50px;">Time</th>
+            </tr>
+
+            <tr *ngFor="let item of attendances_f_slot_6_vm_list">
                 <td style="width:10px;">
                     <div *ngIf="item.IsKaryakar==true" class="karyakarCircle">
                         K
