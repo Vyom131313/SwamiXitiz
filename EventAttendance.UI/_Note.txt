@@ -1,7 +1,8 @@
-﻿* Delete kids&Yuvak&Yuvati (1)
+﻿* On "In" remain as it is
+
+* Delete Bal, Balika, Yuvak & Yuvati (1)
 * Update Iskaryakar from Structure (1)
 * New Fields: ImsId, Department Field (2)
-* Help Page
 
 * Search for ReportByAttendee(1)
 * Send email to Vimalbhai
@@ -9,7 +10,6 @@
 * Authentication for Admin menus
 * Slow rendering UI issue
 * Validation (form.valid)
-* Improve Pdf
 ================ Examples =================
 * https://angular.io/resources/live-examples/router/ts/eplnkr.html
 
