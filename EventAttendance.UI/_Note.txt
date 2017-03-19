@@ -1,9 +1,6 @@
-﻿* On "In" remain as it is
+﻿* New tables: dbo.Seva (2)
 
 * Delete Bal, Balika, Yuvak & Yuvati (1)
-* Update Iskaryakar from Structure (1)
-* New Fields: ImsId, Department Field (2)
-
 * Search for ReportByAttendee(1)
 * Send email to Vimalbhai
 
