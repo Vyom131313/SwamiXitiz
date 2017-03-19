@@ -103,7 +103,7 @@ namespace EventAttendance.WebApi.Controllers
             try
             {
                 await db.Database
-                    .ExecuteSqlCommandAsync("EXEC dbo.Att_SaveAttendee @Id, @FirstName, @MiddleName, @LastName, @Gender, @Address, @ZoneId, @CityId, @IsKaryakar, @IsDeleted",
+                    .ExecuteSqlCommandAsync("EXEC dbo.Att_SaveAttendee @Id, @FirstName, @MiddleName, @LastName, @Gender, @Address, @ZoneId, @CityId, @ImsId, @IsKaryakar, @IsDeleted",
                         new SqlParameter { ParameterName = "Id", Value = attendee.Id },
                         new SqlParameter { ParameterName = "FirstName", Value = attendee.FirstName },
                         new SqlParameter { ParameterName = "MiddleName", Value = attendee.MiddleName },
@@ -112,6 +112,7 @@ namespace EventAttendance.WebApi.Controllers
                         new SqlParameter { ParameterName = "Address", Value = attendee.Address },
                         new SqlParameter { ParameterName = "ZoneId", Value = attendee.ZoneId },
                         new SqlParameter { ParameterName = "CityId", Value = attendee.CityId },
+                        new SqlParameter { ParameterName = "ImsId", Value = attendee.ImsId },
                         new SqlParameter { ParameterName = "IsKaryakar", Value = attendee.IsKaryakar },
                         new SqlParameter { ParameterName = "IsDeleted", Value = attendee.IsDeleted }
                     );
@@ -136,7 +137,7 @@ namespace EventAttendance.WebApi.Controllers
             try
             {
                await db.Database
-                   .ExecuteSqlCommandAsync("EXEC dbo.Att_SaveAttendee @Id, @FirstName, @MiddleName, @LastName, @Gender, @Address, @ZoneId, @CityId, @IsKaryakar, @IsDeleted",
+                   .ExecuteSqlCommandAsync("EXEC dbo.Att_SaveAttendee @Id, @FirstName, @MiddleName, @LastName, @Gender, @Address, @ZoneId, @CityId, @ImsId, @IsKaryakar, @IsDeleted",
                        new SqlParameter { ParameterName = "Id", Value = attendee.Id },
                        new SqlParameter { ParameterName = "FirstName", Value = attendee.FirstName },
                        new SqlParameter { ParameterName = "MiddleName", Value = attendee.MiddleName },
@@ -145,6 +146,7 @@ namespace EventAttendance.WebApi.Controllers
                        new SqlParameter { ParameterName = "Address", Value = attendee.Address },
                        new SqlParameter { ParameterName = "ZoneId", Value = attendee.ZoneId },
                        new SqlParameter { ParameterName = "CityId", Value = attendee.CityId },
+                       new SqlParameter { ParameterName = "ImsId", Value = attendee.ImsId },
                        new SqlParameter { ParameterName = "IsKaryakar", Value = attendee.IsKaryakar },
                        new SqlParameter { ParameterName = "IsDeleted", Value = attendee.IsDeleted}
                    );

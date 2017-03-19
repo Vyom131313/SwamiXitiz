@@ -92,6 +92,7 @@ namespace EventAttendance.WebApi.Models
         public string Gender { get; set; }
         public Nullable<int> ZoneId { get; set; }
         public Nullable<int> CityId { get; set; }
+        public Nullable<int> ImsId { get; set; }
 
         public bool IsKaryakar { get; set; }
         public bool IsDeleted { get; set; }
