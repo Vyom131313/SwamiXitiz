@@ -81,6 +81,17 @@
         </div>
 
         <div class="form-group">
+            <label class="control-label col-sm-1" for="ImsId" [class.active]="attendee.ImsId" style="white-space:nowrap">IMS Id:</label>
+            <div class="col-sm-11">
+                <input type="text" class="form-control input-sm validate" id="ImsId" placeholder="Please enter IMS Id"
+                       style="border: 1px solid rgb(153, 202, 129);border-radius: .2em;box-shadow: 0 0 8px rgba(0,0,0,.08) inset;"
+                       formControlName="ImsId"
+                       [(ngModel)]="attendee.ImsId"
+                       [class.invalid]="form.controls['ImsId'].touched && !form.controls['ImsId'].valid">
+            </div>
+        </div>
+
+        <div class="form-group">
             <label class="control-label col-sm-1" for="IsKaryakar">Karyakar?:</label>
             <div class="col-sm-1">
                 <input type="checkbox" id="IsKaryakar"

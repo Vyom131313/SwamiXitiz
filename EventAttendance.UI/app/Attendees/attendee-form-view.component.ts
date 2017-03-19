@@ -39,6 +39,7 @@ export class AttendeeFormViewComponent implements OnInit {
                 Validators.minLength(1)
             ]],
             Address: [],
+            ImsId:[],
             ZoneId: [],
             CityId: [],
             IsKaryakar: [],

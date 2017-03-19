@@ -25,6 +25,7 @@ export class Attendee_VM {
     Gender: string;
     CityName: string;
     CityId: number;
+    ImsId: number;
     ZoneName: string;
     ZoneId: number;
     IsKaryakar: boolean;

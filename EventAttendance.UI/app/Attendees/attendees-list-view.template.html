@@ -12,7 +12,6 @@
                style="float:left;width:250px;"
                placeholder="Please enter filter value" [(ngModel)]="filter" (keyup)="onFilter($event)" />
     </div>
-
 </h4>
 
 <table *ngIf="attendees_vm_list != null && attendees_vm_list != undefined"
@@ -21,6 +20,7 @@
         <tr style="font-weight:bold;font-size:10.5pt;">
             <th style="width:15px;"></th>
             <th>Name & Address</th>
+            <th style="width:25px;">IMS Id</th>
             <th width="35px;"></th>
         </tr>
     </thead>
@@ -31,7 +31,8 @@
                     K
                 </div>
                 <!--<span *ngIf="item.IsKaryakar==true" class="fa fa-user-circle-o"></span>-->
-            </td>
+            </td>         
+
             <td>
                 <div class="form-group" style="margin-bottom:0px;">
                     <div class="col-sm-4" style="padding-left:0px;">
@@ -44,6 +45,9 @@
                         <span class="fa fa-home"></span> {{item.Address}}
                     </div>
                 </div>
+            </td>
+            <td style="width:25px;">
+                {{item.ImsId}}
             </td>
             <td>
                 <a [routerLink]="['/attendees', item.Id]" style="color:white;font-weight:bold;white-space:nowrap">
