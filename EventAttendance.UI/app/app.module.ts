@@ -3,6 +3,7 @@ import { HttpModule, Http } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AppRoutes } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 // Components
 import { AppComponent } from './app.component';
@@ -28,7 +29,7 @@ import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AuthGuard } from './Login/authGuard.component';
 
 @NgModule({
-    imports: [BrowserModule, HttpModule,
+    imports: [BrowserModule, HttpModule, FormsModule,
         NavbarLeftModule, HomeModule, HelpModule,
         EventsModule, EventsRouting,
         EventSchedulesModule, EventSchedulesRouting,

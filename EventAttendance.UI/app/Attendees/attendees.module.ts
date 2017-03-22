@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
+import { SelectModule } from 'ng2-select';
 
 // Components
 import { AttendeeFormViewComponent } from './attendee-form-view.component';
@@ -19,7 +20,8 @@ import { AttendeesService } from './attendees.service';
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
-        HttpModule
+        HttpModule,
+        SelectModule 
     ],
     declarations: [
         AttendeesListViewComponent, AttendeeFormViewComponent, ZonesDdlComponent, CitiesDdlComponent 

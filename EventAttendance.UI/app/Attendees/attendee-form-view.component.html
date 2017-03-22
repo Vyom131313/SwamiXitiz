@@ -26,8 +26,7 @@
                        style="border: 1px solid rgb(153, 202, 129);border-radius: .2em;box-shadow: 0 0 8px rgba(0,0,0,.08) inset;"
                        formControlName="MiddleName"
                        [(ngModel)]="attendee.MiddleName"
-                       [class.invalid]="form.controls['MiddleName'].touched && !form.controls['MiddleName'].valid"
-                       >
+                       [class.invalid]="form.controls['MiddleName'].touched && !form.controls['MiddleName'].valid">
             </div>
         </div>
 
@@ -41,7 +40,7 @@
                        [class.invalid]="form.controls['LastName'].touched && !form.controls['LastName'].valid">
             </div>
         </div>
-        
+
         <div class="form-group">
             <label class="control-label col-sm-1" for="Gender" [class.active]="attendee.Gender" data-error="Gender is required">Gender:</label>
             <div class="col-sm-11">
@@ -54,7 +53,7 @@
                 </select>
             </div>
         </div>
-        
+
         <div class="form-group">
             <label class="control-label col-sm-1" for="Address" [class.active]="attendee.Address">Address:</label>
             <div class="col-sm-11">
@@ -106,6 +105,23 @@
                 <input type="checkbox" id="IsDeleted"
                        formControlName="IsDeleted"
                        [(ngModel)]="attendee.IsDeleted" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-1" for="IsDeleted">Seva/s:</label>
+
+            <div class="col-sm-11" style="width: 300px; margin-bottom: 20px;">
+                <ng-select [multiple]="true"
+                           [items]="sevaItems"
+                           [disabled]="disabled"
+                           (data)="refreshValue($event)"
+                           (selected)="selected($event)"
+                           (removed)="removed($event)"
+                           placeholder="No any seva selected">
+                </ng-select>
+                <!--<br/>-->
+                <!--<pre>{{itemsToString(value)}}</pre>-->
             </div>
         </div>
 

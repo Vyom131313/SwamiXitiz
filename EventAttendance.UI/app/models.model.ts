@@ -58,6 +58,13 @@ export class Zone_VM {
     Name: string;
 }
 
+export class Seva_VM {
+    Id: number;
+    DepartmentName: string;
+    SevaName: string;
+    FullName: string;
+}
+
 export class City_VM {
     Id: number;
     Name: string;
