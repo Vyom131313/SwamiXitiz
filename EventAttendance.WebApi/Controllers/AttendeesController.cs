@@ -61,6 +61,14 @@ namespace EventAttendance.WebApi.Controllers
             return data.AsQueryable();
         }
 
+        [Route("api/Attendees/GetSevas")]
+        public IQueryable<Seva_VM> GetSevas()
+        {
+            var data = db.Database.SqlQuery<Seva_VM>("EXEC dbo.Att_GetSevas").ToList();
+
+            return data.AsQueryable();
+        }
+
         [Route("api/Attendees/GetCities")]
         public IQueryable<City_VM> GetCities()
         {

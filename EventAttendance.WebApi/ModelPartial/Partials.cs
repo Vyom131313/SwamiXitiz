@@ -28,7 +28,7 @@ namespace EventAttendance.WebApi.Models
     public partial class Att_EventSchedule
     {
         public virtual string EventName { get { return this.Event != null ? this.Event.Name : string.Empty; } }
-        
+
         [NotMapped]
         public virtual string EventShortDate
         {
@@ -56,6 +56,18 @@ namespace EventAttendance.WebApi.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+    }
+
+    public partial class Seva_VM
+    {
+        public int Id { get; set; }
+        public string DepartmentName { get; set; }
+        public string SevaName { get; set; }
+
+        public string FullName
+        {
+            get { return DepartmentName + " --> " + SevaName; }
+        }
     }
 
     public partial class City_VM
