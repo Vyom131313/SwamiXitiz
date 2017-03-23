@@ -63,10 +63,9 @@ namespace EventAttendance.WebApi.Models
         public int Id { get; set; }
         public string DepartmentName { get; set; }
         public string SevaName { get; set; }
-
         public string FullName
         {
-            get { return DepartmentName + " --> " + SevaName; }
+            get;set;
         }
     }
 
