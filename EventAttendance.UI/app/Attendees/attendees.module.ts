@@ -10,6 +10,8 @@ import { AttendeeFormViewComponent } from './attendee-form-view.component';
 import { AttendeesListViewComponent } from './attendees-list-view.component';
 import { ZonesDdlComponent } from './zones-ddl-view.component';
 import { CitiesDdlComponent } from './cities-ddl-view.component';
+import { SevasDdlComponent } from './sevas-ddl-view.component';
+
 
 // Services
 import { AttendeesService } from './attendees.service';
@@ -24,7 +26,7 @@ import { AttendeesService } from './attendees.service';
         SelectModule 
     ],
     declarations: [
-        AttendeesListViewComponent, AttendeeFormViewComponent, ZonesDdlComponent, CitiesDdlComponent 
+        AttendeesListViewComponent, AttendeeFormViewComponent, ZonesDdlComponent, CitiesDdlComponent, SevasDdlComponent 
     ],
     exports: [
         AttendeesListViewComponent

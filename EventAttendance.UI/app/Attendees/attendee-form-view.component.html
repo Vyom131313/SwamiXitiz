@@ -110,17 +110,8 @@
 
         <div class="form-group">
             <label class="control-label col-sm-1" for="IsDeleted">Seva/s:</label>
-
-            <div class="col-sm-11" style="width: 300px; margin-bottom: 20px;">
-                <ng-select [multiple]="true"
-                           [items]="sevaItems"
-                           [disabled]="disabled"
-                           (data)="refreshValue($event)"
-                           (selected)="selected($event)"
-                           (removed)="removed($event)"
-                           placeholder="No any seva selected">
-                </ng-select>
-                <!--<br/>-->
+            <div class="col-sm-11" style="width: 400px; margin-bottom: 20px;">
+                <sevas-ddl>Loading....</sevas-ddl>
                 <!--<pre>{{itemsToString(value)}}</pre>-->
             </div>
         </div>

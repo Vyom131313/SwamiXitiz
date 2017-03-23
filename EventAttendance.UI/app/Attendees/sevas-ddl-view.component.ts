@@ -3,31 +3,152 @@ import { Headers, Http, Response } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { Component, Input, Output, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SelectModule } from 'ng2-select';
 
-import { City_VM } from '../Models.model';
+import { Seva_VM } from '../Models.model';
 import { AttendeesService } from './attendees.service';
 
 @Component({
-    selector: 'cities-ddl',
-    template: `<select [(ngModel)]="selectedCityId" (change)="onSelect($event.target.value)" class="form-control input-sm">
-                  <option *ngFor="let item of citiesDdlList" value= "{{item.Id}}" [selected]="selectedCityId == item.Id">
-                    {{item.Name}}
-                  </option>
-                </select>`,
+    selector: 'sevas-ddl',
+    template: `<ng-select [multiple]="true"
+                           [items]="sevaItemsNameOnly"
+                           [disabled]="disabled"
+                           (data)="refreshValue($event)"
+                           (selected)="selected($event)"
+                           (removed)="removed($event)"
+                           placeholder="No any seva selected">
+                </ng-select>`,
     styleUrls: [
         'https://fonts.googleapis.com/icon?family=Material+Icons',
     ],
     providers: [AttendeesService]
 })
 
-export class CitiesDdlComponent implements OnChanges {
-    @Input() selectedCityId: number;
-    @Output() select = new EventEmitter();
-    citiesDdlList: Array<City_VM>;
+export class SevasDdlComponent implements OnChanges {
+    //@Input() selectedSevaId: number;
+    //@Output() select = new EventEmitter();
+    public sevaItems: Array<Seva_VM>;
+
+    public sevaItemsNameOnly: Array<string> = [
+        "Accounts --> Coordinator",
+        "Accounts --> Team Member",
+        "Admin Secretary --> Admin Secretary",
+        "Bal --> Coordinator",
+        "Bal --> Team Member",
+        "Bookstall --> Corodinator",
+        "Bookstall --> Team Member",
+        "Database --> Coordinator",
+        "Database --> Team Member",
+        "Decoration --> Corodinator",
+        "Decoration --> Team Member",
+        "Facilities --> Admin Coordinator",
+        "Facilities --> Audio-Video Coordinator",
+        "Facilities --> Audio-Video Team Member",
+        "Housekeeping --> Corodinator",
+        "Housekeeping --> Team Member",
+        "HR & Legal --> Coordinator",
+        "HR & Legal --> Team Member",
+        "IT Services --> Coordinator",
+        "IT Services --> Team Member",
+        "Kishor --> Team Member",
+        "Kishore --> Coordinator",
+        "Mahila --> Admin Coordinator",
+        "Maintenance/Landscaping --> Coordinator",
+        "Maintenance/Landscaping --> Team Member",
+        "Mandir Coordinator --> Mandir Coordinator",
+        "Media --> Coordinator",
+        "Media --> Team Member",
+        "Medical Services --> Coordinator",
+        "Medical Services --> Team Member",
+        "Outreach --> Admin Coordinator",
+        "Outreach --> Coordinator",
+        "Outreach --> Team Member",
+        "Parking/Transportation --> Coordinator",
+        "Parking/Transportation --> Team Member",
+        "PR --> Coordinator",
+        "PR --> Team Member",
+        "Remote Network --> Coordinator",
+        "Remote Network --> Team Member",
+        "Sabha Sanchalan --> Announcement Lead",
+        "Sabha Sanchalan --> Back Stage Lead",
+        "Sabha Sanchalan --> Coordinator",
+        "Sabha Sanchalan --> Cultural Program Lead",
+        "Sabha Sanchalan --> Katha Sevak Lead",
+        "Sabha Sanchalan --> Kirtan Team Lead",
+        "Sabha Sanchalan --> Team Member",
+        "Sabha Vyavastha --> Coordinator",
+        "Sabha Vyavastha --> Team Member",
+        "Satsang --> Admin Coordinator",
+        "Satsang Exam --> Coordinator",
+        "Satsang Exam --> Team Member",
+        "Satsang Network --> Admin Coordinator",
+        "Satsang Network --> Coordinator (SNC)",
+        "Satsang Network --> Goshthi Moderator Lead",
+        "Satsang Network --> Sampark Karyakar",
+        "Satsang Network --> Zone Leader",
+        "Satsang Outreach --> Coordinator",
+        "Satsang Outreach --> Team Member",
+        "Services --> Admin Coordinator",
+        "Services --> Kitchen Coordinator",
+        "Services --> Kitchen Team Member",
+        "Shayona --> Coordinator",
+        "Shayona --> Team Member",
+        "Subscription --> Coordinator",
+        "Subscription --> Team Member",
+        "Telecom/Security --> Coordinator",
+        "Telecom/Security --> Team Member",
+        "Volunteer --> Coordinator",
+        "Volunteer --> Team Member",
+        "Yuvak --> Coordinator",
+        "Yuvak --> Team Member"];
 
     constructor(private http: Http, private router: Router, private attendeesService: AttendeesService) {
 
-        this.getCityItems();
+       // this.getSevaItems();
+    }
+
+    //getSevaItems() {
+    //    this.attendeesService.getSevaItems(this.http).then(items => {
+    //        this.sevaItems = items;
+    //        this.sevaItems.forEach(c => {
+    //            this.sevaItemsNameOnly.push(c.FullName);
+
+    //        });
+
+    //        alert(JSON.stringify(this.sevaItemsNameOnly));
+    //    });
+    //}
+
+    private value: any = ['Athens'];
+    private _disabledV: string = '0';
+    private disabled: boolean = false;
+
+    private get disabledV(): string {
+        return this._disabledV;
+    }
+
+    private set disabledV(value: string) {
+        this._disabledV = value;
+        this.disabled = this._disabledV === '1';
+    }
+
+    public selected(value: any): void {
+        console.log('Selected value is: ', value);
+    }
+
+    public removed(value: any): void {
+        console.log('Removed value is: ', value);
+    }
+
+    public refreshValue(value: any): void {
+        this.value = value;
+    }
+
+    public itemsToString(value: Array<Seva_VM> = []): string {
+        return value
+            .map((item: any) => {
+                return item.FullName;
+            }).join(',');
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -35,11 +156,8 @@ export class CitiesDdlComponent implements OnChanges {
     }
 
     onSelect(id) {
-        this.selectedCityId = id;
-        this.select.emit(id);
+        //this.selectedSevaId = id;
+        //this.select.emit(id);
     }
 
-    getCityItems() {
-        this.attendeesService.getCityItems(this.http).then(items => { this.citiesDdlList = items; });
-    }
 }
