@@ -1,4 +1,8 @@
-﻿* New tables: dbo.Seva (2)
+﻿* save selected seva list
+* display selected seva
+* decide each seva icon 
+* display seva icon for karyakar
+* report by department
 
 * Delete Bal, Balika, Yuvak & Yuvati (1)
 * Search for ReportByAttendee(1)
