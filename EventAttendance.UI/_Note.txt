@@ -1,6 +1,4 @@
-﻿* save selected seva list
-* display selected seva
-* decide each seva icon 
+﻿* decide each seva icon 
 * display seva icon for karyakar
 * report by department
 
