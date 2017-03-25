@@ -114,7 +114,7 @@ namespace EventAttendance.WebApi.Controllers
                     .ExecuteSqlCommandAsync("EXEC dbo.Att_SaveAttendee @Id, @FirstName, @MiddleName, @LastName, @Gender, @Address, @ZoneId, @CityId, @ImsId, @IsKaryakar, @SevaFullNames, @IsDeleted",
                         new SqlParameter { ParameterName = "Id", Value = attendee.Id },
                         new SqlParameter { ParameterName = "FirstName", Value = attendee.FirstName },
-                        new SqlParameter { ParameterName = "MiddleName", Value = attendee.MiddleName },
+                        new SqlParameter { ParameterName = "MiddleName", Value = string.IsNullOrEmpty(attendee.MiddleName) ? " " : string.Empty },
                         new SqlParameter { ParameterName = "LastName", Value = attendee.LastName },
                         new SqlParameter { ParameterName = "Gender", Value = attendee.Gender },
                         new SqlParameter { ParameterName = "Address", Value = attendee.Address },
@@ -122,7 +122,7 @@ namespace EventAttendance.WebApi.Controllers
                         new SqlParameter { ParameterName = "CityId", Value = attendee.CityId },
                         new SqlParameter { ParameterName = "ImsId", Value = attendee.ImsId },
                         new SqlParameter { ParameterName = "IsKaryakar", Value = attendee.IsKaryakar },
-                        new SqlParameter { ParameterName = "SevaFullNames", Value = string.IsNullOrEmpty(attendee.SevaFullNames) ? "-->": attendee.SevaFullNames },
+                        new SqlParameter { ParameterName = "SevaFullNames", Value = string.IsNullOrEmpty(attendee.SevaFullNames) ? "-->" : attendee.SevaFullNames },
                         new SqlParameter { ParameterName = "IsDeleted", Value = attendee.IsDeleted }
                     );
             }
