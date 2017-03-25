@@ -40,7 +40,7 @@ export class AttendeeFormViewComponent implements OnInit {
                 Validators.minLength(1)
             ]],
             Address: [],
-            ImsId:[],
+            ImsId: [],
             ZoneId: [],
             CityId: [],
             IsKaryakar: [],
@@ -55,7 +55,14 @@ export class AttendeeFormViewComponent implements OnInit {
             if (!id)
                 return;
 
-            this.attendeesService.getItem(this.http, id).then(item => { this.attendee = item; console.log(this.attendee); } );
+            this.attendeesService.getItem(this.http, id).then(item => {
+                this.attendee = item;
+
+                if (this.attendee.SevaFullNames != null)
+                    this.attendee.SevaFullNamesArr = this.attendee.SevaFullNames.split(',');
+
+                //console.log(this.attendee);
+            });
         });
     }
 

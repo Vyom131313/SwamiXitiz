@@ -11,6 +11,7 @@ import { AttendeesService } from './attendees.service';
 @Component({
     selector: 'sevas-ddl',
     template: `<ng-select placeholder="No any seva selected"
+                           [(ngModel)]="selectedSevas"
                            [multiple]="true"
                            [items]="sevaItemsNameOnly"
                            (data)="refreshValue($event)"
@@ -28,8 +29,7 @@ export class SevasDdlComponent implements OnChanges {
     @Input() selectedSevas: any=[];
     @Output() select = new EventEmitter();
 
-    //[disabled]="disabled"
-    public sevaItems: Array<Seva_VM>;
+    public value: any = [];
 
     public sevaItemsNameOnly: Array<string> = [
         "Accounts --> Coordinator",
@@ -106,35 +106,9 @@ export class SevasDdlComponent implements OnChanges {
 
     constructor(private http: Http, private router: Router, private attendeesService: AttendeesService) {
         this.value = this.selectedSevas;
-        console.log(this.selectedSevas);
+        //console.log(this.selectedSevas);
     }
-
-    //getSevaItems() {
-    //    this.attendeesService.getSevaItems(this.http).then(items => {
-    //        this.sevaItems = items;
-    //        this.sevaItems.forEach(c => {
-    //            this.sevaItemsNameOnly.push(c.FullName);
-
-    //        });
-
-    //        alert(JSON.stringify(this.sevaItemsNameOnly));
-    //    });
-    //}
-
-    //private _disabledV: string = '0';
-    //private disabled: boolean = false;
-
-    //private get disabledV(): string {
-    //    return this._disabledV;
-    //}
-
-    //private set disabledV(value: string) {
-    //    this._disabledV = value;
-    //    this.disabled = this._disabledV === '1';
-    //}
-
-    private value: any = [];
-
+    
     public selected(val: any): void {
         this.select.emit(this.value);
     }
@@ -147,10 +121,10 @@ export class SevasDdlComponent implements OnChanges {
         this.value = value;
     }
 
-    public itemsToString(value: Array<Seva_VM> = []): string {
+    public itemsToString(value: Array<any> = []): string {
         return value
             .map((item: any) => {
-                return item.FullName;
+                return item.text;
             }).join(',');
     }
 

@@ -32,6 +32,7 @@ export class Attendee_VM {
     IsDeleted: boolean;
 
     SevaFullNames: string;
+    SevaFullNamesArr: any = [];
 }
 
 export class Attendance_VM {
