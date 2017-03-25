@@ -119,8 +119,7 @@ namespace EventAttendance.WebApi.Models
         public virtual string ZoneName { get; set; }
         public virtual string FullName { get; set; }
 
-        public virtual List<string> SevaFullNames { get; set; }
-
+        public virtual string SevaFullNames { get; set; }
     }
 
     public partial class Attendance_VM
