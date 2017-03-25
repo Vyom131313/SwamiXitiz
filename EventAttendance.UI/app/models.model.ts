@@ -30,6 +30,8 @@ export class Attendee_VM {
     ZoneId: number;
     IsKaryakar: boolean;
     IsDeleted: boolean;
+
+    SevaFullNames: string;
 }
 
 export class Attendance_VM {

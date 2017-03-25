@@ -67,16 +67,33 @@ export class AttendeeFormViewComponent implements OnInit {
         this.attendee.CityId = id;
     }
 
+    onSevaChange(values: any) {
+
+        this.attendee.SevaFullNames = this.itemsToString(values);
+        
+        //console.log('onSevaChange: ', this.attendee.SevaFullNames );
+        //this.attendee.CityId = id;
+    }
+
     onBack(event: any) {
         this.location.back();
+    }
+
+
+    public itemsToString(value: Array<any> = []): string {
+        return value
+            .map((item: any) => {
+                return item.text;
+            }).join(',');
     }
 
     save() {
         var data = this.form.value;
         data.ZoneId = this.attendee.ZoneId;
         data.CityId = this.attendee.CityId;
+        data.SevaFullNames = this.attendee.SevaFullNames;
 
-        //console.log(attendee);
+        console.log(data);
 
         var result = (data.Id)
             ? this.attendeesService.update(this.http, data)

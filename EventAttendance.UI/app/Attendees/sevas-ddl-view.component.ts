@@ -10,13 +10,13 @@ import { AttendeesService } from './attendees.service';
 
 @Component({
     selector: 'sevas-ddl',
-    template: `<ng-select [multiple]="true"
+    template: `<ng-select placeholder="No any seva selected"
+                           [multiple]="true"
                            [items]="sevaItemsNameOnly"
-                           [disabled]="disabled"
                            (data)="refreshValue($event)"
                            (selected)="selected($event)"
                            (removed)="removed($event)"
-                           placeholder="No any seva selected">
+                           >
                 </ng-select>`,
     styleUrls: [
         'https://fonts.googleapis.com/icon?family=Material+Icons',
@@ -25,8 +25,10 @@ import { AttendeesService } from './attendees.service';
 })
 
 export class SevasDdlComponent implements OnChanges {
-    //@Input() selectedSevaId: number;
-    //@Output() select = new EventEmitter();
+    @Input() selectedSevas: Array<string>;
+    @Output() select = new EventEmitter();
+
+    //[disabled]="disabled"
     public sevaItems: Array<Seva_VM>;
 
     public sevaItemsNameOnly: Array<string> = [
@@ -103,7 +105,6 @@ export class SevasDdlComponent implements OnChanges {
         "Yuvak --> Team Member"];
 
     constructor(private http: Http, private router: Router, private attendeesService: AttendeesService) {
-
        // this.getSevaItems();
     }
 
@@ -119,25 +120,26 @@ export class SevasDdlComponent implements OnChanges {
     //    });
     //}
 
-    private value: any = ['Athens'];
-    private _disabledV: string = '0';
-    private disabled: boolean = false;
+    //private _disabledV: string = '0';
+    //private disabled: boolean = false;
 
-    private get disabledV(): string {
-        return this._disabledV;
+    //private get disabledV(): string {
+    //    return this._disabledV;
+    //}
+
+    //private set disabledV(value: string) {
+    //    this._disabledV = value;
+    //    this.disabled = this._disabledV === '1';
+    //}
+
+    private value: any = [];
+
+    public selected(val: any): void {
+        this.select.emit(this.value);
     }
 
-    private set disabledV(value: string) {
-        this._disabledV = value;
-        this.disabled = this._disabledV === '1';
-    }
-
-    public selected(value: any): void {
-        console.log('Selected value is: ', value);
-    }
-
-    public removed(value: any): void {
-        console.log('Removed value is: ', value);
+    public removed(val: any): void {
+        this.select.emit(this.value);
     }
 
     public refreshValue(value: any): void {
@@ -154,10 +156,4 @@ export class SevasDdlComponent implements OnChanges {
     ngOnChanges(changes: SimpleChanges) {
         //console.log(changes);
     }
-
-    onSelect(id) {
-        //this.selectedSevaId = id;
-        //this.select.emit(id);
-    }
-
 }
