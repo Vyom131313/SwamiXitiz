@@ -25,7 +25,7 @@ import { AttendeesService } from './attendees.service';
 })
 
 export class SevasDdlComponent implements OnChanges {
-    @Input() selectedSevas: Array<string>;
+    @Input() selectedSevas: any=[];
     @Output() select = new EventEmitter();
 
     //[disabled]="disabled"
@@ -105,7 +105,8 @@ export class SevasDdlComponent implements OnChanges {
         "Yuvak --> Team Member"];
 
     constructor(private http: Http, private router: Router, private attendeesService: AttendeesService) {
-       // this.getSevaItems();
+        this.value = this.selectedSevas;
+        console.log(this.selectedSevas);
     }
 
     //getSevaItems() {

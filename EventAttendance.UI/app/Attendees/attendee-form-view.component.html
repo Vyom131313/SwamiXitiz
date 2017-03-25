@@ -111,7 +111,7 @@
         <div class="form-group">
             <label class="control-label col-sm-1" for="IsDeleted">Seva/s:</label>
             <div class="col-sm-11" style="width: 400px; margin-bottom: 20px;">
-                <sevas-ddl (select)="onSevaChange($event)">Loading....</sevas-ddl>
+                <sevas-ddl (select)="onSevaChange($event)" [selectedSevas]="attendee.SevaFullNames">Loading....</sevas-ddl>
                 <!--<pre>{{itemsToString(value)}}</pre>-->
             </div>
         </div>

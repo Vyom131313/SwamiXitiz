@@ -55,7 +55,7 @@ export class AttendeeFormViewComponent implements OnInit {
             if (!id)
                 return;
 
-            this.attendeesService.getItem(this.http, id).then(item => this.attendee = item);
+            this.attendeesService.getItem(this.http, id).then(item => { this.attendee = item; console.log(this.attendee); } );
         });
     }
 
@@ -68,17 +68,12 @@ export class AttendeeFormViewComponent implements OnInit {
     }
 
     onSevaChange(values: any) {
-
         this.attendee.SevaFullNames = this.itemsToString(values);
-        
-        //console.log('onSevaChange: ', this.attendee.SevaFullNames );
-        //this.attendee.CityId = id;
     }
 
     onBack(event: any) {
         this.location.back();
     }
-
 
     public itemsToString(value: Array<any> = []): string {
         return value
