@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace EventAttendance.WebApi.Models
 {
@@ -93,6 +94,12 @@ namespace EventAttendance.WebApi.Models
         public virtual string EventShortDate { get; set; }
     }
 
+    public partial class Att_Attendee
+    {
+        [NotMapped]
+        public virtual string SevaFullNames { get; set; }
+    }
+
     public partial class Attendee_VM
     {
         public int Id { get; set; }
@@ -111,6 +118,9 @@ namespace EventAttendance.WebApi.Models
         public virtual string CityName { get; set; }
         public virtual string ZoneName { get; set; }
         public virtual string FullName { get; set; }
+
+        public virtual List<string> SevaFullNames { get; set; }
+
     }
 
     public partial class Attendance_VM
