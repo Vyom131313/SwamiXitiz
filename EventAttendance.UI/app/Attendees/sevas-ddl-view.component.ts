@@ -34,7 +34,7 @@ export class SevasDdlComponent implements OnChanges {
     public sevaItemsNameOnly: Array<string> = [
         "Accounts --> Coordinator",
         "Accounts --> Team Member",
-        "Admin Secretary --> Admin Secretary",
+        "Mandir --> Admin Secretary",
         "Bal --> Coordinator",
         "Bal --> Team Member",
         "Bookstall --> Corodinator",
@@ -57,7 +57,7 @@ export class SevasDdlComponent implements OnChanges {
         "Mahila --> Admin Coordinator",
         "Maintenance/Landscaping --> Coordinator",
         "Maintenance/Landscaping --> Team Member",
-        "Mandir Coordinator --> Mandir Coordinator",
+        "Mandir --> Coordinator",
         "Media --> Coordinator",
         "Media --> Team Member",
         "Medical Services --> Coordinator",
