@@ -1,6 +1,5 @@
-﻿* display seva icon in report
+﻿* deploy
 * update seva for all karyakar
-* deploy
 
 * report by department
 * Search for ReportByAttendee(1)

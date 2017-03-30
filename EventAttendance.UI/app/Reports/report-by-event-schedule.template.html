@@ -136,10 +136,17 @@
                 <td>
                     <div class="form-group" style="margin-bottom:0px;">
                         <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap;float:left;margin-left:0px;padding-left:0px;">
+                            <div *ngIf="item.SevaCodes != null">
+                                <span *ngFor="let sc of item.SevaCodes.split(',')" class="rcorners1">
+                                    {{sc}}
+                                </span>
+                            </div>
+                        </div>
                         <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-map"></span> {{item.CityName}}
                         </div>
-                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                        <div class="col-sm-4" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-home"></span> {{item.Address}}
                         </div>
                     </div>
@@ -179,10 +186,17 @@
                 <td>
                     <div class="form-group" style="margin-bottom:0px;">
                         <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap;float:left;margin-left:0px;padding-left:0px;">
+                            <div *ngIf="item.SevaCodes != null">
+                                <span *ngFor="let sc of item.SevaCodes.split(',')" class="rcorners1">
+                                    {{sc}}
+                                </span>
+                            </div>
+                        </div>
                         <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-map"></span> {{item.CityName}}
                         </div>
-                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                        <div class="col-sm-4" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-home"></span> {{item.Address}}
                         </div>
                     </div>
@@ -221,10 +235,18 @@
                 <td>
                     <div class="form-group" style="margin-bottom:0px;">
                         <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap;float:left;margin-left:0px;padding-left:0px;">
+                            <div *ngIf="item.SevaCodes != null">
+                                <span *ngFor="let sc of item.SevaCodes.split(',')" class="rcorners1">
+                                    {{sc}}
+                                </span>
+                            </div>
+                        </div>
+
                         <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-map"></span> {{item.CityName}}
                         </div>
-                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                        <div class="col-sm-4" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-home"></span> {{item.Address}}
                         </div>
                     </div>
@@ -263,10 +285,18 @@
                 <td>
                     <div class="form-group" style="margin-bottom:0px;">
                         <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap;float:left;margin-left:0px;padding-left:0px;">
+                            <div *ngIf="item.SevaCodes != null">
+                                <span *ngFor="let sc of item.SevaCodes.split(',')" class="rcorners1">
+                                    {{sc}}
+                                </span>
+                            </div>
+                        </div>
+
                         <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-map"></span> {{item.CityName}}
                         </div>
-                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                        <div class="col-sm-4" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-home"></span> {{item.Address}}
                         </div>
                     </div>
@@ -305,10 +335,18 @@
                 <td>
                     <div class="form-group" style="margin-bottom:0px;">
                         <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap;float:left;margin-left:0px;padding-left:0px;">
+                            <div *ngIf="item.SevaCodes != null">
+                                <span *ngFor="let sc of item.SevaCodes.split(',')" class="rcorners1">
+                                    {{sc}}
+                                </span>
+                            </div>
+                        </div>
+
                         <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-map"></span> {{item.CityName}}
                         </div>
-                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                        <div class="col-sm-4" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-home"></span> {{item.Address}}
                         </div>
                     </div>
@@ -348,10 +386,18 @@
                 <td>
                     <div class="form-group" style="margin-bottom:0px;">
                         <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap;float:left;margin-left:0px;padding-left:0px;">
+                            <div *ngIf="item.SevaCodes != null">
+                                <span *ngFor="let sc of item.SevaCodes.split(',')" class="rcorners1">
+                                    {{sc}}
+                                </span>
+                            </div>
+                        </div>
+
                         <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-map"></span> {{item.CityName}}
                         </div>
-                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                        <div class="col-sm-4" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-home"></span> {{item.Address}}
                         </div>
                     </div>
@@ -393,10 +439,18 @@
                 <td>
                     <div class="form-group" style="margin-bottom:0px;">
                         <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap;float:left;margin-left:0px;padding-left:0px;">
+                            <div *ngIf="item.SevaCodes != null">
+                                <span *ngFor="let sc of item.SevaCodes.split(',')" class="rcorners1">
+                                    {{sc}}
+                                </span>
+                            </div>
+                        </div>
+
                         <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-map"></span> {{item.CityName}}
                         </div>
-                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                        <div class="col-sm-4" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-home"></span> {{item.Address}}
                         </div>
                     </div>
@@ -436,10 +490,18 @@
                 <td>
                     <div class="form-group" style="margin-bottom:0px;">
                         <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap;float:left;margin-left:0px;padding-left:0px;">
+                            <div *ngIf="item.SevaCodes != null">
+                                <span *ngFor="let sc of item.SevaCodes.split(',')" class="rcorners1">
+                                    {{sc}}
+                                </span>
+                            </div>
+                        </div>
+
                         <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-map"></span> {{item.CityName}}
                         </div>
-                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                        <div class="col-sm-4" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-home"></span> {{item.Address}}
                         </div>
                     </div>
@@ -478,10 +540,18 @@
                 <td>
                     <div class="form-group" style="margin-bottom:0px;">
                         <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap;float:left;margin-left:0px;padding-left:0px;">
+                            <div *ngIf="item.SevaCodes != null">
+                                <span *ngFor="let sc of item.SevaCodes.split(',')" class="rcorners1">
+                                    {{sc}}
+                                </span>
+                            </div>
+                        </div>
+
                         <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-map"></span> {{item.CityName}}
                         </div>
-                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                        <div class="col-sm-4" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-home"></span> {{item.Address}}
                         </div>
                     </div>
@@ -520,10 +590,18 @@
                 <td>
                     <div class="form-group" style="margin-bottom:0px;">
                         <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap;float:left;margin-left:0px;padding-left:0px;">
+                            <div *ngIf="item.SevaCodes != null">
+                                <span *ngFor="let sc of item.SevaCodes.split(',')" class="rcorners1">
+                                    {{sc}}
+                                </span>
+                            </div>
+                        </div>
+
                         <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-map"></span> {{item.CityName}}
                         </div>
-                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                        <div class="col-sm-4" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-home"></span> {{item.Address}}
                         </div>
                     </div>
@@ -562,10 +640,18 @@
                 <td>
                     <div class="form-group" style="margin-bottom:0px;">
                         <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap;float:left;margin-left:0px;padding-left:0px;">
+                            <div *ngIf="item.SevaCodes != null">
+                                <span *ngFor="let sc of item.SevaCodes.split(',')" class="rcorners1">
+                                    {{sc}}
+                                </span>
+                            </div>
+                        </div>
+
                         <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-map"></span> {{item.CityName}}
                         </div>
-                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                        <div class="col-sm-4" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-home"></span> {{item.Address}}
                         </div>
                     </div>
@@ -605,10 +691,18 @@
                 <td>
                     <div class="form-group" style="margin-bottom:0px;">
                         <div class="col-sm-4" style="padding-left:0px;"><span [ngClass]="{'fa-male': item.Gender=='M', 'fa-female': item.Gender=='F'}" class="fa"></span> {{item.AttendeeFullName}}</div>
+                        <div class="col-sm-2" style="white-space:nowrap;float:left;margin-left:0px;padding-left:0px;">
+                            <div *ngIf="item.SevaCodes != null">
+                                <span *ngFor="let sc of item.SevaCodes.split(',')" class="rcorners1">
+                                    {{sc}}
+                                </span>
+                            </div>
+                        </div>
+
                         <div class="col-sm-2" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-map"></span> {{item.CityName}}
                         </div>
-                        <div class="col-sm-6" style="white-space:nowrap; text-align:right;padding-right:0px;">
+                        <div class="col-sm-4" style="white-space:nowrap; text-align:right;padding-right:0px;">
                             <span class="fa fa-home"></span> {{item.Address}}
                         </div>
                     </div>
