@@ -1,6 +1,8 @@
 ﻿* display seva icon in report
-* report by department
+* update seva for all karyakar
+* deploy
 
+* report by department
 * Search for ReportByAttendee(1)
 * Send email to Vimalbhai
 
