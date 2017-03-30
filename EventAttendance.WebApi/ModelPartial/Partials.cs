@@ -147,6 +147,8 @@ namespace EventAttendance.WebApi.Models
 
         public virtual string Address { get; set; }
 
+        public virtual string SevaCodes { get; set; }
+
         public virtual string EventShortDate { get; set; }
 
         public virtual bool IsKaryakar { get; set; }
