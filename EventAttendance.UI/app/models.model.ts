@@ -31,6 +31,9 @@ export class Attendee_VM {
     IsKaryakar: boolean;
     IsDeleted: boolean;
 
+    SevaCodes: string;
+    SevaCodesArr: any = [];
+
     SevaFullNames: string;
     SevaFullNamesArr: any = [];
 }
