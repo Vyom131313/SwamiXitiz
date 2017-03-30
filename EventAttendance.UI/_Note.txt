@@ -1,7 +1,4 @@
-﻿* deploy
-* update seva for all karyakar
-
-* report by department
+﻿* report by department
 * Search for ReportByAttendee(1)
 * Send email to Vimalbhai
 
