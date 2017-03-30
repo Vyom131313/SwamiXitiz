@@ -1,8 +1,6 @@
-﻿* decide each seva icon 
-* display seva icon for karyakar
+﻿* display seva icon in report
 * report by department
 
-* Delete Bal, Balika, Yuvak & Yuvati (1)
 * Search for ReportByAttendee(1)
 * Send email to Vimalbhai
 
