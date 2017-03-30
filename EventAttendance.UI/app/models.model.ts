@@ -32,7 +32,6 @@ export class Attendee_VM {
     IsDeleted: boolean;
 
     SevaCodes: string;
-    SevaCodesArr: any = [];
 
     SevaFullNames: string;
     SevaFullNamesArr: any = [];
@@ -57,6 +56,8 @@ export class Attendance_VM {
     IsKaryakar: boolean;
     EventShortDate: string;
     AttendanceTimeOnly: string;
+
+    SevaCodes: string;
 }
 
 export class Zone_VM {
